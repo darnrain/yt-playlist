@@ -16,30 +16,11 @@ or
 
 "chmod +x ./install.sh; ./install.sh"
 
-"yt-playlist" to run.
-
 To uninstall run this command:
 
 "chmod +x ./uninstall.sh; ./uninstall.sh"
 
-Help menu:              -h or --help
-Version:                -v or --version
-Import Google takeout:  --import
-Suppprted file types:
-subscriptions.csv
-music-library-songs.csv
-Example: "yt-playlist --import /home/user/subscriptions.csv"
-
-When playing Audio/Video.
-Right arrow for FF
-Left arrow for RR
-Spacebar to pause
-">" next track
-"<" prev track
-Save to favorites    f
-Save to Bookmarks    b
-Show sleep timer     s
-Download audio       d
-Download video       D
+"yt-playlist" to run
+"yt-playlist -h" for help
 
 
