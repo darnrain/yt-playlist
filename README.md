@@ -10,6 +10,10 @@ Optional dependencies: "fx" "wget" For Billboard hot 100. "jemalloc" Arch linux 
 To install run the following command: 
 note: you will need to run the command with sudo for the linux version. Termux version does not use sudo.
 
+git clone https://github.com/darnrain/yt-playlist/tree/main/yt-playlist-linux
+
+git clone https://github.com/darnrain/yt-playlist/tree/main/yt-playlist-termux
+
 "cd yt-playlist-linux"
 or
 "cd yt-playlist-termux"
