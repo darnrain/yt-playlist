@@ -5,7 +5,7 @@ Welcome to yt-playlist.<br>
 
 Feel free to open a new issue or a suggestion.<br>
 
-Required dependencies linux: "fzf", "mpv", "yt-dlp" version 2023.07.06 or higher, "socat", "awk", "sed", "tr, bash".<br>
+Required dependencies linux: "fzf", "mpv", "yt-dlp" version 2023.07.06 or higher, "socat", "awk", "sed", "tr, "bash".<br>
 Optional dependencies linux: "fx" "wget" For Billboard hot 100. "jemalloc" Arch linux cpu fix. "mutagen" For embedded thumbnails in opus audio files.<br>
 
 To install the linux version, run the following command:<br>
