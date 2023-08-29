@@ -8,7 +8,7 @@ Required dependencies: "fzf", "mpv", "yt-dlp" version 2023.07.06 or higher, "soc
 Optional dependencies: "fx" "wget" For Billboard hot 100. "jemalloc" Arch linux cpu fix. "mutagen" For embedded thumbnails in opus audio files.
 
 To install run the following command: 
-note: you will need to run the command with sudo
+note: you will need to run the command with sudo for the linux version. Termux version does not use sudo.
 
 "chmod +x ./install.sh; ./install.sh"
 
