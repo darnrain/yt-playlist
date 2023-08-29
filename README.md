@@ -3,7 +3,6 @@ A Youtube and YTMusic TUI frontend using mpv, yt-dlp and fzf writen in bash.<br>
 
 Welcome to yt-playlist.<br>
 
-A littlle project I have been working on in my free time. Inspired by yewtube.<br>
 Feel free to open a new issue or a suggestion.<br>
 
 Required dependencies linux: "fzf", "mpv", "yt-dlp" version 2023.07.06 or higher, "socat", "awk", "sed", "tr, bash".<br>
