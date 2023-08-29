@@ -6,20 +6,18 @@ Welcome to yt-playlist.
 
 Feel free to open a new issue or a suggestion.
 
-yt-playlist-linux
+yt-playlist-termux
 
-Required dependencies: "fzf", "mpv", "yt-dlp" version 2023.07.06 or higher, "socat", "awk", "sed", "tr, "bash".
-Optional dependencies: "fx" "wget" For Billboard hot 100. "jemalloc" Arch linux cpu fix. "mutagen" For embedded thumbnails in opus audio files.
+Required dependencies: "fzf", "mpv", "yt-dlp" version 2023.07.06 or higher, "socat", "awk", "sed", "tr".
+Optional dependencies: "fx" "wget" For Billboard hot 100. "mutagen" For embedded thumbnails in opus audio files.
 
-To install the linux version, run the following command:
-note: you will need to run the command with sudo.
+To install the termux version, copy the yt-playlist-termux directory to "/sdcard/"
+Open termux.
+Copy and paste this command.
+"cp -R /sdcard/yt-playlist-termux ${HOME}/; chmod +x ${HOME}/yt-playlist-termux/install.sh; ${HOME}/yt-playlist-termux/install.sh"
 
-Copy yt-playlist-linux to your home directory.
-"cd ${HOME}/yt-playlist-linux/"
-"chmod +x ./install.sh; ./install.sh"
-
-To uninstall run this command:
-"chmod +x ./uninstall.sh; ./uninstall.sh"
+To uninstall copy and paste this command:
+"cp -R /sdcard/yt-playlist-termux ${HOME}/; chmod +x ${HOME}/yt-playlist-termux/uninstall.sh; ${HOME}/yt-playlist-termux/uninstall.sh"
 "yt-playlist" to run
 
 Help
