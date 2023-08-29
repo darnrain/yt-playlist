@@ -6,7 +6,7 @@
         clear
         pkill yt-playlist
         pkill mpv
-        echo "yt-playlist v1.0 installer"
+        echo "yt-playlist installer"
         echo "all dependencies were met"
         cp ${HOME}/yt-playlist-termux/yt-playlist /data/data/com.termux/files/usr/bin/
         chmod +x /data/data/com.termux/files/usr/bin/yt-playlist
