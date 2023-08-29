@@ -25,3 +25,24 @@ To uninstall run this command:<br>
 "chmod +x /sdcard/yt-playlist-termux/uninstall.sh; ./sdcard/yt-playlsit-termux/uninstall.sh"<br>
 "yt-playlist" to run<br>
 "yt-playlist -h" for help<br>
+
+Help menu:              -h or --help<br>
+Version:                -v or --version<br>
+Import Google takeout:  --import<br>
+Suppprted file types:<br>
+subscriptions.csv<br>
+music-library-songs.csv<br>
+Example: "yt-playlist --import /home/user/subscriptions.csv"<br>
+
+When playing Audio/Video.<br>
+Right arrow for FF<br>
+Left arrow for RR<br>
+Spacebar to pause<br>
+">" next track<br>
+"<" prev track<br>
+Save to favorites    f<br>
+Save to Bookmarks    b<br>
+Show sleep timer     s<br>
+Download audio       d<br>
+Download video       D<br>
+
