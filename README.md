@@ -33,6 +33,8 @@ To uninstall copy and paste this command:<br>
 "cp -R /sdcard/yt-playlist-termux ${HOME}; chmod +x ${HOME}/yt-playlist-termux/uninstall.sh; ${HOME}/yt-playlist-termux/uninstall.sh"<br>
 "yt-playlist" to run<br>
 
+## Help
+
 Help menu:              -h or --help<br>
 Version:                -v or --version<br>
 Import Google takeout:  --import<br>
