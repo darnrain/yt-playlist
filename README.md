@@ -51,9 +51,9 @@ Left arrow for RR<br>
 Spacebar to pause<br>
 ">" next track<br>
 "<" prev track<br>
-Save to favorites    f<br>
-Save to Bookmarks    b<br>
-Show sleep timer     s<br>
-Download audio       d<br>
-Download video       D<br>
+Save to favorites    "f"<br>
+Save to Bookmarks    "b"<br>
+Show sleep timer     "s"<br>
+Download audio       "d"<br>
+Download video       "D"<br>
 
