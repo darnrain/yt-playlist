@@ -14,9 +14,7 @@ note: you will need to run the command with sudo.<br>
 "chmod +x ./install.sh; ./install.sh"<br>
 To uninstall run this command:<br>
 "chmod +x ./uninstall.sh; ./uninstall.sh"<br>
-"yt-playlist" to run "yt-playlist -h" for help<br>
 "yt-playlist" to run<br>
-"yt-playlist -h" for help<br>
 
 To install the termux version, copy the yt-playlist-termux directory to "/sdcard/"<br>
 Open termux.<br>
@@ -25,7 +23,6 @@ Copy and paste this command.<br>
 To uninstall copy and paste this command:<br>
 "cp -R /sdcard/yt-playlist-termux ${HOME}; chmod +x ${HOME}/yt-playlist-termux/uninstall.sh; ${HOME}/yt-playlist-termux/uninstall.sh"<br>
 "yt-playlist" to run<br>
-"yt-playlist -h" for help<br>
 
 Help menu:              -h or --help<br>
 Version:                -v or --version<br>
