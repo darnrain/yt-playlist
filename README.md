@@ -12,7 +12,8 @@ Optional dependencies: "fx" "wget" For Billboard hot 100. "jemalloc" Arch linux 
 To install the linux version, run the following command:<br>
 note: you will need to run the command with sudo.<br>
 
-"cd yt-playlist-linux"<br>
+Copy yt-playlist-linux to your home directory.<br>
+"cd ${HOME}/yt-playlist-linux"<br>
 "chmod +x ./install.sh; ./install.sh"<br>
 To uninstall run this command:<br>
 "chmod +x ./uninstall.sh; ./uninstall.sh"<br>
