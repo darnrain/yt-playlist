@@ -16,7 +16,7 @@ To install the linux version, run the following command:<br>
 note: you will need to run the command with sudo.<br>
 
 Copy yt-playlist-linux to your home directory.<br>
-"cd ${HOME}/yt-playlist-linux"<br>
+"cd ${HOME}/yt-playlist-linux/"<br>
 "chmod +x ./install.sh; ./install.sh"<br>
 To uninstall run this command:<br>
 "chmod +x ./uninstall.sh; ./uninstall.sh"<br>
@@ -30,9 +30,9 @@ Optional dependencies: "fx" "wget" For Billboard hot 100. "mutagen" For embedded
 To install the termux version, copy the yt-playlist-termux directory to "/sdcard/"<br>
 Open termux.<br>
 Copy and paste this command.<br>
-"cp -R /sdcard/yt-playlist-termux ${HOME}; chmod +x ${HOME}/yt-playlist-termux/install.sh; ${HOME}/yt-playlist-termux/install.sh"<br>
+"cp -R /sdcard/yt-playlist-termux ${HOME}/; chmod +x ${HOME}/yt-playlist-termux/install.sh; ${HOME}/yt-playlist-termux/install.sh"<br>
 To uninstall copy and paste this command:<br>
-"cp -R /sdcard/yt-playlist-termux ${HOME}; chmod +x ${HOME}/yt-playlist-termux/uninstall.sh; ${HOME}/yt-playlist-termux/uninstall.sh"<br>
+"cp -R /sdcard/yt-playlist-termux ${HOME}/; chmod +x ${HOME}/yt-playlist-termux/uninstall.sh; ${HOME}/yt-playlist-termux/uninstall.sh"<br>
 "yt-playlist" to run<br>
 
 ## Help
