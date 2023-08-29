@@ -1,6 +1,5 @@
 # yt-playlist
-A Youtube and YTMusic TUI frontend using mpv, yt-dlp and fzf writen in bash.<br>
-
+A Youtube and YTMusic TUI fronted using mpv, yt-dlp and fzf written in bash.<br>
 Welcome to yt-playlist.<br>
 
 When writing this program I was keeping one thing in mind, make it simple and easy to use.<br>
