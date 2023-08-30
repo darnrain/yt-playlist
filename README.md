@@ -5,7 +5,7 @@ Feel free to open a new issue or a suggestion.<br>
 
 ## notes
 
-* Subtitles are disabled by default. I want to get them going at some point. I had trouble getting it working on every video.
+* Subtitles are disabled by default. I want to get them going at some point. I had trouble getting them working on every video.
 * You do not need to enable resume playback for the playback position to be saved. By default yt-playlist saves the resume position when you quit a video or music.
 * When playing video/music if you have opus enabled and then press "d" to download audio, yt-playlist will download the opus file.
 
