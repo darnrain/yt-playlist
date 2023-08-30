@@ -74,4 +74,4 @@ Deselect all by pressing ctrl-d<br>
 Use the tab key to select one at a time.<br>
 Pressing enter select one line.<br>
 
-Resume playback does not need to be enabled to save the playback position, by default yt-playlist will always save the playback position when you quit a video or music.<br>
+Resume playback does not need to be enabled to save the playback position, by default yt-playlist will always save the playback position when you quit a video or music. Works with the Play SD menu and Bookmark SD menu only.<br>
