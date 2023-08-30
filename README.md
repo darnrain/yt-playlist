@@ -5,7 +5,7 @@ Feel free to open a new issue or a suggestion.<br>
 
 ## note
 
-I just got far enough with yt-playlist that I thought I could upload to github. As far as I can tell, everthing is working as it should. But if you do find a bug, or a typo please let me know.<br>
+I just got far enough with yt-playlist that I thought I could upload to github. As far as I can tell, everything is working as it should. I am in the process of writing the help guide for yt-playlist, so expect updates. But if you do find a bug, or a typo please let me know so I can fix it.<br>
 
 ## upgrading
 
