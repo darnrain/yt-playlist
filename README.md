@@ -11,6 +11,7 @@ Feel free to open a new issue or a suggestion.<br>
 * When opus is enabled and playing video, the audio will be throttled, only affects the cache fill rate and if you want to FF. When playing music with opus, the audio is not throttled. When using aac audio, the video/music is not throttled.
 * When watching video in the Play SD menu or the Play SD bookmark menu, the 720p video is not throttled.
 * The Play HD menu relies on the cache to FF and RR. The max ram cache size in the Play HD menu is 500MB.
+* I forgot to add to the help guide, "q" quit playing video.
   
 ## upgrading
 
