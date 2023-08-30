@@ -121,15 +121,15 @@ Prev song yes.<br>
 
 ##  Credits, A Special Thank You
 
-yt-dlp<br>
+### yt-dlp<br>
 https://github.com/yt-dlp/yt-dlp
 
-mpv<br>
+### mpv<br>
 https://github.com/mpv-player/mpv
 
-fzf<br>
+### fzf<br>
 https://github.com/junegunn/fzf
 
-billboard-hot-100<br>
+### billboard-hot-100<br>
 https://github.com/mhollingshead/billboard-hot-100
 
