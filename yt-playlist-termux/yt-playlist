@@ -11,7 +11,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: /sdcard/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 yt_video_number="1:100"
-version="v1.0.6"
+version="v1.0.7"
 
 #mainmenu
 
@@ -2405,6 +2405,7 @@ echo ""
 echo "Select Video/Music."
 echo "Select all ctrl-a"
 echo "Deselect all ctrl-d"
+echo "Cancel ctrl-c"
 echo "Tab key to select lines."
 echo "Enter select one line."
 }

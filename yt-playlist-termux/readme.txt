@@ -45,6 +45,7 @@ Download video       D
 Select Video/Music.
 Select all ctrl-a
 Deselect all ctrl-d
+Cancel ctrl-c
 Tab key to select lines.
 Enter select one line.
 
