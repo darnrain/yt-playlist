@@ -11,7 +11,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="v1.0.1"
+version="v1.0.2"
 
 #mainmenu
 
@@ -350,7 +350,7 @@ function play_sd_menu_function ()
 echo -ne "== Play SD Menu ==
 1) Play + shuffle + inf loop.
 2) Play once + shuffle.
-3) Play from a start postion.
+3) Play from a start position.
 4) Play a custom playlist.
 5) Enable Audio/Video 720p h264 30 FPS aac 128kbps 44.1kHz.
 6) Enable HW GPU.
@@ -725,7 +725,7 @@ function play_music_menu_function ()
 echo -ne "== Play YTMusic Menu ==
 1) Play + shuffle + inf loop.
 2) Play once + shuffle.
-3) Play from a start postion.
+3) Play from a start position.
 4) Play a custom playlist.
 5) Search for music.
 6) Enable Audio aac 128kbps 44.1kHz.
@@ -1046,7 +1046,7 @@ function play_sd_bookmark_menu_function ()
 echo -ne "== Play SD Bookmark Menu ==
 1) Play + shuffle + inf loop.
 2) Play once + shuffle.
-3) Play from a start postion.
+3) Play from a start position.
 4) Play a custom playlist.
 5) Enable Audio/Video 720p h264 30 FPS aac 128kbps 44.1kHz.
 6) Enable HW GPU.
