@@ -11,7 +11,7 @@ As far as I can tell, everything is working as it should. I am in the process of
 
 Install on top of older versions.<br>
 
-## yt-playlist-linux
+## Installing yt-playlist-linux
 
 Required dependencies: "fzf", "mpv", "yt-dlp" version 2023.07.06 or higher, "socat", "awk", "sed", "tr, "bash".<br>
 Optional dependencies: "fx" "wget" For Billboard hot 100. "jemalloc" Arch linux cpu fix. "mutagen" For embedded thumbnails in opus audio files.<br>
@@ -27,7 +27,7 @@ To uninstall run this command:<br>
 "chmod +x ./uninstall.sh; ./uninstall.sh"<br>
 "yt-playlist" to run<br>
 
-## yt-playlist-termux
+## Installing yt-playlist-termux
 
 Required dependencies: "fzf", "mpv", "yt-dlp" version 2023.07.06 or higher, "socat", "awk", "sed", "tr".<br>
 Optional dependencies: "fx" "wget" For Billboard hot 100. "mutagen" For embedded thumbnails in opus audio files.<br>
@@ -41,7 +41,7 @@ To uninstall copy and paste this command:<br>
 "cp -R /sdcard/yt-playlist-termux ${HOME}/; chmod +x ${HOME}/yt-playlist-termux/uninstall.sh; ${HOME}/yt-playlist-termux/uninstall.sh"<br>
 "yt-playlist" to run<br>
 
-## Help
+## Help guide
 
 Help menu:              -h or --help<br>
 Version:                -v or --version<br>
