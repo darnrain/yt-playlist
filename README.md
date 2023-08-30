@@ -63,6 +63,7 @@ Show sleep timer     "s"<br>
 Download audio       "d"<br>
 Download video       "D"<br>
 
+Select Video/Music.<br>
 Select all ctrl-a<br>
 Deselect all ctrl-d<br>
 Tab key to select lines.<br>
