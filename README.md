@@ -63,7 +63,7 @@ Show sleep timer     "s"<br>
 Download audio       "d"<br>
 Download video       "D"<br>
 
-yt-playlist will download the audio that you are listing to. If you have opus enabled yt-playlist will download opus, when listing to music or video. With video it only download 720p.>br>
+yt-playlist will download the audio that you are listing to. If you have opus enabled yt-playlist will download opus, when listing to music or video. With video it only download 720p.<br>
 
 Some menus<br>
 You can select all by pressing ctrl-a<br>
