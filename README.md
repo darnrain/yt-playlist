@@ -75,25 +75,25 @@ Sleep timer yes.<br>
 Bookmarks yes.<br>
 Download Audio yes.<br>
 Download Video yes.<br>
+Resume playback yes.<br>
 
 Play HD menu.<br>
 Sleep timer no.<br>
 Bookmarks no.<br>
 Download Audio no.<br>
 Download Video no.<br>
+Resume playback no.<br>
 
 Play SD bookmark menu.<br>
 Sleep timer yes.<br>
 Bookmarks no.<br>
 Download Audio yes.<br>
 Download Video yes.<br>
+Resume playback yes.<br>
 
 Play YTMusic menu.<br>
 Sleep timer yes.<br>
 Bookmarks no.<br>
 Download Audio yes.<br>
 Download Video no.<br>
-
-yt-playlist will download the audio that you are listing to. If you have opus enabled yt-playlist will download opus, when listing to music or video. Video downloads at 720p.<br>
-
-Resume playback does not need to be enabled to save the playback position, by default yt-playlist will always save the playback position when you quit a video or music. Works with the Play SD menu and Bookmark SD menu only.<br>
+Resume playback no.<br>
