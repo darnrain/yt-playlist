@@ -51,6 +51,50 @@ Cancel ctrl-c
 Tab key to select lines.
 Enter select one line.
 
-yt-playlist will download the audio that you are listing to. If you have opus enabled yt-playlist will download opus, when listing to music or video. Video downloads at 720p
+Play SD menu.
+Sleep timer yes.
+Bookmarks yes.
+Download Audio yes.
+Download Video yes.
+Resume playback yes.
+FF yes.
+RR yes.
+Pause yes.
+Next video yes.
+Prev video yes.
 
-Resume playback does not need to be enabled to save the playback position, by default yt-playlist will always save the playback position when you quit a video or music. Works with the Play SD menu and Bookmark SD menu only.
+Play HD menu.
+Sleep timer no.
+Bookmarks no.
+Download Audio no.
+Download Video no.
+Resume playback no.
+FF yes. Cache bottleneck.
+RR yes. Cache bottleneck.
+Pause yes.
+Next video no.
+Prev video no.
+
+Play SD bookmark menu.
+Sleep timer yes.
+Bookmarks no.
+Download Audio yes.
+Download Video yes.
+Resume playback yes.
+FF yes.
+RR yes.
+Pause yes.
+Next video yes.
+Prev video yes.
+
+Play YTMusic menu.
+Sleep timer yes.
+Bookmarks no.
+Download Audio yes.
+Download Video no.
+Resume playback no.
+FF yes.
+RR yes.
+Pause yes.
+Next song yes.
+Prev song yes.
