@@ -672,7 +672,7 @@ fi
         ;;
     11)
         printf " \n"
-        printf "Recomended 500 results or less. \n"
+        printf "Recommended 500 results or less. \n"
         printf "Enter video results number: \n"
         read yt_video_number
         if [ -n "$yt_video_number" ]
@@ -958,7 +958,7 @@ fi
         if [ -n "$yt_search" ]
         then
         clear
-        printf "Recomended 20 results or less. \n"
+        printf "Recommended 20 results or less. \n"
         printf "Enter search results number: \n"
         read ytm_search_number
         if [ -n "$ytm_search_number" ]
@@ -1523,7 +1523,7 @@ Choose an option:  "
         ;;
     8)
         printf " \n"
-        printf "Recomended 500 results or less. \n"
+        printf "Recommended 500 results or less. \n"
         printf "Enter video results number: \n"
         read yt_video_number
         if [ -n "$yt_video_number" ]
@@ -1762,7 +1762,7 @@ fi
         if [ -n "$ytm_search" ]
         then
         clear
-        printf "Recomended 20 results or less. \n"
+        printf "Recommended 20 results or less. \n"
         printf "Enter search results number: \n"
         read ytm_search_number
         if [ -n "$ytm_search_number" ]
@@ -1800,7 +1800,7 @@ fi
         ;;
     6)
         printf " \n"
-        printf "Recomended 20 results or less. \n"
+        printf "Recommended 20 results or less. \n"
         printf "Enter music playlist search: \n"
         read ytm_search
         if [ -n "$ytm_search" ]
@@ -1843,7 +1843,7 @@ fi
         ;;
     7)
         printf " \n"
-        printf "Recomended 20 results or less. \n"
+        printf "Recommended 20 results or less. \n"
         printf "Enter playlist search: \n"
         read yt_search
         if [ -n "$yt_search" ]
@@ -1886,7 +1886,7 @@ fi
         ;;
     8)
         printf " \n"
-        printf "Recomended 50 results or less. \n"
+        printf "Recommended 50 results or less. \n"
         printf "Enter channel search: \n"
         read yt_search
         if [ -n "$yt_search" ]
@@ -1939,7 +1939,7 @@ fi
         if [[ "$yt_playlist_id" = UC* ]]
         then
         printf " \n"
-        printf "Recomended 500 results or less. \n"
+        printf "Recommended 500 results or less. \n"
         printf "Enter playlist results number: \n"
         read yt_search_number
         if [ -n "$yt_search_number" ]
