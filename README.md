@@ -68,6 +68,7 @@ Select all ctrl-a<br>
 Deselect all ctrl-d<br>
 Tab key to select lines.<br>
 Enter select one line.<br>
+cancel ctrl-c<br>
 
 yt-playlist will download the audio that you are listing to. If you have opus enabled yt-playlist will download opus, when listing to music or video. Video downloads at 720p.<br>
 
