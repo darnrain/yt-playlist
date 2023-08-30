@@ -63,3 +63,14 @@ Show sleep timer     "s"<br>
 Download audio       "d"<br>
 Download video       "D"<br>
 
+yt-playlist will download the audio<br>
+that you are listing to. If you have opus enabled<br>
+yt-playlist will download opus, when listing to<br>
+music or video. With video it only download 720p.<br>
+
+Some menus<br>
+You can select all by pressing ctrl-a<br>
+Deselect all by pressing ctrl-d<br>
+Use the tab key to select one at a time.<br>
+
+Resume playback does not need to be enabled to save the playback position, by default yt-playlist will always save the playback position when you quit a video or music.<br>
