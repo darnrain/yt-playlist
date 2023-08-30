@@ -76,6 +76,12 @@ Bookmarks yes.<br>
 Download Audio yes.<br>
 Download Video yes.<br>
 Resume playback yes.<br>
+FF yes.<br>
+RR yes.<br>
+Pause yes.<br>
+Next video yes.<br>
+Prev video yes.<br>
+
 
 Play HD menu.<br>
 Sleep timer no.<br>
@@ -83,6 +89,11 @@ Bookmarks no.<br>
 Download Audio no.<br>
 Download Video no.<br>
 Resume playback no.<br>
+FF yes.<br>
+RR yes.<br>
+Pause yes.<br>
+Next video no.<br>
+Prev video no.<br>
 
 Play SD bookmark menu.<br>
 Sleep timer yes.<br>
@@ -90,6 +101,11 @@ Bookmarks no.<br>
 Download Audio yes.<br>
 Download Video yes.<br>
 Resume playback yes.<br>
+FF yes.<br>
+RR yes.<br>
+Pause yes.<br>
+Next video yes.<br>
+Prev video yes.<br>
 
 Play YTMusic menu.<br>
 Sleep timer yes.<br>
@@ -97,3 +113,8 @@ Bookmarks no.<br>
 Download Audio yes.<br>
 Download Video no.<br>
 Resume playback no.<br>
+FF yes.<br>
+RR yes.<br>
+Pause yes.<br>
+Next song yes.<br>
+Prev song yes.<br>
