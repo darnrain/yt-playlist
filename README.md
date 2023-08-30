@@ -5,7 +5,7 @@ Feel free to open a new issue or a suggestion.<br>
 
 ## note
 
-I still need to update the help menu, there are quite a few things I need to inform everyone about. I just got far enough with yt-playlist that I thought I could upload to github. As far as I can tell most everthing is working as it should. But if you do find a bug, or a typo please let me know.<br>
+I still need to update the help menu, there are quite a few things I need to inform everyone about. I just got far enough with yt-playlist that I thought I could upload to github. As far as I can tell, everthing is working as it should. But if you do find a bug, or a typo please let me know.<br>
 
 ## upgrading
 
