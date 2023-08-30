@@ -89,12 +89,11 @@ Bookmarks no.<br>
 Download Audio no.<br>
 Download Video no.<br>
 Resume playback no.<br>
-FF yes. *<br>
-RR yes. *<br>
+FF yes. Cache bottleneck.<br>
+RR yes. Cache bottleneck.<br>
 Pause yes.<br>
 Next video no.<br>
 Prev video no.<br>
-* Wait on cache.<br>
 
 Play SD bookmark menu.<br>
 Sleep timer yes.<br>
