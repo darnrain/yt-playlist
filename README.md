@@ -3,6 +3,10 @@ A Youtube and YTMusic TUI using mpv, yt-dlp and fzf written in bash.<br>
 
 Feel free to open a new issue or a suggestion.<br>
 
+## note
+
+I still need to update the help menu, there are quiet a few things I need to inform everyone about. I just got far enough with yt-playlist that I thought I could upload to github. As far as I can tell most everthing is working as it should. But if you do find a bug, please let me know.<br>
+
 ## upgrading
 
 Install on top of older versions.<br>
