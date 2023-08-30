@@ -11,7 +11,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: /sdcard/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 yt_video_number="1:100"
-version="v1.0.1"
+version="v1.0.2"
 
 #mainmenu
 
@@ -700,7 +700,7 @@ function play_music_menu_function ()
 echo -ne "== Play YTMusic Menu ==
 1) Play + shuffle + inf loop.
 2) Play once + shuffle.
-3) Play from a start postion.
+3) Play from a start position.
 4) Play a custom playlist.
 5) Search for music.
 6) Enable Audio aac 128kbps 44.1kHz.
