@@ -74,3 +74,5 @@ yt-playlist will download the audio that you are listing to. If you have opus en
 
 Resume playback does not need to be enabled to save the playback position, by default yt-playlist will always save the playback position when you quit a video or music. Works with the Play SD menu and Bookmark SD menu only.<br>
 
+Sleep timere works with all the menus but the Play HD menu.<br>
+
