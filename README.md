@@ -63,12 +63,12 @@ Show sleep timer     "s"<br>
 Download audio       "d"<br>
 Download video       "D"<br>
 
+Select all ctrl-a<br>
+Deselect all ctrl-d<br>
+Tab key to select lines.<br>
+Enter select one line.<br>
+
 yt-playlist will download the audio that you are listing to. If you have opus enabled yt-playlist will download opus, when listing to music or video. With video it only download 720p.<br>
 
-Some menus<br>
-You can select all by pressing ctrl-a<br>
-Deselect all by pressing ctrl-d<br>
-Use the tab key to select one line.<br>
-Pressing enter select one line.<br>
-
 Resume playback does not need to be enabled to save the playback position, by default yt-playlist will always save the playback position when you quit a video or music. Works with the Play SD menu and Bookmark SD menu only.<br>
+
