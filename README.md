@@ -5,7 +5,7 @@ Feel free to open a new issue or a suggestion.<br>
 
 ## notes
 
-As far as I can tell, everything is working as it should. I am in the process of writing the help guide for yt-playlist, so expect updates. But if you do find a bug, or a typo please let me know.<br>
+If you do find a bug, or a typo please let me know.<br>
 
 ## upgrading
 
