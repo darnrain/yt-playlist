@@ -4,6 +4,8 @@ Welcome to yt-playlist.
 
 Feel free to open a new issue or a suggestion.
 
+Upgrading: Install on top of older versions.
+
 yt-playlist-termux
 
 Required dependencies: "fzf", "mpv", "yt-dlp" version 2023.07.06 or higher, "socat", "awk", "sed", "tr".
