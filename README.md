@@ -118,3 +118,14 @@ RR yes.<br>
 Pause yes.<br>
 Next song yes.<br>
 Prev song yes.<br>
+
+##  Credits, A Special Thank You
+
+yt-dlp<br>
+https://github.com/yt-dlp/yt-dlp
+
+mpv<br>
+https://github.com/mpv-player/mpv
+
+fzf<br>
+https://github.com/junegunn/fzf
