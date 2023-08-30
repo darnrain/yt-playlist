@@ -11,7 +11,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: /sdcard/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 yt_video_number="1:100"
-version="v1.0.4"
+version="v1.0.5"
 
 #mainmenu
 
@@ -2401,6 +2401,22 @@ echo "Save to Bookmarks    b"
 echo "Show sleep timer     s"
 echo "Download audio       d"
 echo "Download video       D"
+echo ""
+echo "yt-playlist will download the audio"
+echo "that you are listing to. If you have opus enabled"
+echo "yt-playlist will download opus, when listing to"
+echo "music or video. With video it only download 720p."
+echo ""
+echo "Some menus"
+echo "You can select all by pressing ctrl-a"
+echo "Deselect all by pressing ctrl-d"
+echo "Use the tab key to select one at a time."
+echo "Pressing enter select one line."
+echo ""
+echo "Resume playback does not need to be enabled to save" 
+echo "the playback position, by default yt-playlist will always" 
+echo "save the playback position when you quit a video or music."
+echo "Works with the Play SD menu and Bookmark SD menu only."
 }
 
 not_a_playlist_id="7807897890789078907807 Not a channel/playlist/album.
