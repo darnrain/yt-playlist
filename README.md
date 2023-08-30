@@ -5,7 +5,7 @@ Feel free to open a new issue or a suggestion.<br>
 
 ## upgrading
 
-Install on top of older verison.<br>
+Install on top of older versions.<br>
 
 ## yt-playlist-linux
 
