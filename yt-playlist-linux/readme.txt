@@ -1,4 +1,4 @@
-A Youtube and YTMusic TUI fronted using mpv, yt-dlp and fzf written in bash.
+A Youtube and YTMusic TUI using mpv, yt-dlp and fzf written in bash.
 
 Welcome to yt-playlist.
 
