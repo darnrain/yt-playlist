@@ -11,7 +11,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: /sdcard/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 yt_video_number="1:100"
-version="v1.0.2"
+version="v1.0.3"
 
 #mainmenu
 
@@ -648,6 +648,7 @@ fi
     9)
         printf " \n"
         printf "Recommended 500 results or less. \n"
+        printf "Or it make take awhile. \n"
         printf "Enter video results number: \n"
         read yt_video_number
         if [ -n "$yt_video_number" ]
@@ -1487,6 +1488,7 @@ fi
         then
         clear
         printf "Recommended 20 results or less. \n"
+        printf "Or it make take awhile. \n"
         printf "Enter search results number: \n"
         read ytm_search_number
         if [ -n "$ytm_search_number" ]
@@ -1524,12 +1526,13 @@ fi
         ;;
     6)
         printf " \n"
-        printf "Recommended 20 results or less. \n"
         printf "Enter music playlist search: \n"
         read ytm_search
         if [ -n "$ytm_search" ]
         then
         clear
+        printf "Recommended 20 results or less. \n"
+        printf "Or it make take awhile. \n"
         printf "Enter search results number: \n"
         read ytm_search_number
         if [ -n "$ytm_search_number" ]
@@ -1567,12 +1570,13 @@ fi
         ;;
     7)
         printf " \n"
-        printf "Recommended 20 results or less. \n"
         printf "Enter playlist search: \n"
         read yt_search
         if [ -n "$yt_search" ]
         then
         clear
+        printf "Recommended 20 results or less. \n"
+        printf "Or it make take awhile. \n"
         printf "Enter search results number: \n"
         read yt_search_number
         if [ -n "$yt_search_number" ]
@@ -1610,12 +1614,13 @@ fi
         ;;
     8)
         printf " \n"
-        printf "Recommended 50 results or less. \n"
         printf "Enter channel search: \n"
         read yt_search
         if [ -n "$yt_search" ]
         then
         clear
+        printf "Recommended 50 results or less. \n"
+        printf "Or it make take awhile. \n"
         printf "Enter search results number: \n"
         read yt_search_number
         if [ -n "$yt_search_number" ]
@@ -1664,6 +1669,7 @@ fi
         then
         printf " \n"
         printf "Recommended 500 results or less. \n"
+        printf "Or it make take awhile. \n"
         printf "Enter playlist results number: \n"
         read yt_search_number
         if [ -n "$yt_search_number" ]
@@ -1808,11 +1814,6 @@ function sleep_timer_function ()
 {
         unset restore_volume
         sleep "$sleep_time" | sed 's/Terminated//'
-
-	if test -f "${tmp_dir}/mpv_hd_running"
-        then
-        exit
-        fi
 
 	if test -f "${tmp_dir}/mpv_video_running"
         then
