@@ -1,5 +1,3 @@
-Welcome to yt-playlist. A YouTube and YTMusic TUI player, using mpv, yt-dlp and fzf written in bash.
-
 Upgrading: Install on top of older versions.
 
 Installing: yt-playlist-termux
@@ -7,12 +5,11 @@ Installing: yt-playlist-termux
 Required dependencies: "fzf", "mpv", "yt-dlp" version 2023.07.06 or higher, "socat", "awk", "sed", "tr".
 Optional dependencies: "fx" "wget" For Billboard hot 100. "mutagen" For embedded thumbnails in opus audio files.
 
-To install the termux version, copy the yt-playlist-termux directory to the phones Internal Storage.
-Open termux.
-Copy and paste this command.
+To install the termux version, copy the yt-playlist-termux directory to the phones Internal Storage and open termux.
+Copy and paste this command into Termux.
 "cp -R /sdcard/yt-playlist-termux ${HOME}/; chmod +x ${HOME}/yt-playlist-termux/install.sh; ${HOME}/yt-playlist-termux/install.sh"
 
-To uninstall copy and paste this command:
+To uninstall copy and paste this command into Termux.
 "cp -R /sdcard/yt-playlist-termux ${HOME}/; chmod +x ${HOME}/yt-playlist-termux/uninstall.sh; ${HOME}/yt-playlist-termux/uninstall.sh"
 
 If you want to only press "y" to load yt-playlist run this command.
