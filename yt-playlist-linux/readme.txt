@@ -5,7 +5,7 @@ Installing: yt-playlist-linux
 Required dependencies: "fzf", "mpv", "yt-dlp" version 2023.07.06 or higher, "socat", "awk", "sed", "tr, "bash".
 Optional dependencies: "fx" "wget" For Billboard hot 100. "jemalloc" Arch linux 100% cpu fix. "mutagen" For embedded thumbnails in opus audio files.
 
-To install the latest yt-playlist-linux, you will need to install "git" also you will need to delete any yt-playlist directory from your home directory first.
+To install the latest yt-playlist-linux, you will need to install "git"
 
 To install copy and paste this command into the terminal.
 
