@@ -22,6 +22,7 @@
         echo "b run /data/data/com.termux/files/usr/bin/yt-playlist --bookmark" >> ${HOME}/.config/yt-playlist/input.conf
         echo "f run /data/data/com.termux/files/usr/bin/yt-playlist --favorites" >> ${HOME}/.config/yt-playlist/input.conf
         yes|rm -R ${HOME}/yt-playlist/
+        echo "${HOME}/yt-playlist/ tmp directory deleted."
         echo 'Type "yt-playlist" to run program.'
         exit
         else
