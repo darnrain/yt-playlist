@@ -4,7 +4,7 @@ A Youtube and YTMusic TUI using mpv, yt-dlp and fzf written in bash.<br>
 ## notes
 
 * I am at the point of adding the final touches to yt-playlist.
-* yt-playlist does not login to YouTube, does not log your activity, is 100% anonymous. History is stored on your computer only. The only thing that may be logged is your ip address, when playling YouTube, by YouTube.
+* yt-playlist does not login to YouTube, does not log your activity, is 100% anonymous. History/favorites are stored on your computer only. The only thing that may be logged is your ip address, when playling YouTube, by YouTube.
 * Subtitles are disabled by default. I had trouble getting them working on every video.
 * You do not need to enable resume playback for the playback position to be saved. By default yt-playlist saves the resume position when you quit a video or music. Only works in the Play SD menu and the Play SD bookmark menu.
 * When playing video/music if you have opus enabled and then press "d" to download audio, yt-playlist will download the opus file.
