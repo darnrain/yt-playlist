@@ -23,7 +23,7 @@ To uninstall copy and paste this command into the terminal:<br>
 
 `git clone https://github.com/darnrain/yt-playlist.git /tmp/yt-playlist/; chmod +x /tmp/yt-playlist/yt-playlist-linux/uninstall.sh; /tmp/yt-playlist/yt-playlist-linux/uninstall.sh`<br>
 
-If you want to only press "y" to load yt-playlist run this command:<br>
+If you want to only press "y" to load yt-playlist copy and paste this command:<br>
 
 `echo "alias y='yt-playlist'" >> ${HOME}/.bashrc; source ${HOME}/.bashrc`<br>
 
@@ -42,7 +42,7 @@ To uninstall copy and paste this command into Termux:<br>
 
 `git clone https://github.com/darnrain/yt-playlist.git /data/data/com.termux/files/usr/tmp/yt-playlist/; chmod +x /data/data/com.termux/files/usr/tmp/yt-playlist/yt-playlist-termux/uninstall.sh; /data/data/com.termux/files/usr/tmp/yt-playlist/yt-playlist-termux/uninstall.sh`<br>
 
-If you want to only press "y" to load yt-playlist run this command:<br>
+If you want to only press "y" to load yt-playlist copy and paste this command:<br>
 
 `echo "alias y='yt-playlist'" >> ${HOME}/.bashrc; source ${HOME}/.bashrc`<br>
 
