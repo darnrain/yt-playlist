@@ -27,7 +27,7 @@
         else
         clear
         echo "Not all dependencies were met."
-        echo "yt-playlist dependencies are"
+        echo "yt-playlist Linux dependencies are"
         echo "fzf,mpv,yt-dlp,socat,awk,sed,tr,bash"
         echo "yt-dlp version 2023.07.06 or higher."
         echo ""
