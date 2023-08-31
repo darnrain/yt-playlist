@@ -39,6 +39,7 @@
         command -V sed
         command -V tr
         command -V bash
+        echo "Please install the missing dependencies and install again."
         exit
         fi
 
