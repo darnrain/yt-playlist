@@ -15,7 +15,7 @@
      else
      yes|rm -R /data/data/com.termux/files/usr/tmp/yt-playlist/
      echo "removed '/data/data/com.termux/files/usr/tmp/yt-playlist/'"
-     echo "Cannot unisntall yt-playlist"
-     echo "yt-playlist is not installed"
+     echo "Cannot unisntall yt-playlist."
+     echo "yt-playlist is not installed."
      exit
      fi
