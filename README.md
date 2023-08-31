@@ -54,6 +54,12 @@ If you want to only press "y" to load yt-playlist run this command:<br>
 
 `echo "alias y='yt-playlist'" >> ${HOME}/.bashrc; source ${HOME}/.bashrc`
 
+### Command arguments
+
+`yt-playlist --help`<br>
+`yt-playlist --version`<br>
+`yt-playlist --import`<br>
+
 ### notes
 
 * You can now copy and paste the command to install the latest version of yt-playlist.
@@ -65,12 +71,6 @@ If you want to only press "y" to load yt-playlist run this command:<br>
 * The Play HD menu relies on the cache to FF and RR. The max ram cache size in the Play HD menu is 500MB. The Play HD menu is not throttled.
 * If you want to get stats when mpv player is playing. Press shift "i"
 * Sleep timer, when the count down timer get's to 0 your volume will be slowly lowered to 0% then pause mpv, then it will restore your volume level back to the same level it was at before yt-playlist lowered it to 0%. You can cancel sleep timer at anytime, even if the volume is being lowered.
-
-### Command arguments
-
-`yt-playlist --help`<br>
-`yt-playlist --version`<br>
-`yt-playlist --import`<br>
 
 ### Credits, A Special Thank You
 
