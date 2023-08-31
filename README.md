@@ -4,7 +4,7 @@ A YouTube and YTMusic TUI player, using mpv, yt-dlp and fzf written in bash.<br>
 
 yt-playlist does not login to YouTube or YTMusic or Google, does not use Google's api, does not log your activity, is 100% anonymous. The only thing that may be logged is your ip address, by YouTube. The History/favorites are stored on the hard drive at "~/.config/yt-playlist/".<br>
 
-## notes
+### notes
 
 * I am at the point of adding the final touches to yt-playlist.
 * Subtitles are disabled by default. I had trouble getting them working on every video.
@@ -16,11 +16,11 @@ yt-playlist does not login to YouTube or YTMusic or Google, does not use Google'
 * If you want to get stats when mpv player is playing. Press shift "i"
 * Sleep timer, when the count down timer get's to 0 your volume will be slowly lowered to 0% then pause mpv, then it will restore your volume level back to the same level it was at before yt-playlist lowered it to 0%. You can cancel sleep timer at anytime, even if the volume is being lowered.
   
-## upgrading
+### upgrading
 
 Install on top of older versions.<br>
 
-## Installing: yt-playlist-linux
+### Installing: yt-playlist-linux
 
 Required dependencies: "fzf", "mpv", "yt-dlp" version 2023.07.06 or higher, "socat", "awk", "sed", "tr", "bash".<br>
 Optional dependencies: "fx" "wget" For Billboard hot 100. "jemalloc" Arch linux 100% cpu fix. "mutagen" For embedded thumbnails in opus audio files.<br>
@@ -38,7 +38,7 @@ To uninstall run this command:<br>
 If you want to only press "y" to load yt-playlist run this command.<br>
 "echo "alias y='yt-playlist'" >> ${HOME}/.bashrc; source ${HOME}/.bashrc"<br>
 
-## Installing: yt-playlist-termux
+### Installing: yt-playlist-termux
 
 Required dependencies: "fzf", "mpv", "yt-dlp" version 2023.07.06 or higher, "socat", "awk", "sed", "tr".<br>
 Optional dependencies: "fx" "wget" For Billboard hot 100. "mutagen" For embedded thumbnails in opus audio files.<br>
@@ -54,7 +54,7 @@ To uninstall copy and paste this command:<br>
 If you want to only press "y" to load yt-playlist run this command.<br>
 "echo "alias y='yt-playlist'" >> ${HOME}/.bashrc; source ${HOME}/.bashrc"<br>
 
-## Help
+### Help
 
 Help menu:              -h or --help<br>
 Version:                -v or --version<br>
@@ -64,7 +64,7 @@ subscriptions.csv<br>
 music-library-songs.csv<br>
 Example: "yt-playlist --import /home/user/subscriptions.csv"<br>
 
-##  Credits, A Special Thank You
+### Credits, A Special Thank You
 
 yt-dlp<br>
 https://github.com/yt-dlp/yt-dlp
