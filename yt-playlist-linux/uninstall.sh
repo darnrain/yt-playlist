@@ -2,7 +2,7 @@
 
      if command -v yt-playlist == *yt-playlist >/dev/null
      then
-     echo "yt-playlist-linux uninstaller"
+     echo "yt-playlist Linux uninstaller"
      sleep 0.8
      sudo rm -v /usr/bin/yt-playlist
      yes|rm -R /tmp/yt-playlist/
