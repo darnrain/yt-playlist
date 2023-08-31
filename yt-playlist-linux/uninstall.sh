@@ -15,7 +15,7 @@
      else
      yes|rm -R /tmp/yt-playlist/
      echo "removed '/tmp/yt-playlist/'"
-     echo "Canot uninstall yt-playlist."
+     echo "Error uninstalling yt-playlist."
      echo "yt-playlist is not installed."
      exit
      fi
