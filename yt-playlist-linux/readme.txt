@@ -1,6 +1,4 @@
-A Youtube and YTMusic TUI using mpv, yt-dlp and fzf written in bash.
-
-Welcome to yt-playlist.
+Welcome to yt-playlist. A YouTube and YTMusic TUI player, using mpv, yt-dlp and fzf written in bash.
 
 Upgrading: Install on top of older versions.
 
