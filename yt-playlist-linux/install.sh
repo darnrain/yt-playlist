@@ -4,8 +4,8 @@
         then
         pkill yt-playlist
         pkill mpv
-        echo "yt-playlist Linux installer"
-        echo "all dependencies were met" 
+        echo "yt-playlist Linux installer."
+        echo "all dependencies were met." 
         sleep 0.8
         sudo cp /tmp/yt-playlist/yt-playlist-linux/yt-playlist /usr/bin/
         sudo chmod +x /usr/bin/yt-playlist
