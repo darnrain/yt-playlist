@@ -23,7 +23,7 @@ To uninstall copy and paste this command into the terminal:<br>
 
 `git clone https://github.com/darnrain/yt-playlist.git /tmp/yt-playlist/; chmod +x /tmp/yt-playlist/yt-playlist-linux/uninstall.sh; /tmp/yt-playlist/yt-playlist-linux/uninstall.sh`
 
-## Manual install yt-playlist Linux version.
+### Manual install yt-playlist Linux version.
 
 `git clone https://github.com/darnrain/yt-playlist.git /tmp/yt-playlist/`
 
@@ -46,7 +46,7 @@ To uninstall copy and paste this command into Termux:<br>
 
 `git clone https://github.com/darnrain/yt-playlist.git /data/data/com.termux/files/usr/tmp/yt-playlist/; chmod +x /data/data/com.termux/files/usr/tmp/yt-playlist/yt-playlist-termux/uninstall.sh; /data/data/com.termux/files/usr/tmp/yt-playlist/yt-playlist-termux/uninstall.sh`
 
-## Manual install yt-playlist Termux version.
+### Manual install yt-playlist Termux version.
 
 `git clone https://github.com/darnrain/yt-playlist.git /data/data/com.termux/files/usr/tmp/yt-playlist/`
 
