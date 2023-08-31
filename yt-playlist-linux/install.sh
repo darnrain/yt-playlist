@@ -20,6 +20,7 @@
         echo "s run /usr/bin/yt-playlist --sleep_time" >> ${HOME}/.config/yt-playlist/input.conf
         echo "b run /usr/bin/yt-playlist --bookmark" >> ${HOME}/.config/yt-playlist/input.conf
         echo "f run /usr/bin/yt-playlist --favorites" >> ${HOME}/.config/yt-playlist/input.conf
+        yes|rm -R ${HOME}/yt-playlist/
         echo 'Type "yt-playlist" to run program.'
         exit
         else
