@@ -15,7 +15,7 @@ Optional dependencies: "fx" "wget" For Billboard hot 100. "jemalloc" Arch linux 
 
 To install copy and paste this command into the terminal:<br>
 
-Note you need git installed.<br>
+Note you need git installed, do not install with root, must have sudo installed.<br>
 
 `git clone https://github.com/darnrain/yt-playlist.git /tmp/yt-playlist/; sudo chmod +x /tmp/yt-playlist/yt-playlist-linux/install.sh; /tmp/yt-playlist/yt-playlist-linux/install.sh`<br>
 
