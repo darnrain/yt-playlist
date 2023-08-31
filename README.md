@@ -25,7 +25,7 @@ To uninstall copy and paste this command into the terminal:<br>
 
 ### Manual install yt-playlist Linux version.
 
-`git clone https://github.com/darnrain/yt-playlist.git /tmp/yt-playlist/`
+You need to clone to /tmp/yt-playlist/
 
 If you want to only press "y" to load yt-playlist run this command:<br>
 
@@ -48,7 +48,7 @@ To uninstall copy and paste this command into Termux:<br>
 
 ### Manual install yt-playlist Termux version.
 
-`git clone https://github.com/darnrain/yt-playlist.git /data/data/com.termux/files/usr/tmp/yt-playlist/`
+You need to clone to /data/data/com.termux/files/usr/tmp/yt-playlist/
 
 If you want to only press "y" to load yt-playlist run this command:<br>
 
