@@ -68,13 +68,7 @@ If you want to only press "y" to load yt-playlist run this command:<br>
 
 ### Help
 
-Help menu:              -h or --help<br>
-Version:                -v or --version<br>
-Import Google takeout:  --import<br>
-Suppprted file types:<br>
-subscriptions.csv<br>
-music-library-songs.csv<br>
-Example: "yt-playlist --import /home/user/subscriptions.csv"<br>
+`yt-playlist --help`
 
 ### Credits, A Special Thank You
 
