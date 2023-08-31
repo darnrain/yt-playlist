@@ -14,7 +14,7 @@
      exit
      else
      yes|rm -R /tmp/yt-playlist/
-     echo "removed '/tmp/yt-playlist/'
+     echo "removed '/tmp/yt-playlist/'"
      echo "yt-playlist is not installed."
      exit
      fi
