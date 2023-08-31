@@ -40,19 +40,24 @@ If you want to only press "y" to load yt-playlist run this command.<br>
 
 ### Installing: yt-playlist-termux
 
+Installing: yt-playlist-termux<br>
+
 Required dependencies: "fzf", "mpv", "yt-dlp" version 2023.07.06 or higher, "socat", "awk", "sed", "tr".<br>
 Optional dependencies: "fx" "wget" For Billboard hot 100. "mutagen" For embedded thumbnails in opus audio files.<br>
 
-To install the termux version, copy the yt-playlist-termux directory to the phones Internal Storage.<br>
-Open termux.<br>
-Copy and paste this command.<br>
-"cp -R /sdcard/yt-playlist-termux ${HOME}/; chmod +x ${HOME}/yt-playlist-termux/install.sh; ${HOME}/yt-playlist-termux/install.sh"<br>
+To install the latest yt-playlist-termux, you will need to install "git"<br>
 
-To uninstall copy and paste this command:<br>
-"cp -R /sdcard/yt-playlist-termux ${HOME}/; chmod +x ${HOME}/yt-playlist-termux/uninstall.sh; ${HOME}/yt-playlist-termux/uninstall.sh"<br>
+To install copy and paste this command into Termux:<br>
 
-If you want to only press "y" to load yt-playlist run this command.<br>
-"echo "alias y='yt-playlist'" >> ${HOME}/.bashrc; source ${HOME}/.bashrc"<br>
+git clone https://github.com/darnrain/yt-playlist.git ${HOME}/yt-playlist/; chmod +x ${HOME}/yt-playlist/yt-playlist-termux/install.sh; ${HOME}/yt-playlist/yt-playlist-termux/install.sh<br>
+
+To uninstall copy and paste this command into Termux:<br>
+
+git clone https://github.com/darnrain/yt-playlist.git ${HOME}/yt-playlist/; chmod +x ${HOME}/yt-playlist/yt-playlist-termux/uninstall.sh; ${HOME}/yt-playlist/yt-playlist-termux/uninstall.sh<br>
+
+If you want to only press "y" to load yt-playlist run this command:<br>
+
+echo "alias y='yt-playlist'" >> ${HOME}/.bashrc; source ${HOME}/.bashrc<br>
 
 ### Help
 
