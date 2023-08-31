@@ -7,16 +7,17 @@ Optional dependencies: "fx" "wget" For Billboard hot 100. "mutagen" For embedded
 
 To install the latest yt-playlist-termux, you will need to install "git"
 
-To install copy and paste this command into Termux.
+To install copy and paste this command into Termux:
 
-"git clone https://github.com/darnrain/yt-playlist.git ${HOME}/yt-playlist/; chmod +x ${HOME}/yt-playlist/yt-playlist-termux/install.sh; ${HOME}/yt-playlist/yt-playlist-termux/install.sh"
+git clone https://github.com/darnrain/yt-playlist.git ${HOME}/yt-playlist/; chmod +x ${HOME}/yt-playlist/yt-playlist-termux/install.sh; ${HOME}/yt-playlist/yt-playlist-termux/install.sh
 
-To uninstall copy and paste this command into Termux.
+To uninstall copy and paste this command into Termux:
 
-"git clone https://github.com/darnrain/yt-playlist.git ${HOME}/yt-playlist/; chmod +x ${HOME}/yt-playlist/yt-playlist-termux/unisntall.sh; ${HOME}/yt-playlist/yt-playlist-termux/uninstall.sh"
+git clone https://github.com/darnrain/yt-playlist.git ${HOME}/yt-playlist/; chmod +x ${HOME}/yt-playlist/yt-playlist-termux/unisntall.sh; ${HOME}/yt-playlist/yt-playlist-termux/uninstall.sh
 
-If you want to only press "y" to load yt-playlist run this command.
-"echo "alias y='yt-playlist'" >> ${HOME}/.bashrc; source ${HOME}/.bashrc"
+If you want to only press "y" to load yt-playlist run this command:
+
+echo "alias y='yt-playlist'" >> ${HOME}/.bashrc; source ${HOME}/.bashrc
 
 Help
 
