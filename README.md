@@ -29,7 +29,6 @@ Copy yt-playlist-linux to your home directory.<br>
 
 To uninstall run this command:<br>
 "chmod +x ./uninstall.sh; ./uninstall.sh"<br>
-"yt-playlist" to run<br>
 
 ## Installing: yt-playlist-termux
 
@@ -43,7 +42,6 @@ Copy and paste this command.<br>
 
 To uninstall copy and paste this command:<br>
 "cp -R /sdcard/yt-playlist-termux ${HOME}/; chmod +x ${HOME}/yt-playlist-termux/uninstall.sh; ${HOME}/yt-playlist-termux/uninstall.sh"<br>
-"yt-playlist" to run<br>
 
 ## Help guide
 
