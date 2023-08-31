@@ -68,9 +68,9 @@ If you want to only press "y" to load yt-playlist run this command:<br>
 
 ### Command arguments
 
-`yt-playlist --help`
-`yt-playlist --version`
-`yt-playlist --import`
+`yt-playlist --help`<br>
+`yt-playlist --version`<br>
+`yt-playlist --import`<br>
 
 ### Credits, A Special Thank You
 
