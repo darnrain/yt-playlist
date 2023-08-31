@@ -27,10 +27,6 @@ If you want to only press "y" to load yt-playlist run this command:<br>
 
 `echo "alias y='yt-playlist'" >> ${HOME}/.bashrc; source ${HOME}/.bashrc`<br>
 
-### Manual install yt-playlist Linux version:
-
-Clone to "/tmp/yt-playlist/"<br>
-
 ### Automated install yt-playlist Termux version:
 
 Required dependencies: "fzf", "mpv", "yt-dlp" version 2023.07.06 or higher, "socat", "awk", "sed", "tr".<br>
@@ -49,10 +45,6 @@ To uninstall copy and paste this command into Termux:<br>
 If you want to only press "y" to load yt-playlist run this command:<br>
 
 `echo "alias y='yt-playlist'" >> ${HOME}/.bashrc; source ${HOME}/.bashrc`<br>
-
-### Manual install yt-playlist Termux version:
-
-Clone to "/data/data/com.termux/files/usr/tmp/yt-playlist/"<br>
 
 ### Command arguments:
 
