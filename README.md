@@ -2,19 +2,7 @@
 
 A YouTube and YTMusic TUI player, using mpv, yt-dlp and fzf written in bash.<br>
 
-yt-playlist does not login to YouTube or YTMusic or Google, does not use Google's api, does not log your activity, is 100% anonymous. The only thing that may be logged is your ip address, by YouTube. The History/favorites are stored on the hard drive at "~/.config/yt-playlist/".<br>
-
-### notes
-
-* I am at the point of adding the final touches to yt-playlist.
-* Subtitles are disabled by default. I had trouble getting them working on every video.
-* You do not need to enable resume playback for the playback position to be saved. By default yt-playlist saves the resume position when you quit a video or music. Only works in the Play SD menu and the Play SD bookmark menu.
-* When playing video/music if you have opus enabled and then press "d" to download audio, yt-playlist will download the opus file.
-* When opus is enabled and playing video, the audio will be throttled, only affects the cache fill rate and if you want to FF. When playing music with opus, the audio is not throttled. When using aac audio, the video/music is not throttled.
-* When watching video in the Play SD menu or the Play SD bookmark menu, the 720p video is not throttled.
-* The Play HD menu relies on the cache to FF and RR. The max ram cache size in the Play HD menu is 500MB. The Play HD menu is not throttled.
-* If you want to get stats when mpv player is playing. Press shift "i"
-* Sleep timer, when the count down timer get's to 0 your volume will be slowly lowered to 0% then pause mpv, then it will restore your volume level back to the same level it was at before yt-playlist lowered it to 0%. You can cancel sleep timer at anytime, even if the volume is being lowered.
+yt-playlist does not login to YouTube or YTMusic or Google, does not use Google's api, does not log your activity. The only thing that may be logged is your ip address, by YouTube. The History/favorites are stored on the hard drive at "~/.config/yt-playlist/".<br>
   
 ### upgrading
 
@@ -57,6 +45,18 @@ To uninstall copy and paste this command into Termux:<br>
 If you want to only press "y" to load yt-playlist run this command:<br>
 
 `echo "alias y='yt-playlist'" >> ${HOME}/.bashrc; source ${HOME}/.bashrc`
+
+### notes
+
+* I am at the point of adding the final touches to yt-playlist.
+* Subtitles are disabled by default. I had trouble getting them working on every video.
+* You do not need to enable resume playback for the playback position to be saved. By default yt-playlist saves the resume position when you quit a video or music. Only works in the Play SD menu and the Play SD bookmark menu.
+* When playing video/music if you have opus enabled and then press "d" to download audio, yt-playlist will download the opus file.
+* When opus is enabled and playing video, the audio will be throttled, only affects the cache fill rate and if you want to FF. When playing music with opus, the audio is not throttled. When using aac audio, the video/music is not throttled.
+* When watching video in the Play SD menu or the Play SD bookmark menu, the 720p video is not throttled.
+* The Play HD menu relies on the cache to FF and RR. The max ram cache size in the Play HD menu is 500MB. The Play HD menu is not throttled.
+* If you want to get stats when mpv player is playing. Press shift "i"
+* Sleep timer, when the count down timer get's to 0 your volume will be slowly lowered to 0% then pause mpv, then it will restore your volume level back to the same level it was at before yt-playlist lowered it to 0%. You can cancel sleep timer at anytime, even if the volume is being lowered.
 
 ### Help
 
