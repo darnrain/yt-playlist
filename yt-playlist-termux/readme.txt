@@ -5,7 +5,9 @@ Installing: yt-playlist-termux
 Required dependencies: "fzf", "mpv", "yt-dlp" version 2023.07.06 or higher, "socat", "awk", "sed", "tr".
 Optional dependencies: "fx" "wget" For Billboard hot 100. "mutagen" For embedded thumbnails in opus audio files.
 
-To install the latest yt-playlist-termux, you will need to install "git" also you will need to delete any yt-playlist directory from your home directory.
+To install the latest yt-playlist-termux, you will need to install "git"
+
+To install copy and paste this command into Termux.
 
 "git clone https://github.com/darnrain/yt-playlist.git ${HOME}/yt-playlist/; chmod +x ${HOME}/yt-playlist/yt-playlist-termux/install.sh; ${HOME}/yt-playlist/yt-playlist-termux/install.sh"
 
