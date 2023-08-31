@@ -36,7 +36,7 @@ To install copy and paste this command into Termux:<br>
 
 Note: you need git installed.<br>
 
-`git clone https://github.com/darnrain/yt-playlist.git /data/data/com.termux/files/usr/tmp/yt-playlist/; chmod +x /data/data/com.termux/files/usr/tmp/yt-playlist/yt-playlist-termux/install.sh; /tmp/yt-playlist/yt-playlist-termux/install.sh`
+`git clone https://github.com/darnrain/yt-playlist.git /data/data/com.termux/files/usr/tmp/yt-playlist/; chmod +x /data/data/com.termux/files/usr/tmp/yt-playlist/yt-playlist-termux/install.sh; /data/data/com.termux/files/usr/tmp/yt-playlist/yt-playlist-termux/install.sh`
 
 To uninstall copy and paste this command into Termux:<br>
 
