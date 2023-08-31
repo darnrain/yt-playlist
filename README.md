@@ -53,6 +53,8 @@ To uninstall copy and paste this command:<br>
 If you want to only press "y" to load yt-playlist run this command.<br>
 "echo "alias y='yt-playlist'" >> ${HOME}/.bashrc; source ${HOME}/.bashrc"<br>
 
+## Help
+
 Help menu:              -h or --help<br>
 Version:                -v or --version<br>
 Import Google takeout:  --import<br>
