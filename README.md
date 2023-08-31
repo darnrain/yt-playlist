@@ -48,15 +48,15 @@ To install the latest yt-playlist-termux, you will need to install "git"<br>
 
 To install copy and paste this command into Termux:<br>
 
-git clone https://github.com/darnrain/yt-playlist.git ${HOME}/yt-playlist/; chmod +x ${HOME}/yt-playlist/yt-playlist-termux/install.sh; ${HOME}/yt-playlist/yt-playlist-termux/install.sh<br>
+`git clone https://github.com/darnrain/yt-playlist.git ${HOME}/yt-playlist/; chmod +x ${HOME}/yt-playlist/yt-playlist-termux/install.sh; ${HOME}/yt-playlist/yt-playlist-termux/install.sh`
 
 To uninstall copy and paste this command into Termux:<br>
 
-git clone https://github.com/darnrain/yt-playlist.git ${HOME}/yt-playlist/; chmod +x ${HOME}/yt-playlist/yt-playlist-termux/uninstall.sh; ${HOME}/yt-playlist/yt-playlist-termux/uninstall.sh<br>
+`git clone https://github.com/darnrain/yt-playlist.git ${HOME}/yt-playlist/; chmod +x ${HOME}/yt-playlist/yt-playlist-termux/uninstall.sh; ${HOME}/yt-playlist/yt-playlist-termux/uninstall.sh`
 
 If you want to only press "y" to load yt-playlist run this command:<br>
 
-echo "alias y='yt-playlist'" >> ${HOME}/.bashrc; source ${HOME}/.bashrc<br>
+`echo "alias y='yt-playlist'" >> ${HOME}/.bashrc; source ${HOME}/.bashrc`
 
 ### Help
 
