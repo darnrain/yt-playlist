@@ -7,7 +7,7 @@
      yes|rm -R /data/data/com.termux/files/usr/tmp/yt-playlist/
      echo "removed '/data/data/com.termux/files/usr/tmp/yt-playlist/'"
      echo "Not removed '${HOME}/.config/yt-playlist/'"
-     echo "Your history and favorites were not deleted"
+     echo "Bookmarks, Music, Favorites and History were not deleted."
      echo "yt-playlist uninstalled"
 
 exit
