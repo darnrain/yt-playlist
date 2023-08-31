@@ -48,6 +48,7 @@ If you want to only press "y" to load yt-playlist run this command:<br>
 
 ### notes
 
+* You can now copy and paste the command to install yt-playlist.
 * I am at the point of adding the final touches to yt-playlist.
 * Subtitles are disabled by default. I had trouble getting them working on every video.
 * You do not need to enable resume playback for the playback position to be saved. By default yt-playlist saves the resume position when you quit a video or music. Only works in the Play SD menu and the Play SD bookmark menu.
