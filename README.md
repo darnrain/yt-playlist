@@ -13,9 +13,9 @@ Install on top of older versions.<br>
 Required dependencies: "fzf", "mpv", "yt-dlp" version 2023.07.06 or higher, "socat", "awk", "sed", "tr, "bash".<br>
 Optional dependencies: "fx" "wget" For Billboard hot 100. "jemalloc" Arch linux 100% cpu fix. "mutagen" For embedded thumbnails in opus audio files.<br>
 
-To install the latest yt-playlist-linux, you will need to install "git"<br>
-
 To install copy and paste this command into the terminal:<br>
+
+Note: you need git installed.<br>
 
 `git clone https://github.com/darnrain/yt-playlist.git ${HOME}/yt-playlist/; sudo chmod +x ${HOME}/yt-playlist/yt-playlist-linux/install.sh; ${HOME}/yt-playlist/yt-playlist-linux/install.sh`
 
@@ -32,9 +32,9 @@ If you want to only press "y" to load yt-playlist run this command:<br>
 Required dependencies: "fzf", "mpv", "yt-dlp" version 2023.07.06 or higher, "socat", "awk", "sed", "tr".<br>
 Optional dependencies: "fx" "wget" For Billboard hot 100. "mutagen" For embedded thumbnails in opus audio files.<br>
 
-To install the latest yt-playlist-termux, you will need to install "git"<br>
-
 To install copy and paste this command into Termux:<br>
+
+Note: you need git installed.<br>
 
 `git clone https://github.com/darnrain/yt-playlist.git ${HOME}/yt-playlist/; chmod +x ${HOME}/yt-playlist/yt-playlist-termux/install.sh; ${HOME}/yt-playlist/yt-playlist-termux/install.sh`
 
