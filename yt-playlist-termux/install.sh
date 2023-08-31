@@ -39,7 +39,7 @@
         command -V awk
         command -V sed
         command -V tr
-        echo "Please install the missing dependencies and try to install again."
+        echo "Please install the missing dependencies and install again."
         exit
         fi
 
