@@ -29,15 +29,15 @@ To install the latest yt-playlist-linux, you will need to install "git"<br>
 
 To install copy and paste this command into the terminal:<br>
 
-\git clone https://github.com/darnrain/yt-playlist.git ${HOME}/yt-playlist/; sudo chmod +x ${HOME}/yt-playlist/yt-playlist-linux/install.sh; ${HOME}/yt-playlist/yt-playlist-linux/install.sh\
+`git clone https://github.com/darnrain/yt-playlist.git ${HOME}/yt-playlist/; sudo chmod +x ${HOME}/yt-playlist/yt-playlist-linux/install.sh; ${HOME}/yt-playlist/yt-playlist-linux/install.sh`
 
 To uninstall copy and paste this command into the terminal:<br>
 
-git clone https://github.com/darnrain/yt-playlist.git ${HOME}/yt-playlist/; chmod +x ${HOME}/yt-playlist/yt-playlist-linux/uninstall.sh; ${HOME}/yt-playlist/yt-playlist-linux/uninstall.sh<br>
+`git clone https://github.com/darnrain/yt-playlist.git ${HOME}/yt-playlist/; chmod +x ${HOME}/yt-playlist/yt-playlist-linux/uninstall.sh; ${HOME}/yt-playlist/yt-playlist-linux/uninstall.sh`
 
 If you want to only press "y" to load yt-playlist run this command:<br>
 
-echo "alias y='yt-playlist'" >> ${HOME}/.bashrc; source ${HOME}/.bashrc<br>
+`echo "alias y='yt-playlist'" >> ${HOME}/.bashrc; source ${HOME}/.bashrc`
 
 ### Installing: yt-playlist-termux
 
