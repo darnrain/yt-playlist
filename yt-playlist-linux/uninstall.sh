@@ -5,7 +5,7 @@
      sudo rm -v /usr/bin/yt-playlist
      yes|rm -R ${HOME}/yt-playlist/
      rm -v ${HOME}/.config/yt-playlist/input.conf
-     echo "${HOME}/.config/yt-playlist/ not removed"
+     echo "~/.config/yt-playlist/ directory was not deleted"
      echo "Your history and favorites were not deleted"
      echo "yt-playlist uninstalled"
 
