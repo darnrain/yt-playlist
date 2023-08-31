@@ -8,7 +8,7 @@ yt-playlist does not login to YouTube or YTMusic or Google, does not use Google'
 
 Install on top of older versions.<br>
 
-### Installing yt-playlist Linux version:
+### Automated install yt-playlist Linux version:
 
 Required dependencies: "fzf", "mpv", "yt-dlp" version 2023.07.06 or higher, "socat", "awk", "sed", "tr, "bash".<br>
 Optional dependencies: "fx" "wget" For Billboard hot 100. "jemalloc" Arch linux 100% cpu fix. "mutagen" For embedded thumbnails in opus audio files.<br>
@@ -23,11 +23,15 @@ To uninstall copy and paste this command into the terminal:<br>
 
 `git clone https://github.com/darnrain/yt-playlist.git /tmp/yt-playlist/; chmod +x /tmp/yt-playlist/yt-playlist-linux/uninstall.sh; /tmp/yt-playlist/yt-playlist-linux/uninstall.sh`
 
+## Manual install yt-playlist Linux version.
+
+`git clone https://github.com/darnrain/yt-playlist.git /tmp/yt-playlist/`
+
 If you want to only press "y" to load yt-playlist run this command:<br>
 
 `echo "alias y='yt-playlist'" >> ${HOME}/.bashrc; source ${HOME}/.bashrc`
 
-### Installing yt-playlist Termux version:
+### Automated install yt-playlist Termux version:
 
 Required dependencies: "fzf", "mpv", "yt-dlp" version 2023.07.06 or higher, "socat", "awk", "sed", "tr".<br>
 Optional dependencies: "fx" "wget" For Billboard hot 100. "mutagen" For embedded thumbnails in opus audio files.<br>
@@ -41,6 +45,10 @@ Note you need git installed.<br>
 To uninstall copy and paste this command into Termux:<br>
 
 `git clone https://github.com/darnrain/yt-playlist.git /data/data/com.termux/files/usr/tmp/yt-playlist/; chmod +x /data/data/com.termux/files/usr/tmp/yt-playlist/yt-playlist-termux/uninstall.sh; /data/data/com.termux/files/usr/tmp/yt-playlist/yt-playlist-termux/uninstall.sh`
+
+## Manual install yt-playlist Termux version.
+
+`git clone https://github.com/darnrain/yt-playlist.git /data/data/com.termux/files/usr/tmp/yt-playlist/`
 
 If you want to only press "y" to load yt-playlist run this command:<br>
 
