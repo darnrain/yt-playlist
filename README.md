@@ -60,7 +60,7 @@ Clone to "/data/data/com.termux/files/usr/tmp/yt-playlist/"<br>
 `yt-playlist --version`<br>
 `yt-playlist --import`<br>
 
-### notes
+### Notes:
 
 * You can now copy and paste the command to install the latest version of yt-playlist.
 * Subtitles are disabled by default. I had trouble getting them working on every video.
