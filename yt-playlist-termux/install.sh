@@ -8,7 +8,7 @@
         echo "yt-playlist-termux installer"
         echo "all dependencies were met"
         sleep 0.8
-        cp ${HOME}/yt-playlist/yt-playlist-termux/yt-playlist /data/data/com.termux/files/usr/bin/
+        cp ${HOME}/tmp/yt-playlist/yt-playlist-termux/yt-playlist /data/data/com.termux/files/usr/bin/
         chmod +x /data/data/com.termux/files/usr/bin/yt-playlist
         mkdir -p ${HOME}/.config/yt-playlist/
         touch ${HOME}/.config/yt-playlist/yt-playlist_favorites.txt
@@ -21,8 +21,8 @@
         echo "s run /data/data/com.termux/files/usr/bin/yt-playlist --sleep_time" >> ${HOME}/.config/yt-playlist/input.conf
         echo "b run /data/data/com.termux/files/usr/bin/yt-playlist --bookmark" >> ${HOME}/.config/yt-playlist/input.conf
         echo "f run /data/data/com.termux/files/usr/bin/yt-playlist --favorites" >> ${HOME}/.config/yt-playlist/input.conf
-        yes|rm -R ${HOME}/yt-playlist/
-        echo "${HOME}/yt-playlist/ tmp directory deleted."
+        yes|rm -R ${HOME}/tmp/yt-playlist/
+        echo "${HOME}/tmp/yt-playlist/ tmp directory deleted."
         echo 'Type "yt-playlist" to run program.'
         exit
         else
