@@ -22,7 +22,7 @@
         echo "b run /data/data/com.termux/files/usr/bin/yt-playlist --bookmark" >> ${HOME}/.config/yt-playlist/input.conf
         echo "f run /data/data/com.termux/files/usr/bin/yt-playlist --favorites" >> ${HOME}/.config/yt-playlist/input.conf
         yes|rm -R /data/data/com.termux/files/usr/tmp/yt-playlist/
-        echo "/data/data/com.termux/files/usr/tmp/yt-playlist/ tmp directory deleted."
+        echo "removed '/data/data/com.termux/files/usr/tmp/yt-playlist/'"
         echo 'Type "yt-playlist" to run program.'
         exit
         else
@@ -41,7 +41,7 @@
         command -V tr
         echo "Please install the missing dependencies and install again."
         yes|rm -R /data/data/com.termux/files/usr/tmp/yt-playlist/
-        echo "/data/data/com.termux/files/usr/tmp/yt-playlist/ tmp directory deleted."
+        echo "removed '/data/data/com.termux/files/usr/tmp/yt-playlist/'"
         exit
         fi
 
