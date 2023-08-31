@@ -2,14 +2,12 @@ A Youtube and YTMusic TUI using mpv, yt-dlp and fzf written in bash.
 
 Welcome to yt-playlist.
 
-Feel free to open a new issue or a suggestion.
-
 Upgrading: Install on top of older versions.
 
-yt-playlist-linux
+Installing: yt-playlist-linux
 
 Required dependencies: "fzf", "mpv", "yt-dlp" version 2023.07.06 or higher, "socat", "awk", "sed", "tr, "bash".
-Optional dependencies: "fx" "wget" For Billboard hot 100. "jemalloc" Arch linux cpu fix. "mutagen" For embedded thumbnails in opus audio files.
+Optional dependencies: "fx" "wget" For Billboard hot 100. "jemalloc" Arch linux 100% cpu fix. "mutagen" For embedded thumbnails in opus audio files.
 
 To install the linux version, run the following command:
 note: you will need to run the command with sudo.
@@ -20,7 +18,9 @@ Copy yt-playlist-linux to your home directory.
 
 To uninstall run this command:
 "chmod +x ./uninstall.sh; ./uninstall.sh"
-"yt-playlist" to run
+
+If you want to only press "y" to load yt-playlist run this command.
+"echo "alias y='yt-playlist'" >> ${HOME}/.bashrc; source ${HOME}/.bashrc"
 
 Help
 
@@ -38,6 +38,7 @@ Left arrow for RR
 Spacebar to pause
 ">" next track
 "<" prev track
+"q" quit mpv player.
 Save to favorites    f
 Save to Bookmarks    b
 Show sleep timer     s
