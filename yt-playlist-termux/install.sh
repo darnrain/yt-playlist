@@ -1,7 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
         
-        if command -v fzf == *fzf && command -v mpv == *mpv && command -v yt-dlp == *yt-dlp && command -v socat == *socat && command -v awk == *awk && command -v sed == *sed && command -v tr == *tr && command -v bash == *bash
+        if command -v fzf == *fzf && command -v mpv == *mpv && command -v yt-dlp == *yt-dlp && command -v socat == *socat && command -v awk == *awk && command -v sed == *sed && command -v tr == *tr
         then
         clear
         pkill yt-playlist
@@ -27,7 +27,7 @@
         clear
         echo "Not all dependencies were met."
         echo "yt-playlist dependencies are"
-        echo "fzf,mpv,yt-dlp,socat,awk,sed,tr,bash"
+        echo "fzf,mpv,yt-dlp,socat,awk,sed,tr"
         echo "yt-dlp version 2023.07.06 or higher."
         echo ""
         command -V fzf
@@ -37,7 +37,6 @@
         command -V awk
         command -V sed
         command -V tr
-        command -V bash
         exit
         fi
 
