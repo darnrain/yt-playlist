@@ -63,7 +63,7 @@ Left arrow for RR<br>
 Spacebar to pause<br>
 ">" next track<br>
 "<" prev track<br>
-"q" quit playing video.<br>
+"q" quit playing.<br>
 Save to favorites    "f"<br>
 Save to Bookmarks    "b"<br>
 Show sleep timer     "s"<br>
