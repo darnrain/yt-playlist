@@ -1,5 +1,3 @@
-# yt-playlist
-
 ### Welcome to yt-playlist. 
 
 A YouTube and YTMusic TUI player, using mpv, yt-dlp and fzf written in bash.<br>
