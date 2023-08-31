@@ -42,7 +42,7 @@ If you want to only press "y" to load yt-playlist run this command.<br>
 Required dependencies: "fzf", "mpv", "yt-dlp" version 2023.07.06 or higher, "socat", "awk", "sed", "tr".<br>
 Optional dependencies: "fx" "wget" For Billboard hot 100. "mutagen" For embedded thumbnails in opus audio files.<br>
 
-To install the termux version, copy the yt-playlist-termux directory to "/sdcard/"<br>
+To install the termux version, copy the yt-playlist-termux directory to "/sdcard/" The phones Internal Storage root directory.<br>
 Open termux.<br>
 Copy and paste this command.<br>
 "cp -R /sdcard/yt-playlist-termux ${HOME}/; chmod +x ${HOME}/yt-playlist-termux/install.sh; ${HOME}/yt-playlist-termux/install.sh"<br>
