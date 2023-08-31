@@ -13,6 +13,8 @@
      echo "yt-playlist uninstalled"
      exit
      else
+     yes|rm -R /data/data/com.termux/files/usr/tmp/yt-playlist/
+     echo "removed '/data/data/com.termux/files/usr/tmp/yt-playlist/'"
      echo "yt-playlist is not installed"
      exit
      fi
