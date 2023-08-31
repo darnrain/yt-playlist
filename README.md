@@ -30,6 +30,9 @@ Copy yt-playlist-linux to your home directory.<br>
 To uninstall run this command:<br>
 "chmod +x ./uninstall.sh; ./uninstall.sh"<br>
 
+If you want to only press "y" to load yt-playlist run this command.<br>
+"echo "alias y='yt-playlist'" >> ${HOME}/.bashrc; source ${HOME}/.bashrc"<br>
+
 ## Installing: yt-playlist-termux
 
 Required dependencies: "fzf", "mpv", "yt-dlp" version 2023.07.06 or higher, "socat", "awk", "sed", "tr".<br>
@@ -42,6 +45,9 @@ Copy and paste this command.<br>
 
 To uninstall copy and paste this command:<br>
 "cp -R /sdcard/yt-playlist-termux ${HOME}/; chmod +x ${HOME}/yt-playlist-termux/uninstall.sh; ${HOME}/yt-playlist-termux/uninstall.sh"<br>
+
+If you want to only press "y" to load yt-playlist run this command.<br>
+"echo "alias y='yt-playlist'" >> ${HOME}/.bashrc; source ${HOME}/.bashrc"<br>
 
 ## Help guide
 
