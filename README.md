@@ -53,6 +53,14 @@ To uninstall copy and paste this command:<br>
 If you want to only press "y" to load yt-playlist run this command.<br>
 "echo "alias y='yt-playlist'" >> ${HOME}/.bashrc; source ${HOME}/.bashrc"<br>
 
+Help menu:              -h or --help<br>
+Version:                -v or --version<br>
+Import Google takeout:  --import<br>
+Suppprted file types:<br>
+subscriptions.csv<br>
+music-library-songs.csv<br>
+Example: "yt-playlist --import /home/user/subscriptions.csv"<br>
+
 ##  Credits, A Special Thank You
 
 yt-dlp<br>
