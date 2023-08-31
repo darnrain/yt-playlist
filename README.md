@@ -66,9 +66,11 @@ If you want to only press "y" to load yt-playlist run this command:<br>
 * If you want to get stats when mpv player is playing. Press shift "i"
 * Sleep timer, when the count down timer get's to 0 your volume will be slowly lowered to 0% then pause mpv, then it will restore your volume level back to the same level it was at before yt-playlist lowered it to 0%. You can cancel sleep timer at anytime, even if the volume is being lowered.
 
-### Help
+### Command arguments
 
 `yt-playlist --help`
+`yt-playlist --version`
+`yt-playlist --import`
 
 ### Credits, A Special Thank You
 
