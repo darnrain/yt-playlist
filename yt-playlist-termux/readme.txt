@@ -2,11 +2,9 @@ A Youtube and YTMusic TUI using mpv, yt-dlp and fzf written in bash.
 
 Welcome to yt-playlist.
 
-Feel free to open a new issue or a suggestion.
-
 Upgrading: Install on top of older versions.
 
-yt-playlist-termux
+Installing: yt-playlist-termux
 
 Required dependencies: "fzf", "mpv", "yt-dlp" version 2023.07.06 or higher, "socat", "awk", "sed", "tr".
 Optional dependencies: "fx" "wget" For Billboard hot 100. "mutagen" For embedded thumbnails in opus audio files.
@@ -18,7 +16,9 @@ Copy and paste this command.
 
 To uninstall copy and paste this command:
 "cp -R /sdcard/yt-playlist-termux ${HOME}/; chmod +x ${HOME}/yt-playlist-termux/uninstall.sh; ${HOME}/yt-playlist-termux/uninstall.sh"
-"yt-playlist" to run
+
+If you want to only press "y" to load yt-playlist run this command.
+"echo "alias y='yt-playlist'" >> ${HOME}/.bashrc; source ${HOME}/.bashrc"
 
 Help
 
@@ -36,6 +36,7 @@ Left arrow for RR
 Spacebar to pause
 ">" next track
 "<" prev track
+"q" quit mpv player.
 Save to favorites    f
 Save to Bookmarks    b
 Show sleep timer     s

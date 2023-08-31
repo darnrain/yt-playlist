@@ -11,7 +11,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: /sdcard/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 yt_video_number="1:100"
-version="v1.0.9"
+version="v1.1"
 
 #mainmenu
 
@@ -2388,6 +2388,7 @@ echo "Left arrow for RR"
 echo "Spacebar to pause"
 echo '">" next track'
 echo '"<" prev track'
+echo '"q" quit mpv player.'
 echo "Save to favorites    f"
 echo "Save to Bookmarks    b"
 echo "Show sleep timer     s"
