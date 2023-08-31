@@ -5,13 +5,15 @@ Installing: yt-playlist-linux
 Required dependencies: "fzf", "mpv", "yt-dlp" version 2023.07.06 or higher, "socat", "awk", "sed", "tr, "bash".
 Optional dependencies: "fx" "wget" For Billboard hot 100. "jemalloc" Arch linux 100% cpu fix. "mutagen" For embedded thumbnails in opus audio files.
 
-To install the linux version, run the following command.
+To install the latest yt-playlist-linux, you will need to install "git" also you will need to delete any yt-playlist directory from your home directory first.
 
-Copy yt-playlist-linux to your home directory.
-"chmod +x ${HOME}yt-playlist-linux/install.sh; ${HOME}yt-playlist-linux/install.sh"
+To install copy and paste this command into the terminal.
 
-To uninstall run this command:
-"chmod +x ${HOME}yt-playlist-linux/uninstall.sh; ${HOME}yt-playlist-linux/uninstall.sh"
+"git clone https://github.com/darnrain/yt-playlist.git ${HOME}/yt-playlist/; sudo chmod +x ${HOME}/yt-playlist/yt-playlist-linux/install.sh; ${HOME}/yt-playlist/yt-playlist-linux/install.sh"
+
+To uninstall copy and paste this command into the terminal.
+
+"git clone https://github.com/darnrain/yt-playlist.git ${HOME}/yt-playlist/; chmod +x ${HOME}/yt-playlist/yt-playlist-linux/unisntall.sh; ${HOME}/yt-playlist/yt-playlist-linux/uninstall.sh"
 
 If you want to only press "y" to load yt-playlist run this command.
 "echo "alias y='yt-playlist'" >> ${HOME}/.bashrc; source ${HOME}/.bashrc"
