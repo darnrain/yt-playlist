@@ -49,7 +49,7 @@ To install the latest yt-playlist-termux, you will need to install "git"<br>
 
 To install copy and paste this command into Termux:<br>
 
-<sub>git clone https://github.com/darnrain/yt-playlist.git ${HOME}/yt-playlist/; chmod +x ${HOME}/yt-playlist/yt-playlist-termux/install.sh; ${HOME}/yt-playlist/yt-playlist-termux/install.sh</sub>
+git clone https://github.com/darnrain/yt-playlist.git ${HOME}/yt-playlist/; chmod +x ${HOME}/yt-playlist/yt-playlist-termux/install.sh; ${HOME}/yt-playlist/yt-playlist-termux/install.sh<br>
 
 To uninstall copy and paste this command into Termux:<br>
 
