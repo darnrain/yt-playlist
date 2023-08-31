@@ -1,7 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
         
-        if command -v fzf == *fzf >/dev/null && command -v mpv == *mpv >/dev/null && command -v yt-dlp == *yt-dlp >/dev/null && command -v socat == *socat >/dev/null && command -v awk == *awk >/dev/null && command -v sed == *sed >/dev/null && command -v tr == *tr >/dev/null && command -v bash == *bash >/dev/null
+        if command -v fzf == *fzf >/dev/null && command -v mpv == *mpv >/dev/null && command -v yt-dlp == *yt-dlp >/dev/null && command -v socat == *socat >/dev/null && command -v awk == *awk >/dev/null && command -v sed == *sed >/dev/null && command -v tr == *tr >/dev/null
         then
         pkill yt-playlist
         pkill mpv
