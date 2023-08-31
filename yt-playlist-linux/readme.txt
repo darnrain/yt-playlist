@@ -1,5 +1,3 @@
-Upgrading: Install on top of older versions.
-
 Installing: yt-playlist-linux
 
 Required dependencies: "fzf", "mpv", "yt-dlp" version 2023.07.06 or higher, "socat", "awk", "sed", "tr, "bash".
