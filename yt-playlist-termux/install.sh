@@ -5,7 +5,7 @@
         then
         pkill yt-playlist
         pkill mpv
-        echo "yt-playlist-termux installer"
+        echo "yt-playlist Termux installer"
         echo "all dependencies were met"
         sleep 0.8
         cp /data/data/com.termux/files/usr/tmp/yt-playlist/yt-playlist-termux/yt-playlist /data/data/com.termux/files/usr/bin/
