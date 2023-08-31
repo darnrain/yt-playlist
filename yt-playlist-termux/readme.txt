@@ -9,7 +9,7 @@ Installing: yt-playlist-termux
 Required dependencies: "fzf", "mpv", "yt-dlp" version 2023.07.06 or higher, "socat", "awk", "sed", "tr".
 Optional dependencies: "fx" "wget" For Billboard hot 100. "mutagen" For embedded thumbnails in opus audio files.
 
-To install the termux version, copy the yt-playlist-termux directory to "/sdcard/"
+To install the termux version, copy the yt-playlist-termux directory to the phones Internal Storage.
 Open termux.
 Copy and paste this command.
 "cp -R /sdcard/yt-playlist-termux ${HOME}/; chmod +x ${HOME}/yt-playlist-termux/install.sh; ${HOME}/yt-playlist-termux/install.sh"
