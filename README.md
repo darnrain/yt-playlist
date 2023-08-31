@@ -1,7 +1,7 @@
 # yt-playlist
 A YouTube and YTMusic TUI player, using mpv, yt-dlp and fzf written in bash.<br>
 
-yt-playlist does not login to YouTube or YTMusic or Google, does not use Google's api, does not log your activity, is 100% anonymous. The only thing that may be logged is your ip address, by YouTube. History/favorites are stored on your hard drive at ~/.config/yt-playlist/.<br>
+yt-playlist does not login to YouTube or YTMusic or Google, does not use Google's api, does not log your activity, is 100% anonymous. The only thing that may be logged is your ip address, by YouTube. History/favorites are stored on your hard drive at "~/.config/yt-playlist/".<br>
 
 ## notes
 
