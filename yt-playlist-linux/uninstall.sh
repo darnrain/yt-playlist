@@ -1,6 +1,5 @@
 #!/bin/sh
 
-     clear
      echo "yt-playlist-linux uninstaller"
      sleep 0.8
      sudo rm -v /usr/bin/yt-playlist
