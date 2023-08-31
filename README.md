@@ -15,7 +15,7 @@ A Youtube and YTMusic TUI using mpv, yt-dlp and fzf written in bash.<br>
 
 Install on top of older versions.<br>
 
-## Installing yt-playlist-linux
+## Installing: yt-playlist-linux
 
 Required dependencies: "fzf", "mpv", "yt-dlp" version 2023.07.06 or higher, "socat", "awk", "sed", "tr", "bash".<br>
 Optional dependencies: "fx" "wget" For Billboard hot 100. "jemalloc" Arch linux 100% cpu fix. "mutagen" For embedded thumbnails in opus audio files.<br>
@@ -31,7 +31,7 @@ To uninstall run this command:<br>
 "chmod +x ./uninstall.sh; ./uninstall.sh"<br>
 "yt-playlist" to run<br>
 
-## Installing yt-playlist-termux
+## Installing: yt-playlist-termux
 
 Required dependencies: "fzf", "mpv", "yt-dlp" version 2023.07.06 or higher, "socat", "awk", "sed", "tr".<br>
 Optional dependencies: "fx" "wget" For Billboard hot 100. "mutagen" For embedded thumbnails in opus audio files.<br>
