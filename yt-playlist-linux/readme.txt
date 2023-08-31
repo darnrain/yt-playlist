@@ -13,7 +13,7 @@ To install copy and paste this command into the terminal.
 
 To uninstall copy and paste this command into the terminal.
 
-"git clone https://github.com/darnrain/yt-playlist.git ${HOME}/yt-playlist/; chmod +x ${HOME}/yt-playlist/yt-playlist-linux/unisntall.sh; ${HOME}/yt-playlist/yt-playlist-linux/uninstall.sh"
+"git clone https://github.com/darnrain/yt-playlist.git ${HOME}/yt-playlist/; chmod +x ${HOME}/yt-playlist/yt-playlist-linux/uninstall.sh; ${HOME}/yt-playlist/yt-playlist-linux/uninstall.sh"
 
 If you want to only press "y" to load yt-playlist run this command.
 "echo "alias y='yt-playlist'" >> ${HOME}/.bashrc; source ${HOME}/.bashrc"
