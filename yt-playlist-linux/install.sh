@@ -5,7 +5,7 @@
         pkill yt-playlist
         pkill mpv
         echo "yt-playlist Linux installer."
-        echo "all dependencies were met." 
+        echo "all dependencies were found." 
         sleep 0.8
         sudo cp /tmp/yt-playlist/yt-playlist-linux/yt-playlist /usr/bin/
         sudo chmod +x /usr/bin/yt-playlist
@@ -26,7 +26,7 @@
         exit
         else
         clear
-        echo "Not all dependencies were met."
+        echo "Not all dependencies were found."
         echo "yt-playlist Linux dependencies are"
         echo "fzf,mpv,yt-dlp,socat,awk,sed,tr,bash"
         echo "yt-dlp version 2023.07.06 or higher."
