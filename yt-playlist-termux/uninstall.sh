@@ -1,5 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/bash 
 
+     if command -v yt-playlist == *yt-playlist >/dev/null
+     then
      echo "yt-playlist-termux uninstaller"
      sleep 0.8
      rm -v /data/data/com.termux/files/usr/bin/yt-playlist
@@ -9,5 +11,8 @@
      echo "Not removed '${HOME}/.config/yt-playlist/'"
      echo "Bookmarks, Music, Favorites and History were not deleted."
      echo "yt-playlist uninstalled"
-
-exit
+     exit
+     else
+     echo "yt-playlist is not installed"
+     exit
+     fi
