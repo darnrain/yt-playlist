@@ -40,6 +40,8 @@
         command -V tr
         command -V bash
         echo "Please install the missing dependencies and install again."
+        yes|rm -R ${HOME}/yt-playlist/
+        echo "${HOME}/yt-playlist/ tmp directory deleted."
         exit
         fi
 
