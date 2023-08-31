@@ -10,7 +10,7 @@
      rm -v ${HOME}/.config/yt-playlist/input.conf
      echo "Not removed '${HOME}/.config/yt-playlist/'"
      echo "Bookmarks, Music, Favorites and History were not deleted."
-     echo "yt-playlist uninstalled"
+     echo "yt-playlist uninstalled."
      exit
      else
      yes|rm -R /tmp/yt-playlist/
