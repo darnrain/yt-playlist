@@ -29,7 +29,7 @@ To install the latest yt-playlist-linux, you will need to install "git"<br>
 
 To install copy and paste this command into the terminal:<br>
 
-git clone https://github.com/darnrain/yt-playlist.git ${HOME}/yt-playlist/; sudo chmod +x ${HOME}/yt-playlist/yt-playlist-linux/install.sh; ${HOME}/yt-playlist/yt-playlist-linux/install.sh<br>
+\git clone https://github.com/darnrain/yt-playlist.git ${HOME}/yt-playlist/; sudo chmod +x ${HOME}/yt-playlist/yt-playlist-linux/install.sh; ${HOME}/yt-playlist/yt-playlist-linux/install.sh\
 
 To uninstall copy and paste this command into the terminal:<br>
 
