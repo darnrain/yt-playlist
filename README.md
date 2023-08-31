@@ -8,7 +8,7 @@ yt-playlist does not login to YouTube or YTMusic or Google, does not use Google'
 
 Install on top of older versions.<br>
 
-### Installing: yt-playlist-linux
+### Installing yt-playlist Linux version:
 
 Required dependencies: "fzf", "mpv", "yt-dlp" version 2023.07.06 or higher, "socat", "awk", "sed", "tr, "bash".<br>
 Optional dependencies: "fx" "wget" For Billboard hot 100. "jemalloc" Arch linux 100% cpu fix. "mutagen" For embedded thumbnails in opus audio files.<br>
@@ -27,7 +27,7 @@ If you want to only press "y" to load yt-playlist run this command:<br>
 
 `echo "alias y='yt-playlist'" >> ${HOME}/.bashrc; source ${HOME}/.bashrc`
 
-### Installing: yt-playlist-termux
+### Installing yt-playlist Termux version:
 
 Required dependencies: "fzf", "mpv", "yt-dlp" version 2023.07.06 or higher, "socat", "awk", "sed", "tr".<br>
 Optional dependencies: "fx" "wget" For Billboard hot 100. "mutagen" For embedded thumbnails in opus audio files.<br>
