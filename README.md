@@ -1,8 +1,6 @@
 # yt-playlist
 A Youtube and YTMusic TUI using mpv, yt-dlp and fzf written in bash.<br>
 
-Feel free to open a new issue or a suggestion.<br>
-
 ## notes
 
 * Subtitles are disabled by default. I want to get them going at some point. I had trouble getting them working on every video.
