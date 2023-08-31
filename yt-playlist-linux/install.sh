@@ -21,7 +21,7 @@
         echo "b run /usr/bin/yt-playlist --bookmark" >> ${HOME}/.config/yt-playlist/input.conf
         echo "f run /usr/bin/yt-playlist --favorites" >> ${HOME}/.config/yt-playlist/input.conf
         yes|rm -R /tmp/yt-playlist/
-        echo "removed '/tmp/yt-playlist'"
+        echo "removed '/tmp/yt-playlist/'"
         echo 'Type "yt-playlist" to run program.'
         exit
         else
@@ -41,7 +41,7 @@
         command -V bash
         echo "Please install the missing dependencies and install again."
         yes|rm -R /tmp/yt-playlist/
-        echo "removed '/tmp/yt-playlist'"
+        echo "removed '/tmp/yt-playlist/'"
         exit
         fi
 
