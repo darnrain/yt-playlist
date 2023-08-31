@@ -3,7 +3,7 @@ A Youtube and YTMusic TUI using mpv, yt-dlp and fzf written in bash.<br>
 
 ## notes
 
-* Subtitles are disabled by default. I want to get them going at some point. I had trouble getting them working on every video.
+* Subtitles are disabled by default. I had trouble getting them working on every video.
 * You do not need to enable resume playback for the playback position to be saved. By default yt-playlist saves the resume position when you quit a video or music. Only works in the Play SD menu and the Play SD bookmark menu.
 * When playing video/music if you have opus enabled and then press "d" to download audio, yt-playlist will download the opus file.
 * When opus is enabled and playing video, the audio will be throttled, only affects the cache fill rate and if you want to FF. When playing music with opus, the audio is not throttled. When using aac audio, the video/music is not throttled.
