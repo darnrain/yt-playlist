@@ -6,7 +6,7 @@ yt-playlist does not login to YouTube or YTMusic or Google, does not use Google'
 
 ### notes
 
-* I am at the point of adding the final touches to yt-playlist.
+<!--* I am at the point of adding the final touches to yt-playlist.
 * Subtitles are disabled by default. I had trouble getting them working on every video.
 * You do not need to enable resume playback for the playback position to be saved. By default yt-playlist saves the resume position when you quit a video or music. Only works in the Play SD menu and the Play SD bookmark menu.
 * When playing video/music if you have opus enabled and then press "d" to download audio, yt-playlist will download the opus file.
@@ -14,7 +14,7 @@ yt-playlist does not login to YouTube or YTMusic or Google, does not use Google'
 * When watching video in the Play SD menu or the Play SD bookmark menu, the 720p video is not throttled.
 * The Play HD menu relies on the cache to FF and RR. The max ram cache size in the Play HD menu is 500MB. The Play HD menu is not throttled.
 * If you want to get stats when mpv player is playing. Press shift "i"
-* Sleep timer, when the count down timer get's to 0 your volume will be slowly lowered to 0% then pause mpv, then it will restore your volume level back to the same level it was at before yt-playlist lowered it to 0%. You can cancel sleep timer at anytime, even if the volume is being lowered.
+* Sleep timer, when the count down timer get's to 0 your volume will be slowly lowered to 0% then pause mpv, then it will restore your volume level back to the same level it was at before yt-playlist lowered it to 0%. You can cancel sleep timer at anytime, even if the volume is being lowered.--->
   
 ### upgrading
 
