@@ -6,7 +6,7 @@
         pkill yt-playlist
         pkill mpv
         echo "yt-playlist Termux installer."
-        echo "all dependencies were met."
+        echo "all dependencies were found."
         sleep 0.8
         cp /data/data/com.termux/files/usr/tmp/yt-playlist/yt-playlist-termux/yt-playlist /data/data/com.termux/files/usr/bin/
         chmod +x /data/data/com.termux/files/usr/bin/yt-playlist
@@ -27,7 +27,7 @@
         exit
         else
         clear
-        echo "Not all dependencies were met."
+        echo "Not all dependencies were found."
         echo "yt-playlist Termux dependencies are"
         echo "fzf,mpv,yt-dlp,socat,awk,sed,tr"
         echo "yt-dlp version 2023.07.06 or higher."
