@@ -19,6 +19,7 @@ yt-playlist does not login to YouTube or YTMusic or Google, does not use Google'
 * Download m4a and opus audio files with thumbnails and metadata included.
 * No mp3 conversion just the native audio format.
 * Download up to 1080p 60 FPS videos.
+* Download Audio or Audio/Video in real-time when mpv is playing.
 * No logging or spyware.
 * 100% open source.
 * yt-playlist is one single file, at around 100 kB in size.
