@@ -1,4 +1,4 @@
-### Welcome to yt-playlist v1.2
+### Welcome to yt-playlist
 
 A YouTube and YTMusic TUI player, using mpv, yt-dlp and fzf written in bash.<br>
 
@@ -12,7 +12,7 @@ yt-playlist v1.1 is stable. I waited tell yt-playlist was out of beta before upl
 
 Install on top of older versions.<br>
 
-### Online install yt-playlist Linux version:
+### Online install yt-playlist v1.2 Linux version:
 
 Required dependencies: "fzf", "mpv", "yt-dlp" version 2023.07.06 or higher, "socat", "awk", "sed", "tr, "bash".<br>
 Optional dependencies: "fx" "wget" For Billboard hot 100. "jemalloc" Arch linux 100% cpu fix. "mutagen" For embedded thumbnails in opus audio files.<br>
@@ -31,7 +31,7 @@ If you want to only press "y" to load yt-playlist copy and paste this command in
 
 `echo "alias y='yt-playlist'" >> ${HOME}/.bashrc; source ${HOME}/.bashrc`<br>
 
-### Online install yt-playlist Termux version:
+### Online install yt-playlist v1.2 Termux version:
 
 Required dependencies: "fzf", "mpv", "yt-dlp" version 2023.07.06 or higher, "socat", "awk", "sed", "tr".<br>
 Optional dependencies: "fx" "wget" For Billboard hot 100. "mutagen" For embedded thumbnails in opus audio files.<br>
