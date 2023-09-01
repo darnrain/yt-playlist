@@ -4,10 +4,6 @@ A YouTube and YTMusic TUI player, using mpv, yt-dlp and fzf written in bash.<br>
 
 yt-playlist does not login to YouTube or YTMusic or Google, does not use Google's api, does not log your activity. The only thing that may be logged is your ip address, by YouTube. Your History, favorites and bookmarks files are stored on the hard drive at "~/.config/yt-playlist/".<br>
 
-### Status
-
-yt-playlist v1.1 is stable. I waited tell yt-playlist was out of beta before uploading to GitHub.<br>
-
 ### Features
 
 * Up to 8k HD video playback at 60 FPS.
@@ -18,7 +14,11 @@ yt-playlist v1.1 is stable. I waited tell yt-playlist was out of beta before upl
 * Download YouTube Playlists from a Channel.
 * Download m4a, opus audio files with thumbnails and metadata included.
 * Download up to 1080p 60 FPS videos.
-* and more. 
+* and more.
+
+### Status
+
+yt-playlist v1.1 is stable. I waited tell yt-playlist was out of beta before uploading to GitHub.<br>
 
 ### upgrading
 
