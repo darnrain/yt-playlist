@@ -6,7 +6,7 @@ yt-playlist does not login to YouTube or YTMusic or Google, does not use Google'
 
 ### Status
 
-yt-playlist is 99% finished, I wanted to wait before I uploaded to GitHub, of course there is always room for improvements.<br>
+yt-playlist is 99% finished. I wanted to wait before I uploaded to GitHub, of course there is always room for improvements.<br>
 
 ### upgrading
 
