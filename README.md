@@ -80,5 +80,5 @@ billboard-hot-100<br>
 https://github.com/mhollingshead/billboard-hot-100
 
 NewPipe<br>
-yt-playlist-termux version.<br>
+yt-playlist Termux version.<br>
 https://github.com/TeamNewPipe/NewPipe
