@@ -11,7 +11,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="v1.1"
+version="v1.2"
 
 #mainmenu
 
@@ -999,7 +999,7 @@ fi
         play_music_menu_function
         ;;
     8)  
-        if command -v fx == *fx && command -v wget == *wget >/dev/null
+        if command -v fx == *fx >/dev/null && command -v wget == *wget >/dev/null
         then
         wget -O ${yt_playlist_home_dir}/top100.json https://raw.githubusercontent.com/mhollingshead/billboard-hot-100/main/recent.json
         fx ${yt_playlist_home_dir}/top100.json
@@ -1387,7 +1387,6 @@ Choose an option:  "
         echo "============================"
         echo "$yt_playlist_hd_title"
         echo "$yt_best_hd_video_resolution"
-        echo "$yt_playlist_total"
         echo "============================"
         play_hd_menu_hud_function
         echo "============================"
@@ -1422,7 +1421,6 @@ Choose an option:  "
         echo "============================"
         echo "$yt_playlist_hd_title"
         echo "$yt_best_hd_video_resolution"
-        echo "$yt_playlist_total"
         echo "============================"
         play_hd_menu_hud_function
         echo "============================"
@@ -1457,7 +1455,6 @@ Choose an option:  "
         echo "============================"
         echo "$yt_playlist_hd_title"
         echo "$yt_best_hd_video_resolution"
-        echo "$yt_playlist_total"
         echo "============================"
         play_hd_menu_hud_function
         echo "============================"
@@ -1492,7 +1489,6 @@ Choose an option:  "
         echo "============================"
         echo "$yt_playlist_hd_title"
         echo "$yt_best_hd_video_resolution"
-        echo "$yt_playlist_total"
         echo "============================"
         play_hd_menu_hud_function
         echo "============================"
@@ -2850,9 +2846,9 @@ echo "Prev song yes."
 not_a_playlist_id="7807897890789078907807 Not a channel/playlist/album.
 "
 
-	if [[ $external_arguments = --import ]]
+	if [[ "$external_arguments" = "--import" ]]
 	then
-	if [[ $external_file = *subscriptions.csv ]]
+	if [[ "$external_file" = *subscriptions.csv ]]
         then
         unset import_take_out
         import_take_out=$(cat $external_file | sed '/^$/d' | sed '1d' | sed 's/,/ /' | sed 's/,/ /' | awk '{print $1,"Channel:",$3,$4,$5,$6,$7,$8,$9}')
@@ -2862,7 +2858,7 @@ not_a_playlist_id="7807897890789078907807 Not a channel/playlist/album.
         echo "A total of "$import_take_out_number" channels were imported to favorites"
         exit
         else
-	if [[ $external_file = *music-library-songs.csv ]]
+	if [[ "$external_file" = *music-library-songs.csv ]]
         then
         unset import_take_out
         import_take_out=$(cat $external_file | sed '/^$/d' | sed '1d' | sed 's/,/ /' | sed 's/music.//' | awk '{print $1,"Music:",$3,$4,$5,$6,$7,$8,$9}')
