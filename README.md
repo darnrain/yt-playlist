@@ -11,6 +11,7 @@ yt-playlist does not login to YouTube or YTMusic or Google, does not use Google'
 * Enable HW GPU in mpv player.
 * Search YouTube Playlists, Channels.
 * Search YTMusic Playlists, Albums.
+* All search results are saved to your history.
 * Download YouTube Playlists from a Channel.
 * Download m4a and opus audio files with thumbnails and metadata included.
 * Download up to 1080p 60 FPS videos.
