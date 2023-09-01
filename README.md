@@ -54,7 +54,8 @@ If you want to only press "y" to load yt-playlist copy and paste this command in
 
 ### Notes:
 
-* You can now copy and paste the command to install the latest version of yt-playlist.
+* You can now copy and paste the command to install the latest version of yt-playlist online.
+* I have made a offline installer of yt-playlist v1.1.
 * Subtitles are disabled by default. I had trouble getting them working on every video.
 * You do not need to enable resume playback for the playback position to be saved. By default yt-playlist saves the resume position when you quit a video or music. Only works in the Play SD menu and the Play SD bookmark menu.
 * When playing video/music if you have opus enabled and then press "d" to download audio, yt-playlist will download the opus file.
