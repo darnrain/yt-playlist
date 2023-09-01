@@ -19,7 +19,7 @@ Optional dependencies: "fx" "wget" For Billboard hot 100. "jemalloc" Arch linux 
 
 To install copy and paste this command into the terminal:<br>
 
-Note you need git installed. Only install or uninstall under a user account. Must have sudo installed.<br>
+Note you need git installed. Only install or uninstall under a user account. Must have sudo installed. If missing dependencies, then you will need install the dependencies and paste command again.<br>
 
 `git clone https://github.com/darnrain/yt-playlist.git /tmp/yt-playlist/; sudo chmod +x /tmp/yt-playlist/yt-playlist-linux/install.sh; /tmp/yt-playlist/yt-playlist-linux/install.sh`<br>
 
@@ -38,7 +38,7 @@ Optional dependencies: "fx" "wget" For Billboard hot 100. "mutagen" For embedded
 
 To install copy and paste this command into Termux:<br>
 
-Note you need git installed.<br>
+Note you need git installed. If missing dependencies, then you will need install the dependencies and paste install command again.<br>
 
 `git clone https://github.com/darnrain/yt-playlist.git /data/data/com.termux/files/usr/tmp/yt-playlist/; chmod +x /data/data/com.termux/files/usr/tmp/yt-playlist/yt-playlist-termux/install.sh; /data/data/com.termux/files/usr/tmp/yt-playlist/yt-playlist-termux/install.sh`<br>
 
