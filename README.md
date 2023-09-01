@@ -17,6 +17,7 @@ yt-playlist does not login to YouTube or YTMusic or Google, does not use Google'
 * All search results are saved to your history.
 * Download YouTube Playlists from a Channel.
 * Download m4a and opus audio files with thumbnails and metadata included.
+* No mp3 conversion just the native audio format.
 * Download up to 1080p 60 FPS videos.
 * No logging or spyware.
 * 100% open source.
