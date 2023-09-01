@@ -21,7 +21,7 @@ yt-playlist does not login to YouTube or YTMusic or Google, does not use Google'
 * Download up to 1080p 60 FPS videos.
 * No logging or spyware.
 * 100% open source.
-* yt-playlist is one single file, at around 100KB in size.
+* yt-playlist is one single file, at around 100 kB in size.
 * yt-playlist only uses yt-dlp for searching and streaming HD video, mpv plays the audio/video and fzf is a fast and very efficient fuzzy search program.
 
 ### Status
