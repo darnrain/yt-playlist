@@ -9,8 +9,9 @@ yt-playlist does not login to YouTube or YTMusic or Google, does not use Google'
 * Up to 8k HD video playback at 60 FPS.
 * 1080p 60 FPS video defaults to h264.
 * Enable HW GPU in mpv player.
-* Search YouTube Playlists, Channels.
-* Search YTMusic Playlists, Albums.
+* Search YouTube Playlists and Channels.
+* Search YTMusic Playlists and Albums.
+* Play Youtube and YTMusic Audio or Audio/Video.
 * All search results are saved to your history.
 * Download YouTube Playlists from a Channel.
 * Download m4a and opus audio files with thumbnails and metadata included.
