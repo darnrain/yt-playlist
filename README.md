@@ -12,7 +12,7 @@ yt-playlist does not login to YouTube or YTMusic or Google, does not use Google'
 * Search YouTube Playlists, Channels.
 * Search YTMusic Playlists, Albums.
 * Download YouTube Playlists from a Channel.
-* Download m4a, opus audio files with thumbnails and metadata included.
+* Download m4a and opus audio files with thumbnails and metadata included.
 * Download up to 1080p 60 FPS videos.
 * and more.
 
