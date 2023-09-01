@@ -21,7 +21,7 @@ Note you need git installed. Only install or uninstall under a user account. Mus
 
 To uninstall copy and paste this command into the terminal:<br>
 
-`git clone https://github.com/darnrain/yt-playlist.git /tmp/yt-playlist/; chmod +x /tmp/yt-playlist/yt-playlist-linux/uninstall.sh; /tmp/yt-playlist/yt-playlist-linux/uninstall.sh`<br>
+`git clone https://github.com/darnrain/yt-playlist.git /tmp/yt-playlist/; sudo chmod +x /tmp/yt-playlist/yt-playlist-linux/uninstall.sh; /tmp/yt-playlist/yt-playlist-linux/uninstall.sh`<br>
 
 If you want to only press "y" to load yt-playlist copy and paste this command in the terminal:<br>
 
