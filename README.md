@@ -19,7 +19,7 @@ yt-playlist does not login to YouTube or YTMusic or Google, does not use Google'
 * Download up to 1080p 60 FPS videos.
 * No logging or spyware.
 * 100% open source.
-* All this and more, only using yt-dlp.
+* All this and more, with only using yt-dlp and mpv to play and fzf for searching.
 
 ### Status
 
