@@ -8,6 +8,18 @@ yt-playlist does not login to YouTube or YTMusic or Google, does not use Google'
 
 yt-playlist v1.1 is stable. I waited tell yt-playlist was out of beta before uploading to GitHub.<br>
 
+### Features
+
+* Up to 8k HD video playback at 60 FPS.
+* 1080p 60 FPS video defaults to h264.
+* Enable HW GPU in mpv player.
+* Search YouTube Playlists, Channels.
+* Search YTMusic Playlists, Albums.
+* Download YouTube Playlists from a Channel.
+* Download m4a, opus audio files with thumbnails and metadata included.
+* Download up to 1080p 60 FPS videos.
+* and more. 
+
 ### upgrading
 
 Install on top of older versions.<br>
