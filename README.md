@@ -6,7 +6,7 @@ yt-playlist does not login to YouTube or YTMusic or Google, does not use Google'
 
 ### Status
 
-yt-playlist is 99% finished. I wanted to wait before I uploaded to GitHub, of course there is always room for improvements.<br>
+yt-playlist is not in beta. yt-playlist v1.1 is a stable rerelease. This may be a new project on GitHub, but yt-playlist is 5 months old. I waited tell yt-playlist was out of beta before uploading to GitHub.<br>
 
 ### upgrading
 
