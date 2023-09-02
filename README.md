@@ -30,7 +30,7 @@ yt-playlist does not login to YouTube or YTMusic or Google, does not use Google'
 
 yt-playlist v1.1 is stable. I waited tell yt-playlist was out of beta before uploading to GitHub.<br>
 
-### upgrading
+### Upgrading
 
 Install on top of older versions.<br>
 
