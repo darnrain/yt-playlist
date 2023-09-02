@@ -20,7 +20,7 @@
         echo "s run /usr/bin/yt-playlist --sleep_time" >> ${HOME}/.config/yt-playlist/input.conf
         echo "b run /usr/bin/yt-playlist --bookmark" >> ${HOME}/.config/yt-playlist/input.conf
         echo "f run /usr/bin/yt-playlist --favorites" >> ${HOME}/.config/yt-playlist/input.conf
-        rm -R -v /tmp/yt-playlist.zip
+        rm -v /tmp/yt-playlist.zip
         echo 'Type "yt-playlist" to run program.'
         exit
         else
@@ -39,7 +39,7 @@
         command -V tr
         command -V bash
         echo "Please install the missing dependencies and install again."
-        rm -R -v /tmp/yt-playlist.zip
+        rm -v /tmp/yt-playlist.zip
         exit
         fi
 
