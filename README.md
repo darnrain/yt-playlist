@@ -6,8 +6,6 @@ yt-playlist does not login to YouTube or YTMusic or Google, does not use Google'
 
 ### Features
 
-At first I was not going to list all the features, it's not like I am trying to sell yt-playlist. But I said hey why not it's a awesome program I made myself and I am proud of what I accomplished.
-
 * Stream up to 8k HD video at 60 FPS.
 * 1080p 60 FPS video defaults to h264.
 * Enable HW GPU in mpv player.
