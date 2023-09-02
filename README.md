@@ -64,11 +64,11 @@ To install copy and paste this command into Termux:<br>
 
 Note you need curl installed. If missing dependencies, then you will need install the dependencies and paste install command again.<br>
 
-`curl https://github.com/darnrain/yt-playlist/releases/download/v1.2/yt-playlist.zip -L -o /data/data/com.termux/files/usr/tmp/yt-playlist.zip; unzip -o /data/data/com.termux/files/usr/tmp/yt-playlist.zip; chmod +x /data/data/com.termux/files/usr/tmp/yt-playlist/yt-playlist-termux/install.sh; /data/data/com.termux/files/usr/tmp/yt-playlist/yt-playlist-termux/install.sh`<br>
+`curl https://github.com/darnrain/yt-playlist/releases/download/v1.2/yt-playlist.zip -L -o /data/data/com.termux/files/usr/tmp/yt-playlist.zip; unzip -o /data/data/com.termux/files/usr/tmp/yt-playlist.zip -d /data/data/com.termux/files/usr/tmp/; chmod +x /data/data/com.termux/files/usr/tmp/yt-playlist/yt-playlist-termux/install.sh; /data/data/com.termux/files/usr/tmp/yt-playlist/yt-playlist-termux/install.sh`<br>
 
 To uninstall copy and paste this command into Termux:<br>
 
-`curl https://github.com/darnrain/yt-playlist/releases/download/v1.2/yt-playlist.zip -L -o /data/data/com.termux/files/usr/tmp/yt-playlist.zip; unzip -o /data/data/com.termux/files/usr/tmp/yt-playlist.zip; chmod +x /data/data/com.termux/files/usr/tmp/yt-playlist/yt-playlist-termux/uninstall.sh; /data/data/com.termux/files/usr/tmp/yt-playlist/yt-playlist-termux/uninstall.sh`<br>
+`curl https://github.com/darnrain/yt-playlist/releases/download/v1.2/yt-playlist.zip -L -o /data/data/com.termux/files/usr/tmp/yt-playlist.zip; unzip -o /data/data/com.termux/files/usr/tmp/yt-playlist.zip -d /data/data/com.termux/files/usr/tmp/; chmod +x /data/data/com.termux/files/usr/tmp/yt-playlist/yt-playlist-termux/uninstall.sh; /data/data/com.termux/files/usr/tmp/yt-playlist/yt-playlist-termux/uninstall.sh`<br>
 
 If you want to only press "y" to load yt-playlist copy and paste this command in Termux:<br>
 
