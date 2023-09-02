@@ -82,7 +82,7 @@ If you want to only press "y" to load yt-playlist copy and paste this command in
 
 ### Notes:
 <details>
-* Updated the online and offline install and uninstall of yt-playlist v1.2<br>
+* yt-playlist v1.3 added the option to press "t" to show the date and time AM PM format.<br>
 * You can now copy and paste the command to install the latest version of yt-playlist online.<br>
 * I have made a offline installer of yt-playlist v1.1.<br>
 * Subtitles are disabled by default. I had trouble getting them working on every video.<br>
