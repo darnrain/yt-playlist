@@ -43,7 +43,7 @@ Optional dependencies: "fx" "wget" For Billboard hot 100. "jemalloc" Arch linux 
 
 To install copy and paste this command into the terminal:<br>
 
-Note you need curl and unzip installed. Only install or uninstall under a user account. Must have sudo installed. If missing dependencies, then you will need install the dependencies and paste install command again.<br>
+Only install or uninstall under a user account. Must have sudo installed. If missing dependencies, then you will need install the dependencies and paste install command again.<br>
 
 `curl https://github.com/darnrain/yt-playlist/releases/download/v1.2/yt-playlist.zip -L -o /tmp/yt-playlist.zip; unzip -o /tmp/yt-playlist.zip -d /tmp/; sudo chmod +x /tmp/yt-playlist/yt-playlist-linux/install.sh; /tmp/yt-playlist/yt-playlist-linux/install.sh`<br>
 
@@ -62,7 +62,7 @@ Optional dependencies: "fx" "wget" For Billboard hot 100. "mutagen" For embedded
 
 To install copy and paste this command into Termux:<br>
 
-Note you need curl and unzip installed. If missing dependencies, then you will need install the dependencies and paste install command again.<br>
+If missing dependencies, then you will need install the dependencies and paste install command again.<br>
 
 `curl https://github.com/darnrain/yt-playlist/releases/download/v1.2/yt-playlist.zip -L -o /data/data/com.termux/files/usr/tmp/yt-playlist.zip; unzip -o /data/data/com.termux/files/usr/tmp/yt-playlist.zip -d /data/data/com.termux/files/usr/tmp/; chmod +x /data/data/com.termux/files/usr/tmp/yt-playlist/yt-playlist-termux/install.sh; /data/data/com.termux/files/usr/tmp/yt-playlist/yt-playlist-termux/install.sh`<br>
 
