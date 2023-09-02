@@ -23,7 +23,7 @@ At first I was not going to list all the features, it's not like I am trying to 
 * Download m4a and opus audio files with thumbnails and metadata included.
 * Download up to 1080p 60 FPS videos.
 * No mp3 conversion just the native audio format.
-* Open the channel, playlist, album in NewPipe Termux version only.
+* Open a channel, playlist and album in NewPipe. Termux version only.
 * A built in Sleep Timer, that lowers volume level, pauses mpv, restores volume level.
 * No logging or spyware.
 * 100% open source.
