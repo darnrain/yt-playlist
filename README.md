@@ -14,7 +14,7 @@ yt-playlist does not login to YouTube or YTMusic or Google, does not use Google'
 * Search YTMusic Playlists and Albums.
 * Paste YouTube or YTMusic url.
 * Play YouTube and YTMusic Audio or Audio/Video.
-* Background playback on Termux/Linux.
+* Background audio playback on Termux.
 * All search results are saved to your history.
 * Download YouTube Playlists from a Channel.
 * Download Audio or Audio/Video in real-time when mpv is playing.
