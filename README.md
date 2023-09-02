@@ -82,17 +82,30 @@ If you want to only press "y" to load yt-playlist copy and paste this command in
 
 ### Notes
 <details>
+<br>
 Updated the online and offline install and uninstall of yt-playlist v1.2<br>
+
 You can now copy and paste the command to install the latest version of yt-playlist online.<br>
+
 I have made a offline installer of yt-playlist v1.1.<br>
+
 Subtitles are disabled by default. I had trouble getting them working on every video.<br>
-You do not need to enable resume playback for the playback position to be saved. By default yt-playlist saves the resume position when you quit a video or music. Only works in the Play SD menu and the Play SD bookmark menu.<br>
+
+You do not need to enable resume playback for the playback position to be saved. By default yt-playlist saves the resume position when you quit a video or music. Only works 
+in the Play SD menu and the Play SD bookmark menu.<br>
+
 When playing video/music if you have opus enabled and then press "d" to download audio, yt-playlist will download the opus file.<br>
+
 When opus is enabled and playing video, the audio will be throttled, only affects the cache fill rate and if you want to FF. When playing music with opus, the audio is not throttled. When using aac audio, the video/music is not throttled.<br>
+
 When watching video in the Play SD menu or the Play SD bookmark menu, the 720p video is not throttled.<br>
+
 The Play HD menu relies on the cache to FF and RR. The max ram cache size in the Play HD menu is 500MB. The Play HD menu is not throttled. I may have to increase the cache size, I have not been able to fully test out 8k playback as my thinkpad is too old.<br>
+
 If you want to get stats when mpv player is playing. Press shift "i"<br>
+
 Sleep timer, when the count down timer get's to 0 your volume will be slowly lowered to 0% then pause mpv, then it will restore your volume level back to the same level it was at before yt-playlist lowered it to 0%. You can cancel sleep timer at anytime, even if the volume is being lowered.<br>
+<br>
 </details>
 
 
