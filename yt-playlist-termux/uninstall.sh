@@ -3,7 +3,6 @@
      	if command -v yt-playlist == *yt-playlist >/dev/null
      	then
      	echo "yt-playlist Termux uninstaller"
-     	sleep 0.8
      	rm -v /data/data/com.termux/files/usr/bin/yt-playlist
      	rm -v ${HOME}/.config/yt-playlist/input.conf
      	echo "Not removed '${HOME}/.config/yt-playlist/'"

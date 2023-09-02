@@ -11,7 +11,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: /sdcard/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 yt_video_number="1:100"
-version="v1.3"
+version="v1.4"
 
 #mainmenu
 
@@ -2017,7 +2017,6 @@ function music_menu_hud_function ()
 	then
 	echo "Audio opus 128kbps 48kHz."
         fi
-        echo "No resume playback."
         if test -f "${tmp_dir}/count_down_timer.txt"
         then
         cat "${tmp_dir}/count_down_timer.txt"
@@ -2396,6 +2395,7 @@ echo "Spacebar to pause"
 echo '">" next track'
 echo '"<" prev track'
 echo '"q" quit mpv player.'
+echo '"shift-i" info'
 echo "Save to favorites    f"
 echo "Save to Bookmarks    b"
 echo "Show sleep timer     s"
@@ -2475,8 +2475,9 @@ not_a_playlist_id="7807897890789078907807 Not a channel/playlist/album.
         echo "A total of "$import_take_out_number" songs were imported to the music menu."
         exit
         else
+        echo "Import Google takeout." 
         echo 'You can import "subscriptions.csv" and "music-library-songs.csv".'
-        echo 'Example: "yt-playlist --import /home/user/subscriptions.csv"'
+        echo 'Example: "yt-playlist --import subscriptions.csv"'
         exit
     fi
   fi
