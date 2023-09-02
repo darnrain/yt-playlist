@@ -21,7 +21,7 @@
         echo "s run /data/data/com.termux/files/usr/bin/yt-playlist --sleep_time" >> ${HOME}/.config/yt-playlist/input.conf
         echo "b run /data/data/com.termux/files/usr/bin/yt-playlist --bookmark" >> ${HOME}/.config/yt-playlist/input.conf
         echo "f run /data/data/com.termux/files/usr/bin/yt-playlist --favorites" >> ${HOME}/.config/yt-playlist/input.conf
-        rm -R -v /tmp/yt-playlist.zip
+        rm -R -v /data/data/com.termux/files/usr/tmp/yt-playlist.zip
         echo 'Type "yt-playlist" to run program.'
         exit
         else
@@ -39,7 +39,7 @@
         command -V sed
         command -V tr
         echo "Please install the missing dependencies and install again."
-        rm -R -v /tmp/yt-playlist.zip
+        rm -R -v /data/data/com.termux/files/usr/tmp/yt-playlist.zip
         exit
         fi
 
