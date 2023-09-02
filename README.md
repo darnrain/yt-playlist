@@ -24,7 +24,7 @@ yt-playlist does not login to YouTube or YTMusic or Google, does not use Google'
 * Open a channel, playlist and album in NewPipe. Termux version only.
 * A built in Sleep Timer, that lowers volume level, pauses mpv, restores volume level.
 * No logging or spyware.
-* 100% open source.
+* 100% open source and free.
 
 ### Status
 
