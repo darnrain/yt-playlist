@@ -11,7 +11,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="v1.2"
+version="v1.3"
 
 #mainmenu
 
@@ -2132,6 +2132,13 @@ function sleep_timer_function ()
 	fi
 }
 
+function show_date_time_function
+{
+	get_date_time=$(date +'%a, %b %d, %Y  %r')
+	show_date_time=$(printf '"%s" \n' "$get_date_time")
+        echo show-text "$show_date_time" | socat - "${tmp_dir}/mpvsocket"
+}
+
 function show_count_down_time_function ()
 {
         if test -f "${tmp_dir}/mpv_hd_running"
@@ -2786,6 +2793,7 @@ echo "Save to Bookmarks    b"
 echo "Show sleep timer     s"
 echo "Download audio       d"
 echo "Download video       D"
+echo "Show date and time   t"
 echo ""
 echo "Select Video/Music."
 echo "Select all ctrl-a"
@@ -2800,6 +2808,7 @@ echo "Bookmarks yes."
 echo "Download Audio yes."
 echo "Download Video yes."
 echo "Resume playback yes."
+echo "Show date and time yes"
 echo "FF yes."
 echo "RR yes."
 echo "Pause yes."
@@ -2812,6 +2821,7 @@ echo "Bookmarks no."
 echo "Download Audio no."
 echo "Download Video no."
 echo "Resume playback no."
+echo "Show date and time yes"
 echo "FF yes. Cache bottleneck."
 echo "RR yes. Cache bottleneck."
 echo "Pause yes."
@@ -2824,6 +2834,7 @@ echo "Bookmarks no."
 echo "Download Audio yes."
 echo "Download Video yes."
 echo "Resume playback yes."
+echo "Show date and time yes"
 echo "FF yes."
 echo "RR yes."
 echo "Pause yes."
@@ -2836,6 +2847,7 @@ echo "Bookmarks no."
 echo "Download Audio yes."
 echo "Download Video no."
 echo "Resume playback no."
+echo "Show date and time yes"
 echo "FF yes."
 echo "RR yes."
 echo "Pause yes."
@@ -2898,6 +2910,12 @@ fi
         echo "$version"
 	exit
 	fi
+
+        if [[ "$external_arguments" = "--date_time" ]]
+	then
+        show_date_time_function
+	exit
+        fi
 
         if [[ "$external_arguments" = "--favorites" ]]
 	then
