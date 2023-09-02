@@ -22,8 +22,9 @@ At first I was not going to list all the features, it's not like I am trying to 
 * Download Audio or Audio/Video in real-time when mpv is playing.
 * Download m4a and opus audio files with thumbnails and metadata included.
 * Download up to 1080p 60 FPS videos.
-* Open the channel, playlist, album in NewPipe Termux version only.
 * No mp3 conversion just the native audio format.
+* Open the channel, playlist, album in NewPipe Termux version only.
+* A built in Sleep Timer, that loweres the volume then pauses mpv.
 * No logging or spyware.
 * 100% open source.
 
