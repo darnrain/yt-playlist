@@ -80,7 +80,7 @@ If you want to only press "y" to load yt-playlist copy and paste this command in
 `yt-playlist --version`<br>
 `yt-playlist --import`<br>
 
-### Notes
+### Notes:
 <details>
 * Updated the online and offline install and uninstall of yt-playlist v1.2<br>
 * You can now copy and paste the command to install the latest version of yt-playlist online.<br>
