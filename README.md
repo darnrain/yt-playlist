@@ -82,6 +82,7 @@ If you want to only press "y" to load yt-playlist copy and paste this command in
 
 ### Notes:
 
+* Updated the online and offline install and uninstall of yt-playlist v1.2
 * You can now copy and paste the command to install the latest version of yt-playlist online.
 * I have made a offline installer of yt-playlist v1.1.
 * Subtitles are disabled by default. I had trouble getting them working on every video.
