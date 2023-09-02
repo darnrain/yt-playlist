@@ -82,7 +82,6 @@ If you want to only press "y" to load yt-playlist copy and paste this command in
 
 ### Notes
 <details>
-<br>
 Updated the online and offline install and uninstall of yt-playlist v1.2<br>
 
 You can now copy and paste the command to install the latest version of yt-playlist online.<br>
@@ -105,7 +104,6 @@ The Play HD menu relies on the cache to FF and RR. The max ram cache size in the
 If you want to get stats when mpv player is playing. Press shift "i"<br>
 
 Sleep timer, when the count down timer get's to 0 your volume will be slowly lowered to 0% then pause mpv, then it will restore your volume level back to the same level it was at before yt-playlist lowered it to 0%. You can cancel sleep timer at anytime, even if the volume is being lowered.<br>
-<br>
 </details>
 
 
