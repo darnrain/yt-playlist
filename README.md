@@ -25,8 +25,6 @@ At first I was not going to list all the features, it's not like I am trying to 
 * Download up to 1080p 60 FPS videos.
 * No logging or spyware.
 * 100% open source.
-* yt-playlist is one single file, at around 100 kB in size.
-* yt-playlist relies on yt-dlp for searching and streaming HD video, mpv plays the audio/video and fzf is a fast and very efficient fuzzy search program.
 
 ### Status
 
