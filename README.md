@@ -79,7 +79,7 @@ If you want to only press "y" to load yt-playlist copy and paste this command in
 `yt-playlist --import`<br>
 
 ### Known issues:
-* Playlist menu searching with #5,6,7 is kinda slow. It's best to search for 20 results or less. There are no restrictions, you can type in any number.
+* Playlist menu searching with #5 #6 #7 is kinda slow. It's best to search for 20 results or less. There are no restrictions, you can type in any number.
 * YTMusic menu search #5 is also kinda slow, might want to seach for 20 results or less also.
 
 ### Notes:
