@@ -78,6 +78,9 @@ If you want to only press "y" to load yt-playlist copy and paste this command in
 `yt-playlist --version`<br>
 `yt-playlist --import`<br>
 
+### Known issues:
+* Playlist menu searching with 5,6,7 is kinda slow. It's best to search for 20 results or less.
+
 ### Notes:
 * v1.3 Added the option to press "t" to show the date and time AM PM format when watching video or listening to music, all play menus.
 * You can now copy and paste the command to install the latest version of yt-playlist online.
