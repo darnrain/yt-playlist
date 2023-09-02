@@ -34,7 +34,7 @@ yt-playlist v1.1 is stable. I waited tell yt-playlist was out of beta before upl
 
 Install on top of older versions.<br>
 
-### Online install yt-playlist v1.3 Linux version:
+### Online install yt-playlist v1.4 Linux version:
 
 Required dependencies: "fzf", "mpv", "yt-dlp" version 2023.07.06 or higher, "socat", "awk", "sed", "tr, "bash".<br>
 Optional dependencies: "fx" "wget" For Billboard hot 100. "jemalloc" Arch linux 100% cpu fix. "mutagen" For embedded thumbnails in opus audio files.<br>
@@ -43,17 +43,17 @@ To install copy and paste this command into the terminal:<br>
 
 Only install or uninstall under a user account. Must have sudo installed. If missing dependencies, then you will need install the dependencies and paste install command again.<br>
 
-`curl https://github.com/darnrain/yt-playlist/releases/download/v1.3/yt-playlist.zip -L -o /tmp/yt-playlist.zip; unzip -o /tmp/yt-playlist.zip -d /tmp/; sudo chmod +x /tmp/yt-playlist/yt-playlist-linux/install.sh; /tmp/yt-playlist/yt-playlist-linux/install.sh`<br>
+`curl https://github.com/darnrain/yt-playlist/releases/download/v1.4/yt-playlist.zip -L -o /tmp/yt-playlist.zip; unzip -o /tmp/yt-playlist.zip -d /tmp/; sudo chmod +x /tmp/yt-playlist/yt-playlist-linux/install.sh; /tmp/yt-playlist/yt-playlist-linux/install.sh`<br>
 
 To uninstall copy and paste this command into the terminal:<br>
 
-`curl https://github.com/darnrain/yt-playlist/releases/download/v1.3/yt-playlist.zip -L -o /tmp/yt-playlist.zip; unzip -o /tmp/yt-playlist.zip -d /tmp/; sudo chmod +x /tmp/yt-playlist/yt-playlist-linux/uninstall.sh; /tmp/yt-playlist/yt-playlist-linux/uninstall.sh`<br>
+`curl https://github.com/darnrain/yt-playlist/releases/download/v1.4/yt-playlist.zip -L -o /tmp/yt-playlist.zip; unzip -o /tmp/yt-playlist.zip -d /tmp/; sudo chmod +x /tmp/yt-playlist/yt-playlist-linux/uninstall.sh; /tmp/yt-playlist/yt-playlist-linux/uninstall.sh`<br>
 
 If you want to only press "y" to load yt-playlist copy and paste this command in the terminal:<br>
 
 `echo "alias y='yt-playlist'" >> ${HOME}/.bashrc; source ${HOME}/.bashrc`<br>
 
-### Online install yt-playlist v1.3 Termux version:
+### Online install yt-playlist v1.4 Termux version:
 
 Required dependencies: "fzf", "mpv", "yt-dlp" version 2023.07.06 or higher, "socat", "awk", "sed", "tr".<br>
 Optional dependencies: "fx" "wget" For Billboard hot 100. "mutagen" For embedded thumbnails in opus audio files.<br>
@@ -62,11 +62,11 @@ To install copy and paste this command into Termux:<br>
 
 If missing dependencies, then you will need install the dependencies and paste install command again.<br>
 
-`curl https://github.com/darnrain/yt-playlist/releases/download/v1.3/yt-playlist.zip -L -o /data/data/com.termux/files/usr/tmp/yt-playlist.zip; unzip -o /data/data/com.termux/files/usr/tmp/yt-playlist.zip -d /data/data/com.termux/files/usr/tmp/; chmod +x /data/data/com.termux/files/usr/tmp/yt-playlist/yt-playlist-termux/install.sh; /data/data/com.termux/files/usr/tmp/yt-playlist/yt-playlist-termux/install.sh`<br>
+`curl https://github.com/darnrain/yt-playlist/releases/download/v1.4/yt-playlist.zip -L -o /data/data/com.termux/files/usr/tmp/yt-playlist.zip; unzip -o /data/data/com.termux/files/usr/tmp/yt-playlist.zip -d /data/data/com.termux/files/usr/tmp/; chmod +x /data/data/com.termux/files/usr/tmp/yt-playlist/yt-playlist-termux/install.sh; /data/data/com.termux/files/usr/tmp/yt-playlist/yt-playlist-termux/install.sh`<br>
 
 To uninstall copy and paste this command into Termux:<br>
 
-`curl https://github.com/darnrain/yt-playlist/releases/download/v1.3/yt-playlist.zip -L -o /data/data/com.termux/files/usr/tmp/yt-playlist.zip; unzip -o /data/data/com.termux/files/usr/tmp/yt-playlist.zip -d /data/data/com.termux/files/usr/tmp/; chmod +x /data/data/com.termux/files/usr/tmp/yt-playlist/yt-playlist-termux/uninstall.sh; /data/data/com.termux/files/usr/tmp/yt-playlist/yt-playlist-termux/uninstall.sh`<br>
+`curl https://github.com/darnrain/yt-playlist/releases/download/v1.4/yt-playlist.zip -L -o /data/data/com.termux/files/usr/tmp/yt-playlist.zip; unzip -o /data/data/com.termux/files/usr/tmp/yt-playlist.zip -d /data/data/com.termux/files/usr/tmp/; chmod +x /data/data/com.termux/files/usr/tmp/yt-playlist/yt-playlist-termux/uninstall.sh; /data/data/com.termux/files/usr/tmp/yt-playlist/yt-playlist-termux/uninstall.sh`<br>
 
 If you want to only press "y" to load yt-playlist copy and paste this command in Termux:<br>
 
