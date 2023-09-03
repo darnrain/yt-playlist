@@ -96,7 +96,7 @@ If you want to only press "y" to load yt-playlist copy and paste this command in
 
 ### Help guide.
 
-* I run Arch Linux and I could not get the latest version of yt-dlp to install. What I had to do was download yt-dlp from GitHub https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp and 'sudo cp yt-dlp /usr/bin/' and 'sudo chmod +x /usr/bin/yt-dlp' to get the latest version instlaled. Must have python 3 installed.
+* I run Arch Linux and I could not get the latest version of yt-dlp to install. What I had to do was download yt-dlp from GitHub https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp and `sudo cp yt-dlp /usr/bin/` and `sudo chmod +x /usr/bin/yt-dlp` to get the latest version instlaled. Must have python 3 installed.
 * I have a raspberry pi 3b+ I could not get yt-playlist to play on raspberry Pi OS, and it's because mpv is out of date v0.32.0. You need at least version 0.34.1
 
 ### Known issues:
