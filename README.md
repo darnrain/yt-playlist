@@ -9,6 +9,8 @@ yt-playlist does not login to YouTube or YTMusic or Google, does not use Google'
 * Recommended 3GB ram for HD video 4k and 8k. Cache is set to 1GB.
 * Recommended 2GB ram for HD video 1080p and 2k. Cache is set to 512MB.
 * Recommended 512MB ram for SD video and music. Cache is set to 150MB.
+* yt-dlp version 2023.07.06 or higher.
+* mpv version 0.36.0 or higher.
 * Linux or Termux with bash installed.
 * Architecture does not matter.
 
@@ -42,7 +44,7 @@ Install on top of older versions.<br>
 
 ### Online install yt-playlist v1.5 Linux version:
 
-Required dependencies: "fzf", "mpv", "yt-dlp" version 2023.07.06 or higher, "socat", "awk", "sed", "tr, "bash".<br>
+Required dependencies: "fzf" "mpv" "yt-dlp" "socat" "awk" "sed" "tr "bash".<br>
 Optional dependencies: "fx" "wget" For Billboard hot 100. "jemalloc" Arch linux 100% cpu fix. "mutagen" For embedded thumbnails in opus audio files.<br>
 
 To install copy and paste this command into the terminal:<br>
@@ -61,7 +63,7 @@ If you want to only press "y" to load yt-playlist copy and paste this command in
 
 ### Online install yt-playlist v1.5 Termux version:
 
-Required dependencies: "fzf", "mpv", "yt-dlp" version 2023.07.06 or higher, "socat", "awk", "sed", "tr".<br>
+Required dependencies: "fzf", "mpv" "yt-dlp" "socat" "awk" "sed" "tr".<br>
 Optional dependencies: "fx" "wget" For Billboard hot 100. "mutagen" For embedded thumbnails in opus audio files.<br>
 
 To install copy and paste this command into Termux:<br>
