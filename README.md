@@ -58,8 +58,6 @@ yt-playlist does not login to YouTube or YTMusic or Google, does not use Google'
 
 ### Notes:
 
-* Termux uses bash by default.
-* Linux Mint uses bash by default.
 * Architecture does not matter.
 * yt-playlist installer will check and let you know if you need to install any dependencies.
 * If having trouble installing latest version of yt-dlp see help guide down below.
