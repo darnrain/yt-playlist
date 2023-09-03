@@ -70,7 +70,7 @@ Install on top of older versions.<br>
 
 To install copy and paste this command into the terminal:<br>
 
-Only install or uninstall under a user account. Must have sudo installed.<br>
+Only install or uninstall under a user account. Must have sudo, curl and unzip installed.<br>
 
 `curl https://github.com/darnrain/yt-playlist/releases/download/v1.5/yt-playlist.zip -L -o /tmp/yt-playlist.zip; unzip -o /tmp/yt-playlist.zip -d /tmp/; sudo chmod +x /tmp/yt-playlist/yt-playlist-linux/install.sh; /tmp/yt-playlist/yt-playlist-linux/install.sh`<br>
 
