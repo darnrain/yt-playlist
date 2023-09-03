@@ -40,7 +40,7 @@
         yes|pkg install python-pip
         yes|pip install yt-dlp
         yes|pip install mutagen
-        echo "alias y='yt-playlist'" >> ${HOME}/.bashrc; source ${HOME}/.bashrc
+        echo "alias y='yt-playlist'" >> ${HOME}/.bashrc
         clear
         pkill yt-playlist
         pkill mpv
@@ -60,6 +60,7 @@
         echo "b run /data/data/com.termux/files/usr/bin/yt-playlist --bookmark" >> ${HOME}/.config/yt-playlist/input.conf
         echo "f run /data/data/com.termux/files/usr/bin/yt-playlist --favorites" >> ${HOME}/.config/yt-playlist/input.conf
         echo "t run /data/data/com.termux/files/usr/bin/yt-playlist --date_time" >> ${HOME}/.config/yt-playlist/input.conf
-        echo 'Type "y" or "yt-playlist" to run program.'
+        echo 'Please type "exit" to close Termux.'
+        echo 'Then type "y" to run yt-playlist'
         exit
         fi
