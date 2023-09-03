@@ -94,16 +94,16 @@ If you want to only press "y" to load yt-playlist copy and paste this command in
 `yt-playlist --version`<br>
 `yt-playlist --import`<br>
 
-### Help guide.
-
-* I run Arch Linux and I could not get the latest version of yt-dlp to install. What I had to do was download yt-dlp from GitHub https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp and "sudo cp yt-dlp /usr/bin/" and "sudo chmod +x /usr/bin/yt-dlp" to get the latest version instlaled. Must have python 3 installed.
-* I have a raspberry pi 3b+ I could not get yt-playlist to play on raspberry Pi OS, and it's because mpv is out of date v0.32.0. You need at least version 0.34.1
-
 ### Known issues:
 * yt-playlist will not work on Ubuntu, it's too locked down with snap restrictions.
 * Tested and working on Arch Linux, Linux Mint, Termux.
 * Playlist menu searching with #5 #6 #7 is kinda slow. It's you might want to search for 20 results or less. There are no restrictions, you can type in any number.
 * YTMusic menu search #5 is also kinda slow, you might want to seach for 20 results or less also.
+
+### Help guide.
+
+* I run Arch Linux and I could not get the latest version of yt-dlp to install. What I had to do was download yt-dlp from GitHub https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp and "sudo cp yt-dlp /usr/bin/" and "sudo chmod +x /usr/bin/yt-dlp" to get the latest version instlaled. Must have python 3 installed.
+* I have a raspberry pi 3b+ I could not get yt-playlist to play on raspberry Pi OS, and it's because mpv is out of date v0.32.0. You need at least version 0.34.1
 
 ### Notes:
 * v1.3 Added the option to press "t" to show the date and time AM PM format when watching video or listening to music, all play menus.
