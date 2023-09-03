@@ -5,6 +5,7 @@
      	echo "yt-playlist Termux uninstaller"
      	rm -v /data/data/com.termux/files/usr/bin/yt-playlist
      	rm -v ${HOME}/.config/yt-playlist/input.conf
+        sed -i '/yt-playlist/d' ${HOME}/.bashrc
      	echo "Not removed '${HOME}/.config/yt-playlist/'"
      	echo "Bookmarks, Music, Favorites and History were not deleted."
      	echo "yt-playlist uninstalled."
