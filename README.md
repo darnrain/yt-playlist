@@ -16,6 +16,7 @@ yt-playlist does not login to YouTube or YTMusic or Google, does not use Google'
 * Stream YouTube video up to 8k HD 60 FPS.
 * 1080p 60 FPS video defaults to h264.
 * Enable HW GPU in mpv player.
+* A text mode, listen to video or music.
 * Import Google takeout, your YouTube subscriptions and YTMusic.
 * Search YouTube Playlists and Channels.
 * Search YTMusic Playlists and Albums.
