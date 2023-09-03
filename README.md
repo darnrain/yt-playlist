@@ -35,7 +35,7 @@ yt-playlist does not login to YouTube or YTMusic or Google, does not use Google'
 
 ### Status
 
-yt-playlist v1.4 is a stable version.<br>
+yt-playlist v1.4 is stable.<br>
 
 ### Upgrading
 
