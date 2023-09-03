@@ -63,7 +63,7 @@ If you want to only press "y" to load yt-playlist copy and paste this command in
 
 ### Online install yt-playlist v1.5 Termux version:
 
-Required dependencies: "fzf", "mpv" "yt-dlp" "socat" "awk" "sed" "tr".<br>
+Required dependencies: "fzf" "mpv" "yt-dlp" "socat" "awk" "sed" "tr".<br>
 Optional dependencies: "fx" "wget" For Billboard hot 100. "mutagen" For embedded thumbnails in opus audio files.<br>
 
 To install copy and paste this command into Termux:<br>
