@@ -97,8 +97,7 @@ If you want to only press "y" to load yt-playlist copy and paste this command in
 ### Known issues:
 * yt-playlist will not work on Ubuntu, it's too locked down with snap restrictions.
 * Tested and working on Arch Linux, Linux Mint, Termux.
-* Playlist menu searching with #5 #6 #7 is kinda slow. It's you might want to search for 20 results or less. There are no restrictions, you can type in any number.
-* YTMusic menu search #5 is also kinda slow, you might want to seach for 20 results or less also.
+* Playlist menu searching with #5 #6 #7 is kinda slow. YTMusic menu music search #5 is slow also.
 
 ### Help guide.
 
