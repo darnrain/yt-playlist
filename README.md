@@ -110,7 +110,7 @@ If you want to only press "y" to load yt-playlist copy and paste this command in
 * I run Arch Linux and I could not get the latest version of yt-dlp to install. What I had to do was download yt-dlp from GitHub https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp and "sudo cp yt-dlp /usr/bin/" and "sudo chmod +x /usr/bin/yt-dlp" to get the latest version instlaled. Must have python 3 installed.
 * I have a raspberry pi 3b+ I could not get yt-playlist to play on raspberry Pi OS, and it's because mpv is out of date v0.32.0. You need at least version 0.34.1
 
-### Notes:
+### yt-playlist notes:
 * v1.3 Added the option to press "t" to show the date and time AM PM format when watching video or listening to music, all play menus.
 * You can now copy and paste the command to install the latest version of yt-playlist online.
 * I have made a offline installer of yt-playlist v1.1.
