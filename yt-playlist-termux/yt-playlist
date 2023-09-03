@@ -11,7 +11,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: /sdcard/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 yt_video_number="1:100"
-version="v1.8"
+version="v1.9"
 
 #mainmenu
 
@@ -769,7 +769,6 @@ Choose an option:  "
         echo "============================"
         echo "Play in sequence + inf loop."
         echo "============================"
-        echo "${yt_playlist_title}"
         echo "Playing $yt_playlist_start through $yt_playlist_music_total"
         echo "============================"
         music_menu_hud_function
