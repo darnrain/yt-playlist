@@ -31,7 +31,6 @@ yt-playlist does not login to YouTube or YTMusic or Google, does not use Google'
 ### Known issues:
 * yt-playlist will not work on Ubuntu, it's too locked down with snap restrictions.
 * Tested and working on Arch Linux, Linux Mint, Termux.
-* Playlist menu search #5 #6 #7 is kinda slow, also the YTMusic menu search.
 
 ### Computer requirements:
 
