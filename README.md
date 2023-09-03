@@ -11,7 +11,12 @@ yt-playlist does not login to YouTube or YTMusic or Google, does not use Google'
 * Recommended 512MB ram for SD video and music. Cache is set to 150MB.
 * yt-dlp version 2023.07.06 or higher.
 * mpv version 0.36.0 or higher.
-* Linux with bash installed.
+* bash
+* fzf
+* socat
+* awk
+* sed
+* tr
 * Termux uses bash by default.
 * Architecture does not matter.
 
