@@ -6,8 +6,8 @@ yt-playlist does not login to YouTube or YTMusic or Google, does not use Google'
 
 ### Requirements:
 
-* Recomended 3G ram for HD video. Cache is set to 1GB.
-* Recomended 512G ram for SD video and music. Cache is set to 150MB.
+* Recommended 3G ram for HD video. Cache is set to 1GB.
+* Recommended 512G ram for SD video and music. Cache is set to 150MB.
 * Linux or Termux.
 * Architecture does not matter.
 
