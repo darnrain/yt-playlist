@@ -33,11 +33,14 @@ yt-playlist does not login to YouTube or YTMusic or Google, does not use Google'
 * Tested and working on Arch Linux, Linux Mint, Termux.
 * Playlist menu searching with #5 #6 #7 is kinda slow, also the YTMusic menu search.
 
-### Requirements:
+### Computer requirements:
 
 * Recommended 3GB ram for HD video 4k and 8k. Cache is set to 1GB.
 * Recommended 2GB ram for HD video 1080p and 2k. Cache is set to 512MB.
 * Recommended 512MB ram for SD video and music. Cache is set to 150MB.
+
+### Required dependencies:
+
 * yt-dlp version 2023.07.06 or higher.
 * mpv version 0.34.1 or higher.
 * bash
@@ -46,16 +49,19 @@ yt-playlist does not login to YouTube or YTMusic or Google, does not use Google'
 * awk
 * sed
 * tr
-* Termux uses bash by default.
-* Architecture does not matter.
-* yt-playlist installer will check and let you know if you need to install any dependencies.
-* If having trouble installing latest version of yt-dlp see help guide down below.
 
 ### Optional dependencies:
 
 * fx and wget For Billboard hot 100.
 * jemalloc for Arch linux 100% cpu fix.
 * mutagen for embedded thumbnails in opus audio files.
+
+### Notes:
+
+* Termux uses bash by default.
+* Architecture does not matter.
+* yt-playlist installer will check and let you know if you need to install any dependencies.
+* If having trouble installing latest version of yt-dlp see help guide down below.
 
 ### Upgrading
 
