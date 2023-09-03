@@ -21,7 +21,7 @@ yt-playlist does not login to YouTube or YTMusic or Google, does not use Google'
 * All search results are saved to your history.
 * Download YouTube Playlists from a Channel.
 * Download up to 1080p 60 FPS videos.
-* Download Audio or Audio/Video in real-time when mpv is playing.
+* Download Audio or Video in real-time when mpv is playing.
 * Download m4a and opus audio files with thumbnails and metadata included.
 * No mp3 conversion, native audio format.
 * A built in Sleep Timer, that slowly lowers volume level, pauses mpv, restores volume level.
