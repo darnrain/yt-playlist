@@ -28,7 +28,6 @@
         echo "Not all dependencies were found."
         echo "yt-playlist Termux dependencies are"
         echo "fzf,mpv,yt-dlp,socat,awk,sed,tr"
-        echo "yt-dlp version 2023.07.06 or higher."
         echo ""
         command -V fzf
         command -V mpv
@@ -37,7 +36,6 @@
         command -V awk
         command -V sed
         command -V tr
-        echo "Please install the missing dependencies and install again."
+        echo "Please install the missing dependencies and run install again."
         exit
         fi
-

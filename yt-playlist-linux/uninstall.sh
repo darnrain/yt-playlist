@@ -14,4 +14,3 @@
      	echo "yt-playlist is not installed."
      	exit
      	fi
-

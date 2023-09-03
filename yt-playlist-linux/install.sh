@@ -27,7 +27,6 @@
         echo "Not all dependencies were found."
         echo "yt-playlist Linux dependencies are"
         echo "fzf,mpv,yt-dlp,socat,awk,sed,tr,bash"
-        echo "yt-dlp version 2023.07.06 or higher."
         echo ""
         command -V fzf
         command -V mpv
@@ -37,7 +36,6 @@
         command -V sed
         command -V tr
         command -V bash
-        echo "Please install the missing dependencies and install again."
+        echo "Please install the missing dependencies and run install again."
         exit
         fi
-

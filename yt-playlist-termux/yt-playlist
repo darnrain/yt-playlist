@@ -11,7 +11,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: /sdcard/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 yt_video_number="1:100"
-version="v1.5"
+version="v1.6"
 
 #mainmenu
 
@@ -2195,7 +2195,7 @@ if [ -n "$yt_music_url" ]
 then
 clear
 echo "Please wait, getting music information."
-yt_music_search=$(yt-dlp --no-warnings --quiet --flat-playlist --print "%(webpage_url)s %(creator)s - %(title)s" -I 1 ${yt_music_url} 2>/dev/null)
+yt_music_search=$(yt-dlp --no-warnings --quiet --flat-playlist --print "%(webpage_url)s Music: %(creator)s - %(title)s" -I 1 ${yt_music_url} 2>/dev/null)
 if [ -n "$yt_music_search" ]
 then
 echo "${yt_music_search}" >> "${yt_playlist_home_dir}/yt-playlist_music.txt"
