@@ -4,6 +4,13 @@ A YouTube and YTMusic TUI player, using mpv, yt-dlp and fzf written in bash.<br>
 
 yt-playlist does not login to YouTube or YTMusic or Google, does not use Google's api, no logging or spyware. Your History, favorites and bookmarks files are stored on the hard drive at "~/.config/yt-playlist/".<br>
 
+### Requirements:
+
+* Recomended 3G ram for HD video. Cache is set to 1GB.
+* Recomended 512G ram for SD video and music. Cache is set to 150MB.
+* Linux or Termux.
+* Architecture does not matter.
+
 ### Features
 
 * Stream YouTube video up to 8k HD 60 FPS.
