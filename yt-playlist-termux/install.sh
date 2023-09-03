@@ -35,8 +35,12 @@
         yes|pkg install fzf
         yes|pkg install mpv
         yes|pkg install socat
+        yes|pkg install fx
+        yes|pkg install wget
         yes|pkg install python-pip
         yes|pip install yt-dlp
+        yes|pip install mutagen
+        echo "alias y='yt-playlist'" >> ${HOME}/.bashrc; source ${HOME}/.bashrc
         clear
         pkill yt-playlist
         pkill mpv
@@ -56,6 +60,6 @@
         echo "b run /data/data/com.termux/files/usr/bin/yt-playlist --bookmark" >> ${HOME}/.config/yt-playlist/input.conf
         echo "f run /data/data/com.termux/files/usr/bin/yt-playlist --favorites" >> ${HOME}/.config/yt-playlist/input.conf
         echo "t run /data/data/com.termux/files/usr/bin/yt-playlist --date_time" >> ${HOME}/.config/yt-playlist/input.conf
-        echo 'Type "yt-playlist" to run program.'
+        echo 'Type "y" or "yt-playlist" to run program.'
         exit
         fi
