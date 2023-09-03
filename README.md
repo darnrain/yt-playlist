@@ -18,6 +18,7 @@ yt-playlist does not login to YouTube or YTMusic or Google, does not use Google'
 * Enable HW GPU in mpv player.
 * A text mode, listen to video or music.
 * Background audio playback on Termux. The Termux version is audio only.
+* Open a channel, playlist and album in NewPipe. Termux version only.
 * Import Google takeout, your YouTube subscriptions and YTMusic.
 * Search YouTube Playlists and Channels.
 * Search YTMusic Playlists and Albums.
@@ -29,7 +30,6 @@ yt-playlist does not login to YouTube or YTMusic or Google, does not use Google'
 * Download m4a and opus audio files with thumbnails and metadata included.
 * Download up to 1080p 60 FPS videos.
 * No mp3 conversion just the native audio format.
-* Open a channel, playlist and album in NewPipe. Termux version only.
 * A built in Sleep Timer, that lowers volume level, pauses mpv, restores volume level.
 * No logging or spyware.
 * 100% open source and free.
