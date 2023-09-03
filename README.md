@@ -1,6 +1,6 @@
 ### Welcome to yt-playlist
 
-A YouTube and YTMusic TUI player, using mpv, yt-dlp and fzf written in bash.<br>
+A YouTube and YTMusic TUI player, for Linux and Termux, written in bash.<br>
 
 yt-playlist does not login to YouTube or YTMusic or Google, does not use Google's api, no logging or spyware. Your History, favorites and bookmarks files are stored on the hard drive at "~/.config/yt-playlist/".<br>
 
