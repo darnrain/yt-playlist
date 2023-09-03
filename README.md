@@ -91,7 +91,7 @@ If you want to only press "y" to load yt-playlist copy and paste this command in
 ### Known issues:
 * Playlist menu searching with #5 #6 #7 is kinda slow. It's you might want to search for 20 results or less. There are no restrictions, you can type in any number.
 * YTMusic menu search #5 is also kinda slow, you might want to seach for 20 results or less also.
-* I have a rasptery pi B3+ I can not get yt-playlist to play, and it's because mpv is out of date v0.32.0. I am thinking you would need to compile the latest version of mpv to get it working.
+* I have a raspberry pi 3b+ I can not get yt-playlist to play, and it's because mpv is out of date v0.32.0. I am thinking you would need to compile the latest version of mpv to get it working.
 
 ### Notes:
 * v1.3 Added the option to press "t" to show the date and time AM PM format when watching video or listening to music, all play menus.
