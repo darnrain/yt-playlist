@@ -16,13 +16,13 @@ yt-playlist does not login to YouTube or YTMusic or Google, does not use Google'
 * Stream YouTube video up to 8k HD 60 FPS.
 * 1080p 60 FPS video defaults to h264.
 * Enable HW GPU in mpv player.
-* A text mode, listen to video or music format aac or opus.
+* A text mode, listen to video or music.
+* Background audio playback on Termux. Termux is audio only.
 * Import Google takeout, your YouTube subscriptions and YTMusic.
 * Search YouTube Playlists and Channels.
 * Search YTMusic Playlists and Albums.
 * Paste YouTube or YTMusic url.
 * Play YouTube and YTMusic Audio or Audio/Video.
-* Background audio playback on Termux.
 * All search results are saved to your history.
 * Download YouTube Playlists from a Channel.
 * Download Audio or Audio/Video in real-time when mpv is playing.
