@@ -29,7 +29,7 @@ yt-playlist does not login to YouTube or YTMusic or Google, does not use Google'
 * 100% open source and free.
  
 ### Known issues:
-* yt-playlist will not work on Ubuntu, because of the snap file restrictions. yt-playlist need's access to "/tmp/" also "~/.config/yt-playlist/"
+* yt-playlist will not work on Ubuntu, because of the snap file permissions.
 * Tested and working on Arch Linux, Linux Mint, Termux.
 * Should work on other flavors of linux.
 
