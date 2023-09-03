@@ -20,6 +20,12 @@ yt-playlist does not login to YouTube or YTMusic or Google, does not use Google'
 * Termux uses bash by default.
 * Architecture does not matter.
 
+### Optional dependencies:
+
+* fx and wget For Billboard hot 100.
+* jemalloc for Arch linux 100% cpu fix.
+* mutagen for embedded thumbnails in opus audio files.
+
 ### Features
 
 * Stream YouTube video up to 8k HD 60 FPS.
@@ -50,9 +56,6 @@ Install on top of older versions.<br>
 
 ### Online install yt-playlist v1.5 Linux version:
 
-Required dependencies: "fzf" "mpv" "yt-dlp" "socat" "awk" "sed" "tr "bash".<br>
-Optional dependencies: "fx" "wget" For Billboard hot 100. "jemalloc" Arch linux 100% cpu fix. "mutagen" For embedded thumbnails in opus audio files.<br>
-
 To install copy and paste this command into the terminal:<br>
 
 Only install or uninstall under a user account. Must have sudo installed. If missing dependencies, then you will need install the dependencies and paste install command again.<br>
@@ -68,9 +71,6 @@ If you want to only press "y" to load yt-playlist copy and paste this command in
 `echo "alias y='yt-playlist'" >> ${HOME}/.bashrc; source ${HOME}/.bashrc`<br>
 
 ### Online install yt-playlist v1.5 Termux version:
-
-Required dependencies: "fzf" "mpv" "yt-dlp" "socat" "awk" "sed" "tr".<br>
-Optional dependencies: "fx" "wget" For Billboard hot 100. "mutagen" For embedded thumbnails in opus audio files.<br>
 
 To install copy and paste this command into Termux:<br>
 
