@@ -27,6 +27,11 @@ yt-playlist does not login to YouTube or YTMusic or Google, does not use Google'
 * A built in Sleep Timer, that slowly lowers volume level, pauses mpv, restores volume level.
 * No logging or spyware.
 * 100% open source and free.
+ 
+### Known issues:
+* yt-playlist will not work on Ubuntu, it's too locked down with snap restrictions.
+* Tested and working on Arch Linux, Linux Mint, Termux.
+* Playlist menu searching with #5 #6 #7 is kinda slow, also the YTMusic menu search.
 
 ### Requirements:
 
@@ -93,11 +98,6 @@ If you want to only press "y" to load yt-playlist copy and paste this command in
 `yt-playlist --help`<br>
 `yt-playlist --version`<br>
 `yt-playlist --import`<br>
-
-### Known issues:
-* yt-playlist will not work on Ubuntu, it's too locked down with snap restrictions.
-* Tested and working on Arch Linux, Linux Mint, Termux.
-* Playlist menu searching with #5 #6 #7 is kinda slow. YTMusic menu music search #5 is slow also.
 
 ### Help guide.
 
