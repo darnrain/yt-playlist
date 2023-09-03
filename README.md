@@ -61,7 +61,7 @@ yt-playlist does not login to YouTube or YTMusic or Google, does not use Google'
 * Architecture does not matter.
 * yt-playlist installer will check and let you know if you need to install any dependencies.
 * If having trouble installing latest version of yt-dlp see help guide down below.
-* The Termux installer will install all the dependencies, enable volume keys, and you can press "y" to load yt-playlist.
+* The Termux installer will install all the dependencies including the optional dependencies, enable volume keys, and you can press "y" to load yt-playlist.
 
 ### Upgrading
 
