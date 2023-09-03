@@ -11,7 +11,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: /sdcard/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 yt_video_number="1:100"
-version="v1.4"
+version="v1.5"
 
 #mainmenu
 
@@ -736,7 +736,7 @@ Choose an option:  "
         yt_playlist_music_total=$(cat "${tmp_dir}/yt_playlist_url.txt" | wc -l)
         yt_playlist_music_total="Total songs: $yt_playlist_music_total"
         echo "============================"
-        echo "Play once + shuffle.."
+        echo "Play once + shuffle."
         echo "============================"
         echo "$yt_playlist_music_total"
         echo "============================"
