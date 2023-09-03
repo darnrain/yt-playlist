@@ -4,28 +4,6 @@ A YouTube and YTMusic TUI player, using mpv, yt-dlp and fzf written in bash.<br>
 
 yt-playlist does not login to YouTube or YTMusic or Google, does not use Google's api, no logging or spyware. Your History, favorites and bookmarks files are stored on the hard drive at "~/.config/yt-playlist/".<br>
 
-### Requirements:
-
-* Recommended 3GB ram for HD video 4k and 8k. Cache is set to 1GB.
-* Recommended 2GB ram for HD video 1080p and 2k. Cache is set to 512MB.
-* Recommended 512MB ram for SD video and music. Cache is set to 150MB.
-* yt-dlp version 2023.07.06 or higher.
-* mpv version 0.36.0 or higher.
-* bash
-* fzf
-* socat
-* awk
-* sed
-* tr
-* Termux uses bash by default.
-* Architecture does not matter.
-
-### Optional dependencies:
-
-* fx and wget For Billboard hot 100.
-* jemalloc for Arch linux 100% cpu fix.
-* mutagen for embedded thumbnails in opus audio files.
-
 ### Features
 
 * Stream YouTube video up to 8k HD 60 FPS.
@@ -49,6 +27,28 @@ yt-playlist does not login to YouTube or YTMusic or Google, does not use Google'
 * A built in Sleep Timer, that slowly lowers volume level, pauses mpv, restores volume level.
 * No logging or spyware.
 * 100% open source and free.
+
+### Requirements:
+
+* Recommended 3GB ram for HD video 4k and 8k. Cache is set to 1GB.
+* Recommended 2GB ram for HD video 1080p and 2k. Cache is set to 512MB.
+* Recommended 512MB ram for SD video and music. Cache is set to 150MB.
+* yt-dlp version 2023.07.06 or higher.
+* mpv version 0.36.0 or higher.
+* bash
+* fzf
+* socat
+* awk
+* sed
+* tr
+* Termux uses bash by default.
+* Architecture does not matter.
+
+### Optional dependencies:
+
+* fx and wget For Billboard hot 100.
+* jemalloc for Arch linux 100% cpu fix.
+* mutagen for embedded thumbnails in opus audio files.
 
 ### Upgrading
 
