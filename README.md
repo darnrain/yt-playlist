@@ -92,10 +92,6 @@ To uninstall copy and paste this command into Termux:<br>
 
 `curl https://github.com/darnrain/yt-playlist/releases/download/v1.7/yt-playlist.zip -L -o ${TMPDIR}/yt-playlist.zip; unzip -o ${TMPDIR}/yt-playlist.zip -d ${TMPDIR}/; chmod +x ${TMPDIR}/yt-playlist/yt-playlist-termux/uninstall.sh; ${TMPDIR}/yt-playlist/yt-playlist-termux/uninstall.sh`<br>
 
-If you want to only press "y" to load yt-playlist copy and paste this command in Termux:<br>
-
-`echo "alias y='yt-playlist'" >> ${HOME}/.bashrc; source ${HOME}/.bashrc`<br>
-
 ### Command arguments:
 
 `yt-playlist --help`<br>
