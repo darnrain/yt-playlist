@@ -21,7 +21,11 @@
         echo "b run /data/data/com.termux/files/usr/bin/yt-playlist --bookmark" >> ${HOME}/.config/yt-playlist/input.conf
         echo "f run /data/data/com.termux/files/usr/bin/yt-playlist --favorites" >> ${HOME}/.config/yt-playlist/input.conf
         echo "t run /data/data/com.termux/files/usr/bin/yt-playlist --date_time" >> ${HOME}/.config/yt-playlist/input.conf
-        echo 'Type "yt-playlist" to run program.'
+        sed -i '/yt-playlist/d' ${HOME}/.bashrc
+        echo "alias y='yt-playlist'" >> ${HOME}/.bashrc
+        sed -i '/# volume-keys/s/^#//' /data/data/com.termux/files/home/.termux/termux.properties
+        echo 'Please type "exit" to close Termux.'
+        echo 'Then type "y" to run yt-playlist'
         exit
         else
         clear
@@ -40,7 +44,9 @@
         yes|pkg install python-pip
         yes|pip install yt-dlp
         yes|pip install mutagen
+        sed -i '/yt-playlist/d' ${HOME}/.bashrc
         echo "alias y='yt-playlist'" >> ${HOME}/.bashrc
+        sed -i '/# volume-keys/s/^#//' /data/data/com.termux/files/home/.termux/termux.properties
         clear
         pkill yt-playlist
         pkill mpv
