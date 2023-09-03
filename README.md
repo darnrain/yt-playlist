@@ -31,7 +31,7 @@ yt-playlist does not login to YouTube or YTMusic or Google, does not use Google'
 * Download Audio or Audio/Video in real-time when mpv is playing.
 * Download m4a and opus audio files with thumbnails and metadata included.
 * No mp3 conversion, native audio format.
-* A built in Sleep Timer, that lowers volume level, pauses mpv, restores volume level.
+* A built in Sleep Timer, that slowly lowers volume level, pauses mpv, restores volume level.
 * No logging or spyware.
 * 100% open source and free.
 
