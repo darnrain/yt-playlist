@@ -36,10 +36,6 @@ yt-playlist does not login to YouTube or YTMusic or Google, does not use Google'
 * No logging or spyware.
 * 100% open source and free.
 
-### Status
-
-yt-playlist v1.4 is stable.<br>
-
 ### Upgrading
 
 Install on top of older versions.<br>
