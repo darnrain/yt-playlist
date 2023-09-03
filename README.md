@@ -82,7 +82,7 @@ If you want to only press "y" to load yt-playlist copy and paste this command in
 
 `echo "alias y='yt-playlist'" >> ${HOME}/.bashrc; source ${HOME}/.bashrc`<br>
 
-### Online install yt-playlist v1.7 Termux version:
+### Online install yt-playlist v1.8 Termux version:
 
 To install copy and paste this command into Termux:<br>
 
