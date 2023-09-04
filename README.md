@@ -107,7 +107,10 @@ Install the latest yt-dlp:<br>
 download yt-dlp from GitHub https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp<br>
 `sudo cp yt-dlp /usr/bin/`<br>
 `sudo chmod +x /usr/bin/yt-dlp`<br>
+Debian based Linux:<br>
 `sudo apt update; sudo apt install python3`<br>
+Arch linux:<br>
+`sudo pacman -Syu python`<br>
 
 Install mutagen on debian based Linux:<br>
 `sudo apt update; sudo apt install python3 python3-mutagen`<br>
