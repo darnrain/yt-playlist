@@ -34,10 +34,10 @@ yt-playlist does not login to YouTube or YTMusic or Google, does not use Google'
 * Should work on other flavors of linux.
 
 ### Linux ram requirements:
-* Recommended 4GB ram for HD 8k. Cache is set to 2GB.
-* Recommended 3GB ram for HD 4k. Cache is set to 1GB.
-* Recommended 3GB ram for HD 2k. Cache is set to 750GB.
-* Recommended 2GB ram for HD 1080o. Cache is set to 512MB.
+* Recommended 6GB ram for HD 8k. Cache is set to 2GB.
+* Recommended 4GB ram for HD 4k. Cache is set to 1GB.
+* Recommended 4GB ram for HD 2k. Cache is set to 750GB.
+* Recommended 3GB ram for HD 1080o. Cache is set to 512MB.
 * Recommended 256MB ram for SD 720p. Cache is set to 50MB.
 * Recommended 128MB ram for Audio/music. Cache is set to 10MB.
 
