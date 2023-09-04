@@ -38,8 +38,8 @@ yt-playlist does not login to YouTube or YTMusic or Google, does not use Google'
 * Recommended 4GB ram for HD 4k. Cache is set to 1GB.
 * Recommended 4GB ram for HD 2k. Cache is set to 750GB.
 * Recommended 3GB ram for HD 1080p. Cache is set to 512MB.
-* Recommended 256MB ram for SD 720p. Cache is set to 50MB.
-* Recommended 128MB ram for Audio/music. Cache is set to 10MB.
+* Recommended 512MB ram for SD 720p. Cache is set to 50MB.
+* Recommended 256MB ram for Audio/music. Cache is set to 10MB.
 
 ### Linux required dependencies:
 * yt-dlp version 2023.07.06 or higher.
