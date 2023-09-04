@@ -58,7 +58,7 @@ yt-playlist does not login to YouTube or YTMusic or Google, does not use Google'
 
 * fx and wget For Billboard hot 100.
 * jemalloc for Arch linux 100% cpu fix.
-* 
+
 ### Notes:
 
 * Architecture does not matter.
