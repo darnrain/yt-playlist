@@ -60,7 +60,7 @@ yt-playlist does not login to YouTube or YTMusic or Google, does not use Google'
 ### Notes:
 * See help guide down below for installing latest version of yt-dlp.
 * See help guide down below for installing mutagen.
-* The Linux instlaler will check to make sure you have all the dependencies installed, if not it will let you know witch ones are missing.
+* The Linux instlaler will check to make sure you have all the dependencies installed, if not it will let you know witch ones are missing before installing yt-playlist.
 * The Termux installer will install all the dependencies including the optional dependencies, enable volume keys, and you can press "y" to load yt-playlist.
 
 ### Upgrading
