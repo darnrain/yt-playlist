@@ -47,12 +47,12 @@ yt-playlist does not login to YouTube or YTMusic or Google, does not use Google'
 * mpv version 0.34.1 or higher.
 * ffmpeg
 * mutagen
-* bash
 * fzf
 * socat
 * awk
 * sed
 * tr
+* bash
 
 ### Linux optional dependencies:
 
