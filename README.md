@@ -33,13 +33,13 @@ yt-playlist does not login to YouTube or YTMusic or Google, does not use Google'
 * Tested and working on the latest Arch Linux, Linux Mint, Termux.
 * Should work on other flavors of linux.
 
-### Computer requirements:
+### Linux ram requirements:
 
 * Recommended 3GB ram for HD video 4k and 8k. Cache is set to 1GB.
 * Recommended 2GB ram for HD video 1080p and 2k. Cache is set to 512MB.
 * Recommended 512MB ram for SD video and music. Cache is set to 150MB.
 
-### Required dependencies:
+### Linux required dependencies:
 
 * yt-dlp version 2023.07.06 or higher.
 * mpv version 0.34.1 or higher.
@@ -50,7 +50,7 @@ yt-playlist does not login to YouTube or YTMusic or Google, does not use Google'
 * sed
 * tr
 
-### Optional dependencies:
+### Linux optional dependencies:
 
 * fx and wget For Billboard hot 100.
 * jemalloc for Arch linux 100% cpu fix.
