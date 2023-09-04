@@ -11,7 +11,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="v1.14"
+version="v1.15"
 
 #mainmenu
 
@@ -1392,7 +1392,7 @@ Choose an option:  "
         echo "Please wait."
         echo ""
         touch "${tmp_dir}/mpv_hd_running"
-        yt-dlp --no-warnings --quiet -f "bestvideo[vcodec^=avc1][height<=1080]/bestvideo[vcodec^=vp09][height<=1080]" "${yt_playlist_hd_url}" -o - 2>/dev/null | mpv ${mpv_hd_arguments[@]} --demuxer-max-bytes=256000KiB --demuxer-max-back-bytes=128000KiB --title="$yt_playlist_hd_title" --audio-file=<(yt-dlp --no-warnings --quiet -f 251/140/ba "${yt_playlist_hd_url}" -o - 2>/dev/null) -
+        yt-dlp --no-warnings --quiet -f "bestvideo[vcodec^=avc1][height<=1080]/bestvideo[vcodec^=vp09][height<=1080]" "${yt_playlist_hd_url}" -o - 2>/dev/null | mpv ${mpv_hd_arguments[@]} --demuxer-donate-buffer=no --demuxer-max-bytes=256000KiB --demuxer-max-back-bytes=128000KiB --title="$yt_playlist_hd_title" --audio-file=<(yt-dlp --no-warnings --quiet -f 251/140/ba "${yt_playlist_hd_url}" -o - 2>/dev/null) -
         rm "${tmp_dir}/mpv_hd_running"
         play_hd_menu_function
         else
@@ -1426,7 +1426,7 @@ Choose an option:  "
         echo "Please wait."
         echo ""
         touch "${tmp_dir}/mpv_hd_running"
-        yt-dlp --no-warnings --quiet -f "bestvideo[vcodec^=av01][height<=1440]/bestvideo[vcodec^=vp09][height<=1440]" "${yt_playlist_hd_url}" -o - 2>/dev/null | mpv ${mpv_hd_arguments[@]} --demuxer-max-bytes=512000KiB --demuxer-max-back-bytes=256000KiB --title="$yt_playlist_hd_title" --audio-file=<(yt-dlp --no-warnings --quiet -f 251/140/ba "${yt_playlist_hd_url}" -o - 2>/dev/null) -
+        yt-dlp --no-warnings --quiet -f "bestvideo[vcodec^=av01][height<=1440]/bestvideo[vcodec^=vp09][height<=1440]" "${yt_playlist_hd_url}" -o - 2>/dev/null | mpv ${mpv_hd_arguments[@]} --demuxer-donate-buffer=no --demuxer-max-bytes=512000KiB --demuxer-max-back-bytes=256000KiB --title="$yt_playlist_hd_title" --audio-file=<(yt-dlp --no-warnings --quiet -f 251/140/ba "${yt_playlist_hd_url}" -o - 2>/dev/null) -
         rm "${tmp_dir}/mpv_hd_running"
         play_hd_menu_function
         else
@@ -1460,7 +1460,7 @@ Choose an option:  "
         echo "Please wait."
         echo ""
         touch "${tmp_dir}/mpv_hd_running"
-        yt-dlp --no-warnings --quiet -f "bestvideo[vcodec^=av01][height<=2160]/bestvideo[vcodec^=vp09][height<=2160]" "${yt_playlist_hd_url}" -o - 2>/dev/null | mpv ${mpv_hd_arguments[@]} --demuxer-max-bytes=768000KiB --demuxer-max-back-bytes=384000KiB --title="$yt_playlist_hd_title" --audio-file=<(yt-dlp --no-warnings --quiet -f 251/140/ba "${yt_playlist_hd_url}" -o - 2>/dev/null) -
+        yt-dlp --no-warnings --quiet -f "bestvideo[vcodec^=av01][height<=2160]/bestvideo[vcodec^=vp09][height<=2160]" "${yt_playlist_hd_url}" -o - 2>/dev/null | mpv ${mpv_hd_arguments[@]} --demuxer-donate-buffer=no --demuxer-max-bytes=768000KiB --demuxer-max-back-bytes=384000KiB --title="$yt_playlist_hd_title" --audio-file=<(yt-dlp --no-warnings --quiet -f 251/140/ba "${yt_playlist_hd_url}" -o - 2>/dev/null) -
         rm "${tmp_dir}/mpv_hd_running"
         play_hd_menu_function
         else
@@ -1494,7 +1494,7 @@ Choose an option:  "
         echo "Please wait."
         echo ""
         touch "${tmp_dir}/mpv_hd_running"
-        yt-dlp --no-warnings --quiet -f "bestvideo[vcodec^=av01][height<=4320]/bestvideo[vcodec^=vp09][height<=4320]" "${yt_playlist_hd_url}" -o - 2>/dev/null | mpv ${mpv_hd_arguments[@]} --demuxer-max-bytes=1000000KiB --demuxer-max-back-bytes=500000KiB --title="$yt_playlist_hd_title" --audio-file=<(yt-dlp --no-warnings --quiet -f 251/140/ba "${yt_playlist_hd_url}" -o - 2>/dev/null) -
+        yt-dlp --no-warnings --quiet -f "bestvideo[vcodec^=av01][height<=4320]/bestvideo[vcodec^=vp09][height<=4320]" "${yt_playlist_hd_url}" -o - 2>/dev/null | mpv ${mpv_hd_arguments[@]} --demuxer-donate-buffer=no --demuxer-max-bytes=1000000KiB --demuxer-max-back-bytes=500000KiB --title="$yt_playlist_hd_title" --audio-file=<(yt-dlp --no-warnings --quiet -f 251/140/ba "${yt_playlist_hd_url}" -o - 2>/dev/null) -
         rm "${tmp_dir}/mpv_hd_running"
         play_hd_menu_function
         else

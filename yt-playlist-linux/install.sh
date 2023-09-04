@@ -2,11 +2,10 @@
 
         if command -v yt-dlp >/dev/null && command -v mpv >/dev/null && command -v ffmpeg >/dev/null && command -v fzf >/dev/null && command -v mutagen-inspect >/dev/null && command -v socat >/dev/null && command -v awk >/dev/null && command -v sed >/dev/null && command -v tr >/dev/null && command -v bash >/dev/null
         then
-        clear
         pkill yt-playlist
         pkill mpv
         echo "yt-playlist Linux installer."
-        echo "All dependencies were found." 
+        echo "All dependencies were found."
         sudo cp /tmp/yt-playlist/yt-playlist-linux/yt-playlist /usr/bin/
         sudo chmod +x /usr/bin/yt-playlist
         mkdir -p ${HOME}/.config/yt-playlist/

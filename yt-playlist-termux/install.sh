@@ -3,7 +3,6 @@
         
         if command -v yt-dlp >/dev/null && command -v mpv >/dev/null && command -v ffmpeg >/dev/null && command -v fzf >/dev/null && command -v mutagen-inspect >/dev/null && command -v socat >/dev/null && command -v fx >/dev/null && command -v wget >/dev/null
         then
-        clear
         pkill yt-playlist
         pkill mpv
         echo "yt-playlist Termux installer."
