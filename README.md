@@ -112,6 +112,8 @@ Install mutagen on Arch/Manjaro linux:<br>
 `sudo pacman -Syu python python-mutagen`<br>
 
 ### yt-playlist notes:
+* The Playlist menu: options 5,6 are slower finding YTM Albums and Playlists, good if you know what you looking for.
+* The Music menu: option 5 is also slower finding YTM music.
 * v1.3 Added the option to press "t" to show the date and time AM PM format when watching video or listening to music, all play menus.
 * You can now copy and paste the command to install the latest version of yt-playlist online.
 * I have made a offline installer of yt-playlist v1.1.
