@@ -104,7 +104,7 @@ To uninstall copy and paste this command into Termux:<br>
 ### Help guide.
 
 * Install the latest yt-dlp, download yt-dlp from GitHub https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp and "sudo cp yt-dlp /usr/bin/" and "sudo chmod +x /usr/bin/yt-dlp" "sudo apt install python3"
-* Installing mutagen, debian based Linux run this command "sudo apt update && sudo apt install python3 python3-mutagen"
+* Installing mutagen, debian based Linux run this command "sudo apt update; sudo apt install python3 python3-mutagen"
 * Arch linux install mutagen "sudo pacman -S python-mutagen"
 
 ### yt-playlist notes:
