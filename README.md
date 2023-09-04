@@ -34,9 +34,12 @@ yt-playlist does not login to YouTube or YTMusic or Google, does not use Google'
 * Should work on other flavors of linux.
 
 ### Linux ram requirements:
-* Recommended 3GB ram for HD video 4k and 8k. Cache is set to 1GB.
-* Recommended 2GB ram for HD video 1080p and 2k. Cache is set to 512MB.
-* Recommended 512MB ram for SD video and music. Cache is set to 150MB.
+* Recommended 4GB ram for HD video 8k. Cache is set to 2GB.
+* Recommended 3GB ram for HD video 4k. Cache is set to 1GB.
+* Recommended 3GB ram for HD video 2k. Cache is set to 750GB.
+* Recommended 2GB ram for HD video 1080o. Cache is set to 512MB.
+* Recommended 256MB ram for SD 720p. Cache is set to 50MB.
+* Recommended 128MB ram for Audio/music. Cache is set to 10MB.
 
 ### Linux required dependencies:
 * yt-dlp version 2023.07.06 or higher.
@@ -62,29 +65,29 @@ yt-playlist does not login to YouTube or YTMusic or Google, does not use Google'
 ### Upgrading
 Install on top of older versions.<br>
 
-### Online install yt-playlist v1.11 Linux version:
+### Online install yt-playlist v1.12 Linux version:
 To install copy and paste this command into the terminal:<br>
 
 Only install or uninstall under a user account. Must have sudo, curl and unzip installed.<br>
 
-`curl https://github.com/darnrain/yt-playlist/releases/download/v1.11/yt-playlist.zip -L -o /tmp/yt-playlist.zip; unzip -o /tmp/yt-playlist.zip -d /tmp/; sudo chmod +x /tmp/yt-playlist/yt-playlist-linux/install.sh; /tmp/yt-playlist/yt-playlist-linux/install.sh`<br>
+`curl https://github.com/darnrain/yt-playlist/releases/download/v1.12/yt-playlist.zip -L -o /tmp/yt-playlist.zip; unzip -o /tmp/yt-playlist.zip -d /tmp/; sudo chmod +x /tmp/yt-playlist/yt-playlist-linux/install.sh; /tmp/yt-playlist/yt-playlist-linux/install.sh`<br>
 
 To uninstall copy and paste this command into the terminal:<br>
 
-`curl https://github.com/darnrain/yt-playlist/releases/download/v1.11/yt-playlist.zip -L -o /tmp/yt-playlist.zip; unzip -o /tmp/yt-playlist.zip -d /tmp/; sudo chmod +x /tmp/yt-playlist/yt-playlist-linux/uninstall.sh; /tmp/yt-playlist/yt-playlist-linux/uninstall.sh`<br>
+`curl https://github.com/darnrain/yt-playlist/releases/download/v1.12/yt-playlist.zip -L -o /tmp/yt-playlist.zip; unzip -o /tmp/yt-playlist.zip -d /tmp/; sudo chmod +x /tmp/yt-playlist/yt-playlist-linux/uninstall.sh; /tmp/yt-playlist/yt-playlist-linux/uninstall.sh`<br>
 
 If you want to only press "y" to load yt-playlist copy and paste this command in the terminal:<br>
 
 `echo "alias y='yt-playlist'" >> ${HOME}/.bashrc; source ${HOME}/.bashrc`<br>
 
-### Online install yt-playlist v1.11 Termux version:
+### Online install yt-playlist v1.12 Termux version:
 To install copy and paste this command into Termux:<br>
 
-`curl https://github.com/darnrain/yt-playlist/releases/download/v1.11/yt-playlist.zip -L -o ${TMPDIR}/yt-playlist.zip; unzip -o ${TMPDIR}/yt-playlist.zip -d ${TMPDIR}/; chmod +x ${TMPDIR}/yt-playlist/yt-playlist-termux/install.sh; ${TMPDIR}/yt-playlist/yt-playlist-termux/install.sh`<br>
+`curl https://github.com/darnrain/yt-playlist/releases/download/v1.12/yt-playlist.zip -L -o ${TMPDIR}/yt-playlist.zip; unzip -o ${TMPDIR}/yt-playlist.zip -d ${TMPDIR}/; chmod +x ${TMPDIR}/yt-playlist/yt-playlist-termux/install.sh; ${TMPDIR}/yt-playlist/yt-playlist-termux/install.sh`<br>
 
 To uninstall copy and paste this command into Termux:<br>
 
-`curl https://github.com/darnrain/yt-playlist/releases/download/v1.11/yt-playlist.zip -L -o ${TMPDIR}/yt-playlist.zip; unzip -o ${TMPDIR}/yt-playlist.zip -d ${TMPDIR}/; chmod +x ${TMPDIR}/yt-playlist/yt-playlist-termux/uninstall.sh; ${TMPDIR}/yt-playlist/yt-playlist-termux/uninstall.sh`<br>
+`curl https://github.com/darnrain/yt-playlist/releases/download/v1.12/yt-playlist.zip -L -o ${TMPDIR}/yt-playlist.zip; unzip -o ${TMPDIR}/yt-playlist.zip -d ${TMPDIR}/; chmod +x ${TMPDIR}/yt-playlist/yt-playlist-termux/uninstall.sh; ${TMPDIR}/yt-playlist/yt-playlist-termux/uninstall.sh`<br>
 
 ### Command arguments:
 `yt-playlist --help`<br>
