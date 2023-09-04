@@ -11,7 +11,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="v1.15"
+version="v1.16"
 
 #mainmenu
 
@@ -324,6 +324,19 @@ fi
         stop_sleep_timer_function
         exit
         ;;
+ debug)
+        mpv_log_file_on_funciton
+        clear
+        echo "mpv log file is enabled."
+        echo "play video or audio to gen log."
+        echo "~/.config/yt-playlist/mpv_log_file.txt"
+        echo "Note: enabling debug again will delete"
+        echo "last mpv_log_file.txt created."
+        echo ""
+        printf "%s " "Press enter to continue"
+        read ans
+        main_menu_function
+        ;;        
    *)
         echo "Wrong option."
         sleep 0.3
@@ -384,7 +397,7 @@ Choose an option:  "
         echo "Please wait."
         echo ""
         touch "${tmp_dir}/mpv_video_running"
-        mpv ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=inf --shuffle=yes --playlist="${tmp_dir}/yt_playlist_url.txt"
+        mpv ${mpv_log_file_arguments[@]} ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=inf --shuffle=yes --playlist="${tmp_dir}/yt_playlist_url.txt"
         rm "${tmp_dir}/mpv_video_running"
         rm "${tmp_dir}/yt_playlist_url.txt"
         play_sd_menu_function
@@ -410,7 +423,7 @@ Choose an option:  "
         echo "Please wait."
         echo ""
         touch "${tmp_dir}/mpv_video_running"
-        mpv ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=no --shuffle=yes --playlist="${tmp_dir}/yt_playlist_url.txt"
+        mpv ${mpv_log_file_arguments[@]} ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=no --shuffle=yes --playlist="${tmp_dir}/yt_playlist_url.txt"
         rm "${tmp_dir}/mpv_video_running"
         rm "${tmp_dir}/yt_playlist_url.txt"
         play_sd_menu_function
@@ -450,7 +463,7 @@ Choose an option:  "
         echo "Please wait."
         echo ""
         touch "${tmp_dir}/mpv_video_running"
-        mpv ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=inf --shuffle=no --playlist-start="$yt_playlist_start" --playlist="${tmp_dir}/yt_playlist_url.txt"
+        mpv ${mpv_log_file_arguments[@]} ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=inf --shuffle=no --playlist-start="$yt_playlist_start" --playlist="${tmp_dir}/yt_playlist_url.txt"
         rm "${tmp_dir}/mpv_video_running"
         rm "${tmp_dir}/yt_playlist_url.txt"
         play_sd_menu_function
@@ -484,7 +497,7 @@ Choose an option:  "
         echo "Please wait."
         echo ""
         touch "${tmp_dir}/mpv_video_running"
-        mpv ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=no --shuffle=no --playlist-start="$yt_playlist_start" --playlist="${tmp_dir}/yt_playlist_url.txt"
+        mpv ${mpv_log_file_arguments[@]} ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=no --shuffle=no --playlist-start="$yt_playlist_start" --playlist="${tmp_dir}/yt_playlist_url.txt"
         rm "${tmp_dir}/mpv_video_running"
         rm "${tmp_dir}/yt_playlist_url.txt"
         play_sd_menu_function
@@ -555,7 +568,7 @@ fi
         echo "Please wait."
         echo ""
         touch "${tmp_dir}/mpv_video_running"
-        mpv ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=inf --shuffle=no --playlist="${tmp_dir}/yt_playlist_url.txt"
+        mpv ${mpv_log_file_arguments[@]} ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=inf --shuffle=no --playlist="${tmp_dir}/yt_playlist_url.txt"
         rm "${tmp_dir}/mpv_video_running"
         rm "${tmp_dir}/yt_playlist_url.txt"
         play_sd_menu_function
@@ -611,7 +624,7 @@ fi
         echo "Please wait."
         echo "" 
         touch "${tmp_dir}/mpv_video_running"
-        mpv ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=no --shuffle=no --playlist="${tmp_dir}/yt_playlist_url.txt"
+        mpv ${mpv_log_file_arguments[@]} ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=no --shuffle=no --playlist="${tmp_dir}/yt_playlist_url.txt"
         rm "${tmp_dir}/mpv_video_running"
         rm "${tmp_dir}/yt_playlist_url.txt"
         play_sd_menu_function
@@ -750,7 +763,7 @@ Choose an option:  "
         echo "Please wait."
         echo ""
         touch "${tmp_dir}/mpv_music_running"
-        mpv ${mpv_music_arguments[@]} --resume-playback=no --save-position-on-quit=no --loop-playlist=inf --shuffle=yes --playlist="${tmp_dir}/yt_playlist_url.txt"
+        mpv ${mpv_log_file_arguments[@]} ${mpv_music_arguments[@]} --resume-playback=no --save-position-on-quit=no --loop-playlist=inf --shuffle=yes --playlist="${tmp_dir}/yt_playlist_url.txt"
         rm "${tmp_dir}/mpv_music_running"
         rm "${tmp_dir}/yt_playlist_url.txt"
         play_music_menu_function
@@ -770,7 +783,7 @@ Choose an option:  "
         echo "Please wait."
         echo ""
         touch "${tmp_dir}/mpv_music_running"
-        mpv ${mpv_music_arguments[@]} --resume-playback=no --save-position-on-quit=no --shuffle=yes --playlist="${tmp_dir}/yt_playlist_url.txt"
+        mpv ${mpv_log_file_arguments[@]} ${mpv_music_arguments[@]} --resume-playback=no --save-position-on-quit=no --shuffle=yes --playlist="${tmp_dir}/yt_playlist_url.txt"
         rm "${tmp_dir}/mpv_music_running"
         rm "${tmp_dir}/yt_playlist_url.txt"
         play_music_menu_function
@@ -801,7 +814,7 @@ Choose an option:  "
         echo "Please wait."
         echo ""
         touch "${tmp_dir}/mpv_music_running"
-        mpv ${mpv_music_arguments[@]} --resume-playback=no --save-position-on-quit=no --loop-playlist=inf --shuffle=no --playlist-start="$yt_playlist_start" --playlist="${tmp_dir}/yt_playlist_url.txt"
+        mpv ${mpv_log_file_arguments[@]} ${mpv_music_arguments[@]} --resume-playback=no --save-position-on-quit=no --loop-playlist=inf --shuffle=no --playlist-start="$yt_playlist_start" --playlist="${tmp_dir}/yt_playlist_url.txt"
         rm "${tmp_dir}/mpv_music_running"
         rm "${tmp_dir}/yt_playlist_url.txt"
         play_music_menu_function
@@ -826,7 +839,7 @@ Choose an option:  "
         echo "Please wait."
         echo ""
         touch "${tmp_dir}/mpv_music_running"
-        mpv ${mpv_music_arguments[@]} --resume-playback=no --save-position-on-quit=no --loop-playlist=no --shuffle=no --playlist-start="$yt_playlist_start" --playlist="${tmp_dir}/yt_playlist_url.txt"
+        mpv ${mpv_log_file_arguments[@]} ${mpv_music_arguments[@]} --resume-playback=no --save-position-on-quit=no --loop-playlist=no --shuffle=no --playlist-start="$yt_playlist_start" --playlist="${tmp_dir}/yt_playlist_url.txt"
         rm "${tmp_dir}/mpv_music_running"
         rm "${tmp_dir}/yt_playlist_url.txt"
         play_music_menu_function
@@ -888,7 +901,7 @@ fi
         echo "Please wait."
         echo ""
         touch "${tmp_dir}/mpv_music_running"
-        mpv ${mpv_music_arguments[@]} --resume-playback=no --save-position-on-quit=no --loop-playlist=inf --shuffle=no --playlist="${tmp_dir}/yt_playlist_url.txt"
+        mpv ${mpv_log_file_arguments[@]} ${mpv_music_arguments[@]} --resume-playback=no --save-position-on-quit=no --loop-playlist=inf --shuffle=no --playlist="${tmp_dir}/yt_playlist_url.txt"
         rm "${tmp_dir}/mpv_music_running"
         rm "${tmp_dir}/yt_playlist_url.txt"
         play_music_menu_function
@@ -935,7 +948,7 @@ fi
         echo "Please wait."
         echo "" 
         touch "${tmp_dir}/mpv_music_running"
-        mpv ${mpv_music_arguments[@]} --resume-playback=no --save-position-on-quit=no --loop-playlist=no --shuffle=no --playlist="${tmp_dir}/yt_playlist_url.txt"
+        mpv ${mpv_log_file_arguments[@]} ${mpv_music_arguments[@]} --resume-playback=no --save-position-on-quit=no --loop-playlist=no --shuffle=no --playlist="${tmp_dir}/yt_playlist_url.txt"
         rm "${tmp_dir}/mpv_music_running"
         rm "${tmp_dir}/yt_playlist_url.txt"
         play_music_menu_function
@@ -1067,7 +1080,7 @@ Choose an option:  "
         echo "Please wait."
         echo ""
         touch "${tmp_dir}/mpv_bookmark_running"
-        mpv ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=inf --shuffle=yes --playlist="${tmp_dir}/yt_playlist_url.txt"
+        mpv ${mpv_log_file_arguments[@]} ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=inf --shuffle=yes --playlist="${tmp_dir}/yt_playlist_url.txt"
         rm "${tmp_dir}/mpv_bookmark_running"
         rm "${tmp_dir}/yt_playlist_url.txt"
         play_sd_bookmark_menu_function
@@ -1083,7 +1096,7 @@ Choose an option:  "
         echo "Please wait."
         echo ""
         touch "${tmp_dir}/mpv_bookmark_running"
-        mpv ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=no --shuffle=yes --playlist="${tmp_dir}/yt_playlist_url.txt"
+        mpv ${mpv_log_file_arguments[@]} ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=no --shuffle=yes --playlist="${tmp_dir}/yt_playlist_url.txt"
         rm "${tmp_dir}/mpv_bookmark_running"
         rm "${tmp_dir}/yt_playlist_url.txt"
         play_sd_bookmark_menu_function
@@ -1114,7 +1127,7 @@ Choose an option:  "
         echo "Please wait."
         echo ""
         touch "${tmp_dir}/mpv_bookmark_running"
-        mpv ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=inf --shuffle=no --playlist-start="$yt_playlist_start" --playlist="${tmp_dir}/yt_playlist_url.txt"
+        mpv ${mpv_log_file_arguments[@]} ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=inf --shuffle=no --playlist-start="$yt_playlist_start" --playlist="${tmp_dir}/yt_playlist_url.txt"
         rm "${tmp_dir}/mpv_bookmark_running"
         rm "${tmp_dir}/yt_playlist_url.txt"
         play_sd_bookmark_menu_function
@@ -1139,7 +1152,7 @@ Choose an option:  "
         echo "Please wait."
         echo ""
         touch "${tmp_dir}/mpv_bookmark_running"
-        mpv ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=no --shuffle=no --playlist-start="$yt_playlist_start" --playlist="${tmp_dir}/yt_playlist_url.txt"
+        mpv ${mpv_log_file_arguments[@]} ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=no --shuffle=no --playlist-start="$yt_playlist_start" --playlist="${tmp_dir}/yt_playlist_url.txt"
         rm "${tmp_dir}/mpv_bookmark_running"
         rm "${tmp_dir}/yt_playlist_url.txt"
         play_sd_bookmark_menu_function
@@ -1201,7 +1214,7 @@ fi
         echo "Please wait."
         echo ""
         touch "${tmp_dir}/mpv_bookmark_running"
-        mpv ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=inf --shuffle=no --playlist="${tmp_dir}/yt_playlist_url.txt"
+        mpv ${mpv_log_file_arguments[@]} ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=inf --shuffle=no --playlist="${tmp_dir}/yt_playlist_url.txt"
         rm "${tmp_dir}/mpv_bookmark_running"
         rm "${tmp_dir}/yt_playlist_url.txt"
         play_sd_bookmark_menu_function
@@ -1248,7 +1261,7 @@ fi
         echo "Please wait."
         echo "" 
         touch "${tmp_dir}/mpv_bookmark_running"
-        mpv ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=no --shuffle=no --playlist="${tmp_dir}/yt_playlist_url.txt"
+        mpv ${mpv_log_file_arguments[@]} ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=no --shuffle=no --playlist="${tmp_dir}/yt_playlist_url.txt"
         rm "${tmp_dir}/mpv_bookmark_running"
         rm "${tmp_dir}/yt_playlist_url.txt"
         play_sd_bookmark_menu_function
@@ -1392,7 +1405,7 @@ Choose an option:  "
         echo "Please wait."
         echo ""
         touch "${tmp_dir}/mpv_hd_running"
-        yt-dlp --no-warnings --quiet -f "bestvideo[vcodec^=avc1][height<=1080]/bestvideo[vcodec^=vp09][height<=1080]" "${yt_playlist_hd_url}" -o - 2>/dev/null | mpv ${mpv_hd_arguments[@]} --demuxer-donate-buffer=no --demuxer-max-bytes=256000KiB --demuxer-max-back-bytes=128000KiB --title="$yt_playlist_hd_title" --audio-file=<(yt-dlp --no-warnings --quiet -f 251/140/ba "${yt_playlist_hd_url}" -o - 2>/dev/null) -
+        yt-dlp --no-warnings --quiet -f "bestvideo[vcodec^=avc1][height<=1080]/bestvideo[vcodec^=vp09][height<=1080]" "${yt_playlist_hd_url}" -o - 2>/dev/null | mpv ${mpv_log_file_arguments[@]} ${mpv_hd_arguments[@]} --demuxer-donate-buffer=no --demuxer-max-bytes=256000KiB --demuxer-max-back-bytes=128000KiB --title="$yt_playlist_hd_title" --audio-file=<(yt-dlp --no-warnings --quiet -f 251/140/ba "${yt_playlist_hd_url}" -o - 2>/dev/null) -
         rm "${tmp_dir}/mpv_hd_running"
         play_hd_menu_function
         else
@@ -1426,7 +1439,7 @@ Choose an option:  "
         echo "Please wait."
         echo ""
         touch "${tmp_dir}/mpv_hd_running"
-        yt-dlp --no-warnings --quiet -f "bestvideo[vcodec^=av01][height<=1440]/bestvideo[vcodec^=vp09][height<=1440]" "${yt_playlist_hd_url}" -o - 2>/dev/null | mpv ${mpv_hd_arguments[@]} --demuxer-donate-buffer=no --demuxer-max-bytes=512000KiB --demuxer-max-back-bytes=256000KiB --title="$yt_playlist_hd_title" --audio-file=<(yt-dlp --no-warnings --quiet -f 251/140/ba "${yt_playlist_hd_url}" -o - 2>/dev/null) -
+        yt-dlp --no-warnings --quiet -f "bestvideo[vcodec^=av01][height<=1440]/bestvideo[vcodec^=vp09][height<=1440]" "${yt_playlist_hd_url}" -o - 2>/dev/null | mpv ${mpv_log_file_arguments[@]} ${mpv_hd_arguments[@]} --demuxer-donate-buffer=no --demuxer-max-bytes=512000KiB --demuxer-max-back-bytes=256000KiB --title="$yt_playlist_hd_title" --audio-file=<(yt-dlp --no-warnings --quiet -f 251/140/ba "${yt_playlist_hd_url}" -o - 2>/dev/null) -
         rm "${tmp_dir}/mpv_hd_running"
         play_hd_menu_function
         else
@@ -1460,7 +1473,7 @@ Choose an option:  "
         echo "Please wait."
         echo ""
         touch "${tmp_dir}/mpv_hd_running"
-        yt-dlp --no-warnings --quiet -f "bestvideo[vcodec^=av01][height<=2160]/bestvideo[vcodec^=vp09][height<=2160]" "${yt_playlist_hd_url}" -o - 2>/dev/null | mpv ${mpv_hd_arguments[@]} --demuxer-donate-buffer=no --demuxer-max-bytes=768000KiB --demuxer-max-back-bytes=384000KiB --title="$yt_playlist_hd_title" --audio-file=<(yt-dlp --no-warnings --quiet -f 251/140/ba "${yt_playlist_hd_url}" -o - 2>/dev/null) -
+        yt-dlp --no-warnings --quiet -f "bestvideo[vcodec^=av01][height<=2160]/bestvideo[vcodec^=vp09][height<=2160]" "${yt_playlist_hd_url}" -o - 2>/dev/null | mpv ${mpv_log_file_arguments[@]} ${mpv_hd_arguments[@]} --demuxer-donate-buffer=no --demuxer-max-bytes=768000KiB --demuxer-max-back-bytes=384000KiB --title="$yt_playlist_hd_title" --audio-file=<(yt-dlp --no-warnings --quiet -f 251/140/ba "${yt_playlist_hd_url}" -o - 2>/dev/null) -
         rm "${tmp_dir}/mpv_hd_running"
         play_hd_menu_function
         else
@@ -1494,7 +1507,7 @@ Choose an option:  "
         echo "Please wait."
         echo ""
         touch "${tmp_dir}/mpv_hd_running"
-        yt-dlp --no-warnings --quiet -f "bestvideo[vcodec^=av01][height<=4320]/bestvideo[vcodec^=vp09][height<=4320]" "${yt_playlist_hd_url}" -o - 2>/dev/null | mpv ${mpv_hd_arguments[@]} --demuxer-donate-buffer=no --demuxer-max-bytes=1000000KiB --demuxer-max-back-bytes=500000KiB --title="$yt_playlist_hd_title" --audio-file=<(yt-dlp --no-warnings --quiet -f 251/140/ba "${yt_playlist_hd_url}" -o - 2>/dev/null) -
+        yt-dlp --no-warnings --quiet -f "bestvideo[vcodec^=av01][height<=4320]/bestvideo[vcodec^=vp09][height<=4320]" "${yt_playlist_hd_url}" -o - 2>/dev/null | mpv ${mpv_log_file_arguments[@]} ${mpv_hd_arguments[@]} --demuxer-donate-buffer=no --demuxer-max-bytes=1000000KiB --demuxer-max-back-bytes=500000KiB --title="$yt_playlist_hd_title" --audio-file=<(yt-dlp --no-warnings --quiet -f 251/140/ba "${yt_playlist_hd_url}" -o - 2>/dev/null) -
         rm "${tmp_dir}/mpv_hd_running"
         play_hd_menu_function
         else
@@ -2495,6 +2508,18 @@ function mpv_music_arguments_function ()
 mpv_music_arguments=( "${mpv_music_audio}" --config-dir="${yt_playlist_home_dir}" --script-opts=ytdl_hook-try_ytdl_first=yes --term-playing-msg='${media-title}' --cache=yes --sid=no --volume=95 --volume-max=100 --ao=pulse --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket")
 }
 
+function mpv_log_file_on_funciton ()
+{
+rm ${yt_playlist_home_dir}/mpv_log_file.txt
+mpv_log_file_arguments=( --log-file=${yt_playlist_home_dir}/mpv_log_file.txt )
+}
+
+function mpv_log_file_off_funciton ()
+{
+unset mpv_log_file_arguments
+}
+
+
 function title_function ()
 {
         unset yt_playlist_results
@@ -2772,6 +2797,11 @@ echo "subscriptions.csv"
 echo "music-library-songs.csv"     
 echo 'Example: "yt-playlist --import /home/user/subscriptions.csv"'
 echo ""
+echo "debug"
+echo 'At Main menu type: "debug"'
+echo "then play video/audio"
+echo "~/.config/mpv_log_file.txt"
+echo""
 echo "When playing Audio/Video."
 echo "Right arrow for FF"
 echo "Left arrow for RR"
@@ -2949,6 +2979,7 @@ fi
 mpv_video_fullscreen_off_function
 mpv_video_gpu_off_function
 resume_playback_off_function
+mpv_log_file_off_funciton
 mpv_music_m4a_function
 mpv_video_m4a_function
 main_menu_function
