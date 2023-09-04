@@ -112,7 +112,7 @@ Install mutagen on Arch/Manjaro linux:<br>
 `sudo pacman -Syu python python-mutagen`<br>
 
 Uninstalling yt-playlist:<br>
-When uninstalling yt-playlist the ~/.config/yt-playlist/ directory does not get deleted, so your favorites bookmarks music and history are not deleted by accident. Run this command to delete the ~/.config/yt-playlist/ directory.<br>
+When uninstalling yt-playlist the ~/.config/yt-playlist/ directory does not get deleted, so your favorites, bookmarks, music and history are not deleted by accident. Run this command to delete the ~/.config/yt-playlist/ directory.<br>
 `rm -R ${HOME}/.config/yt-playlist/`<br>
 
 ### yt-playlist notes:
