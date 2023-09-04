@@ -58,8 +58,8 @@ yt-playlist does not login to YouTube or YTMusic or Google, does not use Google'
 * jemalloc for Arch/Manjaro linux 100% cpu fix.
 
 ### Notes:
-* If having trouble installing latest version of yt-dlp see help guide down below.
-* If having trouble installing mutagen see help guide down below.
+* See guide down below for installing latest version of yt-dlp.
+* See guide down below for installing mutagen.
 * The Termux installer will install all the dependencies including the optional dependencies, enable volume keys, and you can press "y" to load yt-playlist.
 
 ### Upgrading
