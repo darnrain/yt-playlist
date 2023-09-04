@@ -103,9 +103,17 @@ To uninstall copy and paste this command into Termux:<br>
 
 ### Help guide.
 
-* Install the latest yt-dlp, download yt-dlp from GitHub https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp and "sudo cp yt-dlp /usr/bin/" and "sudo chmod +x /usr/bin/yt-dlp" "sudo apt update; sudo apt install python3"
-* Installing mutagen, debian based Linux run this command "sudo apt update; sudo apt install python3 python3-mutagen"
-* Arch linux install mutagen "sudo pacman -S python-mutagen"
+Install the latest yt-dlp:<br>
+download yt-dlp from GitHub https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp<br>
+`sudo cp yt-dlp /usr/bin/`<br>
+`sudo chmod +x /usr/bin/yt-dlp`<br>
+`sudo apt update; sudo apt install python3`<br>
+
+Install mutagen on debian based Linux:<br>
+`sudo apt update; sudo apt install python3 python3-mutagen<br>`
+
+Install mutagen on Arch linux:<br>
+`sudo pacman -S python-mutagen`<br>
 
 ### yt-playlist notes:
 * v1.3 Added the option to press "t" to show the date and time AM PM format when watching video or listening to music, all play menus.
