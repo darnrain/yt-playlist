@@ -32,7 +32,7 @@ yt-playlist does not login to YouTube or YTMusic or Google, does not use Google'
 * yt-playlist will not work on Ubuntu, because of the snap permissions.
 
 ### Tested operating systems.
-* Working on the latest Arch Linux, Linux Mint and Termux.
+* Working on the latest Arch Linux, Linux Mint MX-Linux and Termux.
 * Should work on other flavors of linux.
 
 ### Linux ram requirements:
@@ -64,6 +64,7 @@ yt-playlist does not login to YouTube or YTMusic or Google, does not use Google'
 * Architecture does not matter.
 * yt-playlist installer will check and let you know if you need to install any dependencies.
 * If having trouble installing latest version of yt-dlp see help guide down below.
+* If having trouble installing mutagen see help guide.
 * The Termux installer will install all the dependencies including the optional dependencies, enable volume keys, and you can press "y" to load yt-playlist.
 
 ### Upgrading
@@ -104,8 +105,8 @@ To uninstall copy and paste this command into Termux:<br>
 
 ### Help guide.
 
-* Install the latest yt-dlp, download yt-dlp from GitHub https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp and "sudo cp yt-dlp /usr/bin/" and "sudo chmod +x /usr/bin/yt-dlp". Must have python 3 installed.
-* I have a raspberry pi 3b+ I could not get yt-playlist to play on raspberry Pi OS, and it's because mpv is out of date v0.32.0. You need at least version 0.34.1
+* Install the latest yt-dlp, download yt-dlp from GitHub https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp and "sudo cp yt-dlp /usr/bin/" and "sudo chmod +x /usr/bin/yt-dlp" "sudo apt install python3"
+Installing mutagen, debian based Linux run this command "sudo apt install python3 python3-mutagen"
 
 ### yt-playlist notes:
 * v1.3 Added the option to press "t" to show the date and time AM PM format when watching video or listening to music, all play menus.
