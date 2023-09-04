@@ -11,7 +11,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: /sdcard/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 yt_video_number="1:100"
-version="v1.11"
+version="v1.12"
 
 #mainmenu
 
@@ -1737,17 +1737,9 @@ fi
 
 function pulse_function ()
 {
-if [[ $(pgrep -c pulseaudio) -gt 0 ]]
-then
 pkill -9 pulseaudio
 pulseaudio -D --exit-idle-time=600
-pactl -- set-sink-volume @DEFAULT_SINK@ 100%
 $1 $2 $3 $4 $5 $6 $7 $8 $9 ${10} ${11} ${12} ${13} ${14} ${15} ${16} ${17} ${18} ${19} ${20} ${21} ${22} ${23}
-else
-pulseaudio -D --exit-idle-time=600
-pactl -- set-sink-volume @DEFAULT_SINK@ 100%
-$1 $2 $3 $4 $5 $6 $7 $8 $9 ${10} ${11} ${12} ${13} ${14} ${15} ${16} ${17} ${18} ${19} ${20} ${21} ${22} ${23}
-fi
 }
 
 function sleep_timer_count_down_function ()
@@ -2046,7 +2038,7 @@ function play_sd_menu_bookmark_menu_hud_function ()
 
 function mpv_video_m4a_function ()
 {
-mpv_audio_video=( "--ytdl-format=22/18/b --video=no" )
+mpv_audio_video=( "--ytdl-format=22/18/b --video=no --demuxer-max-bytes=10000KiB --term-osd-bar" )
 mpv_video_m4a="yes"
 unset mpv_video_opus
 export audio_download_format="140/ba"
@@ -2056,7 +2048,7 @@ mpv_video_arguments_function
 
 function mpv_video_opus_function ()
 {
-mpv_audio_video=( "--ytdl-format=251/140/ba --video=no" )
+mpv_audio_video=( "--ytdl-format=251/140/ba --video=no --demuxer-max-bytes=10000KiB --term-osd-bar" )
 unset mpv_video_m4a
 mpv_video_opus="yes"
 export audio_download_format="251/ba"
@@ -2066,7 +2058,7 @@ mpv_video_arguments_function
 
 function mpv_video_arguments_function ()
 {
-mpv_video_arguments=( "${mpv_audio_video}" --config-dir="${yt_playlist_home_dir}" --script-opts=ytdl_hook-try_ytdl_first=yes --term-playing-msg='${media-title}' --cache=yes --cache-secs=120 --sid=no --volume=95 --volume-max=100 --ao=pulse --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --term-osd-bar --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket")
+mpv_video_arguments=( "${mpv_audio_video}" --config-dir="${yt_playlist_home_dir}" --script-opts=ytdl_hook-try_ytdl_first=yes --term-playing-msg='${media-title}' --cache=yes --sid=no --volume=95 --volume-max=100 --ao=pulse --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket")
 }
 
 function resume_playback_on_function ()
@@ -2083,7 +2075,7 @@ unset resume_playback_on_or_off
 
 function mpv_music_m4a_function ()
 {
-mpv_music_audio=( "--ytdl-format=22/18/b --video=no" )
+mpv_music_audio=( "--ytdl-format=22/18/b --video=no --demuxer-max-bytes=10000KiB --term-osd-bar" )
 mpv_music_m4a="yes"
 unset mpv_music_opus
 export music_download_format="140/ba"
@@ -2092,7 +2084,7 @@ mpv_music_arguments_function
 
 function mpv_music_opus_function ()
 {
-mpv_music_audio=( "--ytdl-format=251/140/ba --video=no" )
+mpv_music_audio=( "--ytdl-format=251/140/ba --video=no --demuxer-max-bytes=10000KiB --term-osd-bar" )
 unset mpv_music_m4a
 mpv_music_opus="yes"
 export music_download_format="251/ba"
@@ -2101,7 +2093,7 @@ mpv_music_arguments_function
 
 function mpv_music_arguments_function ()
 {
-mpv_music_arguments=( "${mpv_music_audio}" --config-dir="${yt_playlist_home_dir}" --script-opts=ytdl_hook-try_ytdl_first=yes --term-playing-msg='${media-title}' --cache=yes --cache-secs=120 --sid=no --volume=95 --volume-max=100 --ao=pulse --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --term-osd-bar --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket")
+mpv_music_arguments=( "${mpv_music_audio}" --config-dir="${yt_playlist_home_dir}" --script-opts=ytdl_hook-try_ytdl_first=yes --term-playing-msg='${media-title}' --cache=yes --sid=no --volume=95 --volume-max=100 --ao=pulse --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket")
 }
 
 function title_function ()
