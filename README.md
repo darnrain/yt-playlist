@@ -46,6 +46,7 @@ yt-playlist does not login to YouTube or YTMusic or Google, does not use Google'
 * yt-dlp version 2023.07.06 or higher.
 * mpv version 0.34.1 or higher.
 * ffmpeg
+* mutagen
 * bash
 * fzf
 * socat
@@ -57,8 +58,7 @@ yt-playlist does not login to YouTube or YTMusic or Google, does not use Google'
 
 * fx and wget For Billboard hot 100.
 * jemalloc for Arch linux 100% cpu fix.
-* mutagen for embedded thumbnails in opus audio files.
-
+* 
 ### Notes:
 
 * Architecture does not matter.
