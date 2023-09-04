@@ -116,7 +116,7 @@ Install mutagen on debian based Linux:<br>
 `sudo apt update; sudo apt install python3 python3-mutagen`<br>
 
 Install mutagen on Arch linux:<br>
-`sudo pacman -S python python-mutagen`<br>
+`sudo pacman -Syu python python-mutagen`<br>
 
 ### yt-playlist notes:
 * v1.3 Added the option to press "t" to show the date and time AM PM format when watching video or listening to music, all play menus.
