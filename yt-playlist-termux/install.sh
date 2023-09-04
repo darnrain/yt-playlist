@@ -1,8 +1,9 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
         
-        if command -v fzf == *fzf >/dev/null && command -v mpv == *mpv >/dev/null && command -v yt-dlp == *yt-dlp >/dev/null && command -v socat == *socat >/dev/null
+        if command -v yt-dlp >/dev/null && command -v mpv >/dev/null && command -v ffmpeg >/dev/null && command -v fzf >/dev/null && command -v mutagen-inspect >/dev/null && command -v socat >/dev/null && command -v fx >/dev/null && command -v wget >/dev/null
         then
+        clear
         pkill yt-playlist
         pkill mpv
         echo "yt-playlist Termux installer."
@@ -38,6 +39,7 @@
         yes|pkg upgrade
         yes|pkg install fzf
         yes|pkg install mpv
+        yes|pkg install ffmpeg
         yes|pkg install socat
         yes|pkg install fx
         yes|pkg install wget
@@ -48,10 +50,7 @@
         echo "alias y='yt-playlist'" >> ${HOME}/.bashrc
         sed -i '/# volume-keys/s/^#//' /data/data/com.termux/files/home/.termux/termux.properties
         clear
-        pkill yt-playlist
-        pkill mpv
-        echo "yt-playlist Termux installer."
-        echo "All dependencies were found."
+        echo "All dependencies are now installed."
         cp /data/data/com.termux/files/usr/tmp/yt-playlist/yt-playlist-termux/yt-playlist /data/data/com.termux/files/usr/bin/
         chmod +x /data/data/com.termux/files/usr/bin/yt-playlist
         mkdir -p ${HOME}/.config/yt-playlist/

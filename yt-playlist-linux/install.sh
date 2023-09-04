@@ -1,7 +1,8 @@
 #!/bin/sh
 
-        if command -v fzf == *fzf >/dev/null && command -v mpv == *mpv >/dev/null && command -v yt-dlp == *yt-dlp >/dev/null && command -v socat == *socat >/dev/null && command -v awk == *awk >/dev/null && command -v sed == *sed >/dev/null && command -v tr == *tr >/dev/null && command -v bash == *bash >/dev/null
+        if command -v yt-dlp >/dev/null && command -v mpv >/dev/null && command -v ffmpeg >/dev/null && command -v fzf >/dev/null && command -v mutagen-inspect >/dev/null && command -v socat >/dev/null && command -v awk >/dev/null && command -v sed >/dev/null && command -v tr >/dev/null && command -v bash >/dev/null
         then
+        clear
         pkill yt-playlist
         pkill mpv
         echo "yt-playlist Linux installer."
@@ -26,11 +27,14 @@
         clear
         echo "Not all dependencies were found."
         echo "yt-playlist Linux dependencies are"
-        echo "fzf,mpv,yt-dlp,socat,awk,sed,tr,bash"
+        echo "yt-dlp,mpv,ffmpeg,fzf,mutagen-inspect,socat,awk,sed,tr,bash"
+        echo "Note: mutagen-inspect = mutagen."
         echo ""
-        command -V fzf
-        command -V mpv
         command -V yt-dlp
+        command -V mpv
+        command -V ffmpeg
+        command -V fzf
+        command -V mutagen-inspect
         command -V socat
         command -V awk
         command -V sed
