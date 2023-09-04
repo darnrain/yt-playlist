@@ -46,6 +46,7 @@ yt-playlist does not login to YouTube or YTMusic or Google, does not use Google'
 * yt-dlp version 2023.07.06 or higher.
 * mpv version 0.34.1 or higher.
 * bash
+* ffmpeg
 * fzf
 * socat
 * awk
