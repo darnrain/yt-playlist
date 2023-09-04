@@ -32,7 +32,7 @@ yt-playlist does not login to YouTube or YTMusic or Google, does not use Google'
 * yt-playlist will not work on Ubuntu, because of the snap permissions.
 
 ### Tested operating systems.
-* Working on the latest Arch Linux, Linux Mint MX-Linux and Termux.
+* Working on the latest Arch Linux, Linux Mint, MX-Linux and Termux.
 * Should work on other flavors of linux.
 
 ### Linux ram requirements:
