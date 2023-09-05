@@ -148,7 +148,7 @@ https://github.com/junegunn/fzf
 billboard-hot-100<br>
 https://github.com/mhollingshead/billboard-hot-100
 
-fx
+fx<br>
 https://github.com/antonmedv/fx
 
 NewPipe<br>
