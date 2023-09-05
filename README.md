@@ -126,8 +126,7 @@ When uninstalling yt-playlist the ~/.config/yt-playlist/ directory does not get 
 * You can now copy and paste the command to install the latest version of yt-playlist online.
 * I have made a offline installer of yt-playlist v1.1.
 * Subtitles are disabled by default. I had trouble getting them working on every video.
-* You do not need to enable resume playback for the playback position to be saved. By default yt-playlist saves the resume position when you quit a video or music. Only works 
-* in the Play SD menu and the Play SD bookmark menu.
+* You do not need to enable resume playback for the playback position to be saved. By default yt-playlist saves the resume position when you quit a video or music. Only works in the Play SD menu and the Play SD bookmark menu.
 * When playing video/music if you have opus enabled and then press "d" to download audio, yt-playlist will download the opus file.
 * When opus is enabled and playing video, the audio will be throttled, only affects the cache fill rate and if you want to FF. When playing music with opus, the audio is not throttled. When using aac audio, the video/music is not throttled.
 * When watching video in the Play SD menu or the Play SD bookmark menu, the 720p video is not throttled.
