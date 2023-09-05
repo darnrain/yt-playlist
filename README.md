@@ -3,7 +3,7 @@ A YouTube and YTMusic TUI player, for Linux and Termux, written in bash.<br>
 
 yt-playlist does not login to YouTube or YTMusic or Google, does not use Google's api, no logging or spyware. Only uses yt-dlp, mpv and fzf to operate. Your History, favorites and bookmarks files are stored on the hard drive at "~/.config/yt-playlist/".<br>
 
-### Features
+### Features:
 * Stream YouTube video up to 8k 60 FPS.
 * 1080p 60 FPS video defaults to h264.
 * Enable HW GPU in mpv player.
@@ -98,7 +98,7 @@ To uninstall copy and paste this command into Termux:<br>
 `yt-playlist --version`<br>
 `yt-playlist --import`<br>
 
-### Help guide.
+### Help guide:
 Install the latest yt-dlp:<br>
 download yt-dlp from GitHub https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp<br>
 `sudo cp yt-dlp /usr/bin/`<br>
