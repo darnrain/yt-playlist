@@ -6,6 +6,7 @@
         pkill mpv
         echo "yt-playlist Linux installer."
         echo "All dependencies were found."
+        echo ""
         sudo cp /tmp/yt-playlist/yt-playlist-linux/yt-playlist /usr/bin/
         sudo chmod +x /usr/bin/yt-playlist
         mkdir -p ${HOME}/.config/yt-playlist/
