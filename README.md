@@ -135,6 +135,8 @@ When uninstalling yt-playlist the ~/.config/yt-playlist/ directory does not get 
 * If you want to get stats when mpv player is playing. Press shift "i"
 * Sleep timer, when the count down timer get's to 0 your volume will be slowly lowered to 0% then pause mpv, then it will restore your volume level back to the same level it was at before yt-playlist lowered it to 0%. You can cancel sleep timer at anytime, even if the volume is being lowered.
 
+### Backstory:
+I started working on yt-playlist about 5 months ago, originally it was a Termux version only. I wanted a way of playing YouTube in the background with Termux on my phone. About 2 months into making yt-playlist I installed it on my Thinkpad running Arch Linux. That’s when I got the idea of using mpv to play video on Linux. On Termux you cant play video, it’s audio/music only. I guess it just progressed from there, once I had yt-playlist on my laptop. I would say that yt-playlist is about 95% completed it’s defiantly not in beta anymore. I hope you enjoy using yt-playlist as much as I do.<br>
 
 ### Credits, A Special Thank You
 yt-dlp<br>
