@@ -67,7 +67,7 @@ yt-playlist does not login to YouTube or YTMusic or Google, does not use Google'
 Install on top of older versions.<br>
 
 ### Online install yt-playlist v1.20 Linux version:
-To downgrade change the version number.<br>
+To downgrade, just change the version number in the install commands.<br>
 Only install or uninstall under a user account. Must have sudo, curl and unzip installed.<br>
 
 To install copy and paste this command into the terminal:<br>
@@ -83,7 +83,7 @@ If you want to only press "y" to load yt-playlist copy and paste this command in
 `echo "alias y='yt-playlist'" >> ${HOME}/.bashrc; source ${HOME}/.bashrc`<br>
 
 ### Online install yt-playlist v1.20 Termux version:
-To downgrade change the version number.<br>
+To downgrade, just change the version number in the install commands.<br>
 
 To install copy and paste this command into Termux:<br>
 
