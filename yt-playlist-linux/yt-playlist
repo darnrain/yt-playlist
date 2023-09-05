@@ -11,7 +11,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="v1.20"
+version="v1.21"
 
 #mainmenu
 
@@ -1011,7 +1011,7 @@ fi
         play_music_menu_function
         ;;
     8)  
-        if command -v fx == *fx >/dev/null && command -v wget == *wget >/dev/null
+        if command -v fx >/dev/null && command -v wget >/dev/null
         then
         wget -O ${yt_playlist_home_dir}/top100.json https://raw.githubusercontent.com/mhollingshead/billboard-hot-100/main/recent.json
         fx ${yt_playlist_home_dir}/top100.json
