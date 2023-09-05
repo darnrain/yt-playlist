@@ -11,7 +11,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: /sdcard/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 yt_video_number="1:100"
-version="v1.19"
+version="v1.20"
 
 #mainmenu
 
@@ -2145,7 +2145,7 @@ function results_function ()
         else
         clear
         echo "Please wait."
-        yt_playlist_results=$(yt-dlp --no-warnings --quiet --flat-playlist -I "$yt_video_number" --print "%(url)s Video: %(duration>%H:%M:%S)s - %(title)s" "https://www.youtube.com/channel/${yt_playlist_id}/videos" | sed '/Private video/d' | sed '/Deleted video/d' | sed 's/|//g' | tr -s '[:space:]' | nl -n"ln" -w2 -s " " 2>/dev/null)
+        yt_playlist_results=$(yt-dlp --no-warnings --quiet --flat-playlist -I "$yt_video_number" --print "%(url)s Video: %(title)s" "https://www.youtube.com/channel/${yt_playlist_id}/videos" | sed '/Private video/d' | sed '/Deleted video/d' | sed 's/|//g' | tr -s '[:space:]' | nl -n"ln" -w2 -s " " 2>/dev/null)
         yt_playlist_total_number=$(echo "${yt_playlist_results}" | wc -l)
         yt_playlist_total="Channel results: $yt_playlist_total_number"
         export bookmark_video_or_music="Video:"
@@ -2175,7 +2175,7 @@ fi
         else
         clear
         echo "Please wait."
-        yt_playlist_results=$(yt-dlp --no-warnings --quiet --flat-playlist -I "$yt_video_number" --print "%(url)s Video: %(duration>%H:%M:%S)s - %(title)s" "https://youtube.com/playlist?list=${yt_playlist_id}" | sed '/Private video/d' | sed '/Deleted video/d' | sed 's/|//g' | tr -s '[:space:]' | nl -n"ln" -w2 -s " " 2>/dev/null)
+        yt_playlist_results=$(yt-dlp --no-warnings --quiet --flat-playlist -I "$yt_video_number" --print "%(url)s Video: %(title)s" "https://youtube.com/playlist?list=${yt_playlist_id}" | sed '/Private video/d' | sed '/Deleted video/d' | sed 's/|//g' | tr -s '[:space:]' | nl -n"ln" -w2 -s " " 2>/dev/null)
         yt_playlist_total_number=$(echo "${yt_playlist_results}" | wc -l)
         yt_playlist_total="Playlist results: $yt_playlist_total_number"
         export bookmark_video_or_music="Video:"
