@@ -120,7 +120,7 @@ When uninstalling yt-playlist the ~/.config/yt-playlist/ directory does not get 
 
 ### yt-playlist notes:
 * The Playlist menu: options 5,6 are slower finding YTMusic Albums and YTMusic Playlists, if you do a search for 20 or less it's not that bad.
-* The Music menu: option 5 is also slower finding YTM music.
+* The YTMusic menu: option 5 is also slower searching for music.
 * The YT playlist search and YT channel search are very fast also get channel playlists is fast.
 * v1.3 Added the option to press "t" to show the date and time AM PM format when watching video or listening to music, all play menus.
 * You can now copy and paste the command to install the latest version of yt-playlist online.
