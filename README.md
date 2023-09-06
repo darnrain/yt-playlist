@@ -14,6 +14,8 @@ No spyware or adware. Respects your privacy. Does not login to YouTube, YouTube 
 
 ![Screenshot from 2023-09-06 07-30-18](https://github.com/darnrain/yt-playlist/assets/60840489/27aa54eb-c841-4229-9dde-7c5d5be440d7)
 
+8K video, my 2013 laptop says nooo. I wanted to show you a screenshot.
+
 ### Features:
 * Stream YouTube video up to 8k 60 FPS.
 * 1080p 60 FPS video defaults to h264.
