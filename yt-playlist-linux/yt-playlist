@@ -11,7 +11,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="v1.25"
+version="v1.26"
 
 #mainmenu
 
@@ -2039,10 +2039,10 @@ fi
 
 function check_internet_status_function ()
 {
+        echo "May take up to ten seconds."
+        sleep 1
 	if [[ $(ping -c 1 www.github.com 2>/dev/null) == *0%* ]]
         then
-        echo "May take up ten seconds."
-        sleep 1
         internet_status="yes"
         else
         unset internet_status
