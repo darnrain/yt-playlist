@@ -11,7 +11,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: /sdcard/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 yt_video_number="1:100"
-version="v1.27"
+version="v1.28"
 
 #mainmenu
 
@@ -2255,15 +2255,15 @@ function fast_music_search_function ()
 clear
 echo "Please wait."
 ytm_search_plus=$(echo "$ytm_search" | sed 's/ /+/g' )
-ytm_music_search=$(yt-dlp --flat-playlist --print "%(webpage_url)s Music: ${ytm_search} - %(title)s" -I ${ytm_search_number} "https://music.youtube.com/search?q=${ytm_search_plus}&sp=EgWKAQIIAWoKEAoQAxAEEAkQBQ" | sed 's/music.//g' 2>/dev/null)
+ytm_music_search=$(yt-dlp --flat-playlist --print "%(webpage_url)s Search: ${ytm_search} - %(title)s" -I ${ytm_search_number} "https://music.youtube.com/search?q=${ytm_search_plus}&sp=EgWKAQIIAWoKEAoQAxAEEAkQBQ" | sed 's/music.//g' 2>/dev/null)
 if [ -n "$ytm_music_search" ]
 then
 echo "${ytm_music_search}" >> "${yt_playlist_home_dir}/yt-playlist_music.txt"
 sed -i '/^$/d' "${yt_playlist_home_dir}/yt-playlist_music.txt"
 clear
 yt_music_results_number=$(echo "${ytm_music_search}" | wc -l)
-echo "A total of "$yt_music_results_number" songs were saved the music library."
-sleep 2
+echo "A total of "$yt_music_results_number" songs found."
+sleep 1
 fi
 }
 
@@ -2277,15 +2277,15 @@ if [ -n "$yt_music_url" ]
 then
 clear
 echo "Please wait, getting music information."
-ytm_music_search=$(yt-dlp --no-warnings --quiet --flat-playlist --print "%(webpage_url)s Music: %(creator)s - %(title)s" -I 1 ${yt_music_url} 2>/dev/null)
+ytm_music_search=$(yt-dlp --no-warnings --quiet --flat-playlist --print "%(webpage_url)s Artist: %(creator)s - %(title)s" -I 1 ${yt_music_url} 2>/dev/null)
 if [ -n "$ytm_music_search" ]
 then
 echo "${ytm_music_search}" >> "${yt_playlist_home_dir}/yt-playlist_music.txt"
 sed -i '/^$/d' "${yt_playlist_home_dir}/yt-playlist_music.txt"
 clear
 yt_music_results_number=$(echo "${ytm_music_search}" | wc -l)
-echo "A total of "$yt_music_results_number" songs were saved the music library."
-sleep 2
+echo "A total of "$yt_music_results_number" songs found."
+sleep 1
 fi
 fi
 }
