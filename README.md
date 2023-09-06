@@ -1,6 +1,6 @@
 ## Welcome to yt-playlist
 
-yt-playlist does not login to YouTube or YTMusic or Google, does not use Google's api, no logging or spyware. Only uses yt-dlp, mpv and fzf to operate. Your History, favorites and bookmarks files are stored on the hard drive at "~/.config/yt-playlist/".<br>
+yt-playlist does not login to YouTube or YTMusic or Google, does not use Google's api, no logging or spyware.
 
 ### Features:
 * Stream YouTube video up to 8k 60 FPS.
