@@ -4,9 +4,11 @@
         then
         pkill yt-playlist
         pkill mpv
-        echo "yt-playlist Linux installer."
+        echo "==========================="
+        echo "Linux installer yt-playlist."
+        echo "==========================="
         echo "All dependencies were found."
-        echo ""
+        echo "==========================="
         sudo cp /tmp/yt-playlist/yt-playlist-linux/yt-playlist /usr/bin/
         sudo chmod +x /usr/bin/yt-playlist
         mkdir -p ${HOME}/.config/yt-playlist/
@@ -22,14 +24,18 @@
         echo "f run /usr/bin/yt-playlist --favorites" >> ${HOME}/.config/yt-playlist/input.conf
         echo "t run /usr/bin/yt-playlist --date_time" >> ${HOME}/.config/yt-playlist/input.conf
         echo 'Type "yt-playlist" to run program.'
+        echo "==========================="
         exit
         else
         clear
+        echo "==========================="
         echo "Not all dependencies were found."
-        echo "yt-playlist Linux dependencies are"
+        echo "==========================="
+        echo "Linux dependencies are:"
         echo "yt-dlp,mpv,ffmpeg,fzf,mutagen-inspect,socat,awk,sed,tr,bash"
-        echo "Note: mutagen-inspect = mutagen."
-        echo ""
+        echo "==========================="
+        echo "Note: mutagen-inspect = mutagen"
+        echo "==========================="
         command -V yt-dlp
         command -V mpv
         command -V ffmpeg
@@ -40,7 +46,9 @@
         command -V sed
         command -V tr
         command -V bash
-        echo ""
-        echo "Please install the missing dependencies and run install again."
+        echo "==========================="
+        echo "Please install the missing"
+        echo "dependencies and run install again."
+        echo "==========================="
         exit
         fi

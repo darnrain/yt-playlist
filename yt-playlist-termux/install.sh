@@ -5,8 +5,11 @@
         then
         pkill yt-playlist
         pkill mpv
-        echo "yt-playlist Termux installer."
+        echo "==========================="
+        echo "Termux installer yt-playlist."
+        echo "==========================="
         echo "All dependencies were found."
+        echo "==========================="
         cp /data/data/com.termux/files/usr/tmp/yt-playlist/yt-playlist-termux/yt-playlist /data/data/com.termux/files/usr/bin/
         chmod +x /data/data/com.termux/files/usr/bin/yt-playlist
         mkdir -p ${HOME}/.config/yt-playlist/
@@ -26,13 +29,17 @@
         sed -i '/# volume-keys/s/^#//' /data/data/com.termux/files/home/.termux/termux.properties
         echo 'Please type "exit" to close Termux.'
         echo 'Then type "y" to run yt-playlist'
+        echo "==========================="
         exit
         else
         clear
+        echo "==========================="
         echo "Not all dependencies were found."
+        echo "==========================="
         echo "Installing missing dependencies."
         echo "In ten seconds."
         echo "ctrl-c to cancel"
+        echo "==========================="
         sleep 10
         yes|pkg update
         yes|pkg upgrade
@@ -49,7 +56,9 @@
         echo "alias y='yt-playlist'" >> ${HOME}/.bashrc
         sed -i '/# volume-keys/s/^#//' /data/data/com.termux/files/home/.termux/termux.properties
         clear
-        echo "All dependencies are now installed."
+        echo "==========================="
+        echo "All dependencies are installed."
+        echo "==========================="
         cp /data/data/com.termux/files/usr/tmp/yt-playlist/yt-playlist-termux/yt-playlist /data/data/com.termux/files/usr/bin/
         chmod +x /data/data/com.termux/files/usr/bin/yt-playlist
         mkdir -p ${HOME}/.config/yt-playlist/
@@ -66,5 +75,6 @@
         echo "t run /data/data/com.termux/files/usr/bin/yt-playlist --date_time" >> ${HOME}/.config/yt-playlist/input.conf
         echo 'Please type "exit" to close Termux.'
         echo 'Then type "y" to run yt-playlist'
+        echo "==========================="
         exit
         fi
