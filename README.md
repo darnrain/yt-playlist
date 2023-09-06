@@ -1,6 +1,6 @@
 ## Welcome to yt-playlist
 
-yt-playlist does not login to YouTube or YTMusic or Google, does not use Google's api, no logging or spyware.
+No spyware does not login to YouTube or YTMusic or Google, does not use Google's api.
 
 ### Features:
 * Stream YouTube video up to 8k 60 FPS.
