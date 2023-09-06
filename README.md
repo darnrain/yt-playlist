@@ -8,6 +8,8 @@ No spyware or adware. Does not login to YouTube, YouTube Music or Google. Does n
 
 ![Screenshot from 2023-09-06 06-44-50](https://github.com/darnrain/yt-playlist/assets/60840489/f9983dd8-7aba-415d-8e34-f356eadfc4b6)
 
+![Screenshot from 2023-09-06 07-21-15](https://github.com/darnrain/yt-playlist/assets/60840489/49dd4a14-1218-4568-b387-479f8f11757f)
+
 ![Screenshot from 2023-09-06 06-34-23](https://github.com/darnrain/yt-playlist/assets/60840489/57e9ef80-9055-40b1-a881-bf9c65a09767)
 
 ### Features:
