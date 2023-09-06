@@ -14,6 +14,7 @@ yt-playlist does not login to YouTube or YTMusic or Google, does not use Google'
 * Import Google takeout, your YouTube subscriptions and YTMusic.
 * Search YouTube Playlists and Channels.
 * Search YTMusic Playlists and Albums.
+* Search YTMusic for music.
 * Paste YouTube or YTMusic url.
 * Play YouTube and YTMusic Audio or Audio/Video.
 * All search results are saved to your history.
