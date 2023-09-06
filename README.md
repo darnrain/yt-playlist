@@ -1,6 +1,6 @@
 ## Welcome to yt-playlist
 
-No spyware, does not login to YouTube, YouTube Muisc or Google. It does not use Google's api. Only uses yt-dlp, mpv and fzf.
+No spyware, does not login to YouTube, YouTube Music or Google. It does not use Google's api. Only uses yt-dlp, mpv and fzf.<br>
 
 ### Features:
 * Stream YouTube video up to 8k 60 FPS.
@@ -11,9 +11,9 @@ No spyware, does not login to YouTube, YouTube Muisc or Google. It does not use 
 * Background audio playback on Termux.
 * Open a channel, playlist and album in NewPipe. Termux version only.
 * Import Google takeout, your YouTube subscriptions and YTMusic.
-* Search YouTube Playlists and Channels.
-* Search YTMusic Playlists and Albums.
-* Search YTMusic for songs.
+* Search YouTube for Playlists and Channels.
+* Search YouTube Music for Playlists and Albums.
+* Search Youtube Music for songs.
 * Paste YouTube or YTMusic url.
 * Channel/Playlist/Album search results are saved to your history.
 * Download YouTube Playlists from a Channel.
