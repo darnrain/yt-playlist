@@ -2,6 +2,12 @@
 
 No spyware or adware. Does not login to YouTube, YouTube Music or Google. Does not use Google's api. Respects your privacy.<br>
 
+![Screenshot from 2023-09-06 06-33-42](https://github.com/darnrain/yt-playlist/assets/60840489/4415d37e-84ae-4432-93c2-1b9b55ffe14d)
+
+![Screenshot from 2023-09-06 06-32-20](https://github.com/darnrain/yt-playlist/assets/60840489/7fbb216d-d01d-478b-b520-6d383dc43b0d)
+
+![Screenshot from 2023-09-06 06-34-23](https://github.com/darnrain/yt-playlist/assets/60840489/57e9ef80-9055-40b1-a881-bf9c65a09767)
+
 ### Features:
 * Stream YouTube video up to 8k 60 FPS.
 * 1080p 60 FPS video defaults to h264.
