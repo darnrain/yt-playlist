@@ -60,7 +60,7 @@ yt-playlist does not login to YouTube or YTMusic or Google, does not use Google'
 * fx and wget For Billboard hot 100.
 * jemalloc for Arch/Manjaro linux 100% cpu fix.
 * yt-playlist will automatically use jemalloc if installed, linux only.
-* jemalloc lowers cpu usage when playing audio/video.
+* jemalloc will only help if cpu is high playing video, not counting software decoding.
 
 ### Notes:
 * See help guide down below for installing latest version of yt-dlp and mutagen.
