@@ -1,6 +1,6 @@
 ## Welcome to yt-playlist
 
-No spyware or adware. Does not login to YouTube, YouTube Music or Google. Does not use Google's api.<br>
+No spyware or adware. Does not login to YouTube, YouTube Music or Google. Does not use Google's api. Respects your privacy.<br>
 
 ### Features:
 * Stream YouTube video up to 8k 60 FPS.
