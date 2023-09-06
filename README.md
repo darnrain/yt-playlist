@@ -85,7 +85,7 @@ No spyware or adware. Respects your privacy. Does not login to YouTube, YouTube 
 Install on top of older versions.<br>
 
 ### Online install yt-playlist v1.28 Linux version:
-To downgrade, just change the version number in the install command.<br>
+To downgrade/upgrade change the version number in the install command.<br>
 Only install or uninstall under a user account. Must have sudo, curl and unzip installed.<br>
 
 To install copy and paste this command into the terminal:<br>
@@ -101,7 +101,7 @@ If you want to only press "y" to load yt-playlist copy and paste this command in
 `echo "alias y='yt-playlist'" >> ${HOME}/.bashrc; source ${HOME}/.bashrc`<br>
 
 ### Online install yt-playlist v1.28 Termux version:
-To downgrade, just change the version number in the install command.<br>
+To downgrade/upgrade change the version number in the install command.<br>
 
 To install copy and paste this command into Termux:<br>
 
