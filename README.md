@@ -150,7 +150,7 @@ https://github.com/mpv-player/mpv
 fzf<br>
 https://github.com/junegunn/fzf
 
-jemalloc
+jemalloc<br>
 https://github.com/jemalloc/jemalloc
 
 billboard-hot-100<br>
