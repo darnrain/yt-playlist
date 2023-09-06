@@ -28,6 +28,7 @@ yt-playlist does not login to YouTube or YTMusic or Google, does not use Google'
  
 ### Known issues:
 * yt-playlist will not work on Ubuntu, because of the snap permissions.
+* You need a fast internet connection to stream 1080p, 2k, 4k, 8k.
 
 ### Tested operating systems:
 * Working on the latest Arch/Manjaro Linux, Linux Mint, MX Linux and Termux.
