@@ -11,7 +11,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: /sdcard/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 yt_video_number="1:100"
-version="v1.26"
+version="v1.27"
 
 #mainmenu
 
@@ -28,6 +28,10 @@ function main_menu_function ()
         if [ -n "$yt_playlist_total" ]
 	then
         echo "$yt_playlist_total"
+        fi
+	if [ -n "$jemalloc" ]
+	then
+        echo "jemalloc enabled."
         fi
         if test -f "${tmp_dir}/count_down_timer.txt"
         then
@@ -954,8 +958,8 @@ fi
     5)
         printf " \n"
         printf "Enter music search: \n"
-        read yt_search
-        if [ -n "$yt_search" ]
+        read ytm_search
+        if [ -n "$ytm_search" ]
         then
         clear
         printf "Enter search results number: \n"
@@ -970,8 +974,27 @@ fi
         else
         ytm_search_number="1:${ytm_search_number}"
         fi
-        music_search_function
-        if [ -z "$yt_music_search" ]
+        clear
+        printf "Fast search does not get \n"
+        printf "artist name, only prints search. \n"
+        printf "Slow search will get artist name. \n"
+        printf " \n"
+        printf "1=Fast search 2=Slow search \n"
+        read search_speed
+        if [ -n "$search_speed" ]
+        then
+        if [ "$search_speed" != "${search_speed#[1]}" ]
+        then
+        fast_music_search_function
+        else
+        slow_music_search_function
+        fi
+        else
+        echo "Please enter an option."
+        sleep 0.8
+        play_music_menu_function
+        fi
+        if [ -z "$ytm_music_search" ]
         then
         clear
         echo "No results found"
@@ -2171,7 +2194,7 @@ function results_function ()
         else
         clear
         echo "Please wait."
-        yt_playlist_results=$(yt-dlp --no-warnings --quiet --flat-playlist -I "$yt_video_number" --print "%(url)s Video: %(title)s" "https://www.youtube.com/channel/${yt_playlist_id}/videos" | sed '/Private video/d' | sed '/Deleted video/d' | sed 's/|//g' | tr -s '[:space:]' | nl -n"ln" -w2 -s " " 2>/dev/null)
+        yt_playlist_results=$(yt-dlp --no-warnings --quiet --flat-playlist -I "$yt_video_number" --print "%(url)s Video: %(duration>%H:%M:%S)s - %(title)s" "https://www.youtube.com/channel/${yt_playlist_id}/videos" | sed '/Private video/d' | sed '/Deleted video/d' | sed 's/|//g' | tr -s '[:space:]' | nl -n"ln" -w2 -s " " 2>/dev/null)
         yt_playlist_total_number=$(echo "${yt_playlist_results}" | wc -l)
         yt_playlist_total="Channel results: $yt_playlist_total_number"
         export bookmark_video_or_music="Video:"
@@ -2201,7 +2224,7 @@ fi
         else
         clear
         echo "Please wait."
-        yt_playlist_results=$(yt-dlp --no-warnings --quiet --flat-playlist -I "$yt_video_number" --print "%(url)s Video: %(title)s" "https://youtube.com/playlist?list=${yt_playlist_id}" | sed '/Private video/d' | sed '/Deleted video/d' | sed 's/|//g' | tr -s '[:space:]' | nl -n"ln" -w2 -s " " 2>/dev/null)
+        yt_playlist_results=$(yt-dlp --no-warnings --quiet --flat-playlist -I "$yt_video_number" --print "%(url)s Video: %(duration>%H:%M:%S)s - %(title)s" "https://youtube.com/playlist?list=${yt_playlist_id}" | sed '/Private video/d' | sed '/Deleted video/d' | sed 's/|//g' | tr -s '[:space:]' | nl -n"ln" -w2 -s " " 2>/dev/null)
         yt_playlist_total_number=$(echo "${yt_playlist_results}" | wc -l)
         yt_playlist_total="Playlist results: $yt_playlist_total_number"
         export bookmark_video_or_music="Video:"
@@ -2227,23 +2250,40 @@ fi
 
 #searchfunction
 
-function music_search_function ()
+function fast_music_search_function ()
+{
+clear
+echo "Please wait."
+ytm_search_plus=$(echo "$ytm_search" | sed 's/ /+/g' )
+ytm_music_search=$(yt-dlp --flat-playlist --print "%(webpage_url)s Music: ${ytm_search} - %(title)s" -I ${ytm_search_number} "https://music.youtube.com/search?q=${ytm_search_plus}&sp=EgWKAQIIAWoKEAoQAxAEEAkQBQ" | sed 's/music.//g' 2>/dev/null)
+if [ -n "$ytm_music_search" ]
+then
+echo "${ytm_music_search}" >> "${yt_playlist_home_dir}/yt-playlist_music.txt"
+sed -i '/^$/d' "${yt_playlist_home_dir}/yt-playlist_music.txt"
+clear
+yt_music_results_number=$(echo "${ytm_music_search}" | wc -l)
+echo "A total of "$yt_music_results_number" songs were saved the music library."
+sleep 2
+fi
+}
+
+function slow_music_search_function ()
 {
 clear
 echo "Please wait, searching for Music."
-yt_search_plus=$(echo "$yt_search" | sed 's/ /+/g' )
+yt_search_plus=$(echo "$ytm_search" | sed 's/ /+/g' )
 yt_music_url=$(yt-dlp --no-warnings --quiet --flat-playlist --print "%(url)s" -I "$ytm_search_number" "https://music.youtube.com/search?q=${yt_search_plus}&sp=EgWKAQIIAWoKEAoQAxAEEAkQBQ" | sed 's/music.//g' | awk '{ORS=" "}1' 2>/dev/null)
 if [ -n "$yt_music_url" ]
 then
 clear
 echo "Please wait, getting music information."
-yt_music_search=$(yt-dlp --no-warnings --quiet --flat-playlist --print "%(webpage_url)s Music: %(creator)s - %(title)s" -I 1 ${yt_music_url} 2>/dev/null)
-if [ -n "$yt_music_search" ]
+ytm_music_search=$(yt-dlp --no-warnings --quiet --flat-playlist --print "%(webpage_url)s Music: %(creator)s - %(title)s" -I 1 ${yt_music_url} 2>/dev/null)
+if [ -n "$ytm_music_search" ]
 then
-echo "${yt_music_search}" >> "${yt_playlist_home_dir}/yt-playlist_music.txt"
+echo "${ytm_music_search}" >> "${yt_playlist_home_dir}/yt-playlist_music.txt"
 sed -i '/^$/d' "${yt_playlist_home_dir}/yt-playlist_music.txt"
 clear
-yt_music_results_number=$(echo "${yt_music_search}" | wc -l)
+yt_music_results_number=$(echo "${ytm_music_search}" | wc -l)
 echo "A total of "$yt_music_results_number" songs were saved the music library."
 sleep 2
 fi
