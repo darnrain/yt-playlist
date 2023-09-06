@@ -25,6 +25,7 @@ yt-playlist does not login to YouTube or YTMusic or Google, does not use Google'
 * A built in Sleep Timer, that slowly lowers volume level, pauses mpv, restores volume level.
 * No logging or spyware.
 * 100% open source and free.
+* And more...
  
 ### Known issues:
 * yt-playlist will not work on Ubuntu, because of the snap permissions.
