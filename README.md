@@ -103,19 +103,13 @@ To uninstall copy and paste this command into Termux:<br>
 `yt-playlist --import`<br>
 
 ### Help guide:
-Install the latest yt-dlp:<br>
+Install the latest yt-dlp and mutagen:<br>
 download yt-dlp from GitHub https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp<br>
 `sudo cp yt-dlp /usr/bin/`<br>
 `sudo chmod +x /usr/bin/yt-dlp`<br>
 Debian based Linux:<br>
-`sudo apt update; sudo apt install python3`<br>
-Arch/Manjaro linux:<br>
-`sudo pacman -Syu python`<br>
-
-Install mutagen on debian based Linux:<br>
 `sudo apt update; sudo apt install python3 python3-mutagen`<br>
-
-Install mutagen on Arch/Manjaro linux:<br>
+Arch/Manjaro linux:<br>
 `sudo pacman -Syu python python-mutagen`<br>
 
 Uninstalling yt-playlist:<br>
