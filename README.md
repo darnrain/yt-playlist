@@ -37,6 +37,7 @@ No spyware or adware. Respects your privacy. Does not login to YouTube, YouTube 
 * No mp3 transcoding, native audio format only.
 * A built in Sleep Timer, that slowly lowers volume level, pauses mpv, restores volume level.
 * 100% open source and free.
+* Automated installation.
 * And more...
  
 ### Known issues:
