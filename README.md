@@ -1,6 +1,6 @@
 ## Welcome to yt-playlist
 
-No spyware, does not login to YouTube, YouTube Muisc, Google. It does not use Google's api. Only uses yt-dlp, mpv and fzf.
+No spyware, does not login to YouTube, YouTube Muisc or Google. It does not use Google's api. Only uses yt-dlp, mpv and fzf.
 
 ### Features:
 * Stream YouTube video up to 8k 60 FPS.
