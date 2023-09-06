@@ -76,7 +76,7 @@ No spyware or adware. Respects your privacy. Does not login to YouTube, YouTube 
 * jemalloc will only help if cpu is high playing video, not counting software decoding.
 
 ### Notes:
-* See help guide down below for installing latest version of yt-dlp and mutagen.
+* See help guide down below for installing latest version of yt-dlp and mutagen on linux.
 * The Linux instlaler will check to make sure you have all the dependencies installed, if not it will let you know witch ones are missing before installing yt-playlist.
 * The Termux installer will install all the dependencies including the optional dependencies, enable volume keys, and you can press "y" to load yt-playlist.
 
