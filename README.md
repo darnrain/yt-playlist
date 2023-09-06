@@ -22,7 +22,6 @@ No spyware or adware. Does not login to YouTube, YouTube Music or Google. Does n
 * Download m4a and opus audio files with thumbnails and metadata included.
 * No mp3 transcoding, native audio format only.
 * A built in Sleep Timer, that slowly lowers volume level, pauses mpv, restores volume level.
-* No logging or spyware.
 * 100% open source and free.
 * And more...
  
