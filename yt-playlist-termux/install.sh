@@ -7,7 +7,6 @@
         pkill mpv
         echo "yt-playlist Termux installer."
         echo "All dependencies were found."
-        echo ""
         cp /data/data/com.termux/files/usr/tmp/yt-playlist/yt-playlist-termux/yt-playlist /data/data/com.termux/files/usr/bin/
         chmod +x /data/data/com.termux/files/usr/bin/yt-playlist
         mkdir -p ${HOME}/.config/yt-playlist/
