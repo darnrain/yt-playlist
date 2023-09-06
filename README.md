@@ -36,7 +36,7 @@ No spyware or adware. Respects your privacy. Does not login to YouTube, YouTube 
 * Download m4a and opus audio files with thumbnails and metadata included.
 * No mp3 transcoding, native audio format only.
 * A built in Sleep Timer, that slowly lowers volume level, pauses mpv, restores volume level.
-* Automated installation.
+* Automated installation Termux version.
 * 100% open source and free.
 * And more...
  
