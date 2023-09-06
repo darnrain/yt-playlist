@@ -59,7 +59,7 @@ yt-playlist does not login to YouTube or YTMusic or Google, does not use Google'
 ### Linux optional dependencies:
 * fx and wget For Billboard hot 100.
 * jemalloc for Arch/Manjaro linux 100% cpu fix.
-* yt-playlist will automatically use jemalloc if installed, any flavors of linux.
+* yt-playlist will automatically use jemalloc if installed, any flavor of linux.
 * jemalloc lowers cpu usage when playing video.
 
 ### Notes:
