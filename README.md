@@ -34,6 +34,7 @@ yt-playlist does not login to YouTube or YTMusic or Google, does not use Google'
 ### Tested operating systems:
 * Working on the latest Arch/Manjaro Linux, Linux Mint, MX Linux and Termux.
 * Should work on other flavors of linux.
+* I will test more as time permits.
 
 ### Linux ram requirements:
 * Recommended 6GB ram for HD 8k. Cache is set to 1.5GB.
