@@ -11,7 +11,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="v1.24"
+version="v1.25"
 
 #mainmenu
 
@@ -28,6 +28,10 @@ function main_menu_function ()
         if [ -n "$yt_playlist_total" ]
 	then
         echo "$yt_playlist_total"
+        fi
+	if [ -n "$jemalloc" ]
+	then
+        echo "jemalloc enabled."
         fi
         if test -f "${tmp_dir}/count_down_timer.txt"
         then
@@ -310,11 +314,11 @@ fi
 	if [ -n "$internet_status" ]
 	then
         echo "Internet is on."
-        sleep 1
+        sleep 2
         main_menu_function
         else
         echo "Internet is off."
-        sleep 1
+        sleep 2
         main_menu_function
         fi
         ;;
@@ -2037,6 +2041,8 @@ function check_internet_status_function ()
 {
 	if [[ $(ping -c 1 www.github.com 2>/dev/null) == *0%* ]]
         then
+        echo "May take up ten seconds."
+        sleep 1
         internet_status="yes"
         else
         unset internet_status
@@ -2994,11 +3000,13 @@ fi
         exit
         fi
 
-
-if command -v jemalloc-config == *jemalloc-config >/dev/null
-then
-export LD_PRELOAD=`jemalloc-config --libdir`/libjemalloc.so.`jemalloc-config --revision`
-fi
+	if command -v jemalloc-config >/dev/null
+	then
+        jemalloc="yes"
+	export LD_PRELOAD=`jemalloc-config --libdir`/libjemalloc.so.`jemalloc-config --revision`
+        else
+        unset jemalloc
+	fi
 
 mpv_video_fullscreen_off_function
 mpv_video_gpu_off_function

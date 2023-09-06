@@ -11,7 +11,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: /sdcard/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 yt_video_number="1:100"
-version="v1.24"
+version="v1.25"
 
 #mainmenu
 
@@ -293,11 +293,11 @@ fi
 	if [ -n "$internet_status" ]
 	then
         echo "Internet is on."
-        sleep 1
+        sleep 2
         main_menu_function
         else
         echo "Internet is off."
-        sleep 1
+        sleep 2
         main_menu_function
         fi
         ;;
@@ -1773,6 +1773,8 @@ function check_internet_status_function ()
 {
 	if [[ $(ping -c 1 www.github.com 2>/dev/null) == *0%* ]]
         then
+        echo "May take up ten seconds."
+        sleep 1
         internet_status="yes"
         else
         unset internet_status
