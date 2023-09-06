@@ -16,7 +16,6 @@ yt-playlist does not login to YouTube or YTMusic or Google, does not use Google'
 * Search YTMusic Playlists and Albums.
 * Search YTMusic for songs.
 * Paste YouTube or YTMusic url.
-* Play YouTube and YTMusic Audio or Audio/Video.
 * All search results are saved to your history.
 * Download YouTube Playlists from a Channel.
 * Download up to 1080p 60 FPS videos.
