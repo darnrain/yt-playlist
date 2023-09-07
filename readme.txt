@@ -23,6 +23,7 @@ echo "alias y='yt-playlist'" >> ${HOME}/.bashrc; source ${HOME}/.bashrc
 Termux online install yt-playlist v1.31:
 
 To downgrade/upgrade change the version number in the install command.
+
 To install copy and paste this command into Termux:
 
 curl https://github.com/darnrain/yt-playlist/releases/download/v1.31/yt-playlist.zip -L -o ${TMPDIR}/yt-playlist.zip; unzip -o ${TMPDIR}/yt-playlist.zip -d ${TMPDIR}/; chmod +x ${TMPDIR}/yt-playlist/yt-playlist-termux/install.sh; ${TMPDIR}/yt-playlist/yt-playlist-termux/install.sh
