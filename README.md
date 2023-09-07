@@ -56,7 +56,7 @@ More photos.<br>
 ### Tested operating systems:
 * Working on the latest Arch/Manjaro Linux, Linux Mint, MX Linux and Termux.
 * Should work on other flavors of linux.
-* Should work on any architecture with bash.
+* Works on any architecture.
 * I will test more as time permits.
 
 ### Linux ram requirements:
