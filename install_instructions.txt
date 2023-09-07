@@ -9,7 +9,7 @@ curl https://github.com/darnrain/yt-playlist/releases/download/v1.32/yt-playlist
 ========================================
 
 ========================================
-Linux online unisntall.
+Linux online uninstall.
 ========================================
 Copy and paste this command into the terminal:
 ========================================
@@ -37,4 +37,3 @@ Copy and paste this command into Termux:
 ========================================
 curl https://github.com/darnrain/yt-playlist/releases/download/v1.32/yt-playlist.zip -L -o ${TMPDIR}/yt-playlist.zip; unzip -o ${TMPDIR}/yt-playlist.zip -d ${TMPDIR}/; chmod +x ${TMPDIR}/yt-playlist/yt-playlist-termux/uninstall.sh; ${TMPDIR}/yt-playlist/yt-playlist-termux/uninstall.sh
 ========================================
-
