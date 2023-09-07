@@ -9,7 +9,8 @@
         echo "============================"
         echo "All dependencies were found."
         echo "============================"
-        sudo cp /tmp/yt-playlist/yt-playlist-linux/yt-playlist /usr/bin/
+        sudo cp ./yt-playlist /usr/bin/
+        #sudo cp /tmp/yt-playlist/yt-playlist-linux/yt-playlist /usr/bin/
         sudo chmod +x /usr/bin/yt-playlist
         mkdir -p ${HOME}/.config/yt-playlist/
         touch ${HOME}/.config/yt-playlist/yt-playlist_favorites.txt
@@ -27,28 +28,82 @@
         echo "============================"
         exit
         else
-        clear
         echo "============================"
         echo "Not all dependencies were found."
         echo "============================"
-        echo "Linux dependencies are:"
-        echo "yt-dlp,mpv,ffmpeg,fzf,mutagen-inspect,socat,awk,sed,tr,bash"
+
+        if command -v yt-dlp >/dev/null
+        then
+        :
+        else
+        echo "yt-dlp is not installed."
+        fi
+
+        if command -v mpv >/dev/null
+        then
+        :
+        else
+        echo "mpv is not installed."
+        fi
+
+        if command -v ffmpeg >/dev/null
+        then
+        :
+        else
+        echo "ffmpeg is not installed."
+        fi
+
+        if command -v fzf >/dev/null
+        then
+        :
+        else
+        echo "fzf is not installed."
+        fi
+
+        if command -v mutagen-inspect >/dev/null
+        then
+        :
+        else
+        echo "mutagen is not installed."
+        fi
+
+        if command -v socat >/dev/null
+        then
+        :
+        else
+        echo "socat is not installed."
+        fi
+
+        if command -v awk >/dev/null
+        then
+        :
+        else
+        echo "awk is not installed."
+        fi
+
+        if command -v sed >/dev/null
+        then
+        :
+        else
+        echo "sed is not installed."
+        fi
+
+        if command -v tr >/dev/null
+        then
+        :
+        else
+        echo "tr is not installed."
+        fi
+
+        if command -v bash >/dev/null
+        then
+        :
+        else
+        echo "bash is not installed."
+        fi
+
         echo "============================"
-        echo "Note: mutagen-inspect = mutagen"
-        echo "============================"
-        command -V yt-dlp
-        command -V mpv
-        command -V ffmpeg
-        command -V fzf
-        command -V mutagen-inspect
-        command -V socat
-        command -V awk
-        command -V sed
-        command -V tr
-        command -V bash
-        echo "============================"
-        echo "Please install the missing"
-        echo "dependencies and run install again."
+        echo "Please install the missing dependencies and run install again."
         echo "============================"
         exit
         fi
