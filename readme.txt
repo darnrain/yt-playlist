@@ -1,5 +1,6 @@
+========================================
 Linux online install yt-playlist v1.31:
-
+========================================
 To downgrade/upgrade change the version number in the install command.
 Only install or uninstall under a user account. Must have sudo, curl and unzip installed.
 
@@ -15,13 +16,9 @@ If you want to only press "y" to load yt-playlist copy and paste this command in
 
 echo "alias y='yt-playlist'" >> ${HOME}/.bashrc; source ${HOME}/.bashrc
 
-
-
-
-
-
+========================================
 Termux online install yt-playlist v1.31:
-
+========================================
 To downgrade/upgrade change the version number in the install command.
 
 To install copy and paste this command into Termux:
