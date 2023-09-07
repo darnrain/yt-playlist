@@ -127,7 +127,7 @@ To uninstall copy and paste this command into Termux:<br>
 
 ### Help guide:
 Install the latest yt-dlp and mutagen:<br>
-uninstall yt-dlp or youtube-dl.<br>
+uninstall yt-dlp or youtube-dl if installed.<br>
 download yt-dlp from GitHub https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp<br>
 `sudo cp yt-dlp /usr/bin/`<br>
 `sudo chmod +x /usr/bin/yt-dlp`<br>
