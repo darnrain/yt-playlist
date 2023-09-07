@@ -7,15 +7,20 @@ Copy and paste this command into the terminal:
 ========================================
 curl https://github.com/darnrain/yt-playlist/releases/download/v1.32/yt-playlist.zip -L -o /tmp/yt-playlist.zip; unzip -o /tmp/yt-playlist.zip -d /tmp/; sudo chmod +x /tmp/yt-playlist/yt-playlist-linux/install.sh; /tmp/yt-playlist/yt-playlist-linux/install.sh
 ========================================
+
+========================================
 Linux online unisntall.
 ========================================
 Copy and paste this command into the terminal:
 ========================================
 curl https://github.com/darnrain/yt-playlist/releases/download/v1.32/yt-playlist.zip -L -o /tmp/yt-playlist.zip; unzip -o /tmp/yt-playlist.zip -d /tmp/; sudo chmod +x /tmp/yt-playlist/yt-playlist-linux/uninstall.sh; /tmp/yt-playlist/yt-playlist-linux/uninstall.sh
 ========================================
-If you want to only press "y" to load yt-playlist copy and paste this command in the terminal:
+Linux version, if you want to press "y" to load yt-playlist
+paste this command in the terminal.
 ========================================
 echo "alias y='yt-playlist'" >> ${HOME}/.bashrc; source ${HOME}/.bashrc
+========================================
+
 ========================================
 Termux online install v1.32
 ========================================
@@ -23,6 +28,8 @@ To downgrade/upgrade change the version number in the install command.
 Copy and paste this command into Termux:
 ========================================
 curl https://github.com/darnrain/yt-playlist/releases/download/v1.32/yt-playlist.zip -L -o ${TMPDIR}/yt-playlist.zip; unzip -o ${TMPDIR}/yt-playlist.zip -d ${TMPDIR}/; chmod +x ${TMPDIR}/yt-playlist/yt-playlist-termux/install.sh; ${TMPDIR}/yt-playlist/yt-playlist-termux/install.sh
+========================================
+
 ========================================
 Termux online uninstall.
 ========================================
