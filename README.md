@@ -176,6 +176,9 @@ https://github.com/mhollingshead/billboard-hot-100
 fx<br>
 https://github.com/antonmedv/fx
 
+Termux
+https://github.com/termux/termux-app
+
 NewPipe<br>
 Termux version.<br>
 https://github.com/TeamNewPipe/NewPipe
