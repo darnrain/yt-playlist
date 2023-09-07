@@ -15,11 +15,6 @@ Copy and paste this command into the terminal:
 ========================================
 curl https://github.com/darnrain/yt-playlist/releases/download/v1.33/yt-playlist.zip -L -o /tmp/yt-playlist.zip; unzip -o /tmp/yt-playlist.zip -d /tmp/; sudo chmod +x /tmp/yt-playlist/yt-playlist-linux/uninstall.sh; /tmp/yt-playlist/yt-playlist-linux/uninstall.sh
 ========================================
-Linux version, if you want to press "y" to load yt-playlist
-paste this command in the terminal.
-========================================
-echo "alias y='yt-playlist'" >> ${HOME}/.bashrc; source ${HOME}/.bashrc
-========================================
 
 ========================================
 Termux online install v1.33
