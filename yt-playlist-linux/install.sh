@@ -30,17 +30,23 @@
         echo "============================"
         echo "Not all dependencies were found."
         echo "============================"
+        echo "Version requirements."
+        echo "yt-dlp 2023.07.06 or higher."
+        echo "mpv 0.34.1 or higher."
+        echo "============================"
 
         if command -v yt-dlp >/dev/null
         then
-        :
+        yt_dlp_version=$(yt-dlp --version)
+        echo "yt-dlp version: ${yt_dlp_version}"
         else
         echo "yt-dlp is not installed."
         fi
 
         if command -v mpv >/dev/null
         then
-        :
+        mpv_version=$(mpv --version | grep "mpv")
+        echo "mpv version: ${mpv_version}"
         else
         echo "mpv is not installed."
         fi
@@ -102,7 +108,8 @@
         fi
 
         echo "============================"
-        echo "Please install the missing dependencies and run install again."
+        echo "Please install the missing dependencies."
+        echo "Then run installer again."
         echo "============================"
         exit
         fi
