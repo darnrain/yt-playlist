@@ -1,0 +1,27 @@
+yt-playlist notes 9-7-23
+
+In the Playlist menu, options 5,6 are a little slower finding YTMusic Albums and YTMusic Playlists than other search functions.
+
+The YT playlist search and YT channel search are very fast also get channel playlists.
+
+Added the option of fast search and slow search to the YTMusic menu.
+
+v1.3 Added the option to press "t" to show the date and time AM PM format when watching video or listening to music, all play menus.
+
+You can now copy and paste the command to install the latest version of yt-playlist online.
+
+I have made a offline installer of yt-playlist v1.1.
+
+Subtitles are disabled by default. I had trouble getting them working on every video.
+
+You do not need to enable resume playback for the playback position to be saved. By default yt-playlist saves the resume position when you quit a video or music. Only works in the Play SD menu and the Play SD bookmark menu.
+
+When playing video/music if you have opus enabled and then press "d" to download audio, yt-playlist will download the opus file.
+
+When opus is enabled and playing video, the audio will be throttled, only affects the cache fill rate and if you want to FF. When playing music with opus, the audio is not throttled. When using aac audio, the video/music is not throttled.
+
+When watching video in the Play SD menu or the Play SD bookmark menu, the 720p video is not throttled.
+
+The Play HD menu relies on the cache to FF and RR. The Play HD menu is not throttled.
+
+Sleep timer, when the count down timer get's to 0 your volume will be slowly lowered to 0% then pause mpv, then it will restore your volume level back to the same level it was at before yt-playlist lowered it to 0%. You can cancel sleep timer at anytime, even if the volume is being lowered.
