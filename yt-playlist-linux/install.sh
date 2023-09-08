@@ -9,6 +9,21 @@
         echo "============================"
         echo "All dependencies were found."
         echo "============================"
+        echo "Version requirements."
+        echo "yt-dlp version 2023.07.06 or higher."
+        echo "mpv version 0.34.1 or higher."
+        echo "============================"
+        if command -v yt-dlp >/dev/null
+        then
+        yt_dlp_version=$(yt-dlp --version)
+        echo "yt-dlp is installed, version: ${yt_dlp_version}"
+        fi
+        if command -v mpv >/dev/null
+        then
+        mpv_version=$(mpv --version | grep "mpv" | cut -b -10 | sed 's/mpv//g' | sed 's/^[ \t]*//')
+        echo "mpv is installed, version: ${mpv_version}"
+        fi
+        echo "============================"
         sudo cp /tmp/yt-playlist/yt-playlist-linux/yt-playlist /usr/bin/
         sudo chmod +x /usr/bin/yt-playlist
         mkdir -p ${HOME}/.config/yt-playlist/
@@ -30,23 +45,17 @@
         echo "============================"
         echo "Not all dependencies were found."
         echo "============================"
-        echo "Version requirements."
-        echo "yt-dlp version 2023.07.06 or higher."
-        echo "mpv version 0.34.1 or higher."
-        echo "============================"
 
         if command -v yt-dlp >/dev/null
         then
-        yt_dlp_version=$(yt-dlp --version)
-        echo "yt-dlp is installed, version: ${yt_dlp_version}"
+        :
         else
         echo "yt-dlp is not installed."
         fi
 
         if command -v mpv >/dev/null
         then
-        mpv_version=$(mpv --version | grep "mpv" | cut -b -10 | sed 's/mpv//g' | sed 's/^[ \t]*//')
-        echo "mpv is installed, version: ${mpv_version}"
+        :
         else
         echo "mpv is not installed."
         fi
