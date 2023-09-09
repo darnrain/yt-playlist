@@ -1,6 +1,6 @@
 Binding keyboard media keys for mpv.
-This command is only for Linux.
-Will only work if mpv socket is enabled. yt-playlist enables mpv socket.
+These commands are for Linux.
+Will only work when yt-playlist is running and playing, unless you have mpvsocket enabled on your computer.
 
 Play/Pause command.
 echo cycle pause | socat - "/tmp/mpvsocket"
