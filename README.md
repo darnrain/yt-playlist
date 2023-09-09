@@ -116,7 +116,6 @@ To uninstall copy and paste this command into the terminal:<br>
 
 `curl https://github.com/darnrain/yt-playlist/releases/download/v1.40/yt-playlist.zip -L -o /tmp/yt-playlist.zip; unzip -o /tmp/yt-playlist.zip -d /tmp/; sudo chmod +x /tmp/yt-playlist/yt-playlist-linux/uninstall.sh; /tmp/yt-playlist/yt-playlist-linux/uninstall.sh`<br>
 
-Uninstalling yt-playlist:<br>
 When uninstalling yt-playlist the ~/.config/yt-playlist/ directory does not get deleted, so your favorites, bookmarks, music and history are not deleted by accident. Run this command to delete the ~/.config/yt-playlist/ directory.<br>
 `rm -R ${HOME}/.config/yt-playlist/`<br>
 
@@ -135,7 +134,6 @@ To uninstall copy and paste this command into Termux:<br>
 
 `curl https://github.com/darnrain/yt-playlist/releases/download/v1.40/yt-playlist.zip -L -o ${TMPDIR}/yt-playlist.zip; unzip -o ${TMPDIR}/yt-playlist.zip -d ${TMPDIR}/; chmod +x ${TMPDIR}/yt-playlist/yt-playlist-termux/uninstall.sh; ${TMPDIR}/yt-playlist/yt-playlist-termux/uninstall.sh`<br>
 
-Uninstalling yt-playlist:<br>
 When uninstalling yt-playlist the ~/.config/yt-playlist/ directory does not get deleted, so your favorites, bookmarks, music and history are not deleted by accident. Run this command to delete the ~/.config/yt-playlist/ directory.<br>
 `rm -R ${HOME}/.config/yt-playlist/`<br>
 
