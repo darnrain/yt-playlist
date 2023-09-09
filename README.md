@@ -72,6 +72,7 @@ More photos.<br>
 * Recommended 256MB ram for Audio/music. Cache is set to 15MB.
 
 ### Linux required dependencies:
+see help guide down below for installing the dependencies.<br>
 * yt-dlp version 2023.07.06 or higher.
 * mpv version 0.34.1 or higher.
 * ffmpeg
@@ -90,7 +91,6 @@ More photos.<br>
 * jemalloc will only help if cpu is high playing video, not counting software decoding.
 
 ### Notes:
-* See help guide down below for installing latest version of yt-dlp and mutagen on linux.
 * The Linux instlaler will check to make sure you have all the dependencies installed, if not it will let you know the onces that are missing before installing yt-playlist.
 * The Termux installer will install all the dependencies including the optional dependencies, enable volume keys, and you can press "y" to load yt-playlist.
 
@@ -130,15 +130,25 @@ To uninstall copy and paste this command into Termux:<br>
 `yt-playlist --import`<br>
 
 ### Help guide:
-Install the latest yt-dlp and mutagen:<br>
-uninstall yt-dlp or youtube-dl if installed.<br>
+Installing the dependencies.<br>
+
+Debian based Linux:<br>
+`sudo apt update; sudo apt install mpv ffmpeg fzf socat python3 python3-mutagen`<br>
+
+Arch/Manjaro/EndeavourOS linux:<br>
+`sudo pacman -Syu mpv ffmpeg fzf socat python python-mutagen`<br>
+
+uninstall yt-dlp or youtube-dl.<br>
+Debian based Linux<br>
+`sudo apt remove yt-dlp youtube-dl`
+Arch bashed Linux.<br>
+`sudo pacman -R yt-dlp youtube-dl`
+
 download yt-dlp from GitHub https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp<br>
 `sudo cp yt-dlp /usr/bin/`<br>
 `sudo chmod +x /usr/bin/yt-dlp`<br>
-Debian based Linux:<br>
-`sudo apt update; sudo apt install python3 python3-mutagen`<br>
-Arch/Manjaro/EndeavourOS linux:<br>
-`sudo pacman -Syu python python-mutagen`<br>
+
+done<br>
 
 Uninstalling yt-playlist:<br>
 When uninstalling yt-playlist the ~/.config/yt-playlist/ directory does not get deleted, so your favorites, bookmarks, music and history are not deleted by accident. Run this command to delete the ~/.config/yt-playlist/ directory.<br>
