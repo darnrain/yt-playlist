@@ -58,7 +58,8 @@ More photos.<br>
 * Arch/Manjaro/EndeavourOS Linux
 * Linux Mint
 * MX Linux
-* Termux.
+* POP!_OS Linux
+* Termux
 * Should work on other flavors of linux.
 * Works on any architecture.
 * I will test more as time permits.
