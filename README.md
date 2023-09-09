@@ -94,6 +94,7 @@ see help guide down below for installing the dependencies.<br>
 Install on top of older versions.<br>
 
 ### Installing all the dependencies.
+If you need help installing the dependencies, thses are the commands I have used to install all of them in one go.<br>
 
 Debian based Linux:<br>
 `sudo apt -y update; sudo apt -y install curl unzip wget mpv ffmpeg fzf socat python3 python3-mutagen; sudo curl https://fx.wtf/install.sh | sudo sh; sudo apt -y remove yt-dlp youtube-dl; sudo curl https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -L -o /usr/bin/yt-dlp; sudo chmod +x /usr/bin/yt-dlp`
