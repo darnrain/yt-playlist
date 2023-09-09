@@ -140,8 +140,8 @@ When uninstalling yt-playlist the ~/.config/yt-playlist/ directory does not get 
 `rm -R ${HOME}/.config/yt-playlist/`<br>
 
 ### Binding keyboard media keys for mpv.
-These commands are only for Linux.<br>
-Will only work when yt-playlist is open and playing, unless you have mpvsocket enabled on your computer.
+These commands are for Linux.<br>
+Will only work when yt-playlist is running and playing, unless you have mpvsocket enabled on your computer.
 
 Play/Pause command.<br>
 `echo cycle pause | socat - "/tmp/mpvsocket"`<br>
