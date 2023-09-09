@@ -45,7 +45,6 @@
         echo "============================"
         echo "Linux installer yt-playlist."
         echo "============================"
-        echo "============================"
         echo "Not all dependencies were found."
         echo "============================"
 
