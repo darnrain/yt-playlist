@@ -5,6 +5,9 @@ The Linux installer will check to make sure
 all the required dependencies are
 installed and let you know the ones you
 are missing, before installing yt-playlist.
+The installer will also show you the versions
+you have installed of yt-dlp and mpv after
+all dependencies are installed.
 ============================
 Linux required dependencies:
 ============================
