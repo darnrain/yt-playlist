@@ -133,20 +133,10 @@ To uninstall copy and paste this command into Termux:<br>
 Installing all the dependencies.<br>
 
 Debian based Linux:<br>
-`sudo apt update; sudo apt install curl unzip wget mpv ffmpeg fzf socat python3 python3-mutagen; sudo curl https://fx.wtf/install.sh | sudo sh`<br>
+`sudo apt update; sudo apt install curl unzip wget mpv ffmpeg fzf socat python3 python3-mutagen; sudo curl https://fx.wtf/install.sh | sudo sh; sudo apt remove yt-dlp youtube-dl; sudo curl https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -L -o /usr/bin/yt-dlp; sudo chmod +x /usr/bin/yt-dlp`
 
 Arch/Manjaro/EndeavourOS  Linux:<br>
-`sudo pacman -Syu curl unzip wget fx mpv ffmpeg fzf socat python python-mutagen`<br>
-
-Uninstall yt-dlp and youtube-dl, sometimes an old version of yt-dlp or youtube-dl gets installed with mpv.<br>
-Debian based Linux<br>
-`sudo apt remove yt-dlp youtube-dl`<br>
-Arch/Manjaro/EndeavourOS  Linux:<br>
-`sudo pacman -R yt-dlp youtube-dl`<br>
-
-download yt-dlp from GitHub https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp<br>
-`sudo cp yt-dlp /usr/bin/`<br>
-`sudo chmod +x /usr/bin/yt-dlp`<br>
+`sudo pacman -Syu curl unzip wget fx mpv ffmpeg fzf socat python python-mutagen; sudo pacman -R yt-dlp youtube-dl; sudo curl https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -L -o /usr/bin/yt-dlp; sudo chmod +x /usr/bin/yt-dlp`<br>
 
 Done installing the dependencies.<br>
 
