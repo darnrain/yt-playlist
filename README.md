@@ -135,13 +135,13 @@ Installing the dependencies.<br>
 Debian based Linux:<br>
 `sudo apt update; sudo apt install mpv ffmpeg fzf socat python3 python3-mutagen`<br>
 
-Arch/Manjaro/EndeavourOS linux:<br>
+Arch/Manjaro/Endeavour linux:<br>
 `sudo pacman -Syu mpv ffmpeg fzf socat python python-mutagen`<br>
 
 uninstall yt-dlp or youtube-dl.<br>
 Debian based Linux<br>
 `sudo apt remove yt-dlp youtube-dl`<br>
-Arch bashed Linux.<br>
+Arch/Manjaro/Endeavour linux:<br>
 `sudo pacman -R yt-dlp youtube-dl`<br>
 
 download yt-dlp from GitHub https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp<br>
