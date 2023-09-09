@@ -34,6 +34,8 @@
         else
         clear
         echo "============================"
+        echo "Termux installer yt-playlist."
+        echo "============================"
         echo "Not all dependencies were found."
         echo "============================"
         echo "Installing missing dependencies."
