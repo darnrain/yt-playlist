@@ -1,34 +1,36 @@
 ========================================
-Linux online install v1.38
+Linux offline install.
 ========================================
-To downgrade/upgrade change the version number in the install command.
-Only install or uninstall under a user account.
-Copy and paste this command into the terminal:
+Copy yt-playlist.zip to your home directory.
+Copy and paste this command in the terminal:
 ========================================
-curl https://github.com/darnrain/yt-playlist/releases/download/v1.38/yt-playlist.zip -L -o /tmp/yt-playlist.zip; unzip -o /tmp/yt-playlist.zip -d /tmp/; sudo chmod +x /tmp/yt-playlist/yt-playlist-linux/install.sh; /tmp/yt-playlist/yt-playlist-linux/install.sh
-========================================
-
-========================================
-Linux online uninstall.
-========================================
-Copy and paste this command into the terminal:
-========================================
-curl https://github.com/darnrain/yt-playlist/releases/download/v1.38/yt-playlist.zip -L -o /tmp/yt-playlist.zip; unzip -o /tmp/yt-playlist.zip -d /tmp/; sudo chmod +x /tmp/yt-playlist/yt-playlist-linux/uninstall.sh; /tmp/yt-playlist/yt-playlist-linux/uninstall.sh
+unzip -o ${HOME}/yt-playlist.zip -d /tmp/; sudo chmod +x /tmp/yt-playlist/yt-playlist-linux/install.sh; /tmp/yt-playlist/yt-playlist-linux/install.sh
 ========================================
 
 ========================================
-Termux online install v1.38
+Linux offline uninstall.
 ========================================
-To downgrade/upgrade change the version number in the install command.
-Copy and paste this command into Termux:
+Copy yt-playlist.zip to your home directory.
+Copy and paste this command in the terminal:
 ========================================
-curl https://github.com/darnrain/yt-playlist/releases/download/v1.38/yt-playlist.zip -L -o ${TMPDIR}/yt-playlist.zip; unzip -o ${TMPDIR}/yt-playlist.zip -d ${TMPDIR}/; chmod +x ${TMPDIR}/yt-playlist/yt-playlist-termux/install.sh; ${TMPDIR}/yt-playlist/yt-playlist-termux/install.sh
+unzip -o ${HOME}/yt-playlist.zip -d /tmp/; sudo chmod +x /tmp/yt-playlist/yt-playlist-linux/uninstall.sh;  /tmp/yt-playlist/yt-playlist-linux/uninstall.sh
 ========================================
 
 ========================================
-Termux online uninstall.
+Termux offline install.
 ========================================
-Copy and paste this command into Termux:
+Note: if missing dependencies, the installer will need internet to download them.
+Copy yt-playlist.zip to your internal storage. You also need to enable storage permissions on the Termux app.
+Copy and paste this command in Termux:
 ========================================
-curl https://github.com/darnrain/yt-playlist/releases/download/v1.38/yt-playlist.zip -L -o ${TMPDIR}/yt-playlist.zip; unzip -o ${TMPDIR}/yt-playlist.zip -d ${TMPDIR}/; chmod +x ${TMPDIR}/yt-playlist/yt-playlist-termux/uninstall.sh; ${TMPDIR}/yt-playlist/yt-playlist-termux/uninstall.sh
+unzip -o /sdcard/yt-playlist.zip -d ${TMPDIR}/; chmod +x ${TMPDIR}/yt-playlist/yt-playlist-termux/install.sh; ${TMPDIR}/yt-playlist/yt-playlist-termux/install.sh
+========================================
+
+========================================
+Termux offline uninstall.
+========================================
+Copy yt-playlist.zip to your internal storage. You also need to enable storage permissions on the Termux app.
+Copy and paste this command in Termux:
+========================================
+unzip -o /sdcard/yt-playlist.zip -d ${TMPDIR}/; chmod +x ${TMPDIR}/yt-playlist/yt-playlist-termux/uninstall.sh; ${TMPDIR}/yt-playlist/yt-playlist-termux/uninstall.sh
 ========================================
