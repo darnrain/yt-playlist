@@ -108,7 +108,6 @@ If you need help, you can use this command to install all the required dependenc
 `sudo pacman -Syu --noconfirm curl unzip wget fx mpv ffmpeg fzf socat jemalloc python python-mutagen; sudo pacman -R --noconfirm yt-dlp youtube-dl; sudo curl https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -L -o /usr/bin/yt-dlp; sudo chmod +x /usr/bin/yt-dlp`<br>
 
 ### Linux online install yt-playlist v1.40:
-To downgrade/upgrade change the version number in the install command.<br>
 Only install or uninstall under a user account.<br>
 
 To install copy and paste this command into the terminal:<br>
@@ -127,8 +126,7 @@ When uninstalling yt-playlist the ~/.config/yt-playlist/ directory does not get 
 `rm -R ${HOME}/.config/yt-playlist/`<br>
 
 ### Termux online install yt-playlist v1.40:
-To downgrade/upgrade change the version number in the install command.<br>
-The Termux installer will auto install all the required and optional dependencies first, before installing yt-playlist.<br>
+The Termux installer will automatically install all the required and optional dependencies first, before installing yt-playlist.<br>
 
 To install copy and paste this command into Termux:<br>
 
