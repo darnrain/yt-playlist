@@ -71,7 +71,7 @@ More photos.<br>
 * Recommended 512MB ram for SD 720p. Cache is set to 70MB.
 * Recommended 256MB ram for Audio/music. Cache is set to 15MB.
 
-### Termux install info.
+### Termux dependencies.
 The Termux installer will automatically install all the required and optional dependencies first, before installing yt-playlist.<br>
 
 ### Linux required dependencies:
