@@ -72,7 +72,14 @@ More photos.<br>
 * Recommended 256MB ram for Audio/music. Cache is set to 15MB.
 
 ### Linux required dependencies:
-see help guide down below for installing the dependencies.<br>
+The Linux installer will check to make sure<br>
+all the required dependencies are<br>
+installed and let you know the ones you<br>
+are missing, before installing yt-playlist.<br>
+The installer will also show you the versions<br>
+you have installed of yt-dlp and mpv after<br>
+all dependencies are installed.<br>
+
 * yt-dlp version 2023.07.06 or higher.
 * mpv version 0.34.1 or higher.
 * ffmpeg
