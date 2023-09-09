@@ -22,6 +22,7 @@ Termux online install v1.41
 The Termux installer will automatically 
 install all the required and optional 
 dependencies first, before installing yt-playlist.
+========================================
 Copy and paste this command into Termux:
 ========================================
 curl https://github.com/darnrain/yt-playlist/releases/download/v1.41/yt-playlist.zip -L -o ${TMPDIR}/yt-playlist.zip; unzip -o ${TMPDIR}/yt-playlist.zip -d ${TMPDIR}/; chmod +x ${TMPDIR}/yt-playlist/yt-playlist-termux/install.sh; ${TMPDIR}/yt-playlist/yt-playlist-termux/install.sh
