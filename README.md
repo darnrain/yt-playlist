@@ -128,6 +128,7 @@ When uninstalling yt-playlist the ~/.config/yt-playlist/ directory does not get 
 
 ### Termux online install yt-playlist v1.40:
 To downgrade/upgrade change the version number in the install command.<br>
+The Termux installer will auto install all the required and optional dependencies first, before installing yt-playlist.<br>
 
 To install copy and paste this command into Termux:<br>
 
