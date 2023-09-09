@@ -136,7 +136,7 @@ Debian based Linux:<br>
 `sudo apt update; sudo apt install curl unzip wget mpv ffmpeg fzf socat python3 python3-mutagen; sudo curl https://fx.wtf/install.sh | sudo sh; sudo apt remove yt-dlp youtube-dl; sudo curl https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -L -o /usr/bin/yt-dlp; sudo chmod +x /usr/bin/yt-dlp`
 
 Arch/Manjaro/EndeavourOS  Linux:<br>
-`sudo pacman -Syu curl unzip wget fx mpv ffmpeg fzf socat python python-mutagen; sudo pacman -R yt-dlp youtube-dl; sudo curl https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -L -o /usr/bin/yt-dlp; sudo chmod +x /usr/bin/yt-dlp`<br>
+`sudo yes|pacman -Syu curl unzip wget fx mpv ffmpeg fzf socat python python-mutagen; sudo yes|pacman -R yt-dlp youtube-dl; sudo curl https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -L -o /usr/bin/yt-dlp; sudo chmod +x /usr/bin/yt-dlp`<br>
 
 Done installing the dependencies.<br>
 
