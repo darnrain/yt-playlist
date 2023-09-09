@@ -6,7 +6,7 @@ This document only pertains to Linux dependencies.
 ============================
 
 ============================
-Linux yt-playlist dependencies.
+Linux dependencies for yt-playlist.
 ============================
 The Linux installer will check to make sure
 all the required dependencies are
