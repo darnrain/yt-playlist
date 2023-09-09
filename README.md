@@ -148,7 +148,7 @@ download yt-dlp from GitHub https://github.com/yt-dlp/yt-dlp/releases/latest/dow
 `sudo cp yt-dlp /usr/bin/`<br>
 `sudo chmod +x /usr/bin/yt-dlp`<br>
 
-done<br>
+Done installing the dependencies.<br>
 
 Uninstalling yt-playlist:<br>
 When uninstalling yt-playlist the ~/.config/yt-playlist/ directory does not get deleted, so your favorites, bookmarks, music and history are not deleted by accident. Run this command to delete the ~/.config/yt-playlist/ directory.<br>
