@@ -138,7 +138,7 @@ Debian based Linux:<br>
 Arch/Manjaro/Endeavour Linux:<br>
 `sudo pacman -Syu wget fx mpv ffmpeg fzf socat python python-mutagen`<br>
 
-uninstall yt-dlp and youtube-dl, sometimes an old version of yt-dlp gets installed with mpv.<br>
+uninstall yt-dlp and youtube-dl, sometimes an old version of yt-dlp or youtube-dl gets installed with mpv.<br>
 Debian based Linux<br>
 `sudo apt remove yt-dlp youtube-dl`<br>
 Arch/Manjaro/Endeavour Linux:<br>
