@@ -135,13 +135,13 @@ Installing all the dependencies.<br>
 Debian based Linux:<br>
 `sudo apt update; sudo apt upgrade; sudo apt install wget mpv ffmpeg fzf socat python3 python3-mutagen; sudo curl https://fx.wtf/install.sh | sudo sh`<br>
 
-Arch/Manjaro/Endeavour Linux:<br>
+Arch/Manjaro/EndeavourOS  Linux:<br>
 `sudo pacman -Syu wget fx mpv ffmpeg fzf socat python python-mutagen`<br>
 
 uninstall yt-dlp and youtube-dl, sometimes an old version of yt-dlp or youtube-dl gets installed with mpv.<br>
 Debian based Linux<br>
 `sudo apt remove yt-dlp youtube-dl`<br>
-Arch/Manjaro/Endeavour Linux:<br>
+Arch/Manjaro/EndeavourOS  Linux:<br>
 `sudo pacman -R yt-dlp youtube-dl`<br>
 
 download yt-dlp from GitHub https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp<br>
