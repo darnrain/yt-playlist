@@ -54,7 +54,11 @@ More photos.<br>
 * Playing 2k, 4k, 8k requires a fast comptuer - gpu.
 
 ### Tested operating systems:
-* Working on the latest Arch/Manjaro/EndeavourOS Linux, Linux Mint, MX Linux and Termux.
+* Working on the latest:
+* Arch/Manjaro/EndeavourOS Linux
+* Linux Mint
+* MX Linux
+* Termux.
 * Should work on other flavors of linux.
 * Works on any architecture.
 * I will test more as time permits.
