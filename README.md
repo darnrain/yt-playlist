@@ -130,7 +130,7 @@ To uninstall copy and paste this command into Termux:<br>
 `yt-playlist --import`<br>
 
 ### Help guide:
-Installing the dependencies.<br>
+Installing all the dependencies.<br>
 
 Debian based Linux:<br>
 `sudo apt update; sudo apt upgrade; sudo apt install wget mpv ffmpeg fzf socat python3 python3-mutagen; sudo curl https://fx.wtf/install.sh | sudo sh`<br>
