@@ -1,0 +1,22 @@
+============================
+Installing all the dependencies.
+For yt-playlist.
+============================
+
+============================
+Debian based Linux.
+Copy and paste this command in the terminal:
+============================
+sudo apt -y update; sudo apt -y install curl unzip wget mpv ffmpeg fzf socat python3 python3-mutagen; sudo curl https://fx.wtf/install.sh | sudo sh; sudo apt -y remove yt-dlp youtube-dl; sudo curl https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -L -o /usr/bin/yt-dlp; sudo chmod +x /usr/bin/yt-dlp
+============================
+
+============================
+Arch/Manjaro/EndeavourOS Linux.
+Copy and paste this command in the terminal:
+============================
+sudo pacman -Syu --noconfirm curl unzip wget fx mpv ffmpeg fzf socat python python-mutagen; sudo pacman -R --noconfirm yt-dlp youtube-dl; sudo curl https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -L -o /usr/bin/yt-dlp; sudo chmod +x /usr/bin/yt-dlp
+============================
+
+============================
+Done installing all the dependencies.
+============================
