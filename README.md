@@ -140,13 +140,13 @@ When uninstalling yt-playlist the ~/.config/yt-playlist/ directory does not get 
 `rm -R ${HOME}/.config/yt-playlist/`<br>
 
 ### Binding media keys on Linux.
-Play/Pause command.
+Play/Pause command.<br>
 `echo cycle pause | socat - "/tmp/mpvsocket"`
 
-Next track command.
+Next track command.<br>
 `echo playlist-next | socat - "/tmp/mpvsocket"`
 
-Prev track command.
+Prev track command.<br>
 `echo playlist-prev | socat - "/tmp/mpvsocket"`
 
 ### Command arguments:
