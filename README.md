@@ -72,7 +72,7 @@ More photos.<br>
 * Recommended 256MB ram for Audio/music. Cache is set to 15MB.
 
 ### Termux install info.
-The Termux installer will auto install all the required and optional dependencies first, before installing yt-playlist.<br>
+The Termux installer will automatically install all the required and optional dependencies first, before installing yt-playlist.<br>
 
 ### Linux required dependencies:
 The Linux installer will check to make sure all the required dependencies are installed and let you know the ones you are missing, before installing yt-playlist. The installer will also show you the versions you have installed of yt-dlp and mpv after all dependencies are installed.<br>
