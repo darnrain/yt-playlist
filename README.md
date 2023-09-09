@@ -99,7 +99,7 @@ Install on top of older versions.<br>
 
 ### Linux online install yt-playlist v1.38:
 To downgrade/upgrade change the version number in the install command.<br>
-Only install or uninstall under a user account. Must have sudo, curl and unzip installed.<br>
+Only install or uninstall under a user account.<br>
 
 To install copy and paste this command into the terminal:<br>
 
@@ -133,10 +133,10 @@ To uninstall copy and paste this command into Termux:<br>
 Installing all the dependencies.<br>
 
 Debian based Linux:<br>
-`sudo apt update; sudo apt upgrade; sudo apt install curl wget mpv ffmpeg fzf socat python3 python3-mutagen; sudo curl https://fx.wtf/install.sh | sudo sh`<br>
+`sudo apt update; sudo apt install curl unzip wget mpv ffmpeg fzf socat python3 python3-mutagen; sudo curl https://fx.wtf/install.sh | sudo sh`<br>
 
 Arch/Manjaro/EndeavourOS  Linux:<br>
-`sudo pacman -Syu wget fx mpv ffmpeg fzf socat python python-mutagen`<br>
+`sudo pacman -Syu curl unzip wget fx mpv ffmpeg fzf socat python python-mutagen`<br>
 
 uninstall yt-dlp and youtube-dl, sometimes an old version of yt-dlp or youtube-dl gets installed with mpv.<br>
 Debian based Linux<br>
