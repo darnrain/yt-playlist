@@ -97,12 +97,12 @@ The Linux installer will check to make sure all the required dependencies are in
 ### Upgrading:
 Install on top of older versions.<br>
 
-### Debian based Linux, auto install dependencies.
+### Debian based Linux, auto dependencies install.
 If you need help, you can use this command to install all the required dependencies and optional dependencies all at once. To install fx on arm64 change fx_linux_amd64 to fx_linux_arm64<br>
 
 `sudo apt -y update; sudo apt -y install curl unzip wget mpv ffmpeg fzf socat python3 python3-mutagen; sudo curl https://github.com/antonmedv/fx/releases/download/24.1.0/fx_linux_amd64 -L -o /usr/bin/fx; sudo chmod +x /usr/bin/fx; sudo apt -y remove yt-dlp youtube-dl; sudo curl https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -L -o /usr/bin/yt-dlp; sudo chmod +x /usr/bin/yt-dlp`
 
-### Arch/Manjaro/EndeavourOS Linux, auto install dependencies.
+### Arch/Manjaro/EndeavourOS Linux, auto dependencies install.
 If you need help, you can use this command to install all the required dependencies and optional dependencies all at once.<br>
 
 `sudo pacman -Syu --noconfirm curl unzip wget fx mpv ffmpeg fzf socat jemalloc python python-mutagen; sudo pacman -R --noconfirm yt-dlp youtube-dl; sudo curl https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -L -o /usr/bin/yt-dlp; sudo chmod +x /usr/bin/yt-dlp`<br>
