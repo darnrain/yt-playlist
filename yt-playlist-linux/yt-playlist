@@ -11,7 +11,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="v1.44"
+version="v1.45"
 
 #mainmenu
 
@@ -2873,6 +2873,7 @@ echo "Left arrow for RR"
 echo "Spacebar to pause"
 echo '">" next track'
 echo '"<" prev track'
+echo "press enter for next track"
 echo '"q" quit mpv player.'
 echo '"shift-i" info'
 echo "Save to favorites    f"
