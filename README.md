@@ -53,7 +53,7 @@ More photos.<br>
 * Fast internet connection to stream 1080p, 2k, 4k, 8k.
 * Playing 2k, 4k, 8k requires a fast comptuer - gpu.
 
-### Tested operating systems:
+### Tested operating systems x86_64:
 * Working on the latest:
 * Arch/Manjaro/EndeavourOS Linux
 * Linux Mint
