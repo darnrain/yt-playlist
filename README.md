@@ -98,12 +98,12 @@ The Linux installer will check to make sure all the required dependencies are in
 Install on top of older versions.<br>
 
 ### Debian based Linux, auto install dependencies.
-If you need help, you can use this command to install all the required dependencies and optional dependencies in one go.<br>
+If you need help, you can use this command to install all the required dependencies and optional dependencies all at once.<br>
 
 `sudo apt -y update; sudo apt -y install curl unzip wget mpv ffmpeg fzf socat python3 python3-mutagen; curl https://github.com/antonmedv/fx/releases/download/24.1.0/fx_linux_arm64 -L -o /usr/bin/fx; sudo chmod +x /usr/bin/fx; sudo apt -y remove yt-dlp youtube-dl; sudo curl https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -L -o /usr/bin/yt-dlp; sudo chmod +x /usr/bin/yt-dlp`
 
 ### Arch/Manjaro/EndeavourOS Linux, auto install dependencies.
-If you need help, you can use this command to install all the required dependencies and optional dependencies in one go.<br>
+If you need help, you can use this command to install all the required dependencies and optional dependencies all at once.<br>
 
 `sudo pacman -Syu --noconfirm curl unzip wget fx mpv ffmpeg fzf socat jemalloc python python-mutagen; sudo pacman -R --noconfirm yt-dlp youtube-dl; sudo curl https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -L -o /usr/bin/yt-dlp; sudo chmod +x /usr/bin/yt-dlp`<br>
 
