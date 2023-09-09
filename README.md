@@ -72,13 +72,7 @@ More photos.<br>
 * Recommended 256MB ram for Audio/music. Cache is set to 15MB.
 
 ### Linux required dependencies:
-The Linux installer will check to make sure<br>
-all the required dependencies are<br>
-installed and let you know the ones you<br>
-are missing, before installing yt-playlist.<br>
-The installer will also show you the versions<br>
-you have installed of yt-dlp and mpv after<br>
-all dependencies are installed.<br>
+The Linux installer will check to make sure all the required dependencies are installed and let you know the ones you are missing, before installing yt-playlist. The installer will also show you the versions you have installed of yt-dlp and mpv after all dependencies are installed.<br>
 
 * yt-dlp version 2023.07.06 or higher.
 * mpv version 0.34.1 or higher.
@@ -101,24 +95,14 @@ all dependencies are installed.<br>
 Install on top of older versions.<br>
 
 ### Debian based Linux, auto install dependencies.
-If you need help, you can use<br>
-this command to install all the<br> 
-required dependencies and optional<br>
-dependencies in one go.<br>
+If you need help, you can use this command to install all the required dependencies and optional dependencies in one go.<br>
 
 `sudo apt -y update; sudo apt -y install curl unzip wget mpv ffmpeg fzf socat python3 python3-mutagen; sudo curl https://fx.wtf/install.sh | sudo sh; sudo apt -y remove yt-dlp youtube-dl; sudo curl https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -L -o /usr/bin/yt-dlp; sudo chmod +x /usr/bin/yt-dlp`
 
 ### Arch/Manjaro/EndeavourOS Linux, auto install.
-If you need help, you can use<br>
-this command to install all the<br>
-required dependencies and optional<br>
-dependencies in one go.<br>
+If you need help, you can use this command to install all the required dependencies and optional dependencies in one go.<br>
 
 `sudo pacman -Syu --noconfirm curl unzip wget fx mpv ffmpeg fzf socat jemalloc python python-mutagen; sudo pacman -R --noconfirm yt-dlp youtube-dl; sudo curl https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -L -o /usr/bin/yt-dlp; sudo chmod +x /usr/bin/yt-dlp`<br>
-
-Uninstalling yt-playlist:<br>
-When uninstalling yt-playlist the ~/.config/yt-playlist/ directory does not get deleted, so your favorites, bookmarks, music and history are not deleted by accident. Run this command to delete the ~/.config/yt-playlist/ directory.<br>
-`rm -R ${HOME}/.config/yt-playlist/`<br>
 
 ### Linux online install yt-playlist v1.40:
 To downgrade/upgrade change the version number in the install command.<br>
@@ -131,6 +115,10 @@ To install copy and paste this command into the terminal:<br>
 To uninstall copy and paste this command into the terminal:<br>
 
 `curl https://github.com/darnrain/yt-playlist/releases/download/v1.40/yt-playlist.zip -L -o /tmp/yt-playlist.zip; unzip -o /tmp/yt-playlist.zip -d /tmp/; sudo chmod +x /tmp/yt-playlist/yt-playlist-linux/uninstall.sh; /tmp/yt-playlist/yt-playlist-linux/uninstall.sh`<br>
+
+Uninstalling yt-playlist:<br>
+When uninstalling yt-playlist the ~/.config/yt-playlist/ directory does not get deleted, so your favorites, bookmarks, music and history are not deleted by accident. Run this command to delete the ~/.config/yt-playlist/ directory.<br>
+`rm -R ${HOME}/.config/yt-playlist/`<br>
 
 If you want to only press "y" to load yt-playlist copy and paste this command in the terminal:<br>
 
@@ -146,6 +134,10 @@ To install copy and paste this command into Termux:<br>
 To uninstall copy and paste this command into Termux:<br>
 
 `curl https://github.com/darnrain/yt-playlist/releases/download/v1.40/yt-playlist.zip -L -o ${TMPDIR}/yt-playlist.zip; unzip -o ${TMPDIR}/yt-playlist.zip -d ${TMPDIR}/; chmod +x ${TMPDIR}/yt-playlist/yt-playlist-termux/uninstall.sh; ${TMPDIR}/yt-playlist/yt-playlist-termux/uninstall.sh`<br>
+
+Uninstalling yt-playlist:<br>
+When uninstalling yt-playlist the ~/.config/yt-playlist/ directory does not get deleted, so your favorites, bookmarks, music and history are not deleted by accident. Run this command to delete the ~/.config/yt-playlist/ directory.<br>
+`rm -R ${HOME}/.config/yt-playlist/`<br>
 
 ### Command arguments:
 `yt-playlist --help`<br>
