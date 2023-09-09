@@ -90,12 +90,22 @@ see help guide down below for installing the dependencies.<br>
 * yt-playlist will automatically use jemalloc if installed, linux only.
 * jemalloc will only help if cpu is high playing video, not counting software decoding.
 
-### Notes:
-* The Linux instlaler will check to make sure you have all the dependencies installed, if not it will let you know the onces that are missing before installing yt-playlist.
-* The Termux installer will install all the dependencies including the optional dependencies, enable volume keys, and you can press "y" to load yt-playlist.
-
 ### Upgrading:
 Install on top of older versions.<br>
+
+### Installing all the dependencies.
+
+Debian based Linux:<br>
+`sudo apt -y update; sudo apt -y install curl unzip wget mpv ffmpeg fzf socat python3 python3-mutagen; sudo curl https://fx.wtf/install.sh | sudo sh; sudo apt -y remove yt-dlp youtube-dl; sudo curl https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -L -o /usr/bin/yt-dlp; sudo chmod +x /usr/bin/yt-dlp`
+
+Arch/Manjaro/EndeavourOS  Linux:<br>
+`sudo pacman -Syu --noconfirm curl unzip wget fx mpv ffmpeg fzf socat jemalloc python python-mutagen; sudo pacman -R --noconfirm yt-dlp youtube-dl; sudo curl https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -L -o /usr/bin/yt-dlp; sudo chmod +x /usr/bin/yt-dlp`<br>
+
+Done installing the dependencies.<br>
+
+Uninstalling yt-playlist:<br>
+When uninstalling yt-playlist the ~/.config/yt-playlist/ directory does not get deleted, so your favorites, bookmarks, music and history are not deleted by accident. Run this command to delete the ~/.config/yt-playlist/ directory.<br>
+`rm -R ${HOME}/.config/yt-playlist/`<br>
 
 ### Linux online install yt-playlist v1.38:
 To downgrade/upgrade change the version number in the install command.<br>
@@ -128,21 +138,6 @@ To uninstall copy and paste this command into Termux:<br>
 `yt-playlist --help`<br>
 `yt-playlist --version`<br>
 `yt-playlist --import`<br>
-
-### Help guide:
-Installing all the dependencies.<br>
-
-Debian based Linux:<br>
-`sudo apt -y update; sudo apt -y install curl unzip wget mpv ffmpeg fzf socat python3 python3-mutagen; sudo curl https://fx.wtf/install.sh | sudo sh; sudo apt -y remove yt-dlp youtube-dl; sudo curl https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -L -o /usr/bin/yt-dlp; sudo chmod +x /usr/bin/yt-dlp`
-
-Arch/Manjaro/EndeavourOS  Linux:<br>
-`sudo pacman -Syu --noconfirm curl unzip wget fx mpv ffmpeg fzf socat jemalloc python python-mutagen; sudo pacman -R --noconfirm yt-dlp youtube-dl; sudo curl https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -L -o /usr/bin/yt-dlp; sudo chmod +x /usr/bin/yt-dlp`<br>
-
-Done installing the dependencies.<br>
-
-Uninstalling yt-playlist:<br>
-When uninstalling yt-playlist the ~/.config/yt-playlist/ directory does not get deleted, so your favorites, bookmarks, music and history are not deleted by accident. Run this command to delete the ~/.config/yt-playlist/ directory.<br>
-`rm -R ${HOME}/.config/yt-playlist/`<br>
 
 ### yt-playlist notes:
 * In the Playlist menu, options 5,6 are a little slower finding YTMusic Albums and YTMusic Playlists than other search functions.
