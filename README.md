@@ -133,10 +133,10 @@ To uninstall copy and paste this command into Termux:<br>
 Installing the dependencies.<br>
 
 Debian based Linux:<br>
-`sudo apt update; sudo apt install mpv ffmpeg fzf socat python3 python3-mutagen`<br>
+`sudo apt update; sudo apt install wget fx mpv ffmpeg fzf socat python3 python3-mutagen`<br>
 
 Arch/Manjaro/Endeavour Linux:<br>
-`sudo pacman -Syu mpv ffmpeg fzf socat python python-mutagen`<br>
+`sudo pacman -Syu wget fx mpv ffmpeg fzf socat python python-mutagen`<br>
 
 uninstall yt-dlp and youtube-dl.<br>
 Debian based Linux<br>
