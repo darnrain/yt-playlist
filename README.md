@@ -107,32 +107,32 @@ Uninstalling yt-playlist:<br>
 When uninstalling yt-playlist the ~/.config/yt-playlist/ directory does not get deleted, so your favorites, bookmarks, music and history are not deleted by accident. Run this command to delete the ~/.config/yt-playlist/ directory.<br>
 `rm -R ${HOME}/.config/yt-playlist/`<br>
 
-### Linux online install yt-playlist v1.38:
+### Linux online install yt-playlist v1.39:
 To downgrade/upgrade change the version number in the install command.<br>
 Only install or uninstall under a user account.<br>
 
 To install copy and paste this command into the terminal:<br>
 
-`curl https://github.com/darnrain/yt-playlist/releases/download/v1.38/yt-playlist.zip -L -o /tmp/yt-playlist.zip; unzip -o /tmp/yt-playlist.zip -d /tmp/; sudo chmod +x /tmp/yt-playlist/yt-playlist-linux/install.sh; /tmp/yt-playlist/yt-playlist-linux/install.sh`<br>
+`curl https://github.com/darnrain/yt-playlist/releases/download/v1.39/yt-playlist.zip -L -o /tmp/yt-playlist.zip; unzip -o /tmp/yt-playlist.zip -d /tmp/; sudo chmod +x /tmp/yt-playlist/yt-playlist-linux/install.sh; /tmp/yt-playlist/yt-playlist-linux/install.sh`<br>
 
 To uninstall copy and paste this command into the terminal:<br>
 
-`curl https://github.com/darnrain/yt-playlist/releases/download/v1.38/yt-playlist.zip -L -o /tmp/yt-playlist.zip; unzip -o /tmp/yt-playlist.zip -d /tmp/; sudo chmod +x /tmp/yt-playlist/yt-playlist-linux/uninstall.sh; /tmp/yt-playlist/yt-playlist-linux/uninstall.sh`<br>
+`curl https://github.com/darnrain/yt-playlist/releases/download/v1.39/yt-playlist.zip -L -o /tmp/yt-playlist.zip; unzip -o /tmp/yt-playlist.zip -d /tmp/; sudo chmod +x /tmp/yt-playlist/yt-playlist-linux/uninstall.sh; /tmp/yt-playlist/yt-playlist-linux/uninstall.sh`<br>
 
 If you want to only press "y" to load yt-playlist copy and paste this command in the terminal:<br>
 
 `echo "alias y='yt-playlist'" >> ${HOME}/.bashrc; source ${HOME}/.bashrc`<br>
 
-### Termux online install yt-playlist v1.38:
+### Termux online install yt-playlist v1.39:
 To downgrade/upgrade change the version number in the install command.<br>
 
 To install copy and paste this command into Termux:<br>
 
-`curl https://github.com/darnrain/yt-playlist/releases/download/v1.38/yt-playlist.zip -L -o ${TMPDIR}/yt-playlist.zip; unzip -o ${TMPDIR}/yt-playlist.zip -d ${TMPDIR}/; chmod +x ${TMPDIR}/yt-playlist/yt-playlist-termux/install.sh; ${TMPDIR}/yt-playlist/yt-playlist-termux/install.sh`<br>
+`curl https://github.com/darnrain/yt-playlist/releases/download/v1.39/yt-playlist.zip -L -o ${TMPDIR}/yt-playlist.zip; unzip -o ${TMPDIR}/yt-playlist.zip -d ${TMPDIR}/; chmod +x ${TMPDIR}/yt-playlist/yt-playlist-termux/install.sh; ${TMPDIR}/yt-playlist/yt-playlist-termux/install.sh`<br>
 
 To uninstall copy and paste this command into Termux:<br>
 
-`curl https://github.com/darnrain/yt-playlist/releases/download/v1.38/yt-playlist.zip -L -o ${TMPDIR}/yt-playlist.zip; unzip -o ${TMPDIR}/yt-playlist.zip -d ${TMPDIR}/; chmod +x ${TMPDIR}/yt-playlist/yt-playlist-termux/uninstall.sh; ${TMPDIR}/yt-playlist/yt-playlist-termux/uninstall.sh`<br>
+`curl https://github.com/darnrain/yt-playlist/releases/download/v1.39/yt-playlist.zip -L -o ${TMPDIR}/yt-playlist.zip; unzip -o ${TMPDIR}/yt-playlist.zip -d ${TMPDIR}/; chmod +x ${TMPDIR}/yt-playlist/yt-playlist-termux/uninstall.sh; ${TMPDIR}/yt-playlist/yt-playlist-termux/uninstall.sh`<br>
 
 ### Command arguments:
 `yt-playlist --help`<br>
