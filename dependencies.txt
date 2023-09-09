@@ -1,5 +1,5 @@
 ============================
-yt-playlist dependencies.
+Linux yt-playlist dependencies.
 ============================
 The Linux installer will check to make sure
 all the required dependencies are
