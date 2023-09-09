@@ -100,16 +100,21 @@ all dependencies are installed.<br>
 ### Upgrading:
 Install on top of older versions.<br>
 
-### Installing all the dependencies.
-If you need help installing the dependencies, thses are the commands I have used to install all of them in one go.<br>
+### Debian based Linux, auto install dependencies.
+If you need help, you can use<br>
+this command to install all the<br> 
+required dependencies and optional<br>
+dependencies in one go.<br>
 
-Debian based Linux:<br>
 `sudo apt -y update; sudo apt -y install curl unzip wget mpv ffmpeg fzf socat python3 python3-mutagen; sudo curl https://fx.wtf/install.sh | sudo sh; sudo apt -y remove yt-dlp youtube-dl; sudo curl https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -L -o /usr/bin/yt-dlp; sudo chmod +x /usr/bin/yt-dlp`
 
-Arch/Manjaro/EndeavourOS  Linux:<br>
-`sudo pacman -Syu --noconfirm curl unzip wget fx mpv ffmpeg fzf socat jemalloc python python-mutagen; sudo pacman -R --noconfirm yt-dlp youtube-dl; sudo curl https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -L -o /usr/bin/yt-dlp; sudo chmod +x /usr/bin/yt-dlp`<br>
+### Arch/Manjaro/EndeavourOS Linux, auto install.
+If you need help, you can use<br>
+this command to install all the<br>
+required dependencies and optional<br>
+dependencies in one go.<br>
 
-Done installing the dependencies.<br>
+`sudo pacman -Syu --noconfirm curl unzip wget fx mpv ffmpeg fzf socat jemalloc python python-mutagen; sudo pacman -R --noconfirm yt-dlp youtube-dl; sudo curl https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -L -o /usr/bin/yt-dlp; sudo chmod +x /usr/bin/yt-dlp`<br>
 
 Uninstalling yt-playlist:<br>
 When uninstalling yt-playlist the ~/.config/yt-playlist/ directory does not get deleted, so your favorites, bookmarks, music and history are not deleted by accident. Run this command to delete the ~/.config/yt-playlist/ directory.<br>
