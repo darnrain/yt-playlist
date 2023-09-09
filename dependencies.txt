@@ -1,4 +1,11 @@
 ============================
+The Termux installer will automatically 
+install all the required and optional 
+dependencies first, before installing yt-playlist.
+This document only pertains to Linux dependencies.
+============================
+
+============================
 Linux yt-playlist dependencies.
 ============================
 The Linux installer will check to make sure
