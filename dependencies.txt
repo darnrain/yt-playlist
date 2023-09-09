@@ -34,7 +34,8 @@ Install on top of older versions.
 ============================
 
 ============================
-Debian based Linux, auto install.
+Debian based Linux,
+auto dependencies install.
 ============================
 If you need help, you can use
 this command to install all the 
@@ -45,7 +46,8 @@ sudo apt -y update; sudo apt -y install curl unzip wget mpv ffmpeg fzf socat pyt
 ============================
 
 ============================
-Arch/Manjaro/EndeavourOS Linux, auto install.
+Arch/Manjaro/EndeavourOS Linux,
+auto dependencies install.
 ============================
 If you need help, you can use
 this command to install all the 
