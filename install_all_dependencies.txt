@@ -1,8 +1,13 @@
 ============================
 yt-playlist dependencies.
 ============================
+The Linux installer will check to make sure
+all the required dependencies are
+installed and let you know the ones you
+are missing, before installing yt-playlist.
+============================
 Linux required dependencies:
-
+============================
 yt-dlp version 2023.07.06 or higher.
 mpv version 0.34.1 or higher.
 ffmpeg
@@ -13,32 +18,33 @@ awk
 sed
 tr
 bash
-
+============================
 Linux optional dependencies:
-
+============================
 fx and wget For Billboard hot 100.
-jemalloc for Arch/Manjaro linux 100% cpu fix.
+jemalloc for Arch/Manjaro/EndeavourOS linux 100% cpu fix.
 yt-playlist will automatically use jemalloc if installed, linux only.
 jemalloc will only help if cpu is high playing video, not counting software decoding.
+============================
 
 ============================
 Debian based Linux.
-If you need help these are the commands 
-I have used to install all the dependencies 
-in one go.
+============================
+If you need help, you can use
+this command to install all the 
+required dependencies and optional
+dependencies in one go.
 ============================
 sudo apt -y update; sudo apt -y install curl unzip wget mpv ffmpeg fzf socat python3 python3-mutagen; sudo curl https://fx.wtf/install.sh | sudo sh; sudo apt -y remove yt-dlp youtube-dl; sudo curl https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -L -o /usr/bin/yt-dlp; sudo chmod +x /usr/bin/yt-dlp
 ============================
 
 ============================
 Arch/Manjaro/EndeavourOS Linux.
-If you need help these are the commands 
-I have used to install all the dependencies 
-in one go.
+============================
+If you need help, you can use
+this command to install all the 
+required dependencies and optional
+dependencies in one go. 
 ============================
 sudo pacman -Syu --noconfirm curl unzip wget fx mpv ffmpeg fzf socat python python-mutagen; sudo pacman -R --noconfirm yt-dlp youtube-dl; sudo curl https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -L -o /usr/bin/yt-dlp; sudo chmod +x /usr/bin/yt-dlp
-============================
-
-============================
-Done installing all the dependencies.
 ============================
