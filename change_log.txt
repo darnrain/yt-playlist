@@ -14,7 +14,7 @@ Now it should be easy to setup your media keys to control yt-playlsit. Works on 
 
 Updated yt-playlist --help
 
-I am going to include a change_log.txt file now with the zip file and when you main repo, so everyone can keep updated on all the changes I am making.
+I am going to include a change_log.txt file now with the zip file and main repo, so everyone can keep updated on all the changes I am making.
 
 Because of this update, I have removed the mpv_commands.txt file.
 
