@@ -11,7 +11,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="v1.46"
+version="v1.47"
 
 #mainmenu
 
@@ -2523,7 +2523,7 @@ mpv_video_arguments=( "${mpv_audio_video}" "${mpv_video_gpu}" "${mpv_video_fulls
 
 function resume_playback_on_function ()
 {
-resume_playback_arguments=( "--resume-playback=yes --watch-later-options=start --save-position-on-quit=yes" )
+resume_playback_arguments=( "--resume-playback=yes --watch-later-options=start --save-position-on-quit=no" )
 resume_playback_on_or_off="yes"
 }
 
@@ -2874,7 +2874,8 @@ echo "Spacebar to pause"
 echo '">" next track'
 echo '"<" prev track'
 echo "press enter for next track"
-echo '"q" quit mpv player.'
+echo '"shift-q" to save playback position and quit'
+echo '"q" quit without saving playback position'
 echo '"shift-i" info'
 echo "Save to favorites    f"
 echo "Save to Bookmarks    b"
