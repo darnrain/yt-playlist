@@ -162,6 +162,7 @@ Prev track command.<br>
 * Play music/video then if you want to save the playback position and quit press "shift-q".
 * When you want to resume from that saved playback position enable resume playback, then play the music/video.
 * If you just want to quit music/video with out saving the playback position, press "q".
+* You can save to the bookmarks and then press "shift-q" to save the playback position, then resume playback from the bookmarks.
 * Resume playback and save playback position only will work in the Play SD menu and Bookmark SD menu.
 * In the Playlist menu, options 5,6 are a little slower finding YTMusic Albums and YTMusic Playlists than other search functions.
 * The YT playlist search and YT channel search are very fast also get channel playlists.
