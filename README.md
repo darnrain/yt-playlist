@@ -143,6 +143,9 @@ When uninstalling yt-playlist the ~/.config/yt-playlist/ directory does not get 
 `yt-playlist --help`<br>
 `yt-playlist --version`<br>
 `yt-playlist --import`<br>
+`yt-playlist --play_pause`<br>
+`yt-playlist --next`<br>
+`yt-playlist --prev`<br>
 
 ### yt-playlist notes:
 * Changed how resume playback works.
