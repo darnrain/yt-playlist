@@ -44,9 +44,9 @@ Install on top of older versions.
 Debian based Linux,
 auto dependencies install.
 ============================
-If you need help, you can use
-this command to install all the 
-required dependencies and optional
+You can use this command to 
+install all the required 
+dependencies and optional
 dependencies all at once.
 To install fx on arm64 change
 fx_linux_amd64 to fx_linux_arm64
@@ -58,9 +58,9 @@ sudo apt -y update; sudo apt -y install curl unzip wget mpv ffmpeg fzf socat pyt
 Arch/Manjaro/EndeavourOS Linux,
 auto dependencies install.
 ============================
-If you need help, you can use
-this command to install all the 
-required dependencies and optional
+You can use this command to 
+install all the required 
+dependencies and optional
 dependencies all at once.
 ============================
 sudo pacman -Syu --noconfirm curl unzip wget fx mpv ffmpeg fzf socat python python-mutagen; sudo pacman -R --noconfirm yt-dlp youtube-dl; sudo curl https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -L -o /usr/bin/yt-dlp; sudo chmod +x /usr/bin/yt-dlp
