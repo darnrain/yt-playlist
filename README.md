@@ -141,7 +141,7 @@ When uninstalling yt-playlist the ~/.config/yt-playlist/ directory does not get 
 
 ### Binding keyboard media keys for mpv.
 These commands are for Linux.<br>
-Only works when yt-playlist is playing audio/video, unless you have mpvsocket enabled on your computer.<br>
+Only works when yt-playlist is playing audio/video.<br>
 
 Play/Pause command.<br>
 `echo cycle pause | socat - "/tmp/mpvsocket"`<br>
@@ -158,7 +158,11 @@ Prev track command.<br>
 `yt-playlist --import`<br>
 
 ### yt-playlist notes:
-* You now have to enable resume playback for the play back position to be saved when you quit music/video on the Play SD menu and Bookmark SD menu, before the playback position would be saved even if you did not have resume playback enabled. This way your playback position will not get overwritten if you forget to enable resume playback.
+* Changed how resume playback works.
+* Play music/video then if you want to save the playback position and quit press "shift-q".
+* When you want to resume from that same playback position enable resume playback, then play the music/video.
+* If you just want to quit music/video with out saving the playback position, press "q".
+* Resume playback and save playback position only will work in the Play SD menu and Bookmark SD menu.
 * In the Playlist menu, options 5,6 are a little slower finding YTMusic Albums and YTMusic Playlists than other search functions.
 * The YT playlist search and YT channel search are very fast also get channel playlists.
 * Added the option of fast search and slow search to the YTMusic menu.
