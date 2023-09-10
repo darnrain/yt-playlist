@@ -11,7 +11,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="v1.45"
+version="v1.46"
 
 #mainmenu
 
@@ -389,7 +389,7 @@ echo -ne "== Play SD Menu ==
 8) Enable Audio aac 128kbps 44.1kHz.
 9) Enable Audio opus 128kbps 48kHz.
 10) Enabled resume playback.
-11) Enter number of video results.
+11) Enter number of music/video results.
 m) Main menu.
 Choose an option:  "
     read -r ans
@@ -703,7 +703,7 @@ fi
         ;;
     11)
         printf " \n"
-        printf "Enter video results number: \n"
+        printf "Enter music/video results number: \n"
         read yt_video_number
         if [ -n "$yt_video_number" ]
         then
@@ -2529,7 +2529,7 @@ resume_playback_on_or_off="yes"
 
 function resume_playback_off_function ()
 {
-resume_playback_arguments=( "--resume-playback=no --watch-later-options=start --save-position-on-quit=yes" )
+resume_playback_arguments=( "--resume-playback=no --save-position-on-quit=no" )
 unset resume_playback_on_or_off
 }
 
