@@ -1,0 +1,52 @@
+9-10-2023
+
+================================
+Change log notes
+================================
+
+v1.49
+Added new command line arguments Termux/Linux versions
+yt-playlist --play_pause
+yt-playlist --next
+yt-playlist --prev
+
+Now it should be easy to setup your media keys to control yt-playlsit. Works on all Play menus. The Play HD menu you can only play/pause.
+
+Updated yt-playlist --help
+
+I am going to include a change_log.txt file now with the zip file and when you main repo, so everyone can keep updated on all the changes I am making.
+
+Because of this update, I have removed the mpv_commands.txt file.
+
+Old depreciated commands
+
+Play/Pause command.
+echo cycle pause | socat - "/tmp/mpvsocket"
+
+Next track command.
+echo playlist-next | socat - "/tmp/mpvsocket"
+
+Prev track command.
+echo playlist-prev | socat - "/tmp/mpvsocket"
+
+v1.48
+Updated yt-playlist --help
+
+v1.47
+Changed how resume playback works.
+Play music/video then if you want to save the playback position and quit press "shift-q".
+When you want to resume from that saved playback position enable resume playback, then play the music/video.
+If you just want to quit music/video with out saving the playback position, press "q".
+You can save to the bookmarks and then press "shift-q" to save the playback position, then resume playback from the bookmarks.
+Resume playback and save playback position only will work in the Play SD menu and Bookmark SD menu.
+
+Updated the help to include this info, the abridged version.
+
+v1.46
+Updated the Play SD menu option number 11 to say Enter number of music/video results. From Enter number of video results.
+
+You now have to enable resume playback for the playback position to be saved when you quit watching music/video on the Play SD menu and Bookmark SD menu, before the playback position would be saved even if you did not have resume playback enabled. This way your playback position will not get overwritten if you forget to enable resume playback.
+
+v1.45
+Updated the Termux and Linux help to include that you can press enter for next track. Updated the mpv_commands.txt
+

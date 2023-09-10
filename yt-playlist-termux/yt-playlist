@@ -11,7 +11,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: /sdcard/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 yt_video_number="1:100"
-version="v1.48"
+version="v1.49"
 
 #mainmenu
 
@@ -2169,6 +2169,85 @@ function mpv_log_file_off_funciton ()
 unset mpv_log_file_arguments
 }
 
+function mpv_play_pause_function ()
+{
+	if test -f "${tmp_dir}/mpv_hd_running"
+        then
+        echo '{ "command": ["show-text", "Play/Pause" ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
+        echo cycle pause | socat - "${tmp_dir}/mpvsocket"
+        fi
+
+	if test -f "${tmp_dir}/mpv_video_running"
+        then
+        echo '{ "command": ["show-text", "Play/Pause" ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
+        echo cycle pause | socat - "${tmp_dir}/mpvsocket"
+        fi
+
+	if test -f "${tmp_dir}/mpv_bookmark_running"
+        then
+        echo '{ "command": ["show-text", "Play/Pause" ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
+        echo cycle pause | socat - "${tmp_dir}/mpvsocket"
+        fi
+
+	if test -f "${tmp_dir}/mpv_music_running"
+        then
+        echo '{ "command": ["show-text", "Play/Pause" ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
+        echo cycle pause | socat - "${tmp_dir}/mpvsocket"
+        fi
+}
+
+function mpv_next_function ()
+{
+	if test -f "${tmp_dir}/mpv_hd_running"
+        then
+        echo '{ "command": ["show-text", "Not available when playing hd video." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
+        fi
+
+	if test -f "${tmp_dir}/mpv_video_running"
+        then
+        echo '{ "command": ["show-text", "Next track" ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
+        echo playlist-next | socat - "${tmp_dir}/mpvsocket"
+        fi
+
+	if test -f "${tmp_dir}/mpv_bookmark_running"
+        then
+        echo '{ "command": ["show-text", "Next track" ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
+        echo playlist-next | socat - "${tmp_dir}/mpvsocket"
+        fi
+
+	if test -f "${tmp_dir}/mpv_music_running"
+        then
+        echo '{ "command": ["show-text", "Next track" ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
+        echo playlist-next | socat - "${tmp_dir}/mpvsocket"
+        fi
+}
+
+function mpv_prev_function ()
+{
+	if test -f "${tmp_dir}/mpv_hd_running"
+        then
+        echo '{ "command": ["show-text", "Not available when playing hd video." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
+        fi
+
+	if test -f "${tmp_dir}/mpv_video_running"
+        then
+        echo '{ "command": ["show-text", "Prev track" ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
+        echo playlist-prev | socat - "${tmp_dir}/mpvsocket"
+        fi
+
+	if test -f "${tmp_dir}/mpv_bookmark_running"
+        then
+        echo '{ "command": ["show-text", "Prev track" ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
+        echo playlist-prev | socat - "${tmp_dir}/mpvsocket"
+        fi
+
+	if test -f "${tmp_dir}/mpv_music_running"
+        then
+        echo '{ "command": ["show-text", "Prev track" ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
+        echo playlist-prev | socat - "${tmp_dir}/mpvsocket"
+        fi
+}
+
 
 function title_function ()
 {
@@ -2459,6 +2538,9 @@ function help_function ()
 echo "Help menu:              -h or --help"
 echo "Version:                -v or --version"
 echo "Import Google takeout:  --import" 
+echo "Play/Pause              --play_pause"
+echo "Next track              --next"
+echo "Prev track              --prev"
 echo "Suppprted file types:"
 echo "subscriptions.csv" 
 echo "music-library-songs.csv"     
@@ -2624,6 +2706,24 @@ fi
         if [[ "$external_arguments" = "--download_video" ]]
 	then
 	download_video_function
+        exit
+        fi
+
+        if [[ "$external_arguments" = "--play_pause" ]]
+	then
+        mpv_play_pause_function
+        exit
+        fi
+
+        if [[ "$external_arguments" = "--next" ]]
+	then
+        mpv_next_function
+        exit
+        fi
+
+        if [[ "$external_arguments" = "--prev" ]]
+	then
+        mpv_prev_function
         exit
         fi
 
