@@ -140,12 +140,17 @@ When uninstalling yt-playlist the ~/.config/yt-playlist/ directory does not get 
 `rm -R ${HOME}/.config/yt-playlist/`<br>
 
 ### Command arguments:
-`yt-playlist --help`<br>
-`yt-playlist --version`<br>
-`yt-playlist --import`<br>
-`yt-playlist --play_pause`<br>
-`yt-playlist --next`<br>
-`yt-playlist --prev`<br>
+Help menu:              -h or --help<br>
+Version:                -v or --version<br>
+Play/Pause              --play_pause<br>
+Next track              --next<br>
+Prev track              --prev<br>
+Import Google takeout:  --import<br>
+Suppprted file types:<br>
+subscriptions.csv<br>
+music-library-songs.csv<br>
+Example: "yt-playlist --import subscriptions.csv"<br>
+
 
 ### yt-playlist notes:
 * Changed how resume playback works.
