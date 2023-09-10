@@ -139,19 +139,6 @@ To uninstall copy and paste this command into Termux:<br>
 When uninstalling yt-playlist the ~/.config/yt-playlist/ directory does not get deleted, so your favorites, bookmarks, music and history are not deleted by accident. Run this command to delete the ~/.config/yt-playlist/ directory.<br>
 `rm -R ${HOME}/.config/yt-playlist/`<br>
 
-### Binding keyboard media keys for mpv.
-These commands are for Linux.<br>
-Only works when yt-playlist is playing audio/video.<br>
-
-Play/Pause command.<br>
-`echo cycle pause | socat - "/tmp/mpvsocket"`<br>
-
-Next track command.<br>
-`echo playlist-next | socat - "/tmp/mpvsocket"`<br>
-
-Prev track command.<br>
-`echo playlist-prev | socat - "/tmp/mpvsocket"`<br>
-
 ### Command arguments:
 `yt-playlist --help`<br>
 `yt-playlist --version`<br>
