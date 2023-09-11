@@ -139,17 +139,19 @@ To uninstall copy and paste this command into Termux:<br>
 When uninstalling yt-playlist the ~/.config/yt-playlist/ directory does not get deleted, so your favorites, bookmarks, music and history are not deleted by accident. Run this command to delete the ~/.config/yt-playlist/ directory.<br>
 `rm -R ${HOME}/.config/yt-playlist/`<br>
 
+<pre>
 ### Command arguments:
-Help menu:              -h or --help<br>
-Version:                -v or --version<br>
-Play/Pause              --play_pause<br>
-Next track              --next<br>
-Prev track              --prev<br>
-Import Google takeout:  --import<br>
-Suppprted file types:<br>
-subscriptions.csv<br>
-music-library-songs.csv<br>
-Example: "yt-playlist --import subscriptions.csv"<br>
+Help menu:              -h or --help
+Version:                -v or --version
+Play/Pause              --play_pause
+Next track              --next
+Prev track              --prev
+Import Google takeout:  --import
+Suppprted file types:
+subscriptions.csv
+music-library-songs.csv
+Example: "yt-playlist --import subscriptions.csv"
+</pre>
 
 
 ### yt-playlist notes:
