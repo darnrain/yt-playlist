@@ -4,6 +4,9 @@
 Change log notes
 ================================
 
+v1.54
+Updated Billboard hot 100 in the YTMusic menu. It is now using curl instead of wget to download the json file.
+
 v1.53
 Updated the dependencies.txt. I updated the debian based dependencies install for removing yt-dlp and youtube-dl.
 

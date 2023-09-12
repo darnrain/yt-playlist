@@ -11,7 +11,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: /sdcard/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 yt_video_number="1:100"
-version="v1.53"
+version="v1.54"
 
 #mainmenu
 
@@ -1022,15 +1022,14 @@ fi
         play_music_menu_function
         ;;
     8)  
-        if command -v fx >/dev/null && command -v wget >/dev/null
+        if command -v fx >/dev/null && command -v curl >/dev/null
         then
         export FX_THEME=2
-        wget -O ${yt_playlist_home_dir}/top100.json https://raw.githubusercontent.com/mhollingshead/billboard-hot-100/main/recent.json
-        fx ${yt_playlist_home_dir}/top100.json
+        curl -s https://raw.githubusercontent.com/mhollingshead/billboard-hot-100/main/recent.json -L 2>&1 | fx
         play_music_menu_function
         else
-        echo "Please install wget and fx to run."
-        sleep 1
+        echo "Please install fx and curl to run."
+        sleep 2
         play_music_menu_function
         fi
         ;;
