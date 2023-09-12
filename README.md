@@ -108,7 +108,7 @@ Just copy and paste into the terminal:<br>
 This command requires sudo access, and to confirm the installation of the dependencies and the removal of yt-dlp and youtube-dl.<br>
 Just copy and paste into the terminal:<br>
 
-`sudo pacman -Syu curl unzip wget fx mpv ffmpeg fzf socat python python-mutagen; sudo pacman -R yt-dlp youtube-dl yt-dlp-git youtube-dl-git; sudo curl https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -L -o /usr/bin/yt-dlp; sudo chmod +x /usr/bin/yt-dlp`<br>
+`sudo pacman -Syu curl unzip wget fx mpv ffmpeg fzf socat python python-mutagen; sudo pacman -R yt-dlp; sudo pacman -R youtube-dl; sudo pacman -R yt-dlp-git; sudo pacman -R youtube-dl-git; sudo curl https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -L -o /usr/bin/yt-dlp; sudo chmod +x /usr/bin/yt-dlp`<br>
 
 ### Linux online install yt-playlist v1.51:
 Only install or uninstall under a user account.<br>
