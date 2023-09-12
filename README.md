@@ -1,4 +1,4 @@
-## Welcome to yt-playlist
+# Welcome to yt-playlist
 
 ## No spyware or adware. Respects your privacy. Does not login to YouTube, YouTube Music or Google. Does not use Google's api. Simplistic UI with a numeric layout, for faster access.<br>
 
