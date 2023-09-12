@@ -4,6 +4,9 @@
 Change log notes
 ================================
 
+v1.53
+Updated the dependencies.txt. I updated the debian based dependencies install for removing yt-dlp and youtube-dl.
+
 v1.52
 Updated the dependencies.txt. There was an error in the commands for removing the old yt-dlp and youtube-dl on arch linux. Also added pipx to uninstall yt-dlp and youtube-dl. The commands in dependencies.txt will download the latest yt-dlp version from github.com and install it.
 
