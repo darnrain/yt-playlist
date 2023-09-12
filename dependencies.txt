@@ -46,9 +46,9 @@ auto dependencies install.
 ============================
 To install fx on arm64 change
 fx_linux_amd64 to fx_linux_arm64
-This command requires you to type in 
-your password for sudo and confirm 
-the dependencies install and uninstall
+This command requires sudo access, 
+and to confirm the installation of 
+the dependencies and the removal 
 of yt-dlp and youtube-dl.
 Just copy and paste into the terminal:
 ============================
@@ -59,9 +59,9 @@ sudo apt update; sudo apt install curl unzip wget mpv ffmpeg fzf socat python3 p
 Arch/Manjaro/EndeavourOS Linux,
 auto dependencies install.
 ============================
-This command requires you to type in 
-your password for sudo and confirm 
-the dependencies install and uninstall
+This command requires sudo access, 
+and to confirm the installation of 
+the dependencies and the removal 
 of yt-dlp and youtube-dl.
 Just copy and paste into the terminal:
 ============================
