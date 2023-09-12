@@ -193,7 +193,10 @@ jemalloc<br>
 https://github.com/jemalloc/jemalloc
 
 billboard-hot-100<br>
-https://github.com/mhollingshead/billboard-hot-100
+Billboard 200<br>
+Billboard Global 200<br>
+Billboard Artist 100<br>
+https://github.com/KoreanThinker/billboard-json
 
 fx<br>
 https://github.com/antonmedv/fx
