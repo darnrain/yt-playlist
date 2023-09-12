@@ -106,7 +106,7 @@ Just copy and paste into the terminal:<br>
 
 ### Arch/Manjaro/EndeavourOS Linux, auto dependencies install.
 You can use this command to install all the required dependencies and optional dependencies all at once.<br>
-This command requires you to type in your password for sudo.<br>
+This command requires you to type in your password for sudo And confirm the install and uninstall of yt-dlp and youtube-dl.<br>
 Just copy and paste into the terminal:<br>
 
 `sudo pacman -Syu curl unzip wget fx mpv ffmpeg fzf socat python python-mutagen; sudo pacman -R yt-dlp youtube-dl; sudo curl https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -L -o /usr/bin/yt-dlp; sudo chmod +x /usr/bin/yt-dlp`<br>
@@ -114,7 +114,7 @@ Just copy and paste into the terminal:<br>
 ### Linux online install yt-playlist v1.49:
 Only install or uninstall under a user account.<br>
 
-This command requires you to type in your password for sudo.<br>
+This command requires you to type in your password for sudo and confirm the install and uninstall of yt-dlp and youtube-dl.<br>
 To install just copy and paste this command into the terminal:<br>
 
 `curl https://github.com/darnrain/yt-playlist/releases/download/v1.49/yt-playlist.zip -L -o /tmp/yt-playlist.zip; unzip -o /tmp/yt-playlist.zip -d /tmp/; sudo chmod +x /tmp/yt-playlist/yt-playlist-linux/install.sh; /tmp/yt-playlist/yt-playlist-linux/install.sh`<br>
