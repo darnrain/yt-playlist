@@ -102,7 +102,7 @@ To install fx on arm64 change fx_linux_amd64 to fx_linux_arm64<br>
 This command requires sudo access, and to confirm the installation of the dependencies and the removal of yt-dlp and youtube-dl.<br>
 Just copy and paste into the terminal:<br>
 
-`sudo apt update; sudo apt install curl unzip wget mpv ffmpeg fzf socat python3 python3-mutagen; sudo curl https://github.com/antonmedv/fx/releases/download/24.1.0/fx_linux_amd64 -L -o /usr/bin/fx; sudo chmod +x /usr/bin/fx; sudo apt remove yt-dlp youtube-dl; pipx uninstall yt-dlp; pipx uninstall youtube-dl; sudo curl https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -L -o /usr/bin/yt-dlp; sudo chmod +x /usr/bin/yt-dlp`<br>
+`sudo apt update; sudo apt install curl unzip wget mpv ffmpeg fzf socat python3 python3-mutagen; sudo curl https://github.com/antonmedv/fx/releases/download/24.1.0/fx_linux_amd64 -L -o /usr/bin/fx; sudo chmod +x /usr/bin/fx; sudo apt remove yt-dlp; sudo apt remove youtube-dl; pipx uninstall yt-dlp; pipx uninstall youtube-dl; sudo curl https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -L -o /usr/bin/yt-dlp; sudo chmod +x /usr/bin/yt-dlp`<br>
 
 ### Arch/Manjaro/EndeavourOS Linux, auto dependencies install.
 This command requires sudo access, and to confirm the installation of the dependencies and the removal of yt-dlp and youtube-dl.<br>
