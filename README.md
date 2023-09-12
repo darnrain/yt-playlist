@@ -98,14 +98,13 @@ The Linux installer will check to make sure all the required dependencies are in
 Install on top of older versions.<br>
 
 ### Debian based Linux, auto dependencies install.
-You can use this command to install all the required dependencies and optional dependencies all at once. To install fx on arm64 change fx_linux_amd64 to fx_linux_arm64<br>
-This command requires you to type in your password for sudo.<br>
+To install fx on arm64 change fx_linux_amd64 to fx_linux_arm64<br>
+This command requires you to type in your password for sudo and confirm the install and uninstall of yt-dlp and youtube-dl.<br>
 Just copy and paste into the terminal:<br>
 
 `sudo apt update; sudo apt install curl unzip wget mpv ffmpeg fzf socat python3 python3-mutagen; sudo curl https://github.com/antonmedv/fx/releases/download/24.1.0/fx_linux_amd64 -L -o /usr/bin/fx; sudo chmod +x /usr/bin/fx; sudo apt remove yt-dlp youtube-dl; sudo curl https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -L -o /usr/bin/yt-dlp; sudo chmod +x /usr/bin/yt-dlp`<br>
 
 ### Arch/Manjaro/EndeavourOS Linux, auto dependencies install.
-You can use this command to install all the required dependencies and optional dependencies all at once.<br>
 This command requires you to type in your password for sudo And confirm the install and uninstall of yt-dlp and youtube-dl.<br>
 Just copy and paste into the terminal:<br>
 
@@ -114,7 +113,6 @@ Just copy and paste into the terminal:<br>
 ### Linux online install yt-playlist v1.49:
 Only install or uninstall under a user account.<br>
 
-This command requires you to type in your password for sudo and confirm the install and uninstall of yt-dlp and youtube-dl.<br>
 To install just copy and paste this command into the terminal:<br>
 
 `curl https://github.com/darnrain/yt-playlist/releases/download/v1.49/yt-playlist.zip -L -o /tmp/yt-playlist.zip; unzip -o /tmp/yt-playlist.zip -d /tmp/; sudo chmod +x /tmp/yt-playlist/yt-playlist-linux/install.sh; /tmp/yt-playlist/yt-playlist-linux/install.sh`<br>
