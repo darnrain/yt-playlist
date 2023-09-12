@@ -89,7 +89,7 @@ The Linux installer will check to make sure all the required dependencies are in
 * bash
 
 ### Linux optional dependencies:
-* fx and curl For Billboard hot 100.
+* fx and curl for Billboard charts menu.
 * jemalloc for Arch/Manjaro linux 100% cpu fix.
 * yt-playlist will automatically use jemalloc if installed, linux only.
 * jemalloc will only help if cpu is high playing video, not counting software decoding.
