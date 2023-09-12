@@ -65,5 +65,5 @@ the dependencies install and uninstall
 of yt-dlp and youtube-dl.
 Just copy and paste into the terminal:
 ============================
-sudo pacman -Syu curl unzip wget fx mpv ffmpeg fzf socat python python-mutagen; sudo pacman -R yt-dlp youtube-dl; sudo curl https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -L -o /usr/bin/yt-dlp; sudo chmod +x /usr/bin/yt-dlp
+sudo pacman -Syu curl unzip wget fx mpv ffmpeg fzf socat python python-mutagen; sudo pacman -R yt-dlp youtube-dl yt-dlp-git youtube-dl-git ; sudo curl https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -L -o /usr/bin/yt-dlp; sudo chmod +x /usr/bin/yt-dlp
 ============================
