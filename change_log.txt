@@ -1,8 +1,11 @@
-9-10-2023
+9-12-2023
 
 ================================
 Change log notes
 ================================
+
+v1.50
+Changed the theme on fx, YTMusic menu option number 8. The auto dependencies install, you now have to say yes to install and to uninstall yt-dlp and youtube-dl. Added This command requires you to type in your password for sudo, for all the command that require sudo.
 
 v1.49
 Added new command line arguments Termux/Linux versions
