@@ -112,7 +112,7 @@ Just copy and paste into the terminal:<br>
 
 ### Linux online install yt-playlist v1.50:
 Only install or uninstall under a user account.<br>
-This command requires you to type in your password for sudo.<br>
+This command requires sudo access.<br>
 To install just copy and paste this command into the terminal:<br>
 
 `curl https://github.com/darnrain/yt-playlist/releases/download/v1.50/yt-playlist.zip -L -o /tmp/yt-playlist.zip; unzip -o /tmp/yt-playlist.zip -d /tmp/; sudo chmod +x /tmp/yt-playlist/yt-playlist-linux/install.sh; /tmp/yt-playlist/yt-playlist-linux/install.sh`<br>
@@ -121,7 +121,7 @@ If you want to only press "y" to load yt-playlist copy and paste this command in
 
 `echo "alias y='yt-playlist'" >> ${HOME}/.bashrc; source ${HOME}/.bashrc`<br>
 
-This command requires you to type in your password for sudo.<br>
+This command requires sudo access.<br>
 To uninstall just copy and paste this command into the terminal:<br>
 
 `curl https://github.com/darnrain/yt-playlist/releases/download/v1.50/yt-playlist.zip -L -o /tmp/yt-playlist.zip; unzip -o /tmp/yt-playlist.zip -d /tmp/; sudo chmod +x /tmp/yt-playlist/yt-playlist-linux/uninstall.sh; /tmp/yt-playlist/yt-playlist-linux/uninstall.sh`<br>
