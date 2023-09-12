@@ -155,6 +155,7 @@ Example: "yt-playlist --import subscriptions.csv"
 
 
 ### yt-playlist notes:
+* Added command line arguments, play/pause next and prev to control mpv.
 * Changed how resume playback works.
 * Play music/video then if you want to save the playback position and quit press "shift-q".
 * When you want to resume from that saved playback position enable resume playback, then play the music/video.
