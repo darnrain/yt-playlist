@@ -99,20 +99,20 @@ Install on top of older versions.<br>
 
 ### Debian based Linux, auto dependencies install.
 To install fx on arm64 change fx_linux_amd64 to fx_linux_arm64<br>
-### This command requires sudo access, and to confirm the installation of the dependencies and the removal of yt-dlp and youtube-dl.<br>
+This command requires sudo access, and to confirm the installation of the dependencies and the removal of yt-dlp and youtube-dl.<br>
 Just copy and paste into the terminal:<br>
 
 `sudo apt update; sudo apt install curl unzip wget mpv ffmpeg fzf socat python3 python3-mutagen; sudo curl https://github.com/antonmedv/fx/releases/download/24.1.0/fx_linux_amd64 -L -o /usr/bin/fx; sudo chmod +x /usr/bin/fx; sudo apt remove yt-dlp youtube-dl; sudo curl https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -L -o /usr/bin/yt-dlp; sudo chmod +x /usr/bin/yt-dlp`<br>
 
 ### Arch/Manjaro/EndeavourOS Linux, auto dependencies install.
-### This command requires sudo access, and to confirm the installation of the dependencies and the removal of yt-dlp and youtube-dl.<br>
+This command requires sudo access, and to confirm the installation of the dependencies and the removal of yt-dlp and youtube-dl.<br>
 Just copy and paste into the terminal:<br>
 
 `sudo pacman -Syu curl unzip wget fx mpv ffmpeg fzf socat python python-mutagen; sudo pacman -R yt-dlp youtube-dl yt-dlp-git youtube-dl-git; sudo curl https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -L -o /usr/bin/yt-dlp; sudo chmod +x /usr/bin/yt-dlp`<br>
 
 ### Linux online install yt-playlist v1.50:
 Only install or uninstall under a user account.<br>
-### This command requires sudo access.<br>
+This command requires sudo access.<br>
 To install just copy and paste this command into the terminal:<br>
 
 `curl https://github.com/darnrain/yt-playlist/releases/download/v1.50/yt-playlist.zip -L -o /tmp/yt-playlist.zip; unzip -o /tmp/yt-playlist.zip -d /tmp/; sudo chmod +x /tmp/yt-playlist/yt-playlist-linux/install.sh; /tmp/yt-playlist/yt-playlist-linux/install.sh`<br>
@@ -121,7 +121,7 @@ If you want to only press "y" to load yt-playlist copy and paste this command in
 
 `echo "alias y='yt-playlist'" >> ${HOME}/.bashrc; source ${HOME}/.bashrc`<br>
 
-### This command requires sudo access.<br>
+This command requires sudo access.<br>
 To uninstall just copy and paste this command into the terminal:<br>
 
 `curl https://github.com/darnrain/yt-playlist/releases/download/v1.50/yt-playlist.zip -L -o /tmp/yt-playlist.zip; unzip -o /tmp/yt-playlist.zip -d /tmp/; sudo chmod +x /tmp/yt-playlist/yt-playlist-linux/uninstall.sh; /tmp/yt-playlist/yt-playlist-linux/uninstall.sh`<br>
