@@ -4,6 +4,9 @@
 Change log notes
 ================================
 
+v1.52
+Updated the dependencies.txt. There was an error in the commands for removing the old yt-dlp and youtube-dl on arch linux. Also added pipx to uninstall yt-dlp and youtube-dl. The commands in dependencies.txt will download the latest yt-dlp version from github.com and install it.
+
 v1.51
 Default audio format is now opus for the YTMusic menu. Youtube Music is not throttled so it makes sense to use the best audio format by default.
 
