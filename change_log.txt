@@ -4,6 +4,9 @@
 Change log notes
 ================================
 
+v2.0
+Major update. Added a new menu to the Main Menu, Billboard charts menu. Removed Billboard Hot 100 from the YTMusic menu.
+
 v1.54
 Updated Billboard hot 100 in the YTMusic menu. It is now using curl instead of wget to download the json file. Removed wget from the auto dependencies install.
 
