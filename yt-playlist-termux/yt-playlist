@@ -11,7 +11,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: /sdcard/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 yt_video_number="1:100"
-version="v1.50"
+version="v1.51"
 
 #mainmenu
 
@@ -2730,6 +2730,6 @@ fi
 
 resume_playback_off_function
 mpv_log_file_off_funciton
-mpv_music_m4a_function
+mpv_music_opus_function
 mpv_video_m4a_function
 main_menu_function

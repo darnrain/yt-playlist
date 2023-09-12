@@ -4,6 +4,9 @@
 Change log notes
 ================================
 
+v1.51
+Default audio format is now opus for the YTMusic menu. Youtube Music is not throttled so it makes sense to use the best audio format by default.
+
 v1.50
 Changed the theme on fx, YTMusic menu option number 8. The auto dependencies install, you now have to say yes to install and to uninstall yt-dlp and youtube-dl. Added This command requires you to type in your password for sudo, for all the command that require sudo.
 

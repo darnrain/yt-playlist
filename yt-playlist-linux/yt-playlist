@@ -11,7 +11,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="v1.50"
+version="v1.51"
 
 #mainmenu
 
@@ -3151,6 +3151,6 @@ mpv_video_fullscreen_off_function
 mpv_video_gpu_off_function
 resume_playback_off_function
 mpv_log_file_off_funciton
-mpv_music_m4a_function
+mpv_music_opus_function
 mpv_video_m4a_function
 main_menu_function
