@@ -35,7 +35,7 @@ function main_menu_function ()
         fi
 	if [ -n "$mpv_log_file" ]
 	then
-        echo "mpv log file is enabled."
+        echo "mpv log file enabled."
         fi
         if test -f "${tmp_dir}/count_down_timer.txt"
         then
@@ -48,7 +48,7 @@ echo -ne "== Main Menu ==
 3) Play SD bookmark menu.
 4) Play YTMusic menu.
 5) Playlist menu.
-6) Billboard charts.
+6) Billboard charts menu.
 7) Download.
 8) Sleep timer.
 q) Quit.
@@ -316,7 +316,6 @@ fi
         main_menu_function
         fi
         ;;
-
     q)
         stop_sleep_timer_function
         exit
@@ -378,7 +377,7 @@ fi
         sleep 0.8
         main_menu_function
         fi
-        ;;        
+        ;;      
    *)
         echo "Wrong option."
         sleep 0.3
@@ -3037,10 +3036,10 @@ function help_function ()
 {
 echo "Help menu:              -h or --help"
 echo "Version:                -v or --version"
-echo "Import Google takeout:  --import" 
 echo "Play/Pause              --play_pause"
 echo "Next track              --next"
 echo "Prev track              --prev"
+echo "Import Google takeout:  --import" 
 echo "Suppprted file types:"
 echo "subscriptions.csv" 
 echo "music-library-songs.csv"     
@@ -3048,11 +3047,11 @@ echo 'Example: "yt-playlist --import subscriptions.csv"'
 echo ""
 echo "debug"
 echo 'At Main menu type: "debug"'
-echo "Check internet status or mpv log file"
+echo "Internet status or mpv log file"
 echo "mpv log file is saved at"
 echo "~/.config/yt-playlist/mpv_log_file.txt"
 echo""
-echo "When playing Audio"
+echo "When playing Audio/Video"
 echo "Right arrow for FF"
 echo "Left arrow for RR"
 echo "Spacebar to pause"
@@ -3088,6 +3087,19 @@ echo "RR yes"
 echo "Pause yes"
 echo "Next video yes"
 echo "Prev video yes"
+echo ""
+echo "Play HD menu"
+echo "Sleep timer no"
+echo "Bookmarks no"
+echo "Download Audio no"
+echo "Download Video no"
+echo "Resume playback no"
+echo "Show date and time yes"
+echo "FF yes Cache bottleneck"
+echo "RR yes Cache bottleneck"
+echo "Pause yes"
+echo "Next video no"
+echo "Prev video no"
 echo ""
 echo "Play SD bookmark menu"
 echo "Sleep timer yes"
