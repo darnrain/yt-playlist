@@ -11,7 +11,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: /sdcard/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 yt_video_number="1:100"
-version="v2.0"
+version="v2.1"
 
 #mainmenu
 
@@ -33,6 +33,10 @@ function main_menu_function ()
 	then
         echo "jemalloc enabled."
         fi
+	if [ -n "$mpv_log_file" ]
+	then
+        echo "mpv log file is enabled."
+        fi
         if test -f "${tmp_dir}/count_down_timer.txt"
         then
         cat "${tmp_dir}/count_down_timer.txt"
@@ -43,10 +47,9 @@ echo -ne "== Main Menu ==
 2) Play SD bookmark menu.
 3) Play YTMusic menu.
 4) Playlist menu.
-5) Billboard charts.
+5) Billboard charts menu.
 6) Download.
 7) Sleep timer.
-8) Internet status.
 q) Quit.
 Choose an option:  "
     read -r ans
@@ -296,19 +299,7 @@ fi
         main_menu_function
         fi
         ;;
-    8)
-        check_internet_status_function
-	if [ -n "$internet_status" ]
-	then
-        echo "Internet is on."
-        sleep 2
-        main_menu_function
-        else
-        echo "Internet is off."
-        sleep 2
-        main_menu_function
-        fi
-        ;;
+
     q)
         stop_sleep_timer_function
         exit
@@ -330,17 +321,46 @@ fi
         exit
         ;;
  debug)
+        printf " \n"
+        printf "Debug menu. \n"
+        printf "1=Internet status. or 2=mpv log file. \n"
+        read answer
+        if [ -n "$answer" ]
+        then
+        if [ "$answer" != "${answer#[1]}" ]
+        then
+        clear
+        check_internet_status_function
+	if [ -n "$internet_status" ]
+	then
+        echo "Internet is on."
+        sleep 2
+        main_menu_function
+        else
+        echo "Internet is off."
+        sleep 2
+        main_menu_function
+        fi
+        else
+        clear
         mpv_log_file_on_funciton
+        mpv_log_file="yes"
         clear
         echo "mpv log file is enabled."
         echo "play video or audio to gen log."
         echo "~/.config/yt-playlist/mpv_log_file.txt"
-        echo "Note: enabling debug again will delete"
+        echo "Note: enabling again will delete"
         echo "last mpv_log_file.txt created."
         echo ""
         printf "%s " "Press enter to continue"
         read ans
         main_menu_function
+        fi
+        else
+        echo "Please enter an option."
+        sleep 0.8
+        main_menu_function
+        fi
         ;;        
    *)
         echo "Wrong option."
@@ -2619,10 +2639,10 @@ function help_function ()
 {
 echo "Help menu:              -h or --help"
 echo "Version:                -v or --version"
-echo "Import Google takeout:  --import" 
 echo "Play/Pause              --play_pause"
 echo "Next track              --next"
 echo "Prev track              --prev"
+echo "Import Google takeout:  --import" 
 echo "Suppprted file types:"
 echo "subscriptions.csv" 
 echo "music-library-songs.csv"     
@@ -2634,7 +2654,7 @@ echo "then play video/audio"
 echo "file is saved at"
 echo "~/.config/yt-playlist/mpv_log_file.txt"
 echo""
-echo "When playing Audio"
+echo "When playing Audio/Video"
 echo "Right arrow for FF"
 echo "Left arrow for RR"
 echo "Spacebar to pause"
@@ -2670,6 +2690,19 @@ echo "RR yes"
 echo "Pause yes"
 echo "Next video yes"
 echo "Prev video yes"
+echo ""
+echo "Play HD menu"
+echo "Sleep timer no"
+echo "Bookmarks no"
+echo "Download Audio no"
+echo "Download Video no"
+echo "Resume playback no"
+echo "Show date and time yes"
+echo "FF yes Cache bottleneck"
+echo "RR yes Cache bottleneck"
+echo "Pause yes"
+echo "Next video no"
+echo "Prev video no"
 echo ""
 echo "Play SD bookmark menu"
 echo "Sleep timer yes"
@@ -2809,6 +2842,7 @@ fi
         exit
         fi
 
+unset mpv_log_file
 resume_playback_off_function
 mpv_log_file_off_funciton
 mpv_music_opus_function
