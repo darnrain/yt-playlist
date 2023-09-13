@@ -11,7 +11,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: /sdcard/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 yt_video_number="1:100"
-version="v2.2"
+version="v2.3"
 
 #mainmenu
 
@@ -1891,7 +1891,7 @@ $1 $2 $3 $4 $5 $6 $7 $8 $9 ${10} ${11} ${12} ${13} ${14} ${15} ${16} ${17} ${18}
 function quit_function ()
 {
 printf "\n"
-printf "Quit? (y/N)? \n"
+printf "Quit? [y/N] \n"
 read answer
 if [ -n "$answer" ]
 then

@@ -11,7 +11,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="v2.2"
+version="v2.3"
 
 #mainmenu
 
@@ -2154,7 +2154,7 @@ Choose an option:  "
 function quit_function ()
 {
 printf "\n"
-printf "Quit? (y/N)? \n"
+printf "Quit? [y/N] \n"
 read answer
 if [ -n "$answer" ]
 then

@@ -4,6 +4,9 @@
 Change log notes
 ================================
 
+v2.3
+There a typo. quit? (y/N)? Changed to Quit? [y/N] I know it's a little thing but it was bugging me.
+
 v2.2
 I am always pressing q when I want to press 1 for the Play SD menu. So I have added a yes or no question when you press q to quit.
 
