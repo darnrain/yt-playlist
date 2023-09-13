@@ -1,8 +1,11 @@
-9-12-2023
+9-13-2023
 
 ================================
 Change log notes
 ================================
+
+v2.2
+I am always pressing q when I want to press 1 for the Play SD menu. So I have added a yes or no question when you press q to quit.
 
 v2.1
 Check internet status is now in the debug menu. Type debug at the main menu to access it. Renamed Billboard charts to Billboard charts menu.

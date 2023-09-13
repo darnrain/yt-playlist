@@ -11,7 +11,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="v2.1"
+version="v2.2"
 
 #mainmenu
 
@@ -317,24 +317,19 @@ fi
         fi
         ;;
     q)
-        stop_sleep_timer_function
-        exit
+        quit_function
         ;;
     Q)
-        stop_sleep_timer_function
-        exit
+        quit_function
         ;;
     x)
-        stop_sleep_timer_function
-        exit
+        quit_function
         ;;
  quit)
-        stop_sleep_timer_function
-        exit
+        quit_function
         ;;
  exit)
-        stop_sleep_timer_function
-        exit
+        quit_function
         ;;
  debug)
         printf " \n"
@@ -2156,6 +2151,25 @@ Choose an option:  "
 
 #functions
 
+function quit_function ()
+{
+printf "\n"
+printf "Quit? (y/N)? \n"
+read answer
+if [ -n "$answer" ]
+then
+if [ "$answer" != "${answer#[yY]}" ]
+then
+stop_sleep_timer_function
+exit
+else
+main_menu_function
+fi
+else
+main_menu_function
+fi
+}
+
 function check_internet_status_function ()
 {
         echo "May take up to ten seconds."
@@ -3249,7 +3263,6 @@ fi
 
 mpv_video_fullscreen_off_function
 mpv_video_gpu_off_function
-unset mpv_log_file
 resume_playback_off_function
 mpv_log_file_off_funciton
 mpv_music_opus_function
