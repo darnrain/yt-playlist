@@ -7,7 +7,7 @@ Change log notes
 v2.6
 Big fixes with the --next and --prev it was skipping forward and backwards twice.
 Added Channel/playlist/album cover art to the desktop notifications. Only works on Play SD menu and the Linux version. Works on FF RR Play/Pause and --title
-yt-playlist will get the cover art when you 1. load a Channel/playlist/album 2. get the results.
+yt-playlist will get the cover art when you 1. load a Channel/playlist/album 2. get the results. The covery art will show up on all menus at this time. That may change in the may change in the future. You don't really need the cover art in the YTMusic menu or Bookmark menu.
 
 v2.5
 Fixed an issue with saving favorites when playing music/video.
