@@ -4,6 +4,10 @@
 Change log notes
 ================================
 
+v2.6
+Big fixes with the --next and --prev it was skiping forward and backwards twice.
+Added thumbnails to the desktop notifications. Only works on Play SD menu and the Linux version.
+
 v2.5
 Fixed an issue with saving favorites when playing music/video.
 Fixed issue with the argument --title
