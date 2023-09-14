@@ -4,6 +4,13 @@
 Change log notes
 ================================
 
+v2.5
+Fixed an issue with saving favorites when playling music/video.
+Fixed issue with the argument --title
+Changed the quit commands on Main menu back to q/Q
+Changed quit question back to y/Y
+I was thinking that might be too many letters to press and quit accidentally.
+
 v2.4
 A number of changes in this version.
 Updated the code that downloads audio and video in real time also save bookmark.

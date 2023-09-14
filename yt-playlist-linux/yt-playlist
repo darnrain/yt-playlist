@@ -11,7 +11,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="v2.4"
+version="v2.5"
 
 #mainmenu
 
@@ -320,15 +320,6 @@ fi
         quit_function
         ;;
     Q)
-        quit_function
-        ;;
-    x)
-        quit_function
-        ;;
- quit)
-        quit_function
-        ;;
- exit)
         quit_function
         ;;
  debug)
@@ -2158,7 +2149,7 @@ printf "Quit? [y/N] \n"
 read answer
 if [ -n "$answer" ]
 then
-if [ "$answer" != "${answer#[yYxexitquit]}" ]
+if [ "$answer" != "${answer#[yY]}" ]
 then
 stop_sleep_timer_function
 exit
@@ -2172,14 +2163,15 @@ fi
 
 function title_notification_function ()
 {
+        yt_playlist_id=$(cat ${tmp_dir}/yt_playlist_id)
         if command -v notify-send >/dev/null
         then
         if [[ "$yt_playlist_id" = RD* ]]
 	then
         echo '{ "command": ["show-text", "Please wait, getting atrist & title." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         notify-send "yt-playlist" "Please wait, getting atrist & title."
-        yt_media_title_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
-        yt_media_title=$(yt-dlp --no-warnings --quiet --flat-playlist -I 1 --print "%(title)s" "$yt_media_title_url")
+        sleep 4
+        yt_media_title=$(echo '{ "command": ["get_property", "media-title"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
         notify-send "yt-playlist" "$yt_media_title"
         yt_terminal_title=$(printf '"%s" \n' "$yt_media_title")
 	echo show-text "$yt_terminal_title" | socat - "${tmp_dir}/mpvsocket"
@@ -2196,8 +2188,8 @@ function title_notification_function ()
         if [[ "$yt_playlist_id" = RD* ]]
 	then
         echo '{ "command": ["show-text", "Please wait, getting atrist & title." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
-        yt_media_title_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
-        yt_media_title=$(yt-dlp --no-warnings --quiet --flat-playlist -I 1 --print "%(title)s" "$yt_media_title_url")
+        sleep 4
+        yt_media_title=$(echo '{ "command": ["get_property", "media-title"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
         yt_terminal_title=$(printf '"%s" \n' "$yt_media_title")
 	echo show-text "$yt_terminal_title" | socat - "${tmp_dir}/mpvsocket"
         else
@@ -2278,6 +2270,14 @@ function sleep_timer_count_down_function ()
 
 function stop_sleep_timer_function ()
 {
+        if test -f "${tmp_dir}/yt_playlist_id"
+        then
+        rm "${tmp_dir}/yt_playlist_id"
+        fi
+        if test -f "${tmp_dir}/yt_playlist_title"
+        then
+        rm "${tmp_dir}/yt_playlist_title"
+        fi
         if test -f "${tmp_dir}/sleep_timer_running"
         then
         unset sec
@@ -2490,6 +2490,8 @@ function favorites_function ()
         echo '{ "command": ["show-text", "Not available when playing music." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         exit
         fi
+        yt_playlist_title=$(cat ${tmp_dir}/yt_playlist_title)
+        yt_playlist_id=$(cat ${tmp_dir}/yt_playlist_id)
         if grep -q "$yt_playlist_id" "${yt_playlist_home_dir}/yt-playlist_favorites.txt"
         then
         echo '{ "command": ["show-text", "Channel/Playlist/Album already saved to favorites." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
@@ -2911,8 +2913,8 @@ function title_function ()
         then
         yt_playlist_title=$(echo "$not_a_playlist_id" | cat - "${yt_playlist_home_dir}/yt-playlist_favorites.txt" "${yt_playlist_home_dir}/yt-playlist_search_history.txt" | grep "$yt_playlist_id" | awk '{$1=""}1' | sed 's/^[ \t]*//' | cut -b -80 | sed -n '1p' )
         yt_playlist_vanilla_title=$(echo "${yt_playlist_title}" | awk '{$1=""; print $0}' | sed 's/^[ \t]*//')
-        export yt_playlist_title
-        export yt_playlist_id
+        echo "$yt_playlist_title" > ${tmp_dir}/yt_playlist_title
+        echo "$yt_playlist_id" > ${tmp_dir}/yt_playlist_id
         fi
 }
 
@@ -3201,11 +3203,6 @@ echo "Suppprted file types:"
 echo "subscriptions.csv" 
 echo "music-library-songs.csv"     
 echo 'Example: "yt-playlist --import subscriptions.csv"'
-echo ""
-echo "Quit Main menu commands:"
-echo "q/Q/x/exit/quit"
-echo "Quit question commands:"
-echo "y/Y/x/exit/quit"
 echo ""
 echo "debug"
 echo 'At Main menu type: "debug"'
