@@ -1,8 +1,26 @@
-9-13-2023
+9-14-2023
 
 ================================
 Change log notes
 ================================
+
+v2.4
+A number of changes in this version.
+Updated the code that downloads audio and video in real time also save bookmark.
+
+Quit Main menu commands:
+q/Q/x/exit/quit
+Quit question commands:
+y/Y/x/exit/quit
+
+Added a new command line argument
+Desktop and terminal
+notifications get
+artist and title        --title
+
+FF, RR and Play/Pause will now show in the terminal and desktop notifications. Uses notify-send, if notify-send is not found yt-playlist will default back to terminal notifications only.
+
+Updated the --help
 
 v2.3
 There a typo. quit? (y/N)? Changed to Quit? [y/N] I know it's a little thing but it was bugging me.

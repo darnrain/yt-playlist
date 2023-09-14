@@ -11,7 +11,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="v2.3"
+version="v2.4"
 
 #mainmenu
 
@@ -2158,7 +2158,7 @@ printf "Quit? [y/N] \n"
 read answer
 if [ -n "$answer" ]
 then
-if [ "$answer" != "${answer#[yY]}" ]
+if [ "$answer" != "${answer#[yYxexitquit]}" ]
 then
 stop_sleep_timer_function
 exit
@@ -2168,6 +2168,70 @@ fi
 else
 main_menu_function
 fi
+}
+
+function title_notification_function ()
+{
+        if command -v notify-send >/dev/null
+        then
+        if [[ "$yt_playlist_id" = RD* ]]
+	then
+        echo '{ "command": ["show-text", "Please wait, getting atrist & title." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
+        notify-send "yt-playlist" "Please wait, getting atrist & title."
+        yt_media_title_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
+        yt_media_title=$(yt-dlp --no-warnings --quiet --flat-playlist -I 1 --print "%(title)s" "$yt_media_title_url")
+        notify-send "yt-playlist" "$yt_media_title"
+        yt_terminal_title=$(printf '"%s" \n' "$yt_media_title")
+	echo show-text "$yt_terminal_title" | socat - "${tmp_dir}/mpvsocket"
+        else
+        echo '{ "command": ["show-text", "Please wait, getting atrist & title." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
+        notify-send "yt-playlist" "Please wait, getting atrist & title."
+        yt_media_title_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
+        yt_media_title=$(yt-dlp --no-warnings --quiet --flat-playlist -I 1 --print "%(uploader)s - %(title)s" "$yt_media_title_url")
+        notify-send "yt-playlist" "$yt_media_title"
+        yt_terminal_title=$(printf '"%s" \n' "$yt_media_title")
+	echo show-text "$yt_terminal_title" | socat - "${tmp_dir}/mpvsocket"
+        fi
+        else
+        if [[ "$yt_playlist_id" = RD* ]]
+	then
+        echo '{ "command": ["show-text", "Please wait, getting atrist & title." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
+        yt_media_title_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
+        yt_media_title=$(yt-dlp --no-warnings --quiet --flat-playlist -I 1 --print "%(title)s" "$yt_media_title_url")
+        yt_terminal_title=$(printf '"%s" \n' "$yt_media_title")
+	echo show-text "$yt_terminal_title" | socat - "${tmp_dir}/mpvsocket"
+        else
+        echo '{ "command": ["show-text", "Please wait, getting atrist & title." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
+        yt_media_title_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
+        yt_media_title=$(yt-dlp --no-warnings --quiet --flat-playlist -I 1 --print "%(uploader)s - %(title)s" "$yt_media_title_url")
+        yt_terminal_title=$(printf '"%s" \n' "$yt_media_title")
+	echo show-text "$yt_terminal_title" | socat - "${tmp_dir}/mpvsocket"
+  fi
+fi
+}
+
+function show_title_notification_function ()
+{
+	if test -f "${tmp_dir}/mpv_hd_running"
+        then
+        echo '{ "command": ["show-text", "Not available when playing hd video." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
+        exit
+        fi
+
+	if test -f "${tmp_dir}/mpv_video_running"
+        then
+        title_notification_function
+        fi
+
+	if test -f "${tmp_dir}/mpv_bookmark_running"
+        then
+        title_notification_function
+        fi
+
+	if test -f "${tmp_dir}/mpv_music_running"
+        then
+        title_notification_function
+        fi
 }
 
 function check_internet_status_function ()
@@ -2333,9 +2397,9 @@ function show_count_down_time_function ()
 function music_download_audio_function ()
 {
         echo '{ "command": ["show-text", "Downloading audio, please wait." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
-        yt_playlist_download_id=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'=' -f2 | cut -d'"' -f1)
+        yt_playlist_download_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
 	sleep 2
-        yt-dlp --no-warnings --quiet -x -f "$music_download_format" -o "${audio_dir}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "https://www.youtube.com/watch?v=$yt_playlist_download_id" 2>/dev/null
+        yt-dlp --no-warnings --quiet -x -f "$music_download_format" -o "${audio_dir}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "$yt_playlist_download_url" 2>/dev/null
         echo show-text "$show_audio_dir" | socat - "${tmp_dir}/mpvsocket"
 }
 
@@ -2352,9 +2416,9 @@ function download_audio_function ()
         exit
         fi
         echo '{ "command": ["show-text", "Downloading audio, please wait." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
-        yt_playlist_download_id=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'=' -f2 | cut -d'"' -f1)
+        yt_playlist_download_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
 	sleep 2
-        yt-dlp --no-warnings --quiet -x -f "$audio_download_format" -o "${audio_dir}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "https://www.youtube.com/watch?v=$yt_playlist_download_id" 2>/dev/null
+        yt-dlp --no-warnings --quiet -x -f "$audio_download_format" -o "${audio_dir}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "$yt_playlist_download_url" 2>/dev/null
         echo show-text "$show_audio_dir" | socat - "${tmp_dir}/mpvsocket"
 }
 
@@ -2371,9 +2435,9 @@ function download_video_function ()
         exit
         fi
         echo '{ "command": ["show-text", "Downloading video, please wait." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
-        yt_playlist_download_id=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'=' -f2 | cut -d'"' -f1)
+        yt_playlist_download_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
 	sleep 2
-        yt-dlp --no-warnings --quiet -f "$video_download_format" -o "${video_dir}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "https://www.youtube.com/watch?v=$yt_playlist_download_id" 2>/dev/null
+        yt-dlp --no-warnings --quiet -f "$video_download_format" -o "${video_dir}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "$yt_playlist_download_url" 2>/dev/null
         echo show-text "$show_video_dir" | socat - "${tmp_dir}/mpvsocket"
 }
 
@@ -2394,14 +2458,14 @@ function bookmark_function ()
         echo '{ "command": ["show-text", "Not available when playing music." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         exit
         fi
-        yt_playlist_bookmark_results_id=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'=' -f2 | cut -d'"' -f1)
-        if grep -q "$yt_playlist_bookmark_results_id" "${yt_playlist_home_dir}/yt-playlist_bookmark.txt" >/dev/null
+        yt_playlist_bookmark_results_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
+        if grep -q "$yt_playlist_bookmark_results_url" "${yt_playlist_home_dir}/yt-playlist_bookmark.txt" >/dev/null
         then
         echo '{ "command": ["show-text", "Already saved to bookmarks." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         sleep 2
         else
         echo '{ "command": ["show-text", "Saving to bookmarks." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
-        yt_playlist_bookmark_results=$(yt-dlp --no-warnings --quiet --flat-playlist -I 1 --print "%(id)s ${bookmark_video_or_music} %(title)s" "https://www.youtube.com/watch?v=${yt_playlist_bookmark_results_id}" 2>/dev/null)
+        yt_playlist_bookmark_results=$(yt-dlp --no-warnings --quiet --flat-playlist -I 1 --print "%(id)s ${bookmark_video_or_music} %(title)s" "$yt_playlist_bookmark_results_url" 2>/dev/null)
         sed -i '/^$/d' "${yt_playlist_home_dir}/yt-playlist_bookmark.txt" >/dev/null
         echo "https://www.youtube.com/watch?v=${yt_playlist_bookmark_results}" >> "${yt_playlist_home_dir}/yt-playlist_bookmark.txt"
         sleep 2
@@ -2686,27 +2750,55 @@ function mpv_play_pause_function ()
 {
 	if test -f "${tmp_dir}/mpv_hd_running"
         then
+        if command -v notify-send >/dev/null
+        then
+        echo '{ "command": ["show-text", "Play/Pause" ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
+        notify-send "yt-playlist" "Play/Pause"
+        echo cycle pause | socat - "${tmp_dir}/mpvsocket"
+        else
         echo '{ "command": ["show-text", "Play/Pause" ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         echo cycle pause | socat - "${tmp_dir}/mpvsocket"
-        fi
+  fi
+fi
 
 	if test -f "${tmp_dir}/mpv_video_running"
         then
+        if command -v notify-send >/dev/null
+        then
+        echo '{ "command": ["show-text", "Play/Pause" ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
+        notify-send "yt-playlist" "Play/Pause"
+        echo cycle pause | socat - "${tmp_dir}/mpvsocket"
+        else
         echo '{ "command": ["show-text", "Play/Pause" ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         echo cycle pause | socat - "${tmp_dir}/mpvsocket"
-        fi
+  fi
+fi
 
 	if test -f "${tmp_dir}/mpv_bookmark_running"
         then
+        if command -v notify-send >/dev/null
+        then
+        echo '{ "command": ["show-text", "Play/Pause" ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
+        notify-send "yt-playlist" "Play/Pause"
+        echo cycle pause | socat - "${tmp_dir}/mpvsocket"
+        else
         echo '{ "command": ["show-text", "Play/Pause" ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         echo cycle pause | socat - "${tmp_dir}/mpvsocket"
-        fi
+  fi
+fi
 
 	if test -f "${tmp_dir}/mpv_music_running"
         then
+        if command -v notify-send >/dev/null
+        then
+        echo '{ "command": ["show-text", "Play/Pause" ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
+        notify-send "yt-playlist" "Play/Pause"
+        echo cycle pause | socat - "${tmp_dir}/mpvsocket"
+        else
         echo '{ "command": ["show-text", "Play/Pause" ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         echo cycle pause | socat - "${tmp_dir}/mpvsocket"
-        fi
+  fi
+fi
 }
 
 function mpv_next_function ()
@@ -2718,21 +2810,45 @@ function mpv_next_function ()
 
 	if test -f "${tmp_dir}/mpv_video_running"
         then
+        if command -v notify-send >/dev/null
+        then
         echo '{ "command": ["show-text", "Next track" ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         echo playlist-next | socat - "${tmp_dir}/mpvsocket"
-        fi
+        notify-send "yt-playlist" "Next track"
+        echo playlist-next | socat - "${tmp_dir}/mpvsocket"
+        else
+        echo '{ "command": ["show-text", "Next track" ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
+        echo playlist-next | socat - "${tmp_dir}/mpvsocket"
+  fi
+fi
 
 	if test -f "${tmp_dir}/mpv_bookmark_running"
         then
-        echo '{ "command": ["show-text", "Next track" ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
-        echo playlist-next | socat - "${tmp_dir}/mpvsocket"
-        fi
-
-	if test -f "${tmp_dir}/mpv_music_running"
+        if command -v notify-send >/dev/null
         then
         echo '{ "command": ["show-text", "Next track" ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         echo playlist-next | socat - "${tmp_dir}/mpvsocket"
-        fi
+        notify-send "yt-playlist" "Next track"
+        echo playlist-next | socat - "${tmp_dir}/mpvsocket"
+        else
+        echo '{ "command": ["show-text", "Next track" ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
+        echo playlist-next | socat - "${tmp_dir}/mpvsocket"
+  fi
+fi
+
+	if test -f "${tmp_dir}/mpv_music_running"
+        then
+        if command -v notify-send >/dev/null
+        then
+        echo '{ "command": ["show-text", "Next track" ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
+        echo playlist-next | socat - "${tmp_dir}/mpvsocket"
+        notify-send "yt-playlist" "Next track"
+        echo playlist-next | socat - "${tmp_dir}/mpvsocket"
+        else
+        echo '{ "command": ["show-text", "Next track" ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
+        echo playlist-next | socat - "${tmp_dir}/mpvsocket"
+  fi
+fi
 }
 
 function mpv_prev_function ()
@@ -2744,21 +2860,45 @@ function mpv_prev_function ()
 
 	if test -f "${tmp_dir}/mpv_video_running"
         then
+        if command -v notify-send >/dev/null
+        then
         echo '{ "command": ["show-text", "Prev track" ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         echo playlist-prev | socat - "${tmp_dir}/mpvsocket"
-        fi
+        notify-send "yt-playlist" "Prev track"
+        echo playlist-prev | socat - "${tmp_dir}/mpvsocket"
+        else
+        echo '{ "command": ["show-text", "Prev track" ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
+        echo playlist-prev | socat - "${tmp_dir}/mpvsocket"
+  fi
+fi
 
 	if test -f "${tmp_dir}/mpv_bookmark_running"
         then
-        echo '{ "command": ["show-text", "Prev track" ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
-        echo playlist-prev | socat - "${tmp_dir}/mpvsocket"
-        fi
-
-	if test -f "${tmp_dir}/mpv_music_running"
+        if command -v notify-send >/dev/null
         then
         echo '{ "command": ["show-text", "Prev track" ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         echo playlist-prev | socat - "${tmp_dir}/mpvsocket"
-        fi
+        notify-send "yt-playlist" "Prev track"
+        echo playlist-prev | socat - "${tmp_dir}/mpvsocket"
+        else
+        echo '{ "command": ["show-text", "Prev track" ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
+        echo playlist-prev | socat - "${tmp_dir}/mpvsocket"
+  fi
+fi
+
+	if test -f "${tmp_dir}/mpv_music_running"
+        then
+        if command -v notify-send >/dev/null
+        then
+        echo '{ "command": ["show-text", "Prev track" ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
+        echo playlist-prev | socat - "${tmp_dir}/mpvsocket"
+        notify-send "yt-playlist" "Prev track"
+        echo playlist-prev | socat - "${tmp_dir}/mpvsocket"
+        else
+        echo '{ "command": ["show-text", "Prev track" ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
+        echo playlist-prev | socat - "${tmp_dir}/mpvsocket"
+  fi
+fi
 }
 
 
@@ -3053,11 +3193,19 @@ echo "Version:                -v or --version"
 echo "Play/Pause              --play_pause"
 echo "Next track              --next"
 echo "Prev track              --prev"
+echo "Desktop and terminal"
+echo "notifications get"
+echo "artist and title        --title"
 echo "Import Google takeout:  --import" 
 echo "Suppprted file types:"
 echo "subscriptions.csv" 
 echo "music-library-songs.csv"     
 echo 'Example: "yt-playlist --import subscriptions.csv"'
+echo ""
+echo "Quit Main menu commands:"
+echo "q/Q/x/exit/quit"
+echo "Quit question commands:"
+echo "y/Y/x/exit/quit"
 echo ""
 echo "debug"
 echo 'At Main menu type: "debug"'
@@ -3075,17 +3223,17 @@ echo "press enter for next track"
 echo '"shift-q" to save playback position and quit'
 echo '"q" quit without saving playback position'
 echo '"shift-i" info'
-echo "Save to favorites    f"
-echo "Save to Bookmarks    b"
-echo "Show sleep timer     s"
-echo "Download audio       d"
-echo "Download video       D"
-echo "Show date and time   t"
+echo 'Save to favorites    "f"'
+echo 'Save to Bookmarks    "b"'
+echo 'Show sleep timer     "s"'
+echo 'Download audio       "d"'
+echo 'Download video "shift-d"'
+echo 'Show date and time   "t"'
 echo ""
 echo "Select Video/Music"
-echo "Select all ctrl-a"
-echo "Deselect all ctrl-d"
-echo "Cancel ctrl-c"
+echo 'Select all "ctrl-a"'
+echo 'Deselect all "ctrl-d"'
+echo 'Cancel "ctrl-c"'
 echo "Tab key to select lines"
 echo "Enter select one line"
 echo ""
@@ -3096,6 +3244,7 @@ echo "Download Audio yes"
 echo "Download Video yes"
 echo "Resume playback yes"
 echo "Show date and time yes"
+echo "Title notifications yes"
 echo "FF yes"
 echo "RR yes"
 echo "Pause yes"
@@ -3109,8 +3258,9 @@ echo "Download Audio no"
 echo "Download Video no"
 echo "Resume playback no"
 echo "Show date and time yes"
-echo "FF yes Cache bottleneck"
-echo "RR yes Cache bottleneck"
+echo "Title notifications no"
+echo "FF yes"
+echo "RR yes"
 echo "Pause yes"
 echo "Next video no"
 echo "Prev video no"
@@ -3122,6 +3272,7 @@ echo "Download Audio yes"
 echo "Download Video yes"
 echo "Resume playback yes"
 echo "Show date and time yes"
+echo "Title notifications yes"
 echo "FF yes"
 echo "RR yes"
 echo "Pause yes"
@@ -3135,6 +3286,7 @@ echo "Download Audio yes"
 echo "Download Video no"
 echo "Resume playback no"
 echo "Show date and time yes"
+echo "Title notifications yes"
 echo "FF yes"
 echo "RR yes"
 echo "Pause yes"
@@ -3250,6 +3402,12 @@ fi
         if [[ "$external_arguments" = "--prev" ]]
 	then
         mpv_prev_function
+        exit
+        fi
+
+        if [[ "$external_arguments" = "--title" ]]
+	then
+        show_title_notification_function
         exit
         fi
 
