@@ -150,6 +150,9 @@ Version:                -v or --version
 Play/Pause              --play_pause
 Next track              --next
 Prev track              --prev
+Desktop and terminal
+notifications get
+artist and title        --title
 Import Google takeout:  --import
 Suppprted file types:
 subscriptions.csv
