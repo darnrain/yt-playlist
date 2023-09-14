@@ -17,7 +17,7 @@ The cover art notifications will work on the following menus.
 Play SD menu.
 Play HD menu. only play/pause will work.
 
-Added error messages to the --title argument if you run it on the play hd menu.
+Added error messages to the --title argument
 
 Removed the cover art notifications from:
 Play Bookmark menu
