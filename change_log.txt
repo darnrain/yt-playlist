@@ -5,7 +5,7 @@ Change log notes
 ================================
 
 v2.7
-I think I got it this time. I have other ideas in mind, check back for updates.
+I got it this time. I have other ideas in mind for future updates.
 
 The --title argument will work in the following menus:
 Play SD menu
