@@ -10,8 +10,7 @@
         echo "============================"
         echo "All dependencies were found."
         echo "============================"
-        cp ./yt-playlist /data/data/com.termux/files/usr/bin/
-        #cp /data/data/com.termux/files/usr/tmp/yt-playlist/yt-playlist-termux/yt-playlist /data/data/com.termux/files/usr/bin/
+        cp /data/data/com.termux/files/usr/tmp/yt-playlist/yt-playlist-termux/yt-playlist /data/data/com.termux/files/usr/bin/
         chmod +x /data/data/com.termux/files/usr/bin/yt-playlist
         mkdir -p ${HOME}/.config/yt-playlist/
         touch ${HOME}/.config/yt-playlist/yt-playlist_favorites.txt
