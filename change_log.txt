@@ -1,11 +1,19 @@
-9-14-2023
+9-15-2023
 
 ================================
 Change log notes
 ================================
 
+v2.8
+A number of bug fixes and changes in this version. The biggest change is I added some new command line arguments.
+--download_audio m4a
+--download_audio opus
+--download_video mp4
+
+The commands only will work when playing music/video.
+
 v2.7
-I got it this time. I am happy with how v2.7 turned out. I have other ideas in mind for future updates.
+I think I got it this time.
 
 The --title argument will work in the following menus:
 Play SD menu
@@ -16,6 +24,8 @@ Will not work on the Play HD menu.
 The cover art notifications will work on the following menus.
 Play SD menu.
 Play HD menu. only play/pause will work.
+
+Added error messages to the --title argument if you run it on the play hd menu.
 
 Removed the cover art notifications from:
 Play Bookmark menu
