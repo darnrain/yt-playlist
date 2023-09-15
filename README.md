@@ -152,6 +152,11 @@ Prev track              --prev
 Desktop and terminal
 notifications get
 artist and title        --title
+Download when playing
+Audio/Video
+Download audio          --download_audio opus
+                        --download_audio m4a
+Download video          --download_video mp4
 Import Google takeout:  --import
 Suppprted file types:
 subscriptions.csv
