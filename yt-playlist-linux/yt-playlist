@@ -11,7 +11,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="v2.8"
+version="v2.9"
 
 #mainmenu
 
@@ -2070,10 +2070,11 @@ function billboard_menu_function ()
         fi
         echo ""
 echo -ne "== Billboard charts Menu ==
-1) Billboard Hot 100.
-2) Billboard 200.
-3) Billboard Global 200.
-4) Billboard Artist 100.
+1) Billboard Hot 100 (1).
+2) Billboard Hot 100 (2).
+3) Billboard 200.
+4) Billboard Global 200.
+5) Billboard Artist 100.
 m) Main menu.
 Choose an option:  "
     read -r ans
@@ -2082,7 +2083,7 @@ Choose an option:  "
         if command -v fx >/dev/null && command -v curl >/dev/null
         then
         export FX_THEME=2
-        curl -s https://raw.githubusercontent.com/KoreanThinker/billboard-json/main/billboard-hot-100/recent.json -L 2>&1 | fx
+        curl -s https://raw.githubusercontent.com/mhollingshead/billboard-hot-100/main/recent.json -L 2>&1 | fx
         billboard_menu_function
         else
         echo "Please install fx and curl to run."
@@ -2094,6 +2095,18 @@ Choose an option:  "
         if command -v fx >/dev/null && command -v curl >/dev/null
         then
         export FX_THEME=2
+        curl -s https://raw.githubusercontent.com/KoreanThinker/billboard-json/main/billboard-hot-100/recent.json -L 2>&1 | fx
+        billboard_menu_function
+        else
+        echo "Please install fx and curl to run."
+        sleep 2
+        billboard_menu_function
+        fi
+        ;;
+    3)  
+        if command -v fx >/dev/null && command -v curl >/dev/null
+        then
+        export FX_THEME=2
         curl -s https://raw.githubusercontent.com/KoreanThinker/billboard-json/main/billboard-200/recent.json -L 2>&1 | fx
         billboard_menu_function
         else
@@ -2102,7 +2115,7 @@ Choose an option:  "
         billboard_menu_function
         fi
         ;;
-   3)  
+   4)  
         if command -v fx >/dev/null && command -v curl >/dev/null
         then
         export FX_THEME=2
@@ -2114,7 +2127,7 @@ Choose an option:  "
         billboard_menu_function
         fi
         ;;
-   4)  
+   5)  
         if command -v fx >/dev/null && command -v curl >/dev/null
         then
         export FX_THEME=2
