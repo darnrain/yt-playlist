@@ -166,6 +166,7 @@ Example: "yt-playlist --import subscriptions.csv"
 
 
 ### yt-playlist notes:
+* Added pop up notifications for Linux, Next track, Prev track, Play/Pause, Download Audio, Download video, artist and title. You can now use yt-playlist with out even looking at the terminal once you get your playlist playing, just map your keys to the command line arguments.
 * Added command line arguments, play/pause next and prev to control mpv.
 * Changed how resume playback works.
 * Play music/video then if you want to save the playback position and quit press "shift-q".
