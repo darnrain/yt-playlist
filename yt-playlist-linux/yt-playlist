@@ -11,7 +11,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="v2.17"
+version="v2.18"
 
 #mainmenu
 
@@ -829,7 +829,7 @@ Choose an option:  "
         then
         cat "${yt_playlist_home_dir}/yt-playlist_music.txt" | tac | awk '{print $1}' > "${tmp_dir}/yt_playlist_url.txt"
         sed -i "1i header_line" "${tmp_dir}/yt_playlist_url.txt"
-        yt_playlist_music_total=$(cat "${tmp_dir}/yt_playlist_url.txt" | wc -l)
+        yt_playlist_music_total=$(cat "${yt_playlist_home_dir}/yt-playlist_music.txt" | wc -l)
         clear
         echo "============================"
         echo "Play in sequence + inf loop."
@@ -854,7 +854,7 @@ Choose an option:  "
         then
         cat "${yt_playlist_home_dir}/yt-playlist_music.txt" | tac | awk '{print $1}' > "${tmp_dir}/yt_playlist_url.txt"
         sed -i "1i header_line" "${tmp_dir}/yt_playlist_url.txt"
-        yt_playlist_music_total=$(cat "${tmp_dir}/yt_playlist_url.txt" | wc -l)
+        yt_playlist_music_total=$(cat "${yt_playlist_home_dir}/yt-playlist_music.txt" | wc -l)
         clear
         echo "============================"
         echo "Play in sequence once."

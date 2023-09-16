@@ -4,6 +4,9 @@
 Change log notes
 ================================
 
+v2.18
+Fixed bug, on the YTMusic menu. Play from a start position would report one extra song.
+
 v2.17
 Improved accuracy of delete duplicates option in the YTMusic menu.
 
