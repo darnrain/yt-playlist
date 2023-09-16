@@ -1,8 +1,6 @@
 on 9-16-2023
 https://chartmasters.org/
 
-==Top Songs 2023===
-
 Last Night (2023) Morgan Wallen 673,000
 Vampire (2023) Olivia Rodrigo 600,000
 Eyes Closed (2023) Ed Sheeran 494,000
@@ -163,7 +161,6 @@ Stranger (2023) Olivia Rodrigo 0
 Girl I've Always Been (2023) Olivia Rodrigo 0
 Hurting Interlude (2023)
 
-==Top Songs 2022===
 
 Anti-Hero (2022) Taylor Swift 2,314,000
 Unholy (2022) Sam Smith & Kim Petras 1,782,000
@@ -448,7 +445,6 @@ Her (2022) BTS 0
 Young Love (2022) BTS 0
 Quotation Mark (2022) BTS 0
 
-==Top Songs 2021===
 
 Easy on Me (2021) Adele 3,740,000
 Drivers License (2021) Olivia Rodrigo 2,788,000
