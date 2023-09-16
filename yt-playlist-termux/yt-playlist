@@ -11,7 +11,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: /sdcard/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 yt_video_number="1:100"
-version="v2.9"
+version="v2.10"
 
 #mainmenu
 
@@ -744,7 +744,8 @@ echo -ne "== Play YTMusic Menu ==
 5) Search for music.
 6) Enable Audio aac 128kbps 44.1kHz.
 7) Enable Audio opus 128kbps 48kHz.
-8) Delete music.
+8) Delete duplicate urls, music library.
+9) Delete music.
 m) Main menu.
 Choose an option:  "
     read -r ans
@@ -764,7 +765,7 @@ Choose an option:  "
         echo "Please wait."
         echo ""
         touch "${tmp_dir}/mpv_music_running"
-        pulse_function mpv ${mpv_log_file_arguments[@]} ${mpv_music_arguments[@]} --resume-playback=no --save-position-on-quit=no --loop-playlist=inf --shuffle=yes --playlist="${tmp_dir}/yt_playlist_url.txt"
+        mpv ${mpv_log_file_arguments[@]} ${mpv_music_arguments[@]} --resume-playback=no --save-position-on-quit=no --loop-playlist=inf --shuffle=yes --playlist="${tmp_dir}/yt_playlist_url.txt"
         rm "${tmp_dir}/mpv_music_running"
         rm "${tmp_dir}/yt_playlist_url.txt"
         play_music_menu_function
@@ -784,7 +785,7 @@ Choose an option:  "
         echo "Please wait."
         echo ""
         touch "${tmp_dir}/mpv_music_running"
-        pulse_function mpv ${mpv_log_file_arguments[@]} ${mpv_music_arguments[@]} --resume-playback=no --save-position-on-quit=no --shuffle=yes --playlist="${tmp_dir}/yt_playlist_url.txt"
+        mpv ${mpv_log_file_arguments[@]} ${mpv_music_arguments[@]} --resume-playback=no --save-position-on-quit=no --shuffle=yes --playlist="${tmp_dir}/yt_playlist_url.txt"
         rm "${tmp_dir}/mpv_music_running"
         rm "${tmp_dir}/yt_playlist_url.txt"
         play_music_menu_function
@@ -815,7 +816,7 @@ Choose an option:  "
         echo "Please wait."
         echo ""
         touch "${tmp_dir}/mpv_music_running"
-        pulse_function mpv ${mpv_log_file_arguments[@]} ${mpv_music_arguments[@]} --resume-playback=no --save-position-on-quit=no --loop-playlist=inf --shuffle=no --playlist-start="$yt_playlist_start" --playlist="${tmp_dir}/yt_playlist_url.txt"
+        mpv ${mpv_log_file_arguments[@]} ${mpv_music_arguments[@]} --resume-playback=no --save-position-on-quit=no --loop-playlist=inf --shuffle=no --playlist-start="$yt_playlist_start" --playlist="${tmp_dir}/yt_playlist_url.txt"
         rm "${tmp_dir}/mpv_music_running"
         rm "${tmp_dir}/yt_playlist_url.txt"
         play_music_menu_function
@@ -840,7 +841,7 @@ Choose an option:  "
         echo "Please wait."
         echo ""
         touch "${tmp_dir}/mpv_music_running"
-        pulse_function mpv ${mpv_log_file_arguments[@]} ${mpv_music_arguments[@]} --resume-playback=no --save-position-on-quit=no --loop-playlist=no --shuffle=no --playlist-start="$yt_playlist_start" --playlist="${tmp_dir}/yt_playlist_url.txt"
+        mpv ${mpv_log_file_arguments[@]} ${mpv_music_arguments[@]} --resume-playback=no --save-position-on-quit=no --loop-playlist=no --shuffle=no --playlist-start="$yt_playlist_start" --playlist="${tmp_dir}/yt_playlist_url.txt"
         rm "${tmp_dir}/mpv_music_running"
         rm "${tmp_dir}/yt_playlist_url.txt"
         play_music_menu_function
@@ -902,7 +903,7 @@ fi
         echo "Please wait."
         echo ""
         touch "${tmp_dir}/mpv_music_running"
-        pulse_function mpv ${mpv_log_file_arguments[@]} ${mpv_music_arguments[@]} --resume-playback=no --save-position-on-quit=no --loop-playlist=inf --shuffle=no --playlist="${tmp_dir}/yt_playlist_url.txt"
+        mpv ${mpv_log_file_arguments[@]} ${mpv_music_arguments[@]} --resume-playback=no --save-position-on-quit=no --loop-playlist=inf --shuffle=no --playlist="${tmp_dir}/yt_playlist_url.txt"
         rm "${tmp_dir}/mpv_music_running"
         rm "${tmp_dir}/yt_playlist_url.txt"
         play_music_menu_function
@@ -949,7 +950,7 @@ fi
         echo "Please wait."
         echo "" 
         touch "${tmp_dir}/mpv_music_running"
-        pulse_function mpv ${mpv_log_file_arguments[@]} ${mpv_music_arguments[@]} --resume-playback=no --save-position-on-quit=no --loop-playlist=no --shuffle=no --playlist="${tmp_dir}/yt_playlist_url.txt"
+        mpv ${mpv_log_file_arguments[@]} ${mpv_music_arguments[@]} --resume-playback=no --save-position-on-quit=no --loop-playlist=no --shuffle=no --playlist="${tmp_dir}/yt_playlist_url.txt"
         rm "${tmp_dir}/mpv_music_running"
         rm "${tmp_dir}/yt_playlist_url.txt"
         play_music_menu_function
@@ -1030,6 +1031,30 @@ fi
         play_music_menu_function
         ;;
     8)
+        printf " \n"
+        printf "Delete duplicate urls, from music library? [y/N] "
+        read answer
+        if [ "$answer" != "${answer#[yY]}" ]
+        then
+        clear
+        music_count=$(cat "${yt_playlist_home_dir}/yt-playlist_music.txt" | wc -l)
+        echo "There are $music_count in music library."
+        sleep 4
+        sed -i '$!N; /^\(.*\)\n\1$/!P; D' "${yt_playlist_home_dir}/yt-playlist_music.txt"
+        sed -i '/^$/d' "${yt_playlist_home_dir}/yt-playlist_music.txt"
+        music_count=$(cat "${yt_playlist_home_dir}/yt-playlist_music.txt" | wc -l)
+        echo ""
+        echo "There are now $music_count in music library."
+        sleep 4
+        play_music_menu_function
+        else
+        clear
+        echo "No changes were made."
+        sleep 2
+        play_music_menu_function
+        fi
+        ;;
+    9)
         delete_music=$(cat "${yt_playlist_home_dir}/yt-playlist_music.txt" | nl -n"ln" -w2 -s " " | tac | nl -n"ln" -w2 -s " "  | fzf --reverse --header="Delete music." --bind ctrl-a:select-all,ctrl-d:deselect-all -m --with-nth=1,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $2}' | tr -s ';[:space:]' '[ *]' | sed 's/ /d;/g' | sed '$ s/.$//')
         if [ -n "$delete_music" ]
 	then

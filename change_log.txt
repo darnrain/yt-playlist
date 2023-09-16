@@ -4,6 +4,9 @@
 Change log notes
 ================================
 
+v2.10
+Added the option to delete all the duplicate urls from the music library, in the Play YTMusic menu.
+
 v2.9
 Added Billboard Hot 100 (1) and Billboard Hot 100 (2)
 Just in case one does not get updated.
