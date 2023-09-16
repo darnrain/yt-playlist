@@ -11,7 +11,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: /sdcard/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 yt_video_number="1:100"
-version="v2.14"
+version="v2.15"
 
 #mainmenu
 
@@ -1833,6 +1833,7 @@ echo -ne "== Billboard charts Menu ==
 6) Rolling Stone's 500 Greatest Songs of All Time.
 7) 1001 Albums You Must Hear Before You Die.
 8) Pitchfork's 1001 Albums You Must Hear Before You Die.
+9) Chartmasters Top Songs.
 m) Main menu.
 Choose an option:  "
     read -r ans
@@ -1924,6 +1925,17 @@ Choose an option:  "
         if command -v less >/dev/null && command -v curl >/dev/null
         then
         curl -s https://gist.githubusercontent.com/onlurking/af870dce21a4bd45e3e46174d8c30d3b/raw/eaed2d173f4e8190b88f4cea9d97a44e4ea45d70/albums.md -L 2>&1 | less
+        billboard_menu_function
+        else
+        echo "Please install less and curl to run."
+        sleep 2
+        billboard_menu_function
+        fi
+        ;;
+   9)  
+        if command -v less >/dev/null && command -v curl >/dev/null
+        then
+        curl -s https://raw.githubusercontent.com/darnrain/yt-playlist/main/top_songs/top_songs.txt -L 2>&1 | less
         billboard_menu_function
         else
         echo "Please install less and curl to run."
