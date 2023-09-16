@@ -29,6 +29,7 @@ More photos.<br>
 * 1080p 60 FPS video defaults to h264.
 * Enable HW GPU on mpv player.
 * A text mode, listen to video or music.
+* Very little cpu usage, when playing music or when playing audio/video if HD gpu on.
 * The Termux version is audio only.
 * Background audio playback on Termux.
 * Open a channel, playlist and album in NewPipe. Termux version only.
