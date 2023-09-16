@@ -173,24 +173,14 @@ Example: "yt-playlist --import subscriptions.csv"
 * Check internet status is now in the debug menu. Type debug at the main menu to access it.
 * Default audio format is now opus for the YTMusic menu.
 * Added pop up notifications for Linux, Next track, Prev track, Play/Pause, Download Audio, Download video, artist and title. You can now use yt-playlist without even looking at the terminal once you get your playlist playing, just map your keys to the command line arguments.
-* Added command line arguments, play/pause next and prev to control mpv.
-* Changed how resume playback works.
 * Play music/video then if you want to save the playback position and quit press "shift-q".
 * When you want to resume from that saved playback position enable resume playback, then play the music/video.
 * If you just want to quit music/video with out saving the playback position, press "q".
 * You can save to the bookmarks and then press "shift-q" to save the playback position, then resume playback from the bookmarks.
-* Resume playback and save playback position only will work in the Play SD menu and Bookmark SD menu.
-* In the Playlist menu, options 5,6 are a little slower finding YTMusic Albums and YTMusic Playlists than other search functions.
-* The YT playlist search and YT channel search are very fast also get channel playlists.
 * Added the option of fast search and slow search to the YTMusic menu.
 * v1.3 Added the option to press "t" to show the date and time AM PM format when watching video or listening to music, all play menus.
-* You can now copy and paste the command to install the latest version of yt-playlist online.
-* I have made a offline installer of yt-playlist v1.1.
-* Subtitles are disabled by default. I had trouble getting them working on every video.
+* Subtitles are disabled by default.
 * When playing video/music if you have opus enabled and then press "d" to download audio, yt-playlist will download the opus file.
-* When opus is enabled and playing video, the audio will be throttled, only affects the cache fill rate and if you want to FF. When playing music with opus, the audio is not throttled. When using aac audio, the video/music is not throttled.
-* When watching video in the Play SD menu or the Play SD bookmark menu, the 720p video is not throttled.
-* The Play HD menu relies on the cache to FF and RR. The Play HD menu is not throttled.
 * Sleep timer, when the count down timer get's to 0 your volume will be slowly lowered to 0% then pause mpv, then it will restore your volume level back to the same level it was at before yt-playlist lowered it to 0%. You can cancel sleep timer at anytime, even if the volume is being lowered.
 
 ### Credits, A Special Thank You
