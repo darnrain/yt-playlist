@@ -11,7 +11,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="v2.10"
+version="v2.11"
 
 #mainmenu
 
@@ -1065,7 +1065,8 @@ fi
         music_count=$(cat "${yt_playlist_home_dir}/yt-playlist_music.txt" | wc -l)
         echo "There are $music_count in music library."
         sleep 4
-        sed -i '$!N; /^\(.*\)\n\1$/!P; D' "${yt_playlist_home_dir}/yt-playlist_music.txt"
+        awk '!a[$1]++' "${yt_playlist_home_dir}/yt-playlist_music.txt" > "${tmp_dir}/yt-playlist_music.txt"
+        mv "${tmp_dir}/yt-playlist_music.txt" "${yt_playlist_home_dir}/yt-playlist_music.txt"
         sed -i '/^$/d' "${yt_playlist_home_dir}/yt-playlist_music.txt"
         music_count=$(cat "${yt_playlist_home_dir}/yt-playlist_music.txt" | wc -l)
         echo ""

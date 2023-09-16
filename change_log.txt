@@ -4,6 +4,9 @@
 Change log notes
 ================================
 
+v2.11
+Fixed bug, delete all the duplicate urls from the music library was not working.
+
 v2.10
 Added the option to delete all the duplicate urls from the music library, in the Play YTMusic menu.
 
