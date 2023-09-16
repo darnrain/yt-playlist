@@ -28,7 +28,7 @@ More photos.<br>
 * Stream YouTube video up to 8k 60 FPS.
 * 1080p 60 FPS video defaults to h264.
 * Enable HW GPU on mpv player.
-* Very little cpu usage, when playing music or when playing audio/video if HD gpu on.
+* Very little cpu usage, when playing music or when playing audio/video if HW gpu on.
 * A text mode, listen to video or music.
 * The Termux version is audio only.
 * Background audio playback on Termux.
