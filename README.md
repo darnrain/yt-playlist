@@ -166,7 +166,6 @@ Example: "yt-playlist --import subscriptions.csv"
 
 
 ### yt-playlist notes:
-* 
 * Added the option to delete all the duplicate urls from the music library, in the Play YTMusic menu.
 * Added Billboard Hot 100 (1) and Billboard Hot 100 (2)
 * Added cover art notifications to the Play SD menu.
