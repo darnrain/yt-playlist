@@ -214,8 +214,8 @@ https://gist.github.com/tatygrassini/6306893
 Rolling Stone's list of The 500 Greatest Songs of All Time.<br> 
 https://gist.github.com/nanotaboada/a90ce99a9bc8ca3c63c0f1dfeb41d41d#file-songs-json
 
-Chartmasters<br>
-https://chartmasters.org/
+Chartmasters Top Songs.<br>
+https://github.com/darnrain/yt-playlist/blob/main/top_songs/top_songs.txt
 
 fx<br>
 https://github.com/antonmedv/fx
