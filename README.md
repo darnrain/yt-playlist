@@ -166,6 +166,12 @@ Example: "yt-playlist --import subscriptions.csv"
 
 
 ### yt-playlist notes:
+* 
+* Added the option to delete all the duplicate urls from the music library, in the Play YTMusic menu.
+* Added Billboard Hot 100 (1) and Billboard Hot 100 (2)
+* Added cover art notifications to the Play SD menu.
+* Added a yes or no question when you press q to quit.
+* Check internet status is now in the debug menu. Type debug at the main menu to access it.
 * Default audio format is now opus for the YTMusic menu.
 * Added pop up notifications for Linux, Next track, Prev track, Play/Pause, Download Audio, Download video, artist and title. You can now use yt-playlist without even looking at the terminal once you get your playlist playing, just map your keys to the command line arguments.
 * Added command line arguments, play/pause next and prev to control mpv.
