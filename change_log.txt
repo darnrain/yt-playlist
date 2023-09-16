@@ -6,7 +6,7 @@ Change log notes
 
 v2.15
 Added to the Billboard charts menu.
-Chartmasters top songs.
+Chartmasters top songs. By me.
 
 v2.14
 Added to the Billboard charts menu.
