@@ -211,7 +211,7 @@ https://github.com/KoreanThinker/billboard-json
 1001 Albums You Must Hear Before You Die<br>
 https://gist.github.com/tatygrassini/6306893
 
-The 500 Greatest Songs of All Time.<br>
+Rolling Stone's list of The 500 Greatest Songs of All Time.<br> 
 https://gist.github.com/nanotaboada/a90ce99a9bc8ca3c63c0f1dfeb41d41d#file-songs-json
 
 fx<br>
