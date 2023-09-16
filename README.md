@@ -46,7 +46,6 @@ More photos.<br>
 * A built in Sleep Timer, that slowly lowers volume level, pauses mpv, restores volume level.
 * Automated installation Termux version.
 * 100% open source and free.
-* Activly being developed.
 * And more...
  
 ### Known issues:
