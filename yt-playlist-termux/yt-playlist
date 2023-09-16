@@ -11,7 +11,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: /sdcard/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 yt_video_number="1:100"
-version="v2.15"
+version="v2.16"
 
 #mainmenu
 
@@ -1830,10 +1830,9 @@ echo -ne "== Billboard charts Menu ==
 3) Billboard 200.
 4) Billboard Global 200.
 5) Billboard Artist 100.
-6) Rolling Stone's 500 Greatest Songs of All Time.
+6) Rolling Stone's 500 Greatest Songs.
 7) 1001 Albums You Must Hear Before You Die.
-8) Pitchfork's 1001 Albums You Must Hear Before You Die.
-9) Chartmasters Top Songs.
+8) Chartmasters Top Songs.
 m) Main menu.
 Choose an option:  "
     read -r ans
@@ -1874,7 +1873,7 @@ Choose an option:  "
         billboard_menu_function
         fi
         ;;
-   4)  
+    4)  
         if command -v fx >/dev/null && command -v curl >/dev/null
         then
         export FX_THEME=2
@@ -1886,7 +1885,7 @@ Choose an option:  "
         billboard_menu_function
         fi
         ;;
-   5)  
+    5)  
         if command -v fx >/dev/null && command -v curl >/dev/null
         then
         export FX_THEME=2
@@ -1898,7 +1897,7 @@ Choose an option:  "
         billboard_menu_function
         fi
         ;;
-   6)  
+    6)  
         if command -v fx >/dev/null && command -v curl >/dev/null
         then
         export FX_THEME=2
@@ -1910,7 +1909,7 @@ Choose an option:  "
         billboard_menu_function
         fi
         ;;
-   7)  
+    7)  
         if command -v less >/dev/null && command -v curl >/dev/null
         then
         curl -s https://gist.githubusercontent.com/tatygrassini/6306893/raw/f1511a1a843eddd20f8a26d7809a09854acd4a9e/1001-albums -L 2>&1 | less
@@ -1921,21 +1920,10 @@ Choose an option:  "
         billboard_menu_function
         fi
         ;;
-   8)  
+    8)  
         if command -v less >/dev/null && command -v curl >/dev/null
         then
-        curl -s https://gist.githubusercontent.com/onlurking/af870dce21a4bd45e3e46174d8c30d3b/raw/eaed2d173f4e8190b88f4cea9d97a44e4ea45d70/albums.md -L 2>&1 | less
-        billboard_menu_function
-        else
-        echo "Please install less and curl to run."
-        sleep 2
-        billboard_menu_function
-        fi
-        ;;
-   9)  
-        if command -v less >/dev/null && command -v curl >/dev/null
-        then
-        curl -s https://raw.githubusercontent.com/darnrain/yt-playlist/main/top_songs/top_songs.txt -L 2>&1 | less
+        curl -s https://raw.githubusercontent.com/darnrain/yt-playlist/main/top_songs/top_songs.txt -L 2>&1 | nl -ba -w2 -s ".  " | less
         billboard_menu_function
         else
         echo "Please install less and curl to run."
