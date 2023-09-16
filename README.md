@@ -51,7 +51,6 @@ More photos.<br>
  
 ### Known issues:
 * yt-playlist will not work on Ubuntu, because of the snap permissions.
-* Play from a start position, will always show one extract song.
 * Fast internet connection to stream 1080p, 2k, 4k, 8k.
 * Playing 2k, 4k, 8k requires a fast comptuer - gpu.
 
