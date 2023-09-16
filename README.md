@@ -208,6 +208,12 @@ Billboard Global 200<br>
 Billboard Artist 100<br>
 https://github.com/KoreanThinker/billboard-json
 
+1001 Albums You Must Hear Before You Die 
+https://gist.github.com/tatygrassini/6306893
+
+The 500 Greatest Songs of All Time.
+https://gist.github.com/nanotaboada/a90ce99a9bc8ca3c63c0f1dfeb41d41d#file-songs-json
+
 fx<br>
 https://github.com/antonmedv/fx
 
