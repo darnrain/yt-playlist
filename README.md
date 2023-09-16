@@ -182,6 +182,7 @@ Example: "yt-playlist --import subscriptions.csv"
 * Subtitles are disabled by default.
 * When playing video/music if you have opus enabled and then press "d" to download audio, yt-playlist will download the opus file.
 * Sleep timer, when the count down timer get's to 0 your volume will be slowly lowered to 0% then pause mpv, then it will restore your volume level back to the same level it was at before yt-playlist lowered it to 0%. You can cancel sleep timer at anytime, even if the volume is being lowered.
+I keep `yt-playlist --help` updated, for more info on changes please check the help,
 
 ### Credits, A Special Thank You
 yt-dlp<br>
