@@ -4,6 +4,10 @@
 Change log notes
 ================================
 
+v2.14
+Added to the Billboard charts menu.
+Pitchfork's 1001 Albums You Must Hear Before You Die
+
 v2.13
 Added to the Billboard charts menu.
 Rolling Stone's list of The 500 Greatest Songs of All Time.
