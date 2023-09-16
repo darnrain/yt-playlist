@@ -11,7 +11,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: /sdcard/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 yt_video_number="1:100"
-version="v2.11"
+version="v2.12"
 
 #mainmenu
 
@@ -2727,7 +2727,7 @@ function fast_music_search_function ()
 clear
 echo "Please wait."
 ytm_search_plus=$(echo "$ytm_search" | sed 's/ /+/g' )
-ytm_music_search=$(yt-dlp --flat-playlist --print "%(webpage_url)s Search: ${ytm_search} - %(title)s" -I ${ytm_search_number} "https://music.youtube.com/search?q=${ytm_search_plus}&sp=EgWKAQIIAWoKEAoQAxAEEAkQBQ" | sed 's/music.//g' 2>/dev/null)
+ytm_music_search=$(yt-dlp --flat-playlist --print "%(webpage_url)s Search: ${ytm_search} - %(title)s" -I ${ytm_search_number} "https://music.youtube.com/search?q=${ytm_search_plus}&sp=EgWKAQIIAWoKEAoQAxAEEAkQBQ" | sed 's/music.//g' | sed 's/www.//g' 2>/dev/null)
 if [ -n "$ytm_music_search" ]
 then
 echo "${ytm_music_search}" >> "${yt_playlist_home_dir}/yt-playlist_music.txt"
@@ -2749,7 +2749,7 @@ if [ -n "$yt_music_url" ]
 then
 clear
 echo "Please wait, getting music information."
-ytm_music_search=$(yt-dlp --no-warnings --quiet --flat-playlist --print "%(webpage_url)s Artist: %(creator)s - %(title)s" -I 1 ${yt_music_url} 2>/dev/null)
+ytm_music_search=$(yt-dlp --no-warnings --quiet --flat-playlist --print "%(webpage_url)s Artist: %(creator)s - %(title)s" -I 1 ${yt_music_url} | sed 's/www.//g' 2>/dev/null)
 if [ -n "$ytm_music_search" ]
 then
 echo "${ytm_music_search}" >> "${yt_playlist_home_dir}/yt-playlist_music.txt"
