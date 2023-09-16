@@ -4,6 +4,9 @@
 Change log notes
 ================================
 
+v2.19
+Added an option at the main menu to check for updates.
+
 v2.18
 Fixed bug, on the YTMusic menu. Play from a start position would report one extra song.
 

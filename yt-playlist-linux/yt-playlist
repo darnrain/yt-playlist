@@ -11,7 +11,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="v2.18"
+version="v2.19"
 
 #mainmenu
 
@@ -51,6 +51,7 @@ echo -ne "== Main Menu ==
 6) Billboard charts menu.
 7) Download.
 8) Sleep timer.
+9) Check for update.
 q) Quit.
 Choose an option:  "
     read -r ans
@@ -315,6 +316,18 @@ fi
         sleep 0.8
         main_menu_function
         fi
+        ;;
+   9)
+        version_check=$(curl -s https://raw.githubusercontent.com/darnrain/yt-playlist/main/latest_version.txt -L 2>&1)
+        echo ""
+        echo "Version installed: $version"
+        echo "Latest version: $version_check"
+        printf "Download yt-playlist from. \n"
+        printf "https://github.com/darnrain/yt-playlist \n"
+        printf " \n"
+        printf "%s " "Press enter to continue" 
+        read ans
+        main_menu_function
         ;;
     q)
         quit_function
