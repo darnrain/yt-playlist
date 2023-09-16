@@ -5,7 +5,7 @@ Change log notes
 ================================
 
 v2.12
-Fixed bug, the YTMusic menu fast search was saving urls as www. and slow search did not have the www. in the url. This would not have been an issue unless your looking for duplicate urls to delete. So going forward this issue has been fixed. You will have to manualy delete all the old duplicates.
+Fixed bug, the YTMusic menu fast search was saving urls as www. and slow search did not have the www. in the url. This would not have been an issue unless your looking for duplicate urls to delete. So going forward this issue has been fixed. You will have to manually delete all the old duplicates.
 
 v2.11
 Fixed bug, delete all the duplicate urls from the music library was not working.
