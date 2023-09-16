@@ -4,9 +4,12 @@
 Change log notes
 ================================
 
+v2.17
+Improved accuracy of delete duplicates option in the YTMusic menu.
+
 v2.16
 Removed Pitchfork's 1001 Albums You Must Hear Before You Die. It didn't fit on my phones screen running Termux. 
-Added numbers to Chartmasters Top Songs.
+Numbered lines on Chartmasters Top Songs.
 
 Pitchfork's 1001 Albums You Must Hear Before You Die
 https://gist.github.com/onlurking/af870dce21a4bd45e3e46174d8c30d3b
