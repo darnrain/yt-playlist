@@ -174,7 +174,7 @@ Example: "yt-playlist --import subscriptions.csv"
 * Default audio format is now opus for the YTMusic menu.
 * Added pop up notifications for Linux, Next track, Prev track, Play/Pause, Download Audio, Download video, artist and title. You can now use yt-playlist without even looking at the terminal once you get your playlist playing, just map your keys to the command line arguments.
 * Play music/video then if you want to save the playback position and quit press "shift-q".
-* When you want to resume from that saved playback position enable resume playback, then play the music/video.
+* When you want to resume from that saved playback position enable resume playback, then play the music/video. The current playback position get's deleted when you resume.
 * If you just want to quit music/video with out saving the playback position, press "q".
 * You can save to the bookmarks and then press "shift-q" to save the playback position, then resume playback from the bookmarks.
 * Added the option of fast search and slow search to the YTMusic menu.
