@@ -1,7 +1,6 @@
 ========================================
 Linux online install v2.21
 ========================================
-Only install or uninstall under a user account.
 This command requires sudo access.
 Just copy and paste into the terminal:
 ========================================
