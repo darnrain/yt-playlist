@@ -1,6 +1,8 @@
 #!/bin/sh
 
-        if ! pgrep -f yt-playlist >/dev/null && ! pgrep -f mpv >/dev/null
+        if ! pgrep yt-playlist >/dev/null
+        then
+        if ! pgrep mpv >/dev/null
         then
         if command -v yt-dlp >/dev/null && command -v mpv >/dev/null && command -v ffmpeg >/dev/null && command -v fzf >/dev/null && command -v mutagen-inspect >/dev/null && command -v socat >/dev/null && command -v awk >/dev/null && command -v sed >/dev/null && command -v tr >/dev/null && command -v bash >/dev/null
         then
@@ -126,5 +128,8 @@
         exit
         fi
         else
-        echo "Please close yt-playlist or mpv before installing."
+        echo "Please close mpv before installing."
+        fi
+        else
+        echo "Please close yt-playlist before installing."
         fi
