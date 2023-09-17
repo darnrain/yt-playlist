@@ -24,6 +24,7 @@
         echo "b run /data/data/com.termux/files/usr/bin/yt-playlist --bookmark" >> ${HOME}/.config/yt-playlist/input.conf
         echo "f run /data/data/com.termux/files/usr/bin/yt-playlist --favorites" >> ${HOME}/.config/yt-playlist/input.conf
         echo "t run /data/data/com.termux/files/usr/bin/yt-playlist --date_time" >> ${HOME}/.config/yt-playlist/input.conf
+        echo "T run /data/data/com.termux/files/usr/bin/yt-playlist --title" >> ${HOME}/.config/yt-playlist/input.conf
         sed -i '/yt-playlist/d' ${HOME}/.bashrc
         echo "alias y='yt-playlist'" >> ${HOME}/.bashrc
         sed -i '/# volume-keys/s/^#//' /data/data/com.termux/files/home/.termux/termux.properties

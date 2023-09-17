@@ -11,7 +11,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: /sdcard/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 yt_video_number="1:100"
-version="v2.19"
+version="v2.20"
 
 #mainmenu
 
@@ -301,16 +301,34 @@ fi
         fi
         ;;
    8)
+        printf "\n"
+        printf "Update menu \n"
+        printf "1=Check for update. or 2=View change log. \n"
+        read answer
+        if [ -n "$answer" ]
+        then
+        if [ "$answer" != "${answer#[1]}" ]
+        then
         version_check=$(curl -s https://raw.githubusercontent.com/darnrain/yt-playlist/main/latest_version.txt -L 2>&1)
         echo ""
-        echo "Version installed: $version"
+        echo "Installed version: $version"
         echo "Latest version: $version_check"
         printf "Download yt-playlist from. \n"
         printf "https://github.com/darnrain/yt-playlist \n"
+        printf "git clone https://github.com/darnrain/yt-playlist.git \n"
         printf " \n"
         printf "%s " "Press enter to continue" 
         read ans
         main_menu_function
+        else
+        curl -s https://raw.githubusercontent.com/darnrain/yt-playlist/main/change_log.txt -L 2>&1 | less
+        main_menu_function
+        fi
+        else
+        echo "Please choose an option."
+        sleep 0.8
+        main_menu_function
+        fi
         ;;
     q)
         quit_function
@@ -3019,6 +3037,7 @@ echo 'Show sleep timer     "s"'
 echo 'Download audio       "d"'
 echo 'Download video "shift-d"'
 echo 'Show date and time   "t"'
+echo 'Artist & title "shift-t"'
 echo ""
 echo "Select Video/Music"
 echo 'Select all "ctrl-a"'

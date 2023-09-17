@@ -4,6 +4,11 @@
 Change log notes
 ================================
 
+v2.20
+Added the option to the check for update, you can now view the current change log. 
+You can now press shift-t to view the artist & title when playing music/video.
+Updated --help
+
 v2.19
 Added an option at the main menu to check for updates.
 
