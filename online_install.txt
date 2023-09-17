@@ -1,11 +1,11 @@
 ========================================
-Linux online install v2.20
+Linux online install v2.21
 ========================================
 Only install or uninstall under a user account.
 This command requires sudo access.
 Just copy and paste into the terminal:
 ========================================
-curl https://github.com/darnrain/yt-playlist/releases/download/v2.20/yt-playlist.zip -L -o /tmp/yt-playlist.zip; unzip -o /tmp/yt-playlist.zip -d /tmp/; sudo chmod +x /tmp/yt-playlist/yt-playlist-linux/install.sh; /tmp/yt-playlist/yt-playlist-linux/install.sh
+curl https://github.com/darnrain/yt-playlist/releases/download/v2.21/yt-playlist.zip -L -o /tmp/yt-playlist.zip; unzip -o /tmp/yt-playlist.zip -d /tmp/; sudo chmod +x /tmp/yt-playlist/yt-playlist-linux/install.sh; /tmp/yt-playlist/yt-playlist-linux/install.sh
 ========================================
 
 ========================================
@@ -14,11 +14,11 @@ Linux online uninstall.
 This command requires sudo access.
 Just copy and paste into the terminal:
 ========================================
-curl https://github.com/darnrain/yt-playlist/releases/download/v2.20/yt-playlist.zip -L -o /tmp/yt-playlist.zip; unzip -o /tmp/yt-playlist.zip -d /tmp/; sudo chmod +x /tmp/yt-playlist/yt-playlist-linux/uninstall.sh; /tmp/yt-playlist/yt-playlist-linux/uninstall.sh
+curl https://github.com/darnrain/yt-playlist/releases/download/v2.21/yt-playlist.zip -L -o /tmp/yt-playlist.zip; unzip -o /tmp/yt-playlist.zip -d /tmp/; sudo chmod +x /tmp/yt-playlist/yt-playlist-linux/uninstall.sh; /tmp/yt-playlist/yt-playlist-linux/uninstall.sh
 ========================================
 
 ========================================
-Termux online install v2.20
+Termux online install v2.21
 ========================================
 The Termux installer will automatically 
 install all the required and optional 
@@ -26,7 +26,7 @@ dependencies first, before installing yt-playlist.
 ========================================
 Copy and paste this command into Termux:
 ========================================
-curl https://github.com/darnrain/yt-playlist/releases/download/v2.20/yt-playlist.zip -L -o ${TMPDIR}/yt-playlist.zip; unzip -o ${TMPDIR}/yt-playlist.zip -d ${TMPDIR}/; chmod +x ${TMPDIR}/yt-playlist/yt-playlist-termux/install.sh; ${TMPDIR}/yt-playlist/yt-playlist-termux/install.sh
+curl https://github.com/darnrain/yt-playlist/releases/download/v2.21/yt-playlist.zip -L -o ${TMPDIR}/yt-playlist.zip; unzip -o ${TMPDIR}/yt-playlist.zip -d ${TMPDIR}/; chmod +x ${TMPDIR}/yt-playlist/yt-playlist-termux/install.sh; ${TMPDIR}/yt-playlist/yt-playlist-termux/install.sh
 ========================================
 
 ========================================
@@ -34,5 +34,5 @@ Termux online uninstall.
 ========================================
 Copy and paste this command into Termux:
 ========================================
-curl https://github.com/darnrain/yt-playlist/releases/download/v2.20/yt-playlist.zip -L -o ${TMPDIR}/yt-playlist.zip; unzip -o ${TMPDIR}/yt-playlist.zip -d ${TMPDIR}/; chmod +x ${TMPDIR}/yt-playlist/yt-playlist-termux/uninstall.sh; ${TMPDIR}/yt-playlist/yt-playlist-termux/uninstall.sh
+curl https://github.com/darnrain/yt-playlist/releases/download/v2.21/yt-playlist.zip -L -o ${TMPDIR}/yt-playlist.zip; unzip -o ${TMPDIR}/yt-playlist.zip -d ${TMPDIR}/; chmod +x ${TMPDIR}/yt-playlist/yt-playlist-termux/uninstall.sh; ${TMPDIR}/yt-playlist/yt-playlist-termux/uninstall.sh
 ========================================
