@@ -4,6 +4,11 @@
 Change log notes
 ================================
 
+v2.24
+Added a new YTMusic playlist search to the Playlist menu.
+YTMusic playlist search [1] = featured playlists, music only. old.
+YTMusic playlist search [2] = community playlists, YT music videos. new
+
 v2.23
 Fixed bug, some music/videos were unavailable, but yt-playlist was getting the results anyway.
 I already filtered out private/deleted music/videos but I didn't know there was also unavailable.
