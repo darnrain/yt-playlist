@@ -4,6 +4,10 @@
 Change log notes
 ================================
 
+v2.23
+Fixed bug, some music/videos were unavailable, but yt-playlist was getting the results anyway.
+I already filtered out private/deleted music/videos but I didn't know there was also unavailable.
+
 v2.22
 The Linux and Termux installer will now check to see if yt-playlist or mpv is running, if true then asks user to close program before installing.
 Removed the pkill yt-playlist and pkill mpv from the installer, because now it will just check to see if they are running.
