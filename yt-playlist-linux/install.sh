@@ -1,9 +1,9 @@
 #!/bin/sh
 
+        if ! pgrep -f yt-playlist >/dev/null && ! pgrep -f mpv >/dev/null
+        then
         if command -v yt-dlp >/dev/null && command -v mpv >/dev/null && command -v ffmpeg >/dev/null && command -v fzf >/dev/null && command -v mutagen-inspect >/dev/null && command -v socat >/dev/null && command -v awk >/dev/null && command -v sed >/dev/null && command -v tr >/dev/null && command -v bash >/dev/null
         then
-        pkill yt-playlist
-        pkill mpv
         echo "============================"
         echo "Linux installer yt-playlist."
         echo "============================"
@@ -124,4 +124,7 @@
         echo "Then install again."
         echo "============================"
         exit
+        fi
+        else
+        echo "Please close yt-playlist or mpv before installing."
         fi

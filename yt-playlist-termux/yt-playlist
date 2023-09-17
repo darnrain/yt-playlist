@@ -11,7 +11,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: /sdcard/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 yt_video_number="1:100"
-version="v2.21"
+version="v2.22"
 
 #mainmenu
 
@@ -398,6 +398,7 @@ fi
 function play_sd_menu_function ()
 {
 	clear
+        clean_up_function 
 	if [ -n "$yt_playlist_id" ]
 	then
 	echo "${yt_playlist_title}"
@@ -444,8 +445,6 @@ Choose an option:  "
         echo ""
         touch "${tmp_dir}/mpv_video_running"
         pulse_function mpv ${mpv_log_file_arguments[@]} ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=inf --shuffle=yes --playlist="${tmp_dir}/yt_playlist_url.txt"
-        rm "${tmp_dir}/mpv_video_running"
-        rm "${tmp_dir}/yt_playlist_url.txt"
         play_sd_menu_function
         ;;
     2)
@@ -470,8 +469,6 @@ Choose an option:  "
         echo ""
         touch "${tmp_dir}/mpv_video_running"
         pulse_function mpv ${mpv_log_file_arguments[@]} ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=no --shuffle=yes --playlist="${tmp_dir}/yt_playlist_url.txt"
-        rm "${tmp_dir}/mpv_video_running"
-        rm "${tmp_dir}/yt_playlist_url.txt"
         play_sd_menu_function
         ;;
     3)
@@ -510,8 +507,6 @@ Choose an option:  "
         echo ""
         touch "${tmp_dir}/mpv_video_running"
         pulse_function mpv ${mpv_log_file_arguments[@]} ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=inf --shuffle=no --playlist-start="$yt_playlist_start" --playlist="${tmp_dir}/yt_playlist_url.txt"
-        rm "${tmp_dir}/mpv_video_running"
-        rm "${tmp_dir}/yt_playlist_url.txt"
         play_sd_menu_function
         else
         play_sd_menu_function
@@ -544,8 +539,6 @@ Choose an option:  "
         echo ""
         touch "${tmp_dir}/mpv_video_running"
         pulse_function mpv ${mpv_log_file_arguments[@]} ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=no --shuffle=no --playlist-start="$yt_playlist_start" --playlist="${tmp_dir}/yt_playlist_url.txt"
-        rm "${tmp_dir}/mpv_video_running"
-        rm "${tmp_dir}/yt_playlist_url.txt"
         play_sd_menu_function
         else
         play_sd_menu_function
@@ -615,8 +608,6 @@ fi
         echo ""
         touch "${tmp_dir}/mpv_video_running"
         pulse_function mpv ${mpv_log_file_arguments[@]} ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=inf --shuffle=no --playlist="${tmp_dir}/yt_playlist_url.txt"
-        rm "${tmp_dir}/mpv_video_running"
-        rm "${tmp_dir}/yt_playlist_url.txt"
         play_sd_menu_function
         else
         play_sd_menu_function
@@ -671,8 +662,6 @@ fi
         echo "" 
         touch "${tmp_dir}/mpv_video_running"
         pulse_function mpv ${mpv_log_file_arguments[@]} ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=no --shuffle=no --playlist="${tmp_dir}/yt_playlist_url.txt"
-        rm "${tmp_dir}/mpv_video_running"
-        rm "${tmp_dir}/yt_playlist_url.txt"
         play_sd_menu_function
         else
         play_sd_menu_function
@@ -772,6 +761,7 @@ fi
 function play_music_menu_function ()
 {
 	clear
+        clean_up_function
         music_menu_hud_function
         echo ""
 echo -ne "== Play YTMusic Menu ==
@@ -804,8 +794,6 @@ Choose an option:  "
         echo ""
         touch "${tmp_dir}/mpv_music_running"
         pulse_function mpv ${mpv_log_file_arguments[@]} ${mpv_music_arguments[@]} --resume-playback=no --save-position-on-quit=no --loop-playlist=inf --shuffle=yes --playlist="${tmp_dir}/yt_playlist_url.txt"
-        rm "${tmp_dir}/mpv_music_running"
-        rm "${tmp_dir}/yt_playlist_url.txt"
         play_music_menu_function
         ;;
     2)
@@ -824,8 +812,6 @@ Choose an option:  "
         echo ""
         touch "${tmp_dir}/mpv_music_running"
         pulse_function mpv ${mpv_log_file_arguments[@]} ${mpv_music_arguments[@]} --resume-playback=no --save-position-on-quit=no --shuffle=yes --playlist="${tmp_dir}/yt_playlist_url.txt"
-        rm "${tmp_dir}/mpv_music_running"
-        rm "${tmp_dir}/yt_playlist_url.txt"
         play_music_menu_function
         ;;
     3)
@@ -855,8 +841,6 @@ Choose an option:  "
         echo ""
         touch "${tmp_dir}/mpv_music_running"
         pulse_function mpv ${mpv_log_file_arguments[@]} ${mpv_music_arguments[@]} --resume-playback=no --save-position-on-quit=no --loop-playlist=inf --shuffle=no --playlist-start="$yt_playlist_start" --playlist="${tmp_dir}/yt_playlist_url.txt"
-        rm "${tmp_dir}/mpv_music_running"
-        rm "${tmp_dir}/yt_playlist_url.txt"
         play_music_menu_function
         else
         play_music_menu_function
@@ -880,8 +864,6 @@ Choose an option:  "
         echo ""
         touch "${tmp_dir}/mpv_music_running"
         pulse_function mpv ${mpv_log_file_arguments[@]} ${mpv_music_arguments[@]} --resume-playback=no --save-position-on-quit=no --loop-playlist=no --shuffle=no --playlist-start="$yt_playlist_start" --playlist="${tmp_dir}/yt_playlist_url.txt"
-        rm "${tmp_dir}/mpv_music_running"
-        rm "${tmp_dir}/yt_playlist_url.txt"
         play_music_menu_function
         else
         play_music_menu_function
@@ -942,8 +924,6 @@ fi
         echo ""
         touch "${tmp_dir}/mpv_music_running"
         pulse_function mpv ${mpv_log_file_arguments[@]} ${mpv_music_arguments[@]} --resume-playback=no --save-position-on-quit=no --loop-playlist=inf --shuffle=no --playlist="${tmp_dir}/yt_playlist_url.txt"
-        rm "${tmp_dir}/mpv_music_running"
-        rm "${tmp_dir}/yt_playlist_url.txt"
         play_music_menu_function
         else
         play_music_menu_function
@@ -989,8 +969,6 @@ fi
         echo "" 
         touch "${tmp_dir}/mpv_music_running"
         pulse_function mpv ${mpv_log_file_arguments[@]} ${mpv_music_arguments[@]} --resume-playback=no --save-position-on-quit=no --loop-playlist=no --shuffle=no --playlist="${tmp_dir}/yt_playlist_url.txt"
-        rm "${tmp_dir}/mpv_music_running"
-        rm "${tmp_dir}/yt_playlist_url.txt"
         play_music_menu_function
         else
         play_music_menu_function
@@ -1122,6 +1100,7 @@ fi
 function play_sd_bookmark_menu_function ()
 {
 	clear
+        clean_up_function
         play_sd_menu_bookmark_menu_hud_function
         echo ""
 echo -ne "== Play SD Bookmark Menu ==
@@ -1149,8 +1128,6 @@ Choose an option:  "
         echo ""
         touch "${tmp_dir}/mpv_bookmark_running"
         pulse_function mpv ${mpv_log_file_arguments[@]} ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=inf --shuffle=yes --playlist="${tmp_dir}/yt_playlist_url.txt"
-        rm "${tmp_dir}/mpv_bookmark_running"
-        rm "${tmp_dir}/yt_playlist_url.txt"
         play_sd_bookmark_menu_function
         ;;
     2)
@@ -1165,8 +1142,6 @@ Choose an option:  "
         echo ""
         touch "${tmp_dir}/mpv_bookmark_running"
         pulse_function mpv ${mpv_log_file_arguments[@]} ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=no --shuffle=yes --playlist="${tmp_dir}/yt_playlist_url.txt"
-        rm "${tmp_dir}/mpv_bookmark_running"
-        rm "${tmp_dir}/yt_playlist_url.txt"
         play_sd_bookmark_menu_function
         ;;
     3)
@@ -1196,8 +1171,6 @@ Choose an option:  "
         echo ""
         touch "${tmp_dir}/mpv_bookmark_running"
         pulse_function mpv ${mpv_log_file_arguments[@]} ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=inf --shuffle=no --playlist-start="$yt_playlist_start" --playlist="${tmp_dir}/yt_playlist_url.txt"
-        rm "${tmp_dir}/mpv_bookmark_running"
-        rm "${tmp_dir}/yt_playlist_url.txt"
         play_sd_bookmark_menu_function
         else
         play_sd_bookmark_menu_function
@@ -1221,8 +1194,6 @@ Choose an option:  "
         echo ""
         touch "${tmp_dir}/mpv_bookmark_running"
         pulse_function mpv ${mpv_log_file_arguments[@]} ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=no --shuffle=no --playlist-start="$yt_playlist_start" --playlist="${tmp_dir}/yt_playlist_url.txt"
-        rm "${tmp_dir}/mpv_bookmark_running"
-        rm "${tmp_dir}/yt_playlist_url.txt"
         play_sd_bookmark_menu_function
         else
         play_sd_bookmark_menu_function
@@ -1283,8 +1254,6 @@ fi
         echo ""
         touch "${tmp_dir}/mpv_bookmark_running"
         pulse_function mpv ${mpv_log_file_arguments[@]} ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=inf --shuffle=no --playlist="${tmp_dir}/yt_playlist_url.txt"
-        rm "${tmp_dir}/mpv_bookmark_running"
-        rm "${tmp_dir}/yt_playlist_url.txt"
         play_sd_bookmark_menu_function
         else
         play_sd_bookmark_menu_function
@@ -1330,8 +1299,6 @@ fi
         echo "" 
         touch "${tmp_dir}/mpv_bookmark_running"
         pulse_function mpv ${mpv_log_file_arguments[@]} ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=no --shuffle=no --playlist="${tmp_dir}/yt_playlist_url.txt"
-        rm "${tmp_dir}/mpv_bookmark_running"
-        rm "${tmp_dir}/yt_playlist_url.txt"
         play_sd_bookmark_menu_function
         else
         play_sd_bookmark_menu_function
@@ -2015,19 +1982,19 @@ function clean_up_function ()
         rm "${tmp_dir}/mpv_music_running"
         fi
 
-        if test -f "${tmp_dir}/stop_sleep_timer"
-        then
-        rm "${tmp_dir}/stop_sleep_timer"
-        fi
-
         if test -f "${tmp_dir}/yt_playlist_url.txt"
         then
         rm "${tmp_dir}/yt_playlist_url.txt"
         fi
 
-        if test -f "${tmp_dir}/yt-playlist_icons.jpg"
+        if test -f "${tmp_dir}/yt-playlist.zip"
         then
-        rm "${tmp_dir}/yt-playlist_icons.jpg"
+        rm "${tmp_dir}/yt-playlist.zip"
+        fi
+
+        if [ -d "${tmp_dir}/yt-playlist/" ]
+        then
+        rm -R "${tmp_dir}/yt-playlist/" 
         fi
 }
 

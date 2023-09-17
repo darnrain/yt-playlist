@@ -1,10 +1,9 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
-        
+        if ! pgrep -f yt-playlist >/dev/null && ! pgrep -f mpv >/dev/null
+        then
         if command -v yt-dlp >/dev/null && command -v mpv >/dev/null && command -v ffmpeg >/dev/null && command -v fzf >/dev/null && command -v mutagen-inspect >/dev/null && command -v socat >/dev/null && command -v fx >/dev/null && command -v wget >/dev/null
         then
-        pkill yt-playlist
-        pkill mpv
         echo "============================"
         echo "Termux installer yt-playlist."
         echo "============================"
@@ -81,3 +80,7 @@
         echo "============================"
         exit
         fi
+        else
+        echo "Please close yt-playlist or mpv before installing."
+        fi
+
