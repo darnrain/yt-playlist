@@ -11,7 +11,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="v2.20"
+version="v2.21"
 
 #mainmenu
 
@@ -318,6 +318,8 @@ fi
         fi
         ;;
    9)
+        if command -v less >/dev/null && command -v curl >/dev/null
+        then
         printf "\n"
         printf "Update menu \n"
         printf "1=Check for update. or 2=View change log. \n"
@@ -344,6 +346,11 @@ fi
         else
         echo "Please choose an option."
         sleep 0.8
+        main_menu_function
+        fi
+        else
+        echo "Please install less and curl to run."
+        sleep 2
         main_menu_function
         fi
         ;;
@@ -2249,6 +2256,44 @@ Choose an option:  "
 
 #functions
 
+function clean_up_function ()
+{
+	if test -f "${tmp_dir}/mpv_hd_running"
+        then
+        rm "${tmp_dir}/mpv_hd_running"
+        fi
+
+	if test -f "${tmp_dir}/mpv_video_running"
+        then
+        rm "${tmp_dir}/mpv_video_running"
+        fi
+
+	if test -f "${tmp_dir}/mpv_bookmark_running"
+        then
+        rm "${tmp_dir}/mpv_bookmark_running"
+        fi
+
+	if test -f "${tmp_dir}/mpv_music_running"
+        then
+        rm "${tmp_dir}/mpv_music_running"
+        fi
+
+        if test -f "${tmp_dir}/stop_sleep_timer"
+        then
+        rm "${tmp_dir}/stop_sleep_timer"
+        fi
+
+        if test -f "${tmp_dir}/yt_playlist_url.txt"
+        then
+        rm "${tmp_dir}/yt_playlist_url.txt"
+        fi
+
+        if test -f "${tmp_dir}/yt-playlist_icons.jpg"
+        then
+        rm "${tmp_dir}/yt-playlist_icons.jpg"
+        fi
+}
+
 function quit_function ()
 {
 printf "\n"
@@ -2382,10 +2427,6 @@ function stop_sleep_timer_function ()
         if test -f "${tmp_dir}/yt-playlist_icons.jpg"
         then
         rm "${tmp_dir}/yt-playlist_icons.jpg"
-        fi
-        if test -f "${tmp_dir}/yt-playlist_icons.webp"
-        then
-        rm "${tmp_dir}/yt-playlist_icons.webp"
         fi
         if test -f "${tmp_dir}/sleep_timer_running"
         then
@@ -3659,4 +3700,5 @@ resume_playback_off_function
 mpv_log_file_off_funciton
 mpv_music_opus_function
 mpv_video_m4a_function
+clean_up_function
 main_menu_function

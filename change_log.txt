@@ -4,6 +4,12 @@
 Change log notes
 ================================
 
+v2.21
+Found a bug that I never would have thought of.
+Short answer is I fixed it, I made a function that cleans up all the yt-playlist tmp files each time you run yt-playlist. If for what ever reason mpv gets closed other than pressing q or shift-q then yt-playlist will not work correct.
+
+Also I hope everyone don't mind me pushing out a lot of updates today, I am just in the programing mood today I guess. :)
+
 v2.20
 Added the option to the check for update, you can now view the current change log. 
 You can now press shift-t to view the artist & title when playing music/video.
