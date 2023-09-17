@@ -111,11 +111,11 @@ Just copy and paste into the terminal:<br>
 
 `sudo pacman -Syu curl unzip fx mpv ffmpeg fzf socat python python-mutagen; sudo pacman -R yt-dlp; sudo pacman -R youtube-dl; sudo pacman -R yt-dlp-git; sudo pacman -R youtube-dl-git; pipx uninstall yt-dlp; pipx uninstall youtube-dl; sudo curl https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -L -o /usr/bin/yt-dlp; sudo chmod +x /usr/bin/yt-dlp`<br>
 
-### Linux online install yt-playlist v2.21:
+### Linux online install yt-playlist v2.22:
 This command requires sudo access.<br>
 To install just copy and paste this command into the terminal:<br>
 
-`curl https://github.com/darnrain/yt-playlist/releases/download/v2.21/yt-playlist.zip -L -o /tmp/yt-playlist.zip; unzip -o /tmp/yt-playlist.zip -d /tmp/; sudo chmod +x /tmp/yt-playlist/yt-playlist-linux/install.sh; /tmp/yt-playlist/yt-playlist-linux/install.sh`<br>
+`curl https://github.com/darnrain/yt-playlist/releases/download/v2.22/yt-playlist.zip -L -o /tmp/yt-playlist.zip; unzip -o /tmp/yt-playlist.zip -d /tmp/; sudo chmod +x /tmp/yt-playlist/yt-playlist-linux/install.sh; /tmp/yt-playlist/yt-playlist-linux/install.sh`<br>
 
 If you want to only press "y" to load yt-playlist copy and paste this command in the terminal:<br>
 
@@ -124,21 +124,21 @@ If you want to only press "y" to load yt-playlist copy and paste this command in
 This command requires sudo access.<br>
 To uninstall just copy and paste this command into the terminal:<br>
 
-`curl https://github.com/darnrain/yt-playlist/releases/download/v2.21/yt-playlist.zip -L -o /tmp/yt-playlist.zip; unzip -o /tmp/yt-playlist.zip -d /tmp/; sudo chmod +x /tmp/yt-playlist/yt-playlist-linux/uninstall.sh; /tmp/yt-playlist/yt-playlist-linux/uninstall.sh`<br>
+`curl https://github.com/darnrain/yt-playlist/releases/download/v2.22/yt-playlist.zip -L -o /tmp/yt-playlist.zip; unzip -o /tmp/yt-playlist.zip -d /tmp/; sudo chmod +x /tmp/yt-playlist/yt-playlist-linux/uninstall.sh; /tmp/yt-playlist/yt-playlist-linux/uninstall.sh`<br>
 
 When uninstalling yt-playlist the ~/.config/yt-playlist/ directory does not get deleted, so your favorites, bookmarks, music and history are not deleted by accident. Run this command to delete the ~/.config/yt-playlist/ directory.<br>
 `rm -R ${HOME}/.config/yt-playlist/`<br>
 
-### Termux online install yt-playlist v2.21:
+### Termux online install yt-playlist v2.22:
 The Termux installer will automatically install all the required and optional dependencies first, before installing yt-playlist.<br>
 
 To install just copy and paste this command into Termux:<br>
 
-`curl https://github.com/darnrain/yt-playlist/releases/download/v2.21/yt-playlist.zip -L -o ${TMPDIR}/yt-playlist.zip; unzip -o ${TMPDIR}/yt-playlist.zip -d ${TMPDIR}/; chmod +x ${TMPDIR}/yt-playlist/yt-playlist-termux/install.sh; ${TMPDIR}/yt-playlist/yt-playlist-termux/install.sh`<br>
+`curl https://github.com/darnrain/yt-playlist/releases/download/v2.22/yt-playlist.zip -L -o ${TMPDIR}/yt-playlist.zip; unzip -o ${TMPDIR}/yt-playlist.zip -d ${TMPDIR}/; chmod +x ${TMPDIR}/yt-playlist/yt-playlist-termux/install.sh; ${TMPDIR}/yt-playlist/yt-playlist-termux/install.sh`<br>
 
 To uninstall just copy and paste this command into Termux:<br>
 
-`curl https://github.com/darnrain/yt-playlist/releases/download/v2.21/yt-playlist.zip -L -o ${TMPDIR}/yt-playlist.zip; unzip -o ${TMPDIR}/yt-playlist.zip -d ${TMPDIR}/; chmod +x ${TMPDIR}/yt-playlist/yt-playlist-termux/uninstall.sh; ${TMPDIR}/yt-playlist/yt-playlist-termux/uninstall.sh`<br>
+`curl https://github.com/darnrain/yt-playlist/releases/download/v2.22/yt-playlist.zip -L -o ${TMPDIR}/yt-playlist.zip; unzip -o ${TMPDIR}/yt-playlist.zip -d ${TMPDIR}/; chmod +x ${TMPDIR}/yt-playlist/yt-playlist-termux/uninstall.sh; ${TMPDIR}/yt-playlist/yt-playlist-termux/uninstall.sh`<br>
 
 When uninstalling yt-playlist the ~/.config/yt-playlist/ directory does not get deleted, so your favorites, bookmarks, music and history are not deleted by accident. Run this command to delete the ~/.config/yt-playlist/ directory.<br>
 `rm -R ${HOME}/.config/yt-playlist/`<br>
