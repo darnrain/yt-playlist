@@ -1,0 +1,24 @@
+This is in the beta testing stages. Things may not work as they should.
+
+Known issues:
+Get channel playlist does not work.
+Will not play a channel in the Play SD menu and Bookmark SD menu.
+Sleep timer does not work.
+
+Install:
+Install brew first.
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"; brew update
+
+Install the dependencies:
+brew install curl unzip mpv fx ffmpeg fzf socat python3 python-mutagen
+
+download yt-playlist:
+git clone https://github.com/darnrain/yt-playlist.git
+cd yt-playlist/
+cd yt-playlist_macos_beta
+sudo chmod +x ./install.sh
+./install.sh
+
+run yt-playlist:
+yt-playlist
+
