@@ -10,7 +10,7 @@ Install brew first.
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"; brew update
 
 Install the dependencies:
-brew install curl unzip mpv terminal-notifier fx ffmpeg fzf socat python3 python-mutagen
+brew install curl unzip mpv fx ffmpeg fzf socat python3 python-mutagen
 
 download yt-playlist:
 git clone https://github.com/darnrain/yt-playlist.git
@@ -22,3 +22,6 @@ sudo chmod +x ./install.sh
 run yt-playlist:
 yt-playlist
 
+terminal-notifier -title yt-playlist -subtitle -message "Finished"
+
+terminal-notifier -title yt-playlist -message "Finished" -appIcon /tmp/yt-playlist_icons.jpg

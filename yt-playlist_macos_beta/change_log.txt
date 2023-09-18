@@ -1,0 +1,5 @@
+v0.2
+Added notifications to macos via terminal-notifier
+To get them working you need to give permissions to terminal-notifier.
+
+Disabled some menus that are known not to work with macos at this time.
