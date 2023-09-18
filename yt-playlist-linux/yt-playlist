@@ -11,7 +11,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="v2.26"
+version="v2.28"
 
 #mainmenu
 
@@ -2507,7 +2507,6 @@ function stop_sleep_timer_function ()
 
 function sleep_timer_function ()
 {
-        unset restore_volume
         sleep "$sleep_time" | sed 's/Terminated//'
 
 	if test -f "${tmp_dir}/mpv_hd_running"
@@ -2517,71 +2516,68 @@ function sleep_timer_function ()
 
 	if test -f "${tmp_dir}/mpv_video_running"
         then
-        restore_volume=$(pactl get-sink-volume @DEFAULT_SINK@ | grep -Po '\d+(?=%)' | head -n 1)
-        volume_level="2"
-	while [ "$volume_level" -gt 1 ]
-	do
+	secs=$((95))
+	while [ $secs -gt 0 ]; do
+   	number=$(echo "$secs")
+   	echo "'set' 'volume' '$number'" | socat - "${tmp_dir}/mpvsocket" 2>/dev/null
         if test -f "${tmp_dir}/stop_sleep_timer"
         then
         break
 	fi
-        volume_level=$(pactl get-sink-volume @DEFAULT_SINK@ | grep -Po '\d+(?=%)' | head -n 1)
-	pactl set-sink-volume @DEFAULT_SINK@ -1%
-	sleep 2 | sed 's/Terminated//'
-        done
+   	sleep 2 | sed 's/Terminated//'
+   	: $((secs--))
+	done
         fi
 
 	if test -f "${tmp_dir}/mpv_bookmark_running"
         then
-        restore_volume=$(pactl get-sink-volume @DEFAULT_SINK@ | grep -Po '\d+(?=%)' | head -n 1)
-        volume_level="2"
-	while [ "$volume_level" -gt 1 ]
-	do
+	secs=$((95))
+	while [ $secs -gt 0 ]; do
+   	number=$(echo "$secs")
+   	echo "'set' 'volume' '$number'" | socat - "${tmp_dir}/mpvsocket" 2>/dev/null
         if test -f "${tmp_dir}/stop_sleep_timer"
         then
         break
 	fi
-        volume_level=$(pactl get-sink-volume @DEFAULT_SINK@ | grep -Po '\d+(?=%)' | head -n 1)
-	pactl set-sink-volume @DEFAULT_SINK@ -1%
-	sleep 2 | sed 's/Terminated//'
-        done
+   	sleep 2 | sed 's/Terminated//'
+   	: $((secs--))
+	done
         fi
 
 	if test -f "${tmp_dir}/mpv_music_running"
         then
-        restore_volume=$(pactl get-sink-volume @DEFAULT_SINK@ | grep -Po '\d+(?=%)' | head -n 1)
-        volume_level="2"
-	while [ "$volume_level" -gt 1 ]
-	do
+	secs=$((95))
+	while [ $secs -gt 0 ]; do
+   	number=$(echo "$secs")
+   	echo "'set' 'volume' '$number'" | socat - "${tmp_dir}/mpvsocket" 2>/dev/null
         if test -f "${tmp_dir}/stop_sleep_timer"
         then
         break
 	fi
-        volume_level=$(pactl get-sink-volume @DEFAULT_SINK@ | grep -Po '\d+(?=%)' | head -n 1)
-	pactl set-sink-volume @DEFAULT_SINK@ -1%
-	sleep 2 | sed 's/Terminated//'
-        done
+   	sleep 2 | sed 's/Terminated//'
+   	: $((secs--))
+	done
         fi
 
         if test -f "${tmp_dir}/mpv_video_running"
         then
-	echo cycle pause | socat - "${tmp_dir}/mpvsocket"
+	echo cycle pause | socat - "${tmp_dir}/mpvsocket" 2>/dev/null
 	sleep 2 | sed 's/Terminated//'
 	fi
+
         if test -f "${tmp_dir}/mpv_bookmark_running"
         then
-	echo cycle pause | socat - "${tmp_dir}/mpvsocket"
+	echo cycle pause | socat - "${tmp_dir}/mpvsocket" 2>/dev/null
 	sleep 2 | sed 's/Terminated//'
 	fi
+
         if test -f "${tmp_dir}/mpv_music_running"
         then
-	echo cycle pause | socat - "${tmp_dir}/mpvsocket"
+	echo cycle pause | socat - "${tmp_dir}/mpvsocket" 2>/dev/null
 	sleep 2 | sed 's/Terminated//'
 	fi
-        if [ -n "$restore_volume" ]
-        then
-	pactl set-sink-mute @DEFAULT_SINK@ off | pactl set-sink-volume @DEFAULT_SINK@ ${restore_volume}%
-	fi
+
+   	echo "'set' 'volume' '95'" | socat - "${tmp_dir}/mpvsocket" 2>/dev/null
 }
 
 function show_date_time_function
