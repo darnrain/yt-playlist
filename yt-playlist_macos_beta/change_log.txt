@@ -10,3 +10,6 @@ Macos is BSD based and Linux is well Linux based. Some of the commands are diffr
 
 v0.4
 Fixed terminal-notifier.
+
+v0.5
+Everything works as far as I can tell, but Sleep timer, update and all the delete menus.

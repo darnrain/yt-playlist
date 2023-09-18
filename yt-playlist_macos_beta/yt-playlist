@@ -11,7 +11,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="v0.4_macos_beta"
+version="v0.5_macos_beta"
 
 #mainmenu
 
@@ -1687,10 +1687,6 @@ Choose an option:  "
     read -r ans
     case $ans in
     1)
-        printf " \n"
-        printf "Not working on macos. \n"
-        sleep 1
-        playlist_menu_function
         yt_playlist_id=$(cat "${yt_playlist_home_dir}/yt-playlist_favorites.txt" | tail -r | nl -n"ln" -w2 -s " " | fzf --reverse --header="Favorites library." --with-nth=1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $2}')
         title_function
         playlist_menu_function
@@ -1701,10 +1697,6 @@ Choose an option:  "
         playlist_menu_function
         ;;
     3)
-        printf " \n"
-        printf "Not working on macos. \n"
-        sleep 1
-        playlist_menu_function
         printf "\n"
         printf "Save or delete menu. \n"
         printf "1=Save or 2=Delete \n"
@@ -1713,6 +1705,10 @@ Choose an option:  "
         then
         if [ "$answer" != "${answer#[2]}" ]
         then
+        printf " \n"
+        printf "Not working on macos. \n"
+        sleep 1
+        playlist_menu_function
         clear
         printf "Delete menu \n"
         printf "1=Favorites or 2=History \n"
@@ -1756,7 +1752,6 @@ Choose an option:  "
         else
         echo "Saving: $yt_playlist_title"
         echo "$yt_playlist_id" "${yt_playlist_title}" >> "${yt_playlist_home_dir}/yt-playlist_favorites.txt"
-        sed -i '/^$/d' "${yt_playlist_home_dir}/yt-playlist_favorites.txt"
         sleep 0.8
         echo "Saved to favorites."
         sleep 1
@@ -2022,10 +2017,6 @@ fi
         ;;
     9)
         printf " \n"
-        printf "Not working on macos. \n"
-        sleep 1
-        playlist_menu_function
-        printf " \n"
         printf "YT Channel search. \n"
         printf "Enter channel search: \n"
         read yt_search
@@ -2068,10 +2059,6 @@ fi
         fi
         ;;
     10)
-        printf " \n"
-        printf "Not working on macos. \n"
-        sleep 1
-        playlist_menu_function
         if [ "$yt_playlist_id" = "7807897890789078907807" ]
         then
         echo "Not a channel/playlist/album."
