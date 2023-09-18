@@ -4,7 +4,7 @@
         then
         if ! pgrep mpv >/dev/null
         then
-        if command -v yt-dlp >/dev/null && command -v mpv >/dev/null && command -v ffmpeg >/dev/null && command -v fzf >/dev/null && command -v mutagen-inspect >/dev/null && command -v socat >/dev/null && command -v awk >/dev/null && command -v sed >/dev/null && command -v tr >/dev/null && command -v bash >/dev/null
+        if command -v yt-dlp >/dev/null && command -v mpv >/dev/null && command -v ffmpeg >/dev/null && command -v fzf >/dev/null && command -v mutagen-inspect >/dev/null && command -v socat >/dev/null && command -v awk >/dev/null && command -v sed >/dev/null && command -v tr >/dev/null && command -v bash >/dev/null && command -v curl >/dev/null
         then
         echo "============================"
         echo "Linux installer yt-playlist."
@@ -29,6 +29,11 @@
         sudo cp /tmp/yt-playlist/yt-playlist-linux/yt-playlist /usr/bin/
         sudo chmod +x /usr/bin/yt-playlist
         mkdir -p ${HOME}/.config/yt-playlist/
+        mkdir -p ${HOME}/.config/yt-playlist/scripts/
+        mkdir -p ${HOME}/.config/yt-playlist/scripts/sponsorblock_shared/
+        curl -s https://raw.githubusercontent.com/po5/mpv_sponsorblock/master/sponsorblock.lua -L -o ${HOME}/.config/yt-playlist/scripts/sponsorblock.lua
+        curl -s https://raw.githubusercontent.com/po5/mpv_sponsorblock/master/sponsorblock_shared/main.lua -L -o ${HOME}/.config/yt-playlist/scripts/sponsorblock_shared/main.lua
+        curl -s https://raw.githubusercontent.com/po5/mpv_sponsorblock/master/sponsorblock_shared/sponsorblock.py -L -o ${HOME}/.config/yt-playlist/scripts/sponsorblock_shared/sponsorblock.py
         touch ${HOME}/.config/yt-playlist/yt-playlist_favorites.txt
         touch ${HOME}/.config/yt-playlist/yt-playlist_search_history.txt
         touch ${HOME}/.config/yt-playlist/yt-playlist_bookmark.txt
@@ -51,73 +56,58 @@
         echo "Not all dependencies were found."
         echo "============================"
 
-        if command -v yt-dlp >/dev/null
+        if ! command -v yt-dlp >/dev/null
         then
-        :
-        else
         echo "yt-dlp is not installed."
         fi
 
-        if command -v mpv >/dev/null
+        if ! command -v mpv >/dev/null
         then
-        :
-        else
         echo "mpv is not installed."
         fi
 
-        if command -v ffmpeg >/dev/null
+        if ! command -v ffmpeg >/dev/null
         then
-        :
-        else
         echo "ffmpeg is not installed."
         fi
 
-        if command -v fzf >/dev/null
+        if ! command -v fzf >/dev/null
         then
-        :
-        else
         echo "fzf is not installed."
         fi
 
-        if command -v mutagen-inspect >/dev/null
+        if ! command -v mutagen-inspect >/dev/null
         then
-        :
-        else
         echo "mutagen is not installed."
         fi
 
-        if command -v socat >/dev/null
+        if ! command -v socat >/dev/null
         then
-        :
-        else
         echo "socat is not installed."
         fi
 
-        if command -v awk >/dev/null
+        if ! command -v curl >/dev/null
         then
-        :
-        else
+        echo "curl is not installed."
+        fi
+
+        if ! command -v awk >/dev/null
+        then
         echo "awk is not installed."
         fi
 
-        if command -v sed >/dev/null
+        if ! command -v sed >/dev/null
         then
-        :
-        else
         echo "sed is not installed."
         fi
 
-        if command -v tr >/dev/null
+        if ! command -v tr >/dev/null
         then
-        :
-        else
         echo "tr is not installed."
         fi
 
-        if command -v bash >/dev/null
+        if ! command -v bash >/dev/null
         then
-        :
-        else
         echo "bash is not installed."
         fi
 

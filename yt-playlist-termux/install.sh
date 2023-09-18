@@ -4,7 +4,7 @@
         then
         if ! pgrep mpv >/dev/null
         then
-        if command -v yt-dlp >/dev/null && command -v mpv >/dev/null && command -v ffmpeg >/dev/null && command -v fzf >/dev/null && command -v mutagen-inspect >/dev/null && command -v socat >/dev/null && command -v fx >/dev/null && command -v wget >/dev/null
+        if command -v yt-dlp >/dev/null && command -v mpv >/dev/null && command -v ffmpeg >/dev/null && command -v fzf >/dev/null && command -v mutagen-inspect >/dev/null && command -v socat >/dev/null && command -v fx >/dev/null && command -v wget >/dev/null && command -v curl >/dev/null
         then
         echo "============================"
         echo "Termux installer yt-playlist."
@@ -14,6 +14,11 @@
         cp /data/data/com.termux/files/usr/tmp/yt-playlist/yt-playlist-termux/yt-playlist /data/data/com.termux/files/usr/bin/
         chmod +x /data/data/com.termux/files/usr/bin/yt-playlist
         mkdir -p ${HOME}/.config/yt-playlist/
+        mkdir -p ${HOME}/.config/yt-playlist/scripts/
+        mkdir -p ${HOME}/.config/yt-playlist/scripts/sponsorblock_shared/
+        curl -s https://raw.githubusercontent.com/po5/mpv_sponsorblock/master/sponsorblock.lua -L -o ${HOME}/.config/yt-playlist/scripts/sponsorblock.lua
+        curl -s https://raw.githubusercontent.com/po5/mpv_sponsorblock/master/sponsorblock_shared/main.lua -L -o ${HOME}/.config/yt-playlist/scripts/sponsorblock_shared/main.lua
+        curl -s https://raw.githubusercontent.com/po5/mpv_sponsorblock/master/sponsorblock_shared/sponsorblock.py -L -o ${HOME}/.config/yt-playlist/scripts/sponsorblock_shared/sponsorblock.py
         touch ${HOME}/.config/yt-playlist/yt-playlist_favorites.txt
         touch ${HOME}/.config/yt-playlist/yt-playlist_search_history.txt
         touch ${HOME}/.config/yt-playlist/yt-playlist_bookmark.txt
@@ -47,6 +52,7 @@
         sleep 10
         yes|pkg update
         yes|pkg upgrade
+        yes|pkg install curl
         yes|pkg install fzf
         yes|pkg install mpv
         yes|pkg install ffmpeg
@@ -66,6 +72,11 @@
         cp /data/data/com.termux/files/usr/tmp/yt-playlist/yt-playlist-termux/yt-playlist /data/data/com.termux/files/usr/bin/
         chmod +x /data/data/com.termux/files/usr/bin/yt-playlist
         mkdir -p ${HOME}/.config/yt-playlist/
+        mkdir -p ${HOME}/.config/yt-playlist/scripts/
+        mkdir -p ${HOME}/.config/yt-playlist/scripts/sponsorblock_shared/
+        curl -s https://raw.githubusercontent.com/po5/mpv_sponsorblock/master/sponsorblock.lua -L -o ${HOME}/.config/yt-playlist/scripts/sponsorblock.lua
+        curl -s https://raw.githubusercontent.com/po5/mpv_sponsorblock/master/sponsorblock_shared/main.lua -L -o ${HOME}/.config/yt-playlist/scripts/sponsorblock_shared/main.lua
+        curl -s https://raw.githubusercontent.com/po5/mpv_sponsorblock/master/sponsorblock_shared/sponsorblock.py -L -o ${HOME}/.config/yt-playlist/scripts/sponsorblock_shared/sponsorblock.py
         touch ${HOME}/.config/yt-playlist/yt-playlist_favorites.txt
         touch ${HOME}/.config/yt-playlist/yt-playlist_search_history.txt
         touch ${HOME}/.config/yt-playlist/yt-playlist_bookmark.txt
