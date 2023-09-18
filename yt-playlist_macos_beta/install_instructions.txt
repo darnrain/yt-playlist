@@ -5,14 +5,23 @@ Get channel playlist do not work.
 Will not play a channel in the Play SD menu and Bookmark SD menu.
 Sleep timer does not work.
 All save and delete menus do not work.
-You will need to go into yt-playlist dir to delete lines manually ${HOME}/.config/yt-playlist/
+You will need to manually delete the lines:
+"nano ${HOME}/.config/yt-playlist/yt-playlist_bookmark.txt"
+"nano ${HOME}/.config/yt-playlist/yt-playlist_favorites.txt"
+"nano ${HOME}/.config/yt-playlist/yt-playlist_music.txt"
+"nano ${HOME}/.config/yt-playlist/yt-playlist_search_history.txt"
+
+nano commands:
+cut line = ctrl-k
+save = ctrl-s
+exit = ctrl=x
 
 Install:
 Install brew first.
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"; brew update
 
 Install the dependencies:
-brew install curl unzip mpv fx terminal-notifier ffmpeg fzf socat python3 python-mutagen
+brew install curl nano unzip mpv fx terminal-notifier ffmpeg fzf socat python3 python-mutagen
 
 download yt-playlist:
 git clone https://github.com/darnrain/yt-playlist.git
