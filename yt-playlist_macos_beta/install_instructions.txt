@@ -28,6 +28,6 @@ echo "alias y='yt-playlist'" >> ${HOME}/.zshrc; source ${HOME}/.zshrc
 macOS Catalina or lower run this command.
 echo "alias y='yt-playlist'" >> ${HOME}/.bashrc; source ${HOME}/.bashrc
 
-4. run yt-playlist:
+5. run yt-playlist:
 yt-playlist
 
