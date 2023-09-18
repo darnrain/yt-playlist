@@ -602,7 +602,7 @@ fi
         then
         if [ "$answer" != "${answer#[1]}" ]
         then
-        echo "$yt_playlist_custom" | tac > "${tmp_dir}/yt_playlist_url.txt"
+        echo "$yt_playlist_custom" | tail -r > "${tmp_dir}/yt_playlist_url.txt"
         else
         echo "$yt_playlist_custom" > "${tmp_dir}/yt_playlist_url.txt"
         fi
@@ -656,7 +656,7 @@ fi
         then
         if [ "$answer" != "${answer#[1]}" ]
         then
-        echo "$yt_playlist_custom" | tac > "${tmp_dir}/yt_playlist_url.txt"
+        echo "$yt_playlist_custom" | tail -r > "${tmp_dir}/yt_playlist_url.txt"
         else
         echo "$yt_playlist_custom" > "${tmp_dir}/yt_playlist_url.txt"
         fi
@@ -848,10 +848,10 @@ Choose an option:  "
         then
         if [ "$answer" != "${answer#[1]}" ]
         then
-        yt_playlist_start=$(cat "${yt_playlist_home_dir}/yt-playlist_music.txt" | tac | nl -n"ln" -w2 -s " " | fzf --reverse --header="Play in sequence + inf loop." --with-nth=1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $1}')
+        yt_playlist_start=$(cat "${yt_playlist_home_dir}/yt-playlist_music.txt" | tail -r | nl -n"ln" -w2 -s " " | fzf --reverse --header="Play in sequence + inf loop." --with-nth=1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $1}')
         if [ -n "$yt_playlist_start" ]
         then
-        cat "${yt_playlist_home_dir}/yt-playlist_music.txt" | tac | awk '{print $1}' > "${tmp_dir}/yt_playlist_url.txt"
+        cat "${yt_playlist_home_dir}/yt-playlist_music.txt" | tail -r | awk '{print $1}' > "${tmp_dir}/yt_playlist_url.txt"
         sed -i "1i header_line" "${tmp_dir}/yt_playlist_url.txt"
         yt_playlist_music_total=$(cat "${yt_playlist_home_dir}/yt-playlist_music.txt" | wc -l)
         clear
@@ -871,10 +871,10 @@ Choose an option:  "
         play_music_menu_function
         fi
         else
-        yt_playlist_start=$(cat "${yt_playlist_home_dir}/yt-playlist_music.txt" | tac | nl -n"ln" -w2 -s " " | fzf --reverse --header="Play in sequence once." --with-nth=1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $1}')
+        yt_playlist_start=$(cat "${yt_playlist_home_dir}/yt-playlist_music.txt" | tail -r | nl -n"ln" -w2 -s " " | fzf --reverse --header="Play in sequence once." --with-nth=1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $1}')
         if [ -n "$yt_playlist_start" ]
         then
-        cat "${yt_playlist_home_dir}/yt-playlist_music.txt" | tac | awk '{print $1}' > "${tmp_dir}/yt_playlist_url.txt"
+        cat "${yt_playlist_home_dir}/yt-playlist_music.txt" | tail -r | awk '{print $1}' > "${tmp_dir}/yt_playlist_url.txt"
         sed -i "1i header_line" "${tmp_dir}/yt_playlist_url.txt"
         yt_playlist_music_total=$(cat "${yt_playlist_home_dir}/yt-playlist_music.txt" | wc -l)
         clear
@@ -909,7 +909,7 @@ fi
         then
         if [ "$answer" != "${answer#[1]}" ]
         then
-        yt_playlist_music=$(cat "${yt_playlist_home_dir}/yt-playlist_music.txt" | tac | nl -n"ln" -w2 -s " " | fzf --reverse --header="Play in sequence + inf loop." --bind ctrl-a:select-all,ctrl-d:deselect-all -m --with-nth=1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $2}')
+        yt_playlist_music=$(cat "${yt_playlist_home_dir}/yt-playlist_music.txt" | tail -r | nl -n"ln" -w2 -s " " | fzf --reverse --header="Play in sequence + inf loop." --bind ctrl-a:select-all,ctrl-d:deselect-all -m --with-nth=1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $2}')
         if [ -n "$yt_playlist_music" ]
         then
         clear
@@ -926,7 +926,7 @@ fi
         then
         if [ "$answer" != "${answer#[1]}" ]
         then
-        echo "$yt_playlist_music" | tac > "${tmp_dir}/yt_playlist_url.txt"
+        echo "$yt_playlist_music" | tail -r > "${tmp_dir}/yt_playlist_url.txt"
         else
         echo "$yt_playlist_music" > "${tmp_dir}/yt_playlist_url.txt"
         fi
@@ -954,7 +954,7 @@ fi
         play_music_menu_function
         fi
         else
-        yt_playlist_music=$(cat "${yt_playlist_home_dir}/yt-playlist_music.txt" | tac | nl -n"ln" -w2 -s " " | fzf --reverse --header="Play in sequence once." --bind ctrl-a:select-all,ctrl-d:deselect-all -m --with-nth=1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $2}')
+        yt_playlist_music=$(cat "${yt_playlist_home_dir}/yt-playlist_music.txt" | tail -r | nl -n"ln" -w2 -s " " | fzf --reverse --header="Play in sequence once." --bind ctrl-a:select-all,ctrl-d:deselect-all -m --with-nth=1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $2}')
         if [ -n "$yt_playlist_music" ]
         then
         clear
@@ -971,7 +971,7 @@ fi
         then
         if [ "$answer" != "${answer#[1]}" ]
         then
-        echo "$yt_playlist_music" | tac > "${tmp_dir}/yt_playlist_url.txt"
+        echo "$yt_playlist_music" | tail -r > "${tmp_dir}/yt_playlist_url.txt"
         else
         echo "$yt_playlist_music" > "${tmp_dir}/yt_playlist_url.txt"
         fi
@@ -1097,7 +1097,7 @@ fi
         fi
         ;;
     9)
-        delete_music=$(cat "${yt_playlist_home_dir}/yt-playlist_music.txt" | nl -n"ln" -w2 -s " " | tac | nl -n"ln" -w2 -s " "  | fzf --reverse --header="Delete music." --bind ctrl-a:select-all,ctrl-d:deselect-all -m --with-nth=1,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $2}' | tr -s ';[:space:]' '[ *]' | sed 's/ /d;/g' | sed '$ s/.$//')
+        delete_music=$(cat "${yt_playlist_home_dir}/yt-playlist_music.txt" | nl -n"ln" -w2 -s " " | tail -r | nl -n"ln" -w2 -s " "  | fzf --reverse --header="Delete music." --bind ctrl-a:select-all,ctrl-d:deselect-all -m --with-nth=1,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $2}' | tr -s ';[:space:]' '[ *]' | sed 's/ /d;/g' | sed '$ s/.$//')
         if [ -n "$delete_music" ]
 	then
         sed -i "$delete_music" "${yt_playlist_home_dir}/yt-playlist_music.txt"
@@ -1181,10 +1181,10 @@ Choose an option:  "
         then
         if [ "$answer" != "${answer#[1]}" ]
         then
-        yt_playlist_start=$(cat "${yt_playlist_home_dir}/yt-playlist_bookmark.txt" | tac | nl -n"ln" -w2 -s " " | fzf --reverse --header="Play in sequence + inf loop." --with-nth=1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $1}')
+        yt_playlist_start=$(cat "${yt_playlist_home_dir}/yt-playlist_bookmark.txt" | tail -r | nl -n"ln" -w2 -s " " | fzf --reverse --header="Play in sequence + inf loop." --with-nth=1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $1}')
         if [ -n "$yt_playlist_start" ]
         then
-        cat "${yt_playlist_home_dir}/yt-playlist_bookmark.txt" | tac | awk '{print $1}' > "${tmp_dir}/yt_playlist_url.txt"
+        cat "${yt_playlist_home_dir}/yt-playlist_bookmark.txt" | tail -r | awk '{print $1}' > "${tmp_dir}/yt_playlist_url.txt"
         sed -i "1i header_line" "${tmp_dir}/yt_playlist_url.txt"
         yt_playlist_bookmark_number=$(cat "${yt_playlist_home_dir}/yt-playlist_bookmark.txt" | wc -l)
         clear
@@ -1204,10 +1204,10 @@ Choose an option:  "
         play_sd_bookmark_menu_function
         fi
         else
-        yt_playlist_start=$(cat "${yt_playlist_home_dir}/yt-playlist_bookmark.txt" | tac | nl -n"ln" -w2 -s " " | fzf --reverse --header="Play in sequence once." --with-nth=1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $1}')
+        yt_playlist_start=$(cat "${yt_playlist_home_dir}/yt-playlist_bookmark.txt" | tail -r | nl -n"ln" -w2 -s " " | fzf --reverse --header="Play in sequence once." --with-nth=1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $1}')
         if [ -n "$yt_playlist_start" ]
         then
-        cat "${yt_playlist_home_dir}/yt-playlist_bookmark.txt" | tac | awk '{print $1}' > "${tmp_dir}/yt_playlist_url.txt"
+        cat "${yt_playlist_home_dir}/yt-playlist_bookmark.txt" | tail -r | awk '{print $1}' > "${tmp_dir}/yt_playlist_url.txt"
         sed -i "1i header_line" "${tmp_dir}/yt_playlist_url.txt"
         yt_playlist_bookmark_number=$(cat "${yt_playlist_home_dir}/yt-playlist_bookmark.txt" | wc -l)
         clear
@@ -1242,7 +1242,7 @@ fi
         then
         if [ "$answer" != "${answer#[1]}" ]
         then
-        yt_playlist_bookmark=$(cat "${yt_playlist_home_dir}/yt-playlist_bookmark.txt" | tac | nl -n"ln" -w2 -s " " | fzf --reverse --header="Play in sequence + inf loop." --bind ctrl-a:select-all,ctrl-d:deselect-all -m --with-nth=1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $2}')
+        yt_playlist_bookmark=$(cat "${yt_playlist_home_dir}/yt-playlist_bookmark.txt" | tail -r | nl -n"ln" -w2 -s " " | fzf --reverse --header="Play in sequence + inf loop." --bind ctrl-a:select-all,ctrl-d:deselect-all -m --with-nth=1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $2}')
         if [ -n "$yt_playlist_bookmark" ]
         then
         clear
@@ -1259,7 +1259,7 @@ fi
         then
         if [ "$answer" != "${answer#[1]}" ]
         then
-        echo "${yt_playlist_bookmark}" | tac > "${tmp_dir}/yt_playlist_url.txt"
+        echo "${yt_playlist_bookmark}" | tail -r > "${tmp_dir}/yt_playlist_url.txt"
         else
         echo "${yt_playlist_bookmark}" > "${tmp_dir}/yt_playlist_url.txt"
         fi
@@ -1287,7 +1287,7 @@ fi
         play_sd_bookmark_menu_function
         fi
         else
-        yt_playlist_bookmark=$(cat "${yt_playlist_home_dir}/yt-playlist_bookmark.txt" | tac | nl -n"ln" -w2 -s " " | fzf --reverse --header="Play in sequence once." --bind ctrl-a:select-all,ctrl-d:deselect-all -m --with-nth=1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $2}')
+        yt_playlist_bookmark=$(cat "${yt_playlist_home_dir}/yt-playlist_bookmark.txt" | tail -r | nl -n"ln" -w2 -s " " | fzf --reverse --header="Play in sequence once." --bind ctrl-a:select-all,ctrl-d:deselect-all -m --with-nth=1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $2}')
         if [ -n "$yt_playlist_bookmark" ]
         then
         clear
@@ -1304,7 +1304,7 @@ fi
         then
         if [ "$answer" != "${answer#[1]}" ]
         then
-        echo "${yt_playlist_bookmark}" | tac > "${tmp_dir}/yt_playlist_url.txt"
+        echo "${yt_playlist_bookmark}" | tail -r > "${tmp_dir}/yt_playlist_url.txt"
         else
         echo "${yt_playlist_bookmark}" > "${tmp_dir}/yt_playlist_url.txt"
         fi
@@ -1384,7 +1384,7 @@ fi
         fi
         ;;
     11)
-        delete_bookmark=$(cat "${yt_playlist_home_dir}/yt-playlist_bookmark.txt" | nl -n"ln" -w2 -s " " | tac | nl -n"ln" -w2 -s " "  | fzf --reverse --header="Delete bookmarks." --bind ctrl-a:select-all,ctrl-d:deselect-all -m --with-nth=1,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $2}' | tr -s ';[:space:]' '[ *]' | sed 's/ /d;/g' | sed '$ s/.$//')
+        delete_bookmark=$(cat "${yt_playlist_home_dir}/yt-playlist_bookmark.txt" | nl -n"ln" -w2 -s " " | tail -r | nl -n"ln" -w2 -s " "  | fzf --reverse --header="Delete bookmarks." --bind ctrl-a:select-all,ctrl-d:deselect-all -m --with-nth=1,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $2}' | tr -s ';[:space:]' '[ *]' | sed 's/ /d;/g' | sed '$ s/.$//')
         if [ -n "$delete_bookmark" ]
 	then
         sed -i "$delete_bookmark" "${yt_playlist_home_dir}/yt-playlist_bookmark.txt"
@@ -1668,12 +1668,12 @@ Choose an option:  "
     read -r ans
     case $ans in
     1)
-        yt_playlist_id=$(cat "${yt_playlist_home_dir}/yt-playlist_favorites.txt" | tac | nl -n"ln" -w2 -s " " | fzf --reverse --header="Favorites library." --with-nth=1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $2}')
+        yt_playlist_id=$(cat "${yt_playlist_home_dir}/yt-playlist_favorites.txt" | tail -r | nl -n"ln" -w2 -s " " | fzf --reverse --header="Favorites library." --with-nth=1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $2}')
         title_function
         playlist_menu_function
         ;;
     2)
-        yt_playlist_id=$(cat "${yt_playlist_home_dir}/yt-playlist_search_history.txt" | tac | nl -n"ln" -w2 -s " " | fzf --reverse --header="History library." --with-nth=1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $2}')
+        yt_playlist_id=$(cat "${yt_playlist_home_dir}/yt-playlist_search_history.txt" | tail -r | nl -n"ln" -w2 -s " " | fzf --reverse --header="History library." --with-nth=1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $2}')
         title_function
         playlist_menu_function
         ;;
@@ -1696,14 +1696,14 @@ Choose an option:  "
         then
         unset yt_playlist_title
         unset yt_playlist_id
-        delete_playlist=$(cat "${yt_playlist_home_dir}/yt-playlist_favorites.txt" | nl -n"ln" -w2 -s " " | tac | nl -n"ln" -w2 -s " "  | fzf --reverse --header="Delete favorites." --bind ctrl-a:select-all,ctrl-d:deselect-all -m --with-nth=1,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $2}' | tr -s ';[:space:]' '[ *]' | sed 's/ /d;/g' | sed '$ s/.$//')
+        delete_playlist=$(cat "${yt_playlist_home_dir}/yt-playlist_favorites.txt" | nl -n"ln" -w2 -s " " | tail -r | nl -n"ln" -w2 -s " "  | fzf --reverse --header="Delete favorites." --bind ctrl-a:select-all,ctrl-d:deselect-all -m --with-nth=1,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $2}' | tr -s ';[:space:]' '[ *]' | sed 's/ /d;/g' | sed '$ s/.$//')
         echo "delete_playlist"
         sed -i "$delete_playlist" "${yt_playlist_home_dir}/yt-playlist_favorites.txt"
         playlist_menu_function
         else
         unset yt_playlist_title
         unset yt_playlist_id
-        delete_history=$( cat "${yt_playlist_home_dir}/yt-playlist_search_history.txt" | nl -n"ln" -w2 -s " " | tac | nl -n"ln" -w2 -s " " | fzf --reverse --header="Delete history." --bind ctrl-a:select-all,ctrl-d:deselect-all -m --with-nth=1,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $2}' | tr -s ';[:space:]' '[ *]' | sed 's/ /d;/g' | sed '$ s/.$//')
+        delete_history=$( cat "${yt_playlist_home_dir}/yt-playlist_search_history.txt" | nl -n"ln" -w2 -s " " | tail -r | nl -n"ln" -w2 -s " " | fzf --reverse --header="Delete history." --bind ctrl-a:select-all,ctrl-d:deselect-all -m --with-nth=1,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $2}' | tr -s ';[:space:]' '[ *]' | sed 's/ /d;/g' | sed '$ s/.$//')
         sed -i "$delete_history" "${yt_playlist_home_dir}/yt-playlist_search_history.txt"
         playlist_menu_function
         fi
@@ -2069,7 +2069,7 @@ fi
         sleep 0.8
         playlist_menu_function
         else
-        yt_playlist_id=$(echo "${get_channel_playlist}" | tac | nl -n"ln" -w2 -s " " | fzf --reverse --header="Load a playlist." --with-nth=1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $2}')
+        yt_playlist_id=$(echo "${get_channel_playlist}" | tail -r | nl -n"ln" -w2 -s " " | fzf --reverse --header="Load a playlist." --with-nth=1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $2}')
         title_function
         playlist_menu_function
         fi
