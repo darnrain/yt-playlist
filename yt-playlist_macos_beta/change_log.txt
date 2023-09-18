@@ -26,3 +26,6 @@ brew install curl nano unzip mpv fx gnu-sed terminal-notifier ffmpeg fzf socat p
 Then install the new yt-playlist version.
 
 So as far as getting the sleep timer working, that will take a little thinking, macos does not have pulseaudio.
+
+v0.7
+Got the results number back to the left side.

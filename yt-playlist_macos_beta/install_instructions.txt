@@ -1,25 +1,24 @@
 This is in the beta testing stages. Things may not work as they should. I was only able to test yt-playlist on macos big sur, as I have a 2014 mac mini and can not update past that version.
 
-v0.6
-Got all menus working, but the sleep timer. This version you will need to delete all your history and favorites if you have a lower beta version installed.
+v0.6 or lower delete all your history and favorites. Highter than v0.6 you do not have to do this.
 
 rm -R ${HOME}/.config/yt-playlist/
 
-reinstall the dependencies, I added a new one gnu-sed then install the new yt-playlist version.
+If yt-playlist already installed, skip number 1. to go 2.
 
 
-Install:
+1. Install:
 Install brew first.
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"; brew update
 
-Install the dependencies:
+2. Install the dependencies:
 brew install curl nano unzip mpv fx gnu-sed terminal-notifier ffmpeg fzf socat python3 python-mutagen
 
-download yt-playlist:
+3. download yt-playlist:
 git clone https://github.com/darnrain/yt-playlist.git
 cd yt-playlist/yt-playlist_macos_beta/
 sudo chmod +x ./install.sh
 ./install.sh
 
-run yt-playlist:
+4. run yt-playlist:
 yt-playlist
