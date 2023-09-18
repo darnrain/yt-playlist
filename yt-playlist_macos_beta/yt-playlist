@@ -2,6 +2,7 @@
 
 # yt-playlist Macos
 
+PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 external_arguments1="$1"
 external_arguments2="$2"
 yt_playlist_home_dir="${HOME}/.config/yt-playlist"
@@ -220,7 +221,7 @@ fi
         ;;
    8)
         printf " \n"
-        printf "Not working on macos. \n"
+        printf "Not working on macos \n"
         sleep 1
         main_menu_function
         printf "Sleep timer menu. \n"
@@ -321,10 +322,6 @@ fi
         fi
         ;;
    9)
-        printf " \n"
-        printf "Not working on macos. \n"
-        sleep 1
-        main_menu_function
         if command -v less >/dev/null && command -v curl >/dev/null
         then
         printf "\n"
@@ -1080,10 +1077,6 @@ fi
         ;;
     8)
         printf " \n"
-        printf "Not working on macos. \n"
-        sleep 1
-        play_music_menu_function
-        printf " \n"
         printf "Delete duplicates, from music library? [y/N] "
         read answer
         if [ "$answer" != "${answer#[yY]}" ]
@@ -1108,10 +1101,6 @@ fi
         fi
         ;;
     9)
-        printf " \n"
-        printf "Not working on macos. \n"
-        sleep 1
-        play_music_menu_function
         delete_music=$(cat "${yt_playlist_home_dir}/yt-playlist_music.txt" | nl -n"ln" -w2 -s " " | tail -r | nl -n"ln" -w2 -s " "  | fzf --reverse --header="Delete music." --bind ctrl-a:select-all,ctrl-d:deselect-all -m --with-nth=1,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $2}' | tr -s ';[:space:]' '[ *]' | sed 's/ /d;/g' | sed '$ s/.$//')
         if [ -n "$delete_music" ]
 	then
@@ -1399,10 +1388,6 @@ fi
         fi
         ;;
     11)
-        printf " \n"
-        printf "Not working on macos. \n"
-        sleep 1
-        play_sd_bookmark_menu_function
         delete_bookmark=$(cat "${yt_playlist_home_dir}/yt-playlist_bookmark.txt" | nl -n"ln" -w2 -s " " | tail -r | nl -n"ln" -w2 -s " "  | fzf --reverse --header="Delete bookmarks." --bind ctrl-a:select-all,ctrl-d:deselect-all -m --with-nth=1,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $2}' | tr -s ';[:space:]' '[ *]' | sed 's/ /d;/g' | sed '$ s/.$//')
         if [ -n "$delete_bookmark" ]
 	then
@@ -1705,10 +1690,6 @@ Choose an option:  "
         then
         if [ "$answer" != "${answer#[2]}" ]
         then
-        printf " \n"
-        printf "Not working on macos. \n"
-        sleep 1
-        playlist_menu_function
         clear
         printf "Delete menu \n"
         printf "1=Favorites or 2=History \n"

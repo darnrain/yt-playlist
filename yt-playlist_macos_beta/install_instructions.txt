@@ -1,20 +1,11 @@
 This is in the beta testing stages. Things may not work as they should. I was only able to test yt-playlist on macos big sur, as I have a 2014 mac mini and can not update past that version.
 
-Known issues:
-Get channel playlist do not work.
-Will not play a channel in the Play SD menu and Bookmark SD menu.
-Sleep timer does not work.
-You need to enable terminal-notifier notifications on macos before you can get notifications.
-All save and delete menus do not work.
-You will need to manually delete your history, music, bookmarks.
-"nano ${HOME}/.config/yt-playlist/yt-playlist_bookmark.txt"
-"nano ${HOME}/.config/yt-playlist/yt-playlist_music.txt"
-"nano ${HOME}/.config/yt-playlist/yt-playlist_search_history.txt"
+v0.6
+Got all menus working, but the sleep timer. This version you will need to delete all your history and favorites if you have a lower beta version installed.
 
-nano commands:
-cut line = ctrl-k
-save = ctrl-s
-exit = ctrl=x
+rm -R ${HOME}/.config/yt-playlist/
+
+reinstall the dependencies, I added a new one gnu-sed then install the new yt-playlist version.
 
 
 Install:
@@ -22,7 +13,7 @@ Install brew first.
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"; brew update
 
 Install the dependencies:
-brew install curl nano unzip mpv fx terminal-notifier ffmpeg fzf socat python3 python-mutagen
+brew install curl nano unzip mpv fx gnu-sed terminal-notifier ffmpeg fzf socat python3 python-mutagen
 
 download yt-playlist:
 git clone https://github.com/darnrain/yt-playlist.git

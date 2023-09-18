@@ -13,3 +13,16 @@ Fixed terminal-notifier.
 
 v0.5
 Everything works as far as I can tell, but Sleep timer, update and all the delete menus.
+
+v0.6
+Got all menus working, but the sleep timer. This version you will need to delete all your history and favorites if you have a lower beta version installed.
+
+rm -R ${HOME}/.config/yt-playlist/
+
+Then run this command to update.
+
+brew install curl nano unzip mpv fx gnu-sed terminal-notifier ffmpeg fzf socat python3 python-mutagen
+
+Then install the new yt-playlist version.
+
+So as far as getting the sleep timer working, that will take a little thinking, macos does not have pulseaudio.
