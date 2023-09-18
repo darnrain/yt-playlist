@@ -21,7 +21,3 @@ sudo chmod +x ./install.sh
 
 run yt-playlist:
 yt-playlist
-
-terminal-notifier -title yt-playlist -subtitle -message "Finished"
-
-terminal-notifier -title yt-playlist -message "Finished" -appIcon /tmp/yt-playlist_icons.jpg
