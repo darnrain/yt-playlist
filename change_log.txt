@@ -1,8 +1,11 @@
-9-17-2023
+9-18-2023
 
 ================================
 Change log notes
 ================================
+
+v0.7
+macos beta is running very good. The only thing that is not working now is the sleep timer. I need to find out how to lower the volume in macos from ther terminal. Macos beta 0.7 is taken from yt-playlist v2.26 and converted over to macos.
 
 v2.26
 Updated the --title and shift-t function.
