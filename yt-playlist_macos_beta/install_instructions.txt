@@ -1,9 +1,11 @@
 This is in the beta testing stages. Things may not work as they should.
 
 Known issues:
-Get channel playlist does not work.
+Get channel playlist do not work.
 Will not play a channel in the Play SD menu and Bookmark SD menu.
 Sleep timer does not work.
+All save and delete menus do not work.
+You will need to go into yt-playlist dir to delete lines manually ${HOME}/.config/yt-playlist/
 
 Install:
 Install brew first.
