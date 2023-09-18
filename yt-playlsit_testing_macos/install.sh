@@ -7,7 +7,7 @@
         if command -v yt-dlp >/dev/null && command -v mpv >/dev/null && command -v ffmpeg >/dev/null && command -v fzf >/dev/null && command -v mutagen-inspect >/dev/null && command -v socat >/dev/null && command -v awk >/dev/null && command -v sed >/dev/null && command -v tr >/dev/null && command -v bash >/dev/null && command -v curl >/dev/null
         then
         echo "============================"
-        echo "Linux installer yt-playlist."
+        echo "Macos installer yt-playlist."
         echo "============================"
         echo "All dependencies were found."
         echo "============================"
@@ -29,6 +29,7 @@
         sudo cp ./yt-playlist /usr/bin/
         #sudo cp /tmp/yt-playlist/yt-playlist-linux/yt-playlist /usr/bin/
         sudo chmod +x /usr/bin/yt-playlist
+        mkdir -p ${HOME}/.config/
         mkdir -p ${HOME}/.config/yt-playlist/
         mkdir -p ${HOME}/.config/yt-playlist/scripts/
         mkdir -p ${HOME}/.config/yt-playlist/scripts/sponsorblock_shared/
