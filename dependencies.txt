@@ -24,6 +24,7 @@ ffmpeg
 mutagen
 fzf
 socat
+curl
 awk
 sed
 tr
