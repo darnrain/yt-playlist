@@ -1,4 +1,4 @@
-This is in the beta testing stages. Things may not work as they should.
+This is in the beta testing stages. Things may not work as they should. I was only able to test yt-playlist on macos big sur, as I have a 2014 mac mini and can not update past that version.
 
 Known issues:
 Get channel playlist do not work.
