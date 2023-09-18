@@ -85,6 +85,7 @@ The Linux installer will check to make sure all the required dependencies are in
 * mutagen
 * fzf
 * socat
+* curl
 * awk
 * sed
 * tr
