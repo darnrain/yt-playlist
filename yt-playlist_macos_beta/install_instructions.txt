@@ -6,7 +6,7 @@ Will not play a channel in the Play SD menu and Bookmark SD menu.
 Sleep timer does not work.
 All save and delete menus do not work.
 You need to enable terminal-notifier notifications on macos before you can get notifications.
-You will need to manually delete the lines:
+You will need to manually delete.
 "nano ${HOME}/.config/yt-playlist/yt-playlist_bookmark.txt"
 "nano ${HOME}/.config/yt-playlist/yt-playlist_favorites.txt"
 "nano ${HOME}/.config/yt-playlist/yt-playlist_music.txt"
