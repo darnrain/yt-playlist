@@ -4,7 +4,7 @@ v0.6 or lower delete all your history and favorites. Highter than v0.6 you do no
 
 rm -R ${HOME}/.config/yt-playlist/
 
-If yt-playlist already installed, skip number 1. to go 2.
+If yt-playlist already installed, skip number 1. go to 2.
 
 
 1. Install:
