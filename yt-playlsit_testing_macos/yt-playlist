@@ -1,6 +1,6 @@
 #!/bin/bash 
 
-# yt-playlist Linux
+# yt-playlist Macos
 
 external_arguments1="$1"
 external_arguments2="$2"
