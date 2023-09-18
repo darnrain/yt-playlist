@@ -5,6 +5,7 @@ Get channel playlist do not work.
 Will not play a channel in the Play SD menu and Bookmark SD menu.
 Sleep timer does not work.
 All save and delete menus do not work.
+You need to enable terminal-notifier notifications on macos before you can get notifications.
 You will need to manually delete the lines:
 "nano ${HOME}/.config/yt-playlist/yt-playlist_bookmark.txt"
 "nano ${HOME}/.config/yt-playlist/yt-playlist_favorites.txt"
@@ -15,6 +16,7 @@ nano commands:
 cut line = ctrl-k
 save = ctrl-s
 exit = ctrl=x
+
 
 Install:
 Install brew first.
