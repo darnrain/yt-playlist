@@ -20,14 +20,8 @@ cd yt-playlist/yt-playlist_macos_beta/
 sudo chmod +x ./install.sh
 ./install.sh
 
-4. type y to load yt-playlist
+I have not found out how to just type y to load yt-playlist yet.
 
-macOS Catalina or higher run this command.
-echo "alias y='yt-playlist'" >> ${HOME}/.zshrc; source ${HOME}/.zshrc
-
-macOS Catalina or lower run this command.
-echo "alias y='yt-playlist'" >> ${HOME}/.bashrc; source ${HOME}/.bashrc
-
-5. run yt-playlist:
+4. run yt-playlist:
 yt-playlist
 
