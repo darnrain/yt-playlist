@@ -8,6 +8,8 @@ v2.26
 Updated the --title and shift-t function.
 If the artist is included in the title, then no more "Please wait getting artist and title." You will see the Artist and title instantly.
 
+Update: I am in the process of testing the possibility of running yt-playlsit on macos via brew.
+
 v2.25
 Added mpv_sponsorblock. Now on the Play SD menu and Play Bookmark menu, sponsors will be skipped automatically.
 https://github.com/po5/mpv_sponsorblock
