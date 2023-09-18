@@ -5,9 +5,9 @@ Change log notes
 ================================
 
 v0.8 yt-playlist_macos_beta
-Fixed sleep timer on macOS. Updated the install_instructions.txt. The macos_beta v0.8 is now packaged in the zip file with v2.28. As of now I think everything is working on the macOS version. When this macos version is out of beta, I may just bump it up to the current version of Linux and Termux is on. I like having one version for everything.
+Fixed sleep timer on macOS. Updated the install_instructions.txt. The macos_beta v0.8 is now packaged in the zip file with v2.27. As of now I think everything is working on the macOS version. When this macos version is out of beta, I may just bump it up to the current version of Linux and Termux is on. I like having one version for everything.
 
-v2.28 Linux and Termux
+v2.27 Linux and Termux
 Overhauled the sleep timer function. Sleep timer was lowering the volume of the Linux OS and Termux OS. As of now it will lower the volume of mpv only. This was the only way to get sleep timer to work on macOS. It will still lower the volume every two seconds then pause mpv and restor volume back to 95%, yt-playlist default level.
 
 
