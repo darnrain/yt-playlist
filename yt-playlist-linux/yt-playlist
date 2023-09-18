@@ -11,7 +11,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="v2.25"
+version="v2.26"
 
 #mainmenu
 
@@ -2328,13 +2328,23 @@ fi
 
 function title_notification_function ()
 {
-	if test -f "${tmp_dir}/mpv_hd_running"
+        if test -f "${tmp_dir}/mpv_hd_running"
         then
+        if command -v notify-send >/dev/null
+        then
+        notify-send -i ${tmp_dir}/yt-playlist_icons.jpg "yt-playlist" "Not available when playing hd video"
         echo '{ "command": ["show-text", "Not available when playing hd video." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         exit
-        fi
+        else
+        echo '{ "command": ["show-text", "Not available when playing hd video." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
+        exit
+  fi
+fi
 
 	if test -f "${tmp_dir}/mpv_video_running"
+        then
+        check_for_artist=$(echo '{ "command": ["get_property", "media-title"] }' | socat - ${tmp_dir}/mpvsocket | cut -d'"' -f4)
+        if [[ ! "${check_for_artist}" = *-* ]]
         then
         if command -v notify-send >/dev/null
         then
@@ -2351,9 +2361,24 @@ function title_notification_function ()
         yt_media_title=$(yt-dlp --no-warnings --quiet --flat-playlist -I 1 --print "%(uploader)s - %(title)s" "$yt_media_title_url")
         yt_terminal_title=$(printf '"%s" \n' "$yt_media_title")
 	echo show-text "$yt_terminal_title" | socat - "${tmp_dir}/mpvsocket"
+        fi
+        else
+        if command -v notify-send >/dev/null
+        then
+        notify-send -i ${tmp_dir}/yt-playlist_icons.jpg "yt-playlist" "$check_for_artist"
+        yt_terminal_title=$(printf '"%s" \n' "$check_for_artist")
+	echo show-text "$yt_terminal_title" | socat - "${tmp_dir}/mpvsocket"
+        else
+        yt_terminal_title=$(printf '"%s" \n' "$check_for_artist")
+	echo show-text "$yt_terminal_title" | socat - "${tmp_dir}/mpvsocket"
+    fi
   fi
 fi
+
 	if test -f "${tmp_dir}/mpv_bookmark_running"
+        then
+        check_for_artist=$(echo '{ "command": ["get_property", "media-title"] }' | socat - ${tmp_dir}/mpvsocket | cut -d'"' -f4)
+        if [[ ! "${check_for_artist}" = *-* ]]
         then
         if command -v notify-send >/dev/null
         then
@@ -2370,10 +2395,24 @@ fi
         yt_media_title=$(yt-dlp --no-warnings --quiet --flat-playlist -I 1 --print "%(uploader)s - %(title)s" "$yt_media_title_url")
         yt_terminal_title=$(printf '"%s" \n' "$yt_media_title")
 	echo show-text "$yt_terminal_title" | socat - "${tmp_dir}/mpvsocket"
+        fi
+        else
+        if command -v notify-send >/dev/null
+        then
+        notify-send "yt-playlist" "$check_for_artist"
+        yt_terminal_title=$(printf '"%s" \n' "$check_for_artist")
+	echo show-text "$yt_terminal_title" | socat - "${tmp_dir}/mpvsocket"
+        else
+        yt_terminal_title=$(printf '"%s" \n' "$check_for_artist")
+	echo show-text "$yt_terminal_title" | socat - "${tmp_dir}/mpvsocket"
+    fi
   fi
 fi
 	if test -f "${tmp_dir}/mpv_music_running"
         then
+        check_for_artist=$(echo '{ "command": ["get_property", "media-title"] }' | socat - ${tmp_dir}/mpvsocket | cut -d'"' -f4)
+        if [[ ! "${check_for_artist}" = *-* ]]
+        then
         if command -v notify-send >/dev/null
         then
         echo '{ "command": ["show-text", "Please wait, getting atrist & title." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
@@ -2389,6 +2428,17 @@ fi
         yt_media_title=$(yt-dlp --no-warnings --quiet --flat-playlist -I 1 --print "%(uploader)s - %(title)s" "$yt_media_title_url")
         yt_terminal_title=$(printf '"%s" \n' "$yt_media_title")
 	echo show-text "$yt_terminal_title" | socat - "${tmp_dir}/mpvsocket"
+        fi
+        else
+        if command -v notify-send >/dev/null
+        then
+        notify-send "yt-playlist" "$check_for_artist"
+        yt_terminal_title=$(printf '"%s" \n' "$check_for_artist")
+	echo show-text "$yt_terminal_title" | socat - "${tmp_dir}/mpvsocket"
+        else
+        yt_terminal_title=$(printf '"%s" \n' "$check_for_artist")
+	echo show-text "$yt_terminal_title" | socat - "${tmp_dir}/mpvsocket"
+    fi
   fi
 fi
 }

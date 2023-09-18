@@ -4,6 +4,10 @@
 Change log notes
 ================================
 
+v2.26
+Updated the --title and shift-t function.
+If the artist is included in the title, then no more "Please wait getting artist and title." You will see the Artist and title instantly.
+
 v2.25
 Added mpv_sponsorblock. Now on the Play SD menu and Play Bookmark menu, sponsors will be skipped automatically.
 https://github.com/po5/mpv_sponsorblock
