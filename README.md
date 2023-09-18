@@ -29,7 +29,7 @@ More photos.<br>
 * 1080p 60 FPS video defaults to h264.
 * Enable HW GPU on mpv player.
 * Sponsors will be skipped automatically.
-* Very little cpu usage, when playing music or when playing audio/video if HW gpu on.
+* Very little cpu usage.
 * A text mode, listen to video or music.
 * The Termux version is audio only.
 * Background audio playback on Termux.
