@@ -4,6 +4,9 @@
 Change log notes
 ================================
 
+Update: found a bug in the v0.8 yt-playlist_macos_beta 
+I can delete my favorites but not the history. Looking into this.
+
 v0.8 yt-playlist_macos_beta
 Fixed sleep timer on macOS. Updated the install_instructions.txt. The macos_beta v0.8 is now packaged in the zip file with v2.27. As of now I think everything is working on the macOS version. When this macos version is out of beta, I may just bump it up to the current version of Linux and Termux is on. I like having one version for everything.
 
