@@ -5,10 +5,10 @@ Change log notes
 ================================
 
 v0.12 yt-playlist_macos_beta
-Added an offline install option. As for v0.12 it's running great. As far as I can tell everything is working as it should. I need to do more testing before taking it out of beta.
+Added an offline install option. As for v0.12 it's running great. As far as I can tell everything is working as it should. I need to do more testing before taking it out of beta. Also once I take macOS out of beta the instlal command will change. I will post the updated commnad in the change log.
 
 v2.31
-Added an offline install option. Also changed the install commands one more time, so we can have an Automated and Offline install. Updated readme.txt on all three flavors. Also once I take macOS out of beta the instlal command will change for that flavor. I will post the updated commnad in the change log.
+Added an offline install option. Also changed the install commands one more time, so we can have an Automated and Offline install. Updated readme.txt on all three flavors.
 
 Linux automated install:
 if [ -d /tmp/yt-playlist/ ]; then yes|rm -R /tmp/yt-playlist/; fi; git clone https://github.com/darnrain/yt-playlist.git /tmp/yt-playlist/; sudo chmod +x /tmp/yt-playlist/yt-playlist-linux/install.sh; /tmp/yt-playlist/yt-playlist-linux/install.sh --online_install
