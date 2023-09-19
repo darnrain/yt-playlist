@@ -4,8 +4,6 @@
 Change log notes
 ================================
 
-I am making to major changes to the github website, you can still clone the latest verison.
-
 v0.10 yt-playlist_macos_beta
 This was tricky to fix, but I got it this time. You can now delete history.
 
