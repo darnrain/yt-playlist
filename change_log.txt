@@ -4,6 +4,8 @@
 Change log notes
 ================================
 
+Update: Still have the same bug on macOS version, deleting is all messed up, I finaly found out what it's doing wrong I just need to find out why it's doing that.
+
 Also next verison I will change the dependencies to include git it's such a small thing I don't think it needs an update for that.
 
 v2.31.1
