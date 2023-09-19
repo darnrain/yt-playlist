@@ -24,4 +24,4 @@ if [ -d /${TMPDIR}/yt-playlist/ ]; then yes|rm -R /${TMPDIR}/yt-playlist/; fi; g
 or 
 
 Offline uninstall:
-chmod +x ./unisntall.sh; ./uninstall.sh
+chmod +x ./uninstall.sh; ./uninstall.sh

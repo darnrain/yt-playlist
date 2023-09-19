@@ -33,4 +33,4 @@ Automated uninstall:
 if [ -d /tmp/yt-playlist/ ]; then yes|rm -R /tmp/yt-playlist/; fi; git clone https://github.com/darnrain/yt-playlist.git /tmp/yt-playlist/; sudo chmod +x /tmp/yt-playlist/yt-playlist_macos_beta/uninstall.sh; /tmp/yt-playlist/yt-playlist_macos_beta/uninstall.sh
 
 Offline uninstall:
-sudo chmod +x ./unisntall.sh; ./uninstall.sh
+sudo chmod +x ./uninstall.sh; ./uninstall.sh
