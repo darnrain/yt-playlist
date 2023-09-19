@@ -1,10 +1,11 @@
 Termux install.
 
 Dependencies will be automatically installed. 
-To install download and copy yt-playlist.zip file to your internel sorage on the phone.
 
-Install with yt-playlist.zip
-unzip -o /sdcard/yt-playlist.zip -d ${HOME}/; chmod +x ${HOME}/yt-playlist/yt-playlist-termux/install.sh; ${HOME}/yt-playlist/yt-playlist-termux/install.sh
+Download and install yt-playlist:
+git clone https://github.com/darnrain/yt-playlist.git ${HOME}/yt-playlist/
+cd ${HOME}/yt-playlist/yt-playlist-termux/
+chmod +x ./install.sh; ./install.sh
 
 to just type y to run yt-playlist
 
@@ -12,6 +13,9 @@ echo "alias y='yt-playlist'" >> ${HOME}/.bashrc; source ${HOME}/.bashrc
 
 To uninstall copy yt-playlist.zip folder to your internel sorage on the phone.
 
-Uninstall with yt-playlist.zip
-unzip -o /sdcard/yt-playlist.zip -d ${HOME}/; chmod +x ${HOME}/yt-playlist/yt-playlist-termux/uninstall.sh; ${HOME}/yt-playlist/yt-playlist-termux/uninstall.sh
+Download and uninstall yt-playlist:
+git clone https://github.com/darnrain/yt-playlist.git ${HOME}/yt-playlist/
+cd ${HOME}/yt-playlist/yt-playlist-termux/
+chmod +x ./uninstall.sh; ./uninstall.sh
+
 
