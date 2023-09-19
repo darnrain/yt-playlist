@@ -15,7 +15,7 @@ brew install curl nano unzip mpv fx gnu-sed coreutils terminal-notifier ffmpeg f
 
 3. download yt-playlist:
 git clone https://github.com/darnrain/yt-playlist.git
-
+cd ${HOME}/yt-playlist/yt-playlist_macos_beta/
 sudo chmod +x ./install.sh; ./install.sh
 
 4. type y to run yt-playlist. You only need to do this one time.
