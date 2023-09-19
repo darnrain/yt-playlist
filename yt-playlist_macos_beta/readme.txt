@@ -7,7 +7,7 @@ If you are installing for the first time start at step #1.
 
 
 1. Install:
-Install brew first.
+Install brew first. https://brew.sh/
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"; brew update
 
 2. Install the dependencies:
