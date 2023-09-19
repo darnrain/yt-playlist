@@ -11,7 +11,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: /sdcard/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 yt_video_number="1:100"
-version="v2.29"
+version="v2.30"
 
 #mainmenu
 
@@ -2028,16 +2028,6 @@ function clean_up_function ()
         if test -f "${tmp_dir}/yt_playlist_url.txt"
         then
         rm "${tmp_dir}/yt_playlist_url.txt"
-        fi
-
-        if test -f "${tmp_dir}/yt-playlist.zip"
-        then
-        rm "${tmp_dir}/yt-playlist.zip"
-        fi
-
-        if [ -d "${tmp_dir}/yt-playlist/" ]
-        then
-        rm -R "${tmp_dir}/yt-playlist/" 
         fi
 
         if test -f "${yt_playlist_home_dir}/yt-playlist_search_history.txt"
