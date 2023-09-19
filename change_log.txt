@@ -7,6 +7,7 @@ Change log notes
 v2.31.1
 Termux version only. Other flavors were not updated.
 Updated the install.sh on Termux, If you are installing Termux yt-playlist offline and not all dependencies were found, then installer would not work. Online install was working on v2.31.
+Also updated the Termux automated install command, Termux needs to install git first if not installed.
 
 v0.12 yt-playlist_macos_beta
 Added an offline install option. As for v0.12 it's running great. As far as I can tell everything is working as it should. I need to do more testing before taking it out of beta. Also once I take macOS out of beta the install command will change. I will post the updated command in the change log.
