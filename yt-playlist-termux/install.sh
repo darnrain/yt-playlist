@@ -20,7 +20,7 @@
         curl -s https://raw.githubusercontent.com/po5/mpv_sponsorblock/master/sponsorblock_shared/main.lua -L -o ${HOME}/.config/yt-playlist/scripts/sponsorblock_shared/main.lua
         curl -s https://raw.githubusercontent.com/po5/mpv_sponsorblock/master/sponsorblock_shared/sponsorblock.py -L -o ${HOME}/.config/yt-playlist/scripts/sponsorblock_shared/sponsorblock.py
         touch ${HOME}/.config/yt-playlist/yt-playlist_favorites.txt
-        touch ${HOME}/.config/yt-playlist/yt-playlist_search_history.txt
+        touch ${HOME}/.config/yt-playlist/yt-playlist_history.txt
         touch ${HOME}/.config/yt-playlist/yt-playlist_bookmark.txt
         touch ${HOME}/.config/yt-playlist/yt-playlist_music.txt
         touch ${HOME}/.config/yt-playlist/input.conf
