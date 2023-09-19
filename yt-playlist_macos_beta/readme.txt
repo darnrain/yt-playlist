@@ -13,7 +13,7 @@ Install brew first. https://brew.sh/
 2. Install the dependencies:
 brew install curl nano unzip mpv fx gnu-sed coreutils terminal-notifier ffmpeg fzf socat python3 python-mutagen
 
-3. download and install. You can use this one command from now on to install the latest version of yt-playlist.
+3. download and install. You can use this one command from now on to install the latest beta macos version of yt-playlist.
 yes|rm -R /tmp/yt-playlist/; git clone https://github.com/darnrain/yt-playlist.git /tmp/yt-playlist/; sudo chmod +x /tmp/yt-playlist/yt-playlist_macos_beta/install.sh; /tmp/yt-playlist/yt-playlist_macos_beta/install.sh
 
 or
