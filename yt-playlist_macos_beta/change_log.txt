@@ -33,3 +33,6 @@ Got the results number back to the left side.
 v0.8 yt-playlist_macos_beta
 Fixed sleep timer on macOS. I changed how sleep timer works. Sleep timer was lowering the volume of the Linux OS and Termux OS. As of now it will lower the volume of mpv only. This was the only way to get sleep timere to work on macOS.
 
+v0.9
+fixed issue with deleting history.
+

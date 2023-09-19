@@ -11,7 +11,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: /sdcard/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 yt_video_number="1:100"
-version="v2.27"
+version="v2.28"
 
 #mainmenu
 
@@ -1406,7 +1406,7 @@ Choose an option:  "
         playlist_menu_function
         ;;
     2)
-        yt_playlist_id=$(cat "${yt_playlist_home_dir}/yt-playlist_search_history.txt" | tac | nl -n"ln" -w2 -s " " | fzf --reverse --header="History library." --with-nth=1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $2}')
+        yt_playlist_id=$(cat "${yt_playlist_home_dir}/yt-playlist_history.txt" | tac | nl -n"ln" -w2 -s " " | fzf --reverse --header="History library." --with-nth=1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $2}')
         title_function
         playlist_menu_function
         ;;
@@ -1436,8 +1436,8 @@ Choose an option:  "
         else
         unset yt_playlist_title
         unset yt_playlist_id
-        delete_history=$( cat "${yt_playlist_home_dir}/yt-playlist_search_history.txt" | nl -n"ln" -w2 -s " " | tac | nl -n"ln" -w2 -s " " | fzf --reverse --header="Delete history." --bind ctrl-a:select-all,ctrl-d:deselect-all -m --with-nth=1,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $2}' | tr -s ';[:space:]' '[ *]' | sed 's/ /d;/g' | sed '$ s/.$//')
-        sed -i "$delete_history" "${yt_playlist_home_dir}/yt-playlist_search_history.txt"
+        delete_history=$( cat "${yt_playlist_home_dir}/yt-playlist_history.txt" | nl -n"ln" -w2 -s " " | tac | nl -n"ln" -w2 -s " " | fzf --reverse --header="Delete history." --bind ctrl-a:select-all,ctrl-d:deselect-all -m --with-nth=1,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $2}' | tr -s ';[:space:]' '[ *]' | sed 's/ /d;/g' | sed '$ s/.$//')
+        sed -i "$delete_history" "${yt_playlist_home_dir}/yt-playlist_history.txt"
         playlist_menu_function
         fi
         else
@@ -1462,7 +1462,6 @@ Choose an option:  "
         else
         echo "Saving: $yt_playlist_title"
         echo "$yt_playlist_id" "${yt_playlist_title}" >> "${yt_playlist_home_dir}/yt-playlist_favorites.txt"
-        sed -i '/^$/d' "${yt_playlist_home_dir}/yt-playlist_favorites.txt"
         sleep 0.8
         echo "Saved to favorites."
         sleep 1
@@ -1556,7 +1555,6 @@ fi
         ;;
     5)
         printf " \n"
-        printf "YTMusic Album search. \n"
         printf "Enter Artist or Album name: \n"
         read ytm_search
         if [ -n "$ytm_search" ]
@@ -1599,7 +1597,6 @@ fi
         ;;
     6)
         printf " \n"
-        printf "YTMusic Playlist search [1] \n"
         printf "Enter playlist search: \n"
         read ytm_search
         if [ -n "$ytm_search" ]
@@ -1642,7 +1639,6 @@ fi
         ;;
     7)
         printf " \n"
-        printf "YTMusic Playlist search [2] \n"
         printf "Enter playlist search: \n"
         read ytm_search
         if [ -n "$ytm_search" ]
@@ -1685,7 +1681,6 @@ fi
         ;;
     8)
         printf " \n"
-        printf "YT Playlist search. \n"
         printf "Enter playlist search: \n"
         read yt_search
         if [ -n "$yt_search" ]
@@ -1728,7 +1723,6 @@ fi
         ;;
     9)
         printf " \n"
-        printf "YT Channel search. \n"
         printf "Enter channel search: \n"
         read yt_search
         if [ -n "$yt_search" ]
@@ -1781,7 +1775,6 @@ fi
         if [[ "$yt_playlist_id" = UC* ]]
         then
         printf " \n"
-        printf "Get channel playlists. \n"
         printf "Enter playlist results number: \n"
         read yt_search_number
         if [ -n "$yt_search_number" ]
@@ -2045,6 +2038,11 @@ function clean_up_function ()
         if [ -d "${tmp_dir}/yt-playlist/" ]
         then
         rm -R "${tmp_dir}/yt-playlist/" 
+        fi
+
+        if test -f "${yt_playlist_home_dir}/yt-playlist_search_history.txt"
+        then
+        mv "${yt_playlist_home_dir}/yt-playlist_search_history.txt" "${yt_playlist_home_dir}/yt-playlist_history.txt"
         fi
 }
 
@@ -2821,7 +2819,7 @@ function title_function ()
         unset yt_playlist_total_number
         if [ -n "$yt_playlist_id" ]
         then
-        yt_playlist_title=$(echo "$not_a_playlist_id" | cat - "${yt_playlist_home_dir}/yt-playlist_favorites.txt" "${yt_playlist_home_dir}/yt-playlist_search_history.txt" | grep "$yt_playlist_id" | awk '{$1=""}1' | sed 's/^[ \t]*//' | cut -b -80 | sed -n '1p' )
+        yt_playlist_title=$(echo "$not_a_playlist_id" | cat - "${yt_playlist_home_dir}/yt-playlist_favorites.txt" "${yt_playlist_home_dir}/yt-playlist_history.txt" | grep "$yt_playlist_id" | awk '{$1=""}1' | sed 's/^[ \t]*//' | cut -b -80 | sed -n '1p' )
         yt_playlist_vanilla_title=$(echo "${yt_playlist_title}" | awk '{$1=""; print $0}' | sed 's/^[ \t]*//')
         export yt_playlist_id
         export yt_playlist_title
@@ -2947,11 +2945,11 @@ echo "Please wait, getting Album information."
 ytm_album_search=$(yt-dlp --no-warnings --quiet --flat-playlist --print "%(playlist_id)s Album: %(channel)s - %(playlist_title)s" -I 1 ${ytm_album_url} | sed 's/YouTube Music/YTMusic/g' | sed 's/Topic -//g' | sed 's/Album -//g' | tr -s '[:space:]' 2>/dev/null)
 if [ -n "$ytm_album_search" ]
 then
-echo "7807897890789078907807" "==============================" >> "${yt_playlist_home_dir}/yt-playlist_search_history.txt"
-echo "${ytm_album_search}" >> "${yt_playlist_home_dir}/yt-playlist_search_history.txt"
-echo "7807897890789078907807" "==============================" >> "${yt_playlist_home_dir}/yt-playlist_search_history.txt"
-echo "7807897890789078907807" "YTMusic Album Search: $ytm_search" >> "${yt_playlist_home_dir}/yt-playlist_search_history.txt"
-sed -i '/^$/d' "${yt_playlist_home_dir}/yt-playlist_search_history.txt"
+echo "7807897890789078907807" "==============================" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
+echo "${ytm_album_search}" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
+echo "7807897890789078907807" "==============================" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
+echo "7807897890789078907807" "YTMusic Album Search: $ytm_search" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
+sed -i '/^$/d' "${yt_playlist_home_dir}/yt-playlist_history.txt"
 fi
 fi
 }
@@ -2969,11 +2967,11 @@ echo "Please wait, getting Playlist information."
 ytm_playlist_search=$(yt-dlp --no-warnings --quiet --flat-playlist --print "%(playlist_id)s Playlist: %(playlist_title)s" -I 1 ${ytm_playlist_url} | sed 's/YouTube Music/YTMusic/g' | sed 's/Topic -//g' | tr -s '[:space:]' 2>/dev/null)
 if [ -n "$ytm_playlist_search" ]
 then
-echo "7807897890789078907807" "==============================" >> "${yt_playlist_home_dir}/yt-playlist_search_history.txt"
-echo "${ytm_playlist_search}" >> "${yt_playlist_home_dir}/yt-playlist_search_history.txt"
-echo "7807897890789078907807" "==============================" >> "${yt_playlist_home_dir}/yt-playlist_search_history.txt"
-echo "7807897890789078907807" "YTMusic Playlist search [1]: $ytm_search" >> "${yt_playlist_home_dir}/yt-playlist_search_history.txt"
-sed -i '/^$/d' "${yt_playlist_home_dir}/yt-playlist_search_history.txt"
+echo "7807897890789078907807" "==============================" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
+echo "${ytm_playlist_search}" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
+echo "7807897890789078907807" "==============================" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
+echo "7807897890789078907807" "YTMusic Playlist search [1]: $ytm_search" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
+sed -i '/^$/d' "${yt_playlist_home_dir}/yt-playlist_history.txt"
 fi
 fi
 }
@@ -2991,11 +2989,11 @@ echo "Please wait, getting Playlist information."
 ytm_playlist_search=$(yt-dlp --no-warnings --quiet --flat-playlist --print "%(playlist_id)s Playlist: %(playlist_title)s" -I 1 ${ytm_playlist_url} | sed 's/YouTube Music/YTMusic/g' | sed 's/Topic -//g' | tr -s '[:space:]' 2>/dev/null)
 if [ -n "$ytm_playlist_search" ]
 then
-echo "7807897890789078907807" "==============================" >> "${yt_playlist_home_dir}/yt-playlist_search_history.txt"
-echo "${ytm_playlist_search}" >> "${yt_playlist_home_dir}/yt-playlist_search_history.txt"
-echo "7807897890789078907807" "==============================" >> "${yt_playlist_home_dir}/yt-playlist_search_history.txt"
-echo "7807897890789078907807" "YTMusic Playlist search [2]: $ytm_search" >> "${yt_playlist_home_dir}/yt-playlist_search_history.txt"
-sed -i '/^$/d' "${yt_playlist_home_dir}/yt-playlist_search_history.txt"
+echo "7807897890789078907807" "==============================" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
+echo "${ytm_playlist_search}" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
+echo "7807897890789078907807" "==============================" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
+echo "7807897890789078907807" "YTMusic Playlist search [2]: $ytm_search" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
+sed -i '/^$/d' "${yt_playlist_home_dir}/yt-playlist_history.txt"
 fi
 fi
 }
@@ -3014,11 +3012,11 @@ if [ -n "$yt_paste_playlist_url" ]
 then
 yt_playlist_id=$(echo "${yt_paste_playlist_url}" | awk '{print $1}')
 yt_paste_playlist_title=$(echo "${yt_paste_playlist_url}" | awk '{$1=""; print $0}' | sed 's/^[ \t]*//')
-echo "7807897890789078907807" "==============================" >> "${yt_playlist_home_dir}/yt-playlist_search_history.txt"
-echo "${yt_paste_playlist_url}" >> "${yt_playlist_home_dir}/yt-playlist_search_history.txt"
-echo "7807897890789078907807" "==============================" >> "${yt_playlist_home_dir}/yt-playlist_search_history.txt"
-echo "7807897890789078907807" "Paste Playlist url:" "${yt_paste_url}" >> "${yt_playlist_home_dir}/yt-playlist_search_history.txt"
-sed -i '/^$/d' "${yt_playlist_home_dir}/yt-playlist_search_history.txt"
+echo "7807897890789078907807" "==============================" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
+echo "${yt_paste_playlist_url}" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
+echo "7807897890789078907807" "==============================" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
+echo "7807897890789078907807" "Paste Playlist url:" "${yt_paste_url}" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
+sed -i '/^$/d' "${yt_playlist_home_dir}/yt-playlist_history.txt"
 fi
 }
 
@@ -3036,11 +3034,11 @@ if [ -n "$yt_paste_channel_url" ]
 then
 yt_playlist_id=$(echo "${yt_paste_channel_url}" | awk '{print $1}')
 yt_paste_channel_title=$(echo "${yt_paste_channel_url}" | awk '{$1=""; print $0}' | sed 's/^[ \t]*//')
-echo "7807897890789078907807" "==============================" >> "${yt_playlist_home_dir}/yt-playlist_search_history.txt"
-echo "${yt_paste_channel_url}" >> "${yt_playlist_home_dir}/yt-playlist_search_history.txt"
-echo "7807897890789078907807" "==============================" >> "${yt_playlist_home_dir}/yt-playlist_search_history.txt"
-echo "7807897890789078907807" "Paste Channel url:" "${yt_paste_url}" >> "${yt_playlist_home_dir}/yt-playlist_search_history.txt"
-sed -i '/^$/d' "${yt_playlist_home_dir}/yt-playlist_search_history.txt"
+echo "7807897890789078907807" "==============================" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
+echo "${yt_paste_channel_url}" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
+echo "7807897890789078907807" "==============================" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
+echo "7807897890789078907807" "Paste Channel url:" "${yt_paste_url}" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
+sed -i '/^$/d' "${yt_playlist_home_dir}/yt-playlist_history.txt"
 fi
 }
 
@@ -3076,11 +3074,11 @@ yt_search_plus=$(echo "$yt_search" | sed 's/ /+/g' )
 yt_playlist_search=$(yt-dlp --no-warnings --quiet --flat-playlist --print "%(id)s Playlist: %(title)s" -I "$yt_search_number" "https://youtube.com/search?q=${yt_search_plus}&sp=EgIQAw%253D%253D" | sed 's/YouTube Music/YTMusic/g' | sed 's/|//g' | sed 's/(//g' | sed 's/)//g' 2>/dev/null)
 if [ -n "$yt_playlist_search" ]
 then
-echo "7807897890789078907807" "==============================" >> "${yt_playlist_home_dir}/yt-playlist_search_history.txt"
-echo "${yt_playlist_search}" >> "${yt_playlist_home_dir}/yt-playlist_search_history.txt"
-echo "7807897890789078907807" "==============================" >> "${yt_playlist_home_dir}/yt-playlist_search_history.txt"
-echo "7807897890789078907807" "YT Playlist search: ${yt_search}" >> "${yt_playlist_home_dir}/yt-playlist_search_history.txt"
-sed -i '/^$/d' "${yt_playlist_home_dir}/yt-playlist_search_history.txt"
+echo "7807897890789078907807" "==============================" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
+echo "${yt_playlist_search}" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
+echo "7807897890789078907807" "==============================" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
+echo "7807897890789078907807" "YT Playlist search: ${yt_search}" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
+sed -i '/^$/d' "${yt_playlist_home_dir}/yt-playlist_history.txt"
 fi
 }
 
@@ -3092,11 +3090,11 @@ yt_search_plus=$(echo "$yt_search" | sed 's/ /+/g' )
 yt_channel_search=$(yt-dlp --no-warnings --quiet --flat-playlist --print "%(channel_id)s Channel: %(channel)s" -I "$yt_search_number" "https://youtube.com/search?q=${yt_search_plus}&sp=EgIQAg%253D%253D" 2>/dev/null)
 if [ -n "$yt_channel_search" ]
 then
-echo "7807897890789078907807" "==============================" >> "${yt_playlist_home_dir}/yt-playlist_search_history.txt"
-echo "${yt_channel_search}" >> "${yt_playlist_home_dir}/yt-playlist_search_history.txt"
-echo "7807897890789078907807" "==============================" >> "${yt_playlist_home_dir}/yt-playlist_search_history.txt"
-echo "7807897890789078907807" "YT Channel search: ${yt_search}" >> "${yt_playlist_home_dir}/yt-playlist_search_history.txt"
-sed -i '/^$/d' "${yt_playlist_home_dir}/yt-playlist_search_history.txt"
+echo "7807897890789078907807" "==============================" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
+echo "${yt_channel_search}" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
+echo "7807897890789078907807" "==============================" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
+echo "7807897890789078907807" "YT Channel search: ${yt_search}" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
+sed -i '/^$/d' "${yt_playlist_home_dir}/yt-playlist_history.txt"
 fi
 }
 
@@ -3112,11 +3110,11 @@ get_channel_playlist=$(yt-dlp --no-warnings --quiet --flat-playlist --print "%(i
 fi
 if [ -n "$get_channel_playlist" ]
 then
-echo "7807897890789078907807" "==============================" >> "${yt_playlist_home_dir}/yt-playlist_search_history.txt"
-echo "${get_channel_playlist}" >> "${yt_playlist_home_dir}/yt-playlist_search_history.txt"
-echo "7807897890789078907807" "==============================" >> "${yt_playlist_home_dir}/yt-playlist_search_history.txt"
-echo "7807897890789078907807" "Get Channel playlists: ${yt_playlist_vanilla_title}" >> "${yt_playlist_home_dir}/yt-playlist_search_history.txt"
-sed -i '/^$/d' "${yt_playlist_home_dir}/yt-playlist_search_history.txt"
+echo "7807897890789078907807" "==============================" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
+echo "${get_channel_playlist}" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
+echo "7807897890789078907807" "==============================" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
+echo "7807897890789078907807" "Get Channel playlists: ${yt_playlist_vanilla_title}" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
+sed -i '/^$/d' "${yt_playlist_home_dir}/yt-playlist_history.txt"
 fi
 }
 
