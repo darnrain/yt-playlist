@@ -11,7 +11,7 @@
         echo "============================"
         echo "All dependencies were found."
         echo "============================"
-        cp ${HOME}/yt-playlist/yt-playlist-termux/yt-playlist /data/data/com.termux/files/usr/bin/
+        cp ${TMPDIR}/yt-playlist/yt-playlist-termux/yt-playlist /data/data/com.termux/files/usr/bin/
         chmod +x /data/data/com.termux/files/usr/bin/yt-playlist
         mkdir -p ${HOME}/.config/yt-playlist/
         mkdir -p ${HOME}/.config/yt-playlist/scripts/
