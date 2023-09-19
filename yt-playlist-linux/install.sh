@@ -26,7 +26,7 @@
         echo "mpv is installed, version: ${mpv_version}"
         fi
         echo "============================"
-        sudo cp ./yt-playlist /usr/bin/
+        sudo cp /tmp/yt-playlist/yt-playlist-linux/yt-playlist /usr/bin/
         sudo chmod +x /usr/bin/yt-playlist
         mkdir -p ${HOME}/.config/yt-playlist/
         mkdir -p ${HOME}/.config/yt-playlist/scripts/
