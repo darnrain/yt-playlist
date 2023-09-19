@@ -1,23 +1,36 @@
-yt-playlist is in beta on macOS, however v0.7 seems to be running good. I was only able to test yt-playlist on macos big sur.
+macOS install yt-playlist.
 
+If on v0.11 or higher, go to Automated install or Offline install. Otherwise Install the dependencies and then Automated install or Offline install.
 
-If you have yt-playlist installed start at step #2.
+If you are installing for the first time, start at Install brew.
 
-If you are installing for the first time start at step #1.
+==========================================
+Install yt-playlist
+==========================================
 
+Install brew: https://brew.sh/
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-1. Install:
-Install brew first. https://brew.sh/
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"; brew update
-
-2. Install the dependencies:
+Install the dependencies:
 brew install curl nano unzip mpv fx gnu-sed coreutils terminal-notifier ffmpeg fzf socat python3 python-mutagen
 
-3. download and install. You can use this one command from now on to install the latest beta macos version of yt-playlist.
-yes|rm -R /tmp/yt-playlist/; git clone https://github.com/darnrain/yt-playlist.git /tmp/yt-playlist/; sudo chmod +x /tmp/yt-playlist/yt-playlist_macos_beta/install.sh; /tmp/yt-playlist/yt-playlist_macos_beta/install.sh
+Automated install:
+if [ -d /tmp/yt-playlist/ ]; then yes|rm -R /tmp/yt-playlist/; fi; git clone https://github.com/darnrain/yt-playlist.git /tmp/yt-playlist/; sudo chmod +x /tmp/yt-playlist/yt-playlist_macos_beta/install.sh; /tmp/yt-playlist/yt-playlist_macos_beta/install.sh --online_install
 
-Type y to run yt-playlist
+or 
+
+Offline install:
+sudo chmod +x ./install.sh; ./install.sh
+
+Type y to run yt-playlist:
 echo "alias y='yt-playlist'" >> ${HOME}/.bash_profile; source ${HOME}/.bash_profile
 
-download and uninstall.
-yes|rm -R /tmp/yt-playlist/; git clone https://github.com/darnrain/yt-playlist.git /tmp/yt-playlist/; sudo chmod +x /tmp/yt-playlist/yt-playlist_macos_beta/uninstall.sh; /tmp/yt-playlist/yt-playlist_macos_beta/uninstall.sh
+==========================================
+Uninstall yt-playlist
+==========================================
+
+Automated uninstall:
+if [ -d /tmp/yt-playlist/ ]; then yes|rm -R /tmp/yt-playlist/; fi; git clone https://github.com/darnrain/yt-playlist.git /tmp/yt-playlist/; sudo chmod +x /tmp/yt-playlist/yt-playlist_macos_beta/uninstall.sh; /tmp/yt-playlist/yt-playlist_macos_beta/uninstall.sh
+
+Offline uninstall:
+sudo chmod +x ./unisntall.sh; ./uninstall.sh

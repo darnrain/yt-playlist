@@ -1,10 +1,24 @@
-9-18-2023
+9-19-2023
 
 ================================
 Change log notes
 ================================
 
-Update: I am done rearranging everything. :)
+v0.12 yt-playlist_macos_beta
+Added an offline install option.
+
+v2.31
+Added an offline install option. Also changed the install commands one more time, so we can have an Automated and Offline install. Updated readme.txt on all three flavors.
+
+Linux automated install:
+if [ -d /tmp/yt-playlist/ ]; then yes|rm -R /tmp/yt-playlist/; fi; git clone https://github.com/darnrain/yt-playlist.git /tmp/yt-playlist/; sudo chmod +x /tmp/yt-playlist/yt-playlist-linux/install.sh; /tmp/yt-playlist/yt-playlist-linux/install.sh --online_install
+
+macOS automated install:
+if [ -d /tmp/yt-playlist/ ]; then yes|rm -R /tmp/yt-playlist/; fi; git clone https://github.com/darnrain/yt-playlist.git /tmp/yt-playlist/; sudo chmod +x /tmp/yt-playlist/yt-playlist_macos_beta/install.sh; /tmp/yt-playlist/yt-playlist_macos_beta/install.sh --online_install
+
+Termux automated install:
+if [ -d /${TMPDIR}/yt-playlist/ ]; then yes|rm -R /${TMPDIR}/yt-playlist/; fi; git clone https://github.com/darnrain/yt-playlist.git ${TMPDIR}/yt-playlist/; chmod +x ${TMPDIR}/yt-playlist/yt-playlist-termux/install.sh; ${TMPDIR}/yt-playlist/yt-playlist-termux/install.sh --online_install
+
 
 v0.11 yt-playlist_macos_beta
 Because I have changed every thing around, I needed to make some changes to yt-playlist for this new install.
@@ -13,14 +27,7 @@ v2.30
 You may have seen that I did a compleat do over on the github website. One command to install the latest version of yt-playlist now.
 Because I have changed every thing around, I needed to make some changes to yt-playlist for this new install.
 
-Linux install command:
-yes|rm -R /tmp/yt-playlist/; git clone https://github.com/darnrain/yt-playlist.git /tmp/yt-playlist/; sudo chmod +x /tmp/yt-playlist/yt-playlist-linux/install.sh; /tmp/yt-playlist/yt-playlist-linux/install.sh
-
-Termux install command:
-yes|rm -R ${TMPDIR}/yt-playlist/; git clone https://github.com/darnrain/yt-playlist.git ${TMPDIR}/yt-playlist/; chmod +x ${TMPDIR}/yt-playlist/yt-playlist-termux/install.sh; ${TMPDIR}/yt-playlist/yt-playlist-termux/install.sh
-
-macOS_beta isntall command:
-yes|rm -R /tmp/yt-playlist/; git clone https://github.com/darnrain/yt-playlist.git /tmp/yt-playlist/; sudo chmod +x /tmp/yt-playlist/yt-playlist_macos_beta/install.sh; /tmp/yt-playlist/yt-playlist_macos_beta/install.sh
+Update: I am done rearranging everything. :)
 
 v0.10 yt-playlist_macos_beta
 This was tricky to fix, but I got it this time. You can now delete history.

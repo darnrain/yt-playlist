@@ -1,5 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
+        externel_argument="$1"
+
         if ! pgrep yt-playlist >/dev/null
         then
         if ! pgrep mpv >/dev/null
@@ -11,7 +13,12 @@
         echo "============================"
         echo "All dependencies were found."
         echo "============================"
+        if [[ "$externel_argument" = "--online_install" ]]
+	then
         cp ${TMPDIR}/yt-playlist/yt-playlist-termux/yt-playlist /data/data/com.termux/files/usr/bin/
+        else
+        cp ./yt-playlist /data/data/com.termux/files/usr/bin/
+        fi
         chmod +x /data/data/com.termux/files/usr/bin/yt-playlist
         mkdir -p ${HOME}/.config/yt-playlist/
         mkdir -p ${HOME}/.config/yt-playlist/scripts/

@@ -1,5 +1,7 @@
 #!/bin/sh
 
+        externel_argument="$1"
+
         if ! pgrep yt-playlist >/dev/null
         then
         if ! pgrep mpv >/dev/null
@@ -26,7 +28,12 @@
         echo "mpv is installed, version: ${mpv_version}"
         fi
         echo "============================"
+        if [[ "$externel_argument" = "--online_install" ]]
+	then
         sudo cp /tmp/yt-playlist/yt-playlist-linux/yt-playlist /usr/bin/
+        else
+        sudo cp ./yt-playlist /usr/bin/
+        fi
         sudo chmod +x /usr/bin/yt-playlist
         mkdir -p ${HOME}/.config/yt-playlist/
         mkdir -p ${HOME}/.config/yt-playlist/scripts/
