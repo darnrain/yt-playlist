@@ -7,6 +7,7 @@ Change log notes
 v0.14 yt-playlist_macos_beta
 stuff to make things work. :)
 This v2.32.1 update is for macOS beta, no changes were make on Linux or Termux at this time. Added some new dependencies, please install before installing this update.
+Notifictions wont work in this version, I forgot to enalbe them, next version.
 
 Also good idea to run "brew update && brew upgrade" after you upgrade macOS. Example macos big sur to monterey.
 
