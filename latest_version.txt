@@ -1,1 +1,1 @@
-v2.29 & macos_beta v0.10
+v2.30 & macos_beta v0.11
