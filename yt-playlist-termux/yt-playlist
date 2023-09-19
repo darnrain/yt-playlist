@@ -11,7 +11,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: /sdcard/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 yt_video_number="1:100"
-version="v2.28"
+version="v2.29"
 
 #mainmenu
 
@@ -492,7 +492,7 @@ Choose an option:  "
         if [ -n "$yt_playlist_start" ]
         then
         echo "${yt_playlist_results}" | awk '{print $2}' > "${tmp_dir}/yt_playlist_url.txt"
-        sed -i "1i header_line" "${tmp_dir}/yt_playlist_url.txt"
+        sed -i'' "1i header_line" "${tmp_dir}/yt_playlist_url.txt"
         clear
         echo "============================"
         echo "Play in sequence + inf loop."
@@ -524,7 +524,7 @@ Choose an option:  "
         if [ -n "$yt_playlist_start" ]
         then
         echo "${yt_playlist_results}" | awk '{print $2}' > "${tmp_dir}/yt_playlist_url.txt"
-        sed -i "1i header_line" "${tmp_dir}/yt_playlist_url.txt"
+        sed -i'' "1i header_line" "${tmp_dir}/yt_playlist_url.txt"
         clear
         echo "============================"
         echo "Play in sequence once."
@@ -827,7 +827,7 @@ Choose an option:  "
         if [ -n "$yt_playlist_start" ]
         then
         cat "${yt_playlist_home_dir}/yt-playlist_music.txt" | tac | awk '{print $1}' > "${tmp_dir}/yt_playlist_url.txt"
-        sed -i "1i header_line" "${tmp_dir}/yt_playlist_url.txt"
+        sed -i'' "1i header_line" "${tmp_dir}/yt_playlist_url.txt"
         yt_playlist_music_total=$(cat "${yt_playlist_home_dir}/yt-playlist_music.txt" | wc -l)
         clear
         echo "============================"
@@ -850,7 +850,7 @@ Choose an option:  "
         if [ -n "$yt_playlist_start" ]
         then
         cat "${yt_playlist_home_dir}/yt-playlist_music.txt" | tac | awk '{print $1}' > "${tmp_dir}/yt_playlist_url.txt"
-        sed -i "1i header_line" "${tmp_dir}/yt_playlist_url.txt"
+        sed -i'' "1i header_line" "${tmp_dir}/yt_playlist_url.txt"
         yt_playlist_music_total=$(cat "${yt_playlist_home_dir}/yt-playlist_music.txt" | wc -l)
         clear
         echo "============================"
@@ -1058,7 +1058,7 @@ fi
         sleep 3
         awk -F'-' '!seen[$2]++' "${yt_playlist_home_dir}/yt-playlist_music.txt" > "${tmp_dir}/yt-playlist_music.txt"
         mv "${tmp_dir}/yt-playlist_music.txt" "${yt_playlist_home_dir}/yt-playlist_music.txt"
-        sed -i '/^$/d' "${yt_playlist_home_dir}/yt-playlist_music.txt"
+        sed -i'' '/^$/d' "${yt_playlist_home_dir}/yt-playlist_music.txt"
         music_count=$(cat "${yt_playlist_home_dir}/yt-playlist_music.txt" | wc -l)
         echo ""
         echo "There are now $music_count in music library."
@@ -1075,7 +1075,7 @@ fi
         delete_music=$(cat "${yt_playlist_home_dir}/yt-playlist_music.txt" | nl -n"ln" -w2 -s " " | tac | nl -n"ln" -w2 -s " "  | fzf --reverse --header="Delete music." --bind ctrl-a:select-all,ctrl-d:deselect-all -m --with-nth=1,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $2}' | tr -s ';[:space:]' '[ *]' | sed 's/ /d;/g' | sed '$ s/.$//')
         if [ -n "$delete_music" ]
 	then
-        sed -i "$delete_music" "${yt_playlist_home_dir}/yt-playlist_music.txt"
+        sed -i'' "$delete_music" "${yt_playlist_home_dir}/yt-playlist_music.txt"
         play_music_menu_function
         else
         play_music_menu_function
@@ -1158,7 +1158,7 @@ Choose an option:  "
         if [ -n "$yt_playlist_start" ]
         then
         cat "${yt_playlist_home_dir}/yt-playlist_bookmark.txt" | tac | awk '{print $1}' > "${tmp_dir}/yt_playlist_url.txt"
-        sed -i "1i header_line" "${tmp_dir}/yt_playlist_url.txt"
+        sed -i'' "1i header_line" "${tmp_dir}/yt_playlist_url.txt"
         yt_playlist_bookmark_number=$(cat "${yt_playlist_home_dir}/yt-playlist_bookmark.txt" | wc -l)
         clear
         echo "============================"
@@ -1181,7 +1181,7 @@ Choose an option:  "
         if [ -n "$yt_playlist_start" ]
         then
         cat "${yt_playlist_home_dir}/yt-playlist_bookmark.txt" | tac | awk '{print $1}' > "${tmp_dir}/yt_playlist_url.txt"
-        sed -i "1i header_line" "${tmp_dir}/yt_playlist_url.txt"
+        sed -i'' "1i header_line" "${tmp_dir}/yt_playlist_url.txt"
         yt_playlist_bookmark_number=$(cat "${yt_playlist_home_dir}/yt-playlist_bookmark.txt" | wc -l)
         clear
         echo "============================"
@@ -1344,7 +1344,7 @@ fi
         delete_bookmark=$(cat "${yt_playlist_home_dir}/yt-playlist_bookmark.txt" | nl -n"ln" -w2 -s " " | tac | nl -n"ln" -w2 -s " "  | fzf --reverse --header="Delete bookmarks." --bind ctrl-a:select-all,ctrl-d:deselect-all -m --with-nth=1,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $2}' | tr -s ';[:space:]' '[ *]' | sed 's/ /d;/g' | sed '$ s/.$//')
         if [ -n "$delete_bookmark" ]
 	then
-        sed -i "$delete_bookmark" "${yt_playlist_home_dir}/yt-playlist_bookmark.txt"
+        sed -i'' "$delete_bookmark" "${yt_playlist_home_dir}/yt-playlist_bookmark.txt"
         play_sd_bookmark_menu_function
         else
         play_sd_bookmark_menu_function
@@ -1431,13 +1431,13 @@ Choose an option:  "
         unset yt_playlist_id
         delete_playlist=$(cat "${yt_playlist_home_dir}/yt-playlist_favorites.txt" | nl -n"ln" -w2 -s " " | tac | nl -n"ln" -w2 -s " "  | fzf --reverse --header="Delete favorites." --bind ctrl-a:select-all,ctrl-d:deselect-all -m --with-nth=1,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $2}' | tr -s ';[:space:]' '[ *]' | sed 's/ /d;/g' | sed '$ s/.$//')
         echo "delete_playlist"
-        sed -i "$delete_playlist" "${yt_playlist_home_dir}/yt-playlist_favorites.txt"
+        sed -i'' "$delete_playlist" "${yt_playlist_home_dir}/yt-playlist_favorites.txt"
         playlist_menu_function
         else
         unset yt_playlist_title
         unset yt_playlist_id
         delete_history=$( cat "${yt_playlist_home_dir}/yt-playlist_history.txt" | nl -n"ln" -w2 -s " " | tac | nl -n"ln" -w2 -s " " | fzf --reverse --header="Delete history." --bind ctrl-a:select-all,ctrl-d:deselect-all -m --with-nth=1,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $2}' | tr -s ';[:space:]' '[ *]' | sed 's/ /d;/g' | sed '$ s/.$//')
-        sed -i "$delete_history" "${yt_playlist_home_dir}/yt-playlist_history.txt"
+        sed -i'' "$delete_history" "${yt_playlist_home_dir}/yt-playlist_history.txt"
         playlist_menu_function
         fi
         else
@@ -2517,7 +2517,7 @@ function bookmark_function ()
         else
         echo '{ "command": ["show-text", "Saving to bookmarks." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         yt_playlist_bookmark_results=$(yt-dlp --no-warnings --quiet --flat-playlist -I 1 --print "%(id)s ${bookmark_video_or_music} %(title)s" "$yt_playlist_bookmark_results_url" 2>/dev/null)
-        sed -i '/^$/d' "${yt_playlist_home_dir}/yt-playlist_bookmark.txt" >/dev/null
+        sed -i'' '/^$/d' "${yt_playlist_home_dir}/yt-playlist_bookmark.txt" >/dev/null
         echo "https://www.youtube.com/watch?v=${yt_playlist_bookmark_results}" >> "${yt_playlist_home_dir}/yt-playlist_bookmark.txt"
         sleep 2
         echo '{ "command": ["show-text", "Saved to bookmarks." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
@@ -2546,7 +2546,7 @@ function favorites_function ()
         echo '{ "command": ["show-text", "Channel/Playlist/Album already saved to favorites." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         else
         echo '{ "command": ["show-text", "Saving Channel/Playlist/Album to favorites." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
-        sed -i -e :a -e '/^\n*$/{$d;N;ba' -e '}' "${yt_playlist_home_dir}/yt-playlist_favorites.txt" >/dev/null
+        sed -i'' -e :a -e '/^\n*$/{$d;N;ba' -e '}' "${yt_playlist_home_dir}/yt-playlist_favorites.txt" >/dev/null
         echo "$yt_playlist_id" "${yt_playlist_title}" >> "${yt_playlist_home_dir}/yt-playlist_favorites.txt"
         sleep 4
         echo '{ "command": ["show-text", "Channel/Playlist/Album saved to favorites." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
@@ -2901,7 +2901,7 @@ ytm_music_search=$(yt-dlp --flat-playlist --print "%(webpage_url)s Search: ${ytm
 if [ -n "$ytm_music_search" ]
 then
 echo "${ytm_music_search}" >> "${yt_playlist_home_dir}/yt-playlist_music.txt"
-sed -i '/^$/d' "${yt_playlist_home_dir}/yt-playlist_music.txt"
+sed -i'' '/^$/d' "${yt_playlist_home_dir}/yt-playlist_music.txt"
 clear
 yt_music_results_number=$(echo "${ytm_music_search}" | wc -l)
 echo "A total of "$yt_music_results_number" songs found."
@@ -2923,7 +2923,7 @@ ytm_music_search=$(yt-dlp --no-warnings --quiet --flat-playlist --print "%(webpa
 if [ -n "$ytm_music_search" ]
 then
 echo "${ytm_music_search}" >> "${yt_playlist_home_dir}/yt-playlist_music.txt"
-sed -i '/^$/d' "${yt_playlist_home_dir}/yt-playlist_music.txt"
+sed -i'' '/^$/d' "${yt_playlist_home_dir}/yt-playlist_music.txt"
 clear
 yt_music_results_number=$(echo "${ytm_music_search}" | wc -l)
 echo "A total of "$yt_music_results_number" songs found."
@@ -2949,7 +2949,7 @@ echo "7807897890789078907807" "==============================" >> "${yt_playlist
 echo "${ytm_album_search}" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
 echo "7807897890789078907807" "==============================" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
 echo "7807897890789078907807" "YTMusic Album Search: $ytm_search" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
-sed -i '/^$/d' "${yt_playlist_home_dir}/yt-playlist_history.txt"
+sed -i'' '/^$/d' "${yt_playlist_home_dir}/yt-playlist_history.txt"
 fi
 fi
 }
@@ -2971,7 +2971,7 @@ echo "7807897890789078907807" "==============================" >> "${yt_playlist
 echo "${ytm_playlist_search}" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
 echo "7807897890789078907807" "==============================" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
 echo "7807897890789078907807" "YTMusic Playlist search [1]: $ytm_search" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
-sed -i '/^$/d' "${yt_playlist_home_dir}/yt-playlist_history.txt"
+sed -i'' '/^$/d' "${yt_playlist_home_dir}/yt-playlist_history.txt"
 fi
 fi
 }
@@ -2993,7 +2993,7 @@ echo "7807897890789078907807" "==============================" >> "${yt_playlist
 echo "${ytm_playlist_search}" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
 echo "7807897890789078907807" "==============================" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
 echo "7807897890789078907807" "YTMusic Playlist search [2]: $ytm_search" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
-sed -i '/^$/d' "${yt_playlist_home_dir}/yt-playlist_history.txt"
+sed -i'' '/^$/d' "${yt_playlist_home_dir}/yt-playlist_history.txt"
 fi
 fi
 }
@@ -3016,7 +3016,7 @@ echo "7807897890789078907807" "==============================" >> "${yt_playlist
 echo "${yt_paste_playlist_url}" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
 echo "7807897890789078907807" "==============================" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
 echo "7807897890789078907807" "Paste Playlist url:" "${yt_paste_url}" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
-sed -i '/^$/d' "${yt_playlist_home_dir}/yt-playlist_history.txt"
+sed -i'' '/^$/d' "${yt_playlist_home_dir}/yt-playlist_history.txt"
 fi
 }
 
@@ -3038,7 +3038,7 @@ echo "7807897890789078907807" "==============================" >> "${yt_playlist
 echo "${yt_paste_channel_url}" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
 echo "7807897890789078907807" "==============================" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
 echo "7807897890789078907807" "Paste Channel url:" "${yt_paste_url}" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
-sed -i '/^$/d' "${yt_playlist_home_dir}/yt-playlist_history.txt"
+sed -i'' '/^$/d' "${yt_playlist_home_dir}/yt-playlist_history.txt"
 fi
 }
 
@@ -3057,7 +3057,7 @@ sleep 1
 else
 yt_paste_video_title=$(echo "${yt_paste_video_url}" | awk '{$1=""; print $0}' | sed 's/^[ \t]*//')
 echo "${yt_paste_video_url}" >> "${yt_playlist_home_dir}/yt-playlist_bookmark.txt"
-sed -i '/^$/d' "${yt_playlist_home_dir}/yt-playlist_bookmark.txt"
+sed -i'' '/^$/d' "${yt_playlist_home_dir}/yt-playlist_bookmark.txt"
 clear
 echo "Saved to the bookmark library."
 echo "$yt_paste_video_title"
@@ -3078,7 +3078,7 @@ echo "7807897890789078907807" "==============================" >> "${yt_playlist
 echo "${yt_playlist_search}" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
 echo "7807897890789078907807" "==============================" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
 echo "7807897890789078907807" "YT Playlist search: ${yt_search}" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
-sed -i '/^$/d' "${yt_playlist_home_dir}/yt-playlist_history.txt"
+sed -i'' '/^$/d' "${yt_playlist_home_dir}/yt-playlist_history.txt"
 fi
 }
 
@@ -3094,7 +3094,7 @@ echo "7807897890789078907807" "==============================" >> "${yt_playlist
 echo "${yt_channel_search}" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
 echo "7807897890789078907807" "==============================" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
 echo "7807897890789078907807" "YT Channel search: ${yt_search}" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
-sed -i '/^$/d' "${yt_playlist_home_dir}/yt-playlist_history.txt"
+sed -i'' '/^$/d' "${yt_playlist_home_dir}/yt-playlist_history.txt"
 fi
 }
 
@@ -3114,7 +3114,7 @@ echo "7807897890789078907807" "==============================" >> "${yt_playlist
 echo "${get_channel_playlist}" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
 echo "7807897890789078907807" "==============================" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
 echo "7807897890789078907807" "Get Channel playlists: ${yt_playlist_vanilla_title}" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
-sed -i '/^$/d' "${yt_playlist_home_dir}/yt-playlist_history.txt"
+sed -i'' '/^$/d' "${yt_playlist_home_dir}/yt-playlist_history.txt"
 fi
 }
 
@@ -3224,7 +3224,7 @@ not_a_playlist_id="7807897890789078907807 Not a channel/playlist/album.
         import_take_out=$(cat $external_arguments2 | sed '/^$/d' | sed '1d' | sed 's/,/ /' | sed 's/,/ /' | awk '{print $1,"Channel:",$3,$4,$5,$6,$7,$8,$9}')
         import_take_out_number=$(echo "$import_take_out" | wc -l)
         echo "$import_take_out" >> ${yt_playlist_home_dir}/yt-playlist_favorites.txt
-        sed -i '/^$/d' ${yt_playlist_home_dir}/yt-playlist_favorites.txt
+        sed -i'' '/^$/d' ${yt_playlist_home_dir}/yt-playlist_favorites.txt
         echo "A total of "$import_take_out_number" channels were imported to favorites"
         exit
         else
@@ -3234,7 +3234,7 @@ not_a_playlist_id="7807897890789078907807 Not a channel/playlist/album.
         import_take_out=$(cat $external_arguments2 | sed '/^$/d' | sed '1d' | sed 's/,/ /' | sed 's/music.//' | awk '{print $1,"YTMusic:",$3,$4,$5,$6,$7,$8,$9}')
         import_take_out_number=$(echo "$import_take_out" | wc -l)
         echo "$import_take_out" >> "${yt_playlist_home_dir}/yt-playlist_music.txt"
-        sed -i '/^$/d' "${yt_playlist_home_dir}/yt-playlist_music.txt"
+        sed -i'' '/^$/d' "${yt_playlist_home_dir}/yt-playlist_music.txt"
         echo "A total of "$import_take_out_number" songs were imported to the music menu."
         exit
         else

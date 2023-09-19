@@ -27,7 +27,6 @@
         fi
         echo "============================"
         sudo cp ./yt-playlist /usr/local/bin/
-        #sudo cp /tmp/yt-playlist/yt-playlist-linux/yt-playlist /usr/bin/
         sudo chmod +x /usr/local/bin/yt-playlist
         mkdir -p ${HOME}/.config/
         mkdir -p ${HOME}/.config/yt-playlist/

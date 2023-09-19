@@ -4,6 +4,13 @@
 Change log notes
 ================================
 
+v0.10 yt-playlist_macos_beta
+This was tricky to fix, but I got it this time. You can now delete history.
+
+v2.29
+I have a tendency to over complicate things. I have removed all the online install. All you have to do is look at the install_instructions.txt in the yt-playlist folder.
+sudo chmod +x ./install.sh; ./install.sh
+
 v0.9 yt-playlist_macos_beta
 Fixed an issue with deleting history.
 
