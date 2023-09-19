@@ -1,4 +1,4 @@
-yt-playlist is in beta on macOS, however v0.7 seems to be running good. I was only able to test yt-playlist on macos big sur, as I have a 2014 mac mini and can not update past that version.
+yt-playlist is in beta on macOS, however v0.7 seems to be running good. I was only able to test yt-playlist on macos big sur.
 
 
 If you have yt-playlist installed start at step #2.
