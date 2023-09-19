@@ -4,7 +4,7 @@
 Change log notes
 ================================
 
-Update: I am done rearanging everything. :)
+Update: I am done rearranging everything. :)
 
 v0.11 yt-playlist_macos_beta
 Because I have changed every thing around, I needed to make some changes to yt-playlist for this new install.
