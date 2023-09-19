@@ -7,7 +7,7 @@ Install yt-playlist
 ==========================================
 
 Automated install:
-pkg install git; if [ -d ${TMPDIR}/yt-playlist/ ]; then yes|rm -R ${TMPDIR}/yt-playlist/; fi; git clone https://github.com/darnrain/yt-playlist.git ${TMPDIR}/yt-playlist/; chmod +x ${TMPDIR}/yt-playlist/yt-playlist-termux/install.sh; ${TMPDIR}/yt-playlist/yt-playlist-termux/install.sh --online_install
+if [ -d ${TMPDIR}/yt-playlist/ ]; then yes|rm -R ${TMPDIR}/yt-playlist/; fi; pkg install git; git clone https://github.com/darnrain/yt-playlist.git ${TMPDIR}/yt-playlist/; chmod +x ${TMPDIR}/yt-playlist/yt-playlist-termux/install.sh; ${TMPDIR}/yt-playlist/yt-playlist-termux/install.sh --online_install
 
 or
 
