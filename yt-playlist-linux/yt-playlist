@@ -11,7 +11,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="v2.31"
+version="v2.32"
 
 #mainmenu
 
@@ -1697,7 +1697,6 @@ Choose an option:  "
         unset yt_playlist_title
         unset yt_playlist_id
         delete_playlist=$(cat "${yt_playlist_home_dir}/yt-playlist_favorites.txt" | nl -n"ln" -w2 -s " " | tac | nl -n"ln" -w2 -s " "  | fzf --reverse --header="Delete favorites." --bind ctrl-a:select-all,ctrl-d:deselect-all -m --with-nth=1,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $2}' | tr -s ';[:space:]' '[ *]' | sed 's/ /d;/g' | sed '$ s/.$//')
-        echo "delete_playlist"
         sed -i'' "$delete_playlist" "${yt_playlist_home_dir}/yt-playlist_favorites.txt"
         playlist_menu_function
         else

@@ -4,9 +4,13 @@
 Change log notes
 ================================
 
-Update: Still have the same bug on macOS version, deleting is all messed up, I finaly found out what it's doing wrong I just need to find out why it's doing that.
+v0.13 yt-playlist_macos_beta
+Wow this was a difficult issue to fix for me, took me like 3 4 days. But I can say with confidence that the deleting issue with macOS beta is now fixed. It was nl the whole time. Basically the line numbers were getting all messed up, it did delete just not the correct line. yt-playlist is now using gnl that fixed the issue.
+Everyone will need to install the new dependencies again.
 
-Also next verison I will change the dependencies to include git it's such a small thing I don't think it needs an update for that.
+v2.23
+Added the dependencie git to Linux and macOS beta. 
+Updated the readme.txt files.
 
 v2.31.1
 Termux version only. Other flavors were not updated.
