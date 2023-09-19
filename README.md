@@ -96,28 +96,6 @@ music-library-songs.csv
 Example: "yt-playlist --import subscriptions.csv"
 </pre>
 
-
-### yt-playlist notes:
-* I am in the process of testing yt-playlist on macos.
-* Added the option to delete all the duplicate from the music library, in the Play YTMusic menu.
-* Added Billboard Hot 100 (1) and Billboard Hot 100 (2)
-* Added cover art notifications to the Play SD menu.
-* Added a yes or no question when you press q to quit.
-* Check internet status is now in the debug menu. Type debug at the main menu to access it.
-* Default audio format is now opus for the YTMusic menu.
-* Added pop up notifications for Linux, Next track, Prev track, Play/Pause, Download Audio, Download video, artist and title. You can now use yt-playlist without even looking at the terminal once you get your playlist playing, just map your keys to the command line arguments.
-* Play music/video then if you want to save the playback position and quit press "shift-q".
-* When you want to resume from that saved playback position enable resume playback, then play the music/video. The current playback position get's deleted when you resume.
-* If you just want to quit music/video with out saving the playback position, press "q".
-* You can save to the bookmarks and then press "shift-q" to save the playback position, then resume playback from the bookmarks.
-* Added the option of fast search and slow search to the YTMusic menu.
-* v1.3 Added the option to press "t" to show the date and time AM PM format when watching video or listening to music, all play menus.
-* Subtitles are disabled by default.
-* When playing video/music if you have opus enabled and then press "d" to download audio, yt-playlist will download the opus file.
-* Sleep timer, when the count down timer get's to 0 your volume will be slowly lowered to 0% then pause mpv, then it will restore your volume level back to the same level it was at before yt-playlist lowered it to 0%. You can cancel sleep timer at anytime, even if the volume is being lowered.
-
-I keep `yt-playlist --help` updated, for more info on changes please check the help.<br>
-
 ### Credits, A Special Thank You
 yt-dlp<br>
 https://github.com/yt-dlp/yt-dlp
