@@ -14,7 +14,7 @@ Install brew first.
 brew install curl nano unzip mpv fx gnu-sed coreutils terminal-notifier ffmpeg fzf socat python3 python-mutagen
 
 3. download yt-playlist:
-git clone https://github.com/darnrain/yt-playlist.git
+git clone https://github.com/darnrain/yt-playlist.git ${HOME}/yt-playlist/
 cd ${HOME}/yt-playlist/yt-playlist_macos_beta/
 sudo chmod +x ./install.sh; ./install.sh
 
