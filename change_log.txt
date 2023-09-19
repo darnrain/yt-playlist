@@ -4,6 +4,8 @@
 Change log notes
 ================================
 
+Also next verison I will change the dependencies to include git it's such a small thing I don't think it needs an update for that.
+
 v2.31.1
 Termux version only. Other flavors were not updated.
 Updated the install.sh on Termux, If you are installing Termux yt-playlist offline and not all dependencies were found, then installer would not work. Online install was working on v2.31.
