@@ -5,7 +5,7 @@ Change log notes
 ================================
 
 v0.16 yt-playlist_macos_beta
-Added a new dependencie jemalloc, will lower cpu usage running yt-playlist. Please install the new dependencies.
+Added a new dependencie jemalloc, will lower cpu usage running yt-playlist.
 
 v2.34
 Added jemalloc to the Linux auto dependencies install. No changed were made to Termux, but you can update if you want to be on the new version.
