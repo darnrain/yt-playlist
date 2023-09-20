@@ -4,6 +4,10 @@
 Change log notes
 ================================
 
+v2.35.1
+Fixed issue with help menu Linux version.
+No changes were made to Termux or macOS.
+
 v2.35
 Changes to Linux only, updated version number on Termux.
 Getting cover notifications on Linux takes time, getting 100 results.
@@ -296,7 +300,7 @@ v1.47
 Changed how resume playback works.
 Play music/video then if you want to save the playback position and quit press "shift-q".
 When you want to resume from that saved playback position enable resume playback, then play the music/video.
-If you just want to quit music/video with out saving the playback position, press "q".
+If you just want to quit music/video without saving the playback position, press "q".
 You can save to the bookmarks and then press "shift-q" to save the playback position, then resume playback from the bookmarks.
 Resume playback and save playback position only will work in the Play SD menu and Bookmark SD menu.
 

@@ -11,7 +11,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="v2.35"
+version="v2.35.1"
 
 #mainmenu
 
@@ -3552,7 +3552,8 @@ echo "Audio/Video"
 echo "Download audio          --download_audio opus"
 echo "                        --download_audio m4a"
 echo "Download video          --download_video mp4"
-echo" Enable cover art        --cover_art"
+echo "Enable cover art"       
+echo "notifications           --cover_art"
 echo "Import Google takeout:  --import" 
 echo "Suppprted file types:"
 echo "subscriptions.csv" 
