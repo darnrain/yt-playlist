@@ -9,7 +9,7 @@ Enabled notifications.
 
 v2.33
 No much has changed. I cleaned up the Linux and Termux install.sh and the main yt-playlist file.
-yt-playlist will not check to make sure you have git installed.
+yt-playlist will now check to make sure you have git installed.
 
 v0.14 yt-playlist_macos_beta
 stuff to make things work. :)
