@@ -4,6 +4,15 @@
 Change log notes
 ================================
 
+v2.35
+Changes to Linux only, updated version number on Termux.
+Getting cover notifications on Linux takes time, getting 100 results.
+3.45 seconds with cover art.
+1.71 seconds with out cover art.
+You will see this when you play an Channel/Playlist/Album for the first time, it has to download all the songs and get the cover art. So I have added a command line argument. 
+"yt-playlsit --cover_art"
+By default cover art is disabled now. To enable it just run yt-playlist with that argument. It's a traid off, cover art notifications but takes longer to start music/video, or no cover art but 2x faster starting?
+
 v0.18 yt-playlist_macos_beta
 This macOS port was taken from the Linux version, Linux downloads the cover art of the Channel/Playlist/Album. I have not found out how to display that in the notifications on mac. So I have removed the download of that cover art.
 No changes were made to Linux or Termux only macOS in v2.34.3

@@ -11,7 +11,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="v2.34"
+version="v2.35"
 
 #mainmenu
 
@@ -3223,7 +3223,15 @@ function results_function ()
         yt_playlist_total_number=$(echo "${yt_playlist_results}" | wc -l)
         yt_playlist_total="Channel results: $yt_playlist_total_number"
         export bookmark_video_or_music="Video:"
-        yt-dlp --no-warnings --quiet -x --write-thumbnail --flat-playlist -o "${tmp_dir}/yt-playlist_icons" -I 1 https://www.youtube.com/channel/$yt_playlist_id >/dev/null
+	if [ -n "$cover_art" ]
+	then
+        yt-dlp --no-warnings --quiet -x --write-thumbnail --flat-playlist -o "${tmp_dir}/yt-playlist_icons" -I 1 https://youtube.com/playlist?list=$yt_playlist_id >/dev/null
+        else
+        if test -f "${tmp_dir}/yt-playlist_icons.jpg"
+        then
+        rm "${tmp_dir}/yt-playlist_icons.jpg"
+  fi
+fi
         clear
   fi
 fi
@@ -3239,7 +3247,15 @@ fi
         yt_playlist_total_number=$(echo "${yt_playlist_results}" | wc -l)
         yt_playlist_total="Playlist results: $yt_playlist_total_number"
         export bookmark_video_or_music="Music:"
+	if [ -n "$cover_art" ]
+	then
         yt-dlp --no-warnings --quiet -x --write-thumbnail --flat-playlist -o "${tmp_dir}/yt-playlist_icons" -I 1 https://youtube.com/playlist?list=$yt_playlist_id >/dev/null
+        else
+        if test -f "${tmp_dir}/yt-playlist_icons.jpg"
+        then
+        rm "${tmp_dir}/yt-playlist_icons.jpg"
+  fi
+fi
         clear
   fi
 fi
@@ -3255,7 +3271,15 @@ fi
         yt_playlist_total_number=$(echo "${yt_playlist_results}" | wc -l)
         yt_playlist_total="Playlist results: $yt_playlist_total_number"
         export bookmark_video_or_music="Video:"
+	if [ -n "$cover_art" ]
+	then
         yt-dlp --no-warnings --quiet -x --write-thumbnail --flat-playlist -o "${tmp_dir}/yt-playlist_icons" -I 1 https://youtube.com/playlist?list=$yt_playlist_id >/dev/null
+        else
+        if test -f "${tmp_dir}/yt-playlist_icons.jpg"
+        then
+        rm "${tmp_dir}/yt-playlist_icons.jpg"
+  fi
+fi
         clear
   fi
 fi
@@ -3271,7 +3295,15 @@ fi
         yt_playlist_total_number=$(echo "${yt_playlist_results}" | wc -l)
         yt_playlist_total="Album results: $yt_playlist_total_number"
         export bookmark_video_or_music="Music:"
+	if [ -n "$cover_art" ]
+	then
         yt-dlp --no-warnings --quiet -x --write-thumbnail --flat-playlist -o "${tmp_dir}/yt-playlist_icons" -I 1 https://youtube.com/playlist?list=$yt_playlist_id >/dev/null
+        else
+        if test -f "${tmp_dir}/yt-playlist_icons.jpg"
+        then
+        rm "${tmp_dir}/yt-playlist_icons.jpg"
+  fi
+fi
         clear
   fi
 fi
@@ -3520,6 +3552,7 @@ echo "Audio/Video"
 echo "Download audio          --download_audio opus"
 echo "                        --download_audio m4a"
 echo "Download video          --download_video mp4"
+echo" Enable cover art        --cover_art"
 echo "Import Google takeout:  --import" 
 echo "Suppprted file types:"
 echo "subscriptions.csv" 
@@ -3752,6 +3785,13 @@ fi
 	then
         title_notification_function
         exit
+        fi
+
+        if [[ "$external_arguments1" = "--cover_art" ]]
+	then
+        cover_art="yes"
+        else
+        unset cover_art
         fi
 
 	if command -v jemalloc-config >/dev/null
