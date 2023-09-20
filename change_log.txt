@@ -4,6 +4,10 @@
 Change log notes
 ================================
 
+v2.35.4
+Updated Termux only.
+Updated the Termux install command. It now checks to see if git is installed, if true then skips install. This will speed up the automated install.
+
 v2.35.3
 Updated Termux only.
 Fixed sed commands in Termux install.sh
