@@ -16,7 +16,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="v0.20_macos_beta"
+version="v0.20.1_macos_beta"
 
 #mainmenu
 
@@ -3784,11 +3784,4 @@ fi
         unset jemalloc
 	fi
 
-mpv_video_fullscreen_off_function
-mpv_video_gpu_off_function
-resume_playback_off_function
-mpv_log_file_off_funciton
-mpv_music_opus_function
-mpv_video_m4a_function
-clean_up_function
-yt_playlist_start_function
+	yt_playlist_start_function

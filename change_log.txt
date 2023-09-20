@@ -4,6 +4,9 @@
 Change log notes
 ================================
 
+Linux v2.36.1 | macOS v0.20.1 | Termux v2.36.1
+Fixed bug with the changes I made in the last version. If you typed in the wrong argument, then yt-playlist would not accept anymore arguments.
+
 Linux v2.36 | macOS v0.20 | Termux v2.36
 Made a check to make sure there is no yt-playlist running before starting yt-playlist. If you open two yt-playlist, it can cause issues.
 Updated the install.sh on Linux/macOS/Termux to check and see if yt-playlist is running before installing.
