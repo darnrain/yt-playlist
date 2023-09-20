@@ -1,1 +1,1 @@
-v2.35 & macos_beta v0.19
+Linux v2.35.2 | Termux v2.32 | macOS v0.19
