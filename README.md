@@ -57,6 +57,7 @@ More photos.<br>
 * Playing 2k, 4k, 8k requires a fast comptuer - gpu.
 
 ### Tested OS and working as of 9-8-2023:
+* macOS monterey
 * macOS big sur
 * Arch/Manjaro/EndeavourOS Linux
 * Linux Mint
