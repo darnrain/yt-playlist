@@ -4,6 +4,8 @@
 Change log notes
 ================================
 
+Just an fyi macos monterey is way slooooow. Went back to big sur, so much faster.
+
 v0.18 yt-playlist_macos_beta
 yt-playlist with now use /usr/local/bin/bash installed by brew. Updated the dependencies in readme.txt
 No changes were made to Linux or Termux only macOS in v2.34.2
