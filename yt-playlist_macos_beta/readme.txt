@@ -4,7 +4,7 @@ If on v0.16 or below, then Install the new dependencies and then Automated insta
 
 If you are installing for the first time, start at Install brew.
 
-Might be a good idea to run "brew update && brew upgrade" after you upgrade macOS. Example macos big sur to monterey.
+For notifications to work on macOS you need to give permissions to terminal-notifier.
 
 ==========================================
 Install yt-playlist
