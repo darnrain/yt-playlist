@@ -14,9 +14,12 @@ function termux_install_function ()
         mkdir -p ${HOME}/.config/yt-playlist/
         mkdir -p ${HOME}/.config/yt-playlist/scripts/
         mkdir -p ${HOME}/.config/yt-playlist/scripts/sponsorblock_shared/
+        if ! test -f ${HOME}/.config/yt-playlist/scripts/sponsorblock.lua
+        then
         curl -s https://raw.githubusercontent.com/po5/mpv_sponsorblock/master/sponsorblock.lua -L -o ${HOME}/.config/yt-playlist/scripts/sponsorblock.lua
         curl -s https://raw.githubusercontent.com/po5/mpv_sponsorblock/master/sponsorblock_shared/main.lua -L -o ${HOME}/.config/yt-playlist/scripts/sponsorblock_shared/main.lua
         curl -s https://raw.githubusercontent.com/po5/mpv_sponsorblock/master/sponsorblock_shared/sponsorblock.py -L -o ${HOME}/.config/yt-playlist/scripts/sponsorblock_shared/sponsorblock.py
+        fi
         touch ${HOME}/.config/yt-playlist/yt-playlist_favorites.txt
         touch ${HOME}/.config/yt-playlist/yt-playlist_history.txt
         touch ${HOME}/.config/yt-playlist/yt-playlist_bookmark.txt
@@ -37,10 +40,10 @@ function termux_install_function ()
         echo "============================"
 }
 
-        if ! pgrep yt-playlist >/dev/null
-        then
-        if ! pgrep mpv >/dev/null
-        then
+	ps_list=$(ps -e)
+	yt_playlist_count=$(echo "$ps_list" | grep yt-playlist | wc -l)
+        if [[ "$yt_playlist_count" -lt 1 ]]
+	then
         if command -v yt-dlp >/dev/null && command -v mpv >/dev/null && command -v ffmpeg >/dev/null && command -v fzf >/dev/null && command -v mutagen-inspect >/dev/null && command -v socat >/dev/null && command -v fx >/dev/null && command -v wget >/dev/null && command -v curl >/dev/null
         then
         echo "============================"
@@ -83,9 +86,6 @@ function termux_install_function ()
         echo "============================"
         termux_install_function 
         exit
-        fi
-        else
-        echo "Please close mpv before installing."
         fi
         else
         echo "Please close yt-playlist before installing."

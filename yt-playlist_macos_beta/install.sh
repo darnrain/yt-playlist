@@ -2,10 +2,10 @@
 
         externel_argument="$1"
 
-        if ! pgrep yt-playlist >/dev/null
-        then
-        if ! pgrep mpv >/dev/null
-        then
+	ps_list=$(ps -e)
+	yt_playlist_count=$(echo "$ps_list" | grep yt-playlist | wc -l)
+        if [[ "$yt_playlist_count" -lt 1 ]]
+	then
         if command -v yt-dlp >/dev/null && command -v mpv >/dev/null && command -v ffmpeg >/dev/null && command -v fzf >/dev/null && command -v mutagen-inspect >/dev/null && command -v socat >/dev/null && command -v gawk >/dev/null && command -v gsed >/dev/null && command -v tr >/dev/null && command -v bash >/dev/null && command -v curl >/dev/null && command -v gnl >/dev/null && command -v git >/dev/null && command -v gsleep >/dev/null
         then
         echo "============================"
@@ -39,9 +39,12 @@
         mkdir -p ${HOME}/.config/yt-playlist/
         mkdir -p ${HOME}/.config/yt-playlist/scripts/
         mkdir -p ${HOME}/.config/yt-playlist/scripts/sponsorblock_shared/
+        if ! test -f ${HOME}/.config/yt-playlist/scripts/sponsorblock.lua
+        then
         curl -s https://raw.githubusercontent.com/po5/mpv_sponsorblock/master/sponsorblock.lua -L -o ${HOME}/.config/yt-playlist/scripts/sponsorblock.lua
         curl -s https://raw.githubusercontent.com/po5/mpv_sponsorblock/master/sponsorblock_shared/main.lua -L -o ${HOME}/.config/yt-playlist/scripts/sponsorblock_shared/main.lua
         curl -s https://raw.githubusercontent.com/po5/mpv_sponsorblock/master/sponsorblock_shared/sponsorblock.py -L -o ${HOME}/.config/yt-playlist/scripts/sponsorblock_shared/sponsorblock.py
+        fi
         touch ${HOME}/.config/yt-playlist/yt-playlist_favorites.txt
         touch ${HOME}/.config/yt-playlist/yt-playlist_history.txt
         touch ${HOME}/.config/yt-playlist/yt-playlist_bookmark.txt
@@ -139,9 +142,6 @@
         echo "Then install again."
         echo "============================"
         exit
-        fi
-        else
-        echo "Please close mpv before installing."
         fi
         else
         echo "Please close yt-playlist before installing."

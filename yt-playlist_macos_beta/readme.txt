@@ -1,6 +1,6 @@
 macOS install yt-playlist.
 
-If on v0.18 or below, then Install the new dependencies and then Automated install or Offline install.
+If on v0.18 or below, then Install the new dependencies and then Automated install or Offline install, otherwise go to Automated install or Offline install.
 
 If you are installing for the first time, start at Install brew.
 

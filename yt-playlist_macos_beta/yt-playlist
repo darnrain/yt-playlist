@@ -16,7 +16,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="v0.19_macos_beta"
+version="v0.20_macos_beta"
 
 #mainmenu
 
@@ -2266,6 +2266,27 @@ Choose an option:  "
 
 #functions
 
+function yt_playlist_start_function ()
+{
+ps_list=$(ps -e)
+yt_playlist_count=$(echo "$ps_list" | grep yt-playlist | wc -l)
+
+if [[ "$yt_playlist_count" -gt 1 ]]
+then
+echo "Error: yt-playlist is already running, or wrong argument."
+exit
+else
+mpv_video_fullscreen_off_function
+mpv_video_gpu_off_function
+resume_playback_off_function
+mpv_log_file_off_funciton
+mpv_music_opus_function
+mpv_video_m4a_function
+clean_up_function
+main_menu_function
+fi
+}
+
 function clean_up_function ()
 {
 	if test -f "${tmp_dir}/mpv_hd_running"
@@ -3770,4 +3791,4 @@ mpv_log_file_off_funciton
 mpv_music_opus_function
 mpv_video_m4a_function
 clean_up_function
-main_menu_function
+yt_playlist_start_function

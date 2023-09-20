@@ -11,7 +11,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: /sdcard/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 yt_video_number="1:100"
-version="v2.35.4"
+version="v2.36"
 
 #mainmenu
 
@@ -2002,6 +2002,25 @@ pactl -- set-sink-volume @DEFAULT_SINK@ 100%
 $1 $2 $3 $4 $5 $6 $7 $8 $9 ${10} ${11} ${12} ${13} ${14} ${15} ${16} ${17} ${18} ${19} ${20} ${21} ${22} ${23} ${24}
 }
 
+function yt_playlist_start_function ()
+{
+ps_list=$(ps -e)
+yt_playlist_count=$(echo "$ps_list" | grep yt-playlist | wc -l)
+
+if [[ "$yt_playlist_count" -gt 1 ]]
+then
+echo "Error: yt-playlist is already running, or wrong argument."
+exit
+else
+resume_playback_off_function
+mpv_log_file_off_funciton
+mpv_music_opus_function
+mpv_video_m4a_function
+clean_up_function
+main_menu_function
+fi
+}
+
 function clean_up_function ()
 {
 	if test -f "${tmp_dir}/mpv_hd_running"
@@ -3347,4 +3366,4 @@ mpv_log_file_off_funciton
 mpv_music_opus_function
 mpv_video_m4a_function
 clean_up_function
-main_menu_function
+yt_playlist_start_function

@@ -4,6 +4,11 @@
 Change log notes
 ================================
 
+Linux v2.36 | macOS v0.20 | Termux v2.36
+Made a check to make sure there is no yt-playlist running before starting yt-playlist. If you open two yt-playlist, it can cause issues.
+Updated the install.sh on Linux/macOS/Termux to check and see if yt-playlist is running before installing.
+If you type in the wrong argument you will get an error message now, before yt-playlist would just start. Also you can only type in one argument at a time.
+
 v2.35.4
 Updated Termux only.
 Updated the Termux install command. It now checks to see if git is installed, if true then skips install. This will speed up the automated install.
