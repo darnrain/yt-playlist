@@ -91,6 +91,8 @@ Audio/Video
 Download audio          --download_audio opus
                         --download_audio m4a
 Download video          --download_video mp4
+Enable cover art
+notifications           --cover_art
 Import Google takeout:  --import
 Suppprted file types:
 subscriptions.csv
