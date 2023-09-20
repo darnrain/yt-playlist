@@ -5,6 +5,7 @@ Change log notes
 ================================
 
 v2.35.2
+Linux only.
 Now at Main menu when cover art notifications enabled it say it's on.
 No changes were made to Termux or macOS.
 
