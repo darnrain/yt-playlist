@@ -145,8 +145,7 @@ NewPipe<br>
 Termux version.<br>
 https://github.com/TeamNewPipe/NewPipe
 
-<pre>
-MIT License
+MIT License<br>
 
 Copyright (c) 2023 darnrain<br>
 
