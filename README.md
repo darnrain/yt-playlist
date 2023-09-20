@@ -99,7 +99,7 @@ subscriptions.csv
 music-library-songs.csv
 Example: "yt-playlist --import subscriptions.csv"
 
- --cover_art is Linxu version only.
+--cover_art is Linux version only.
 </pre>
 
 ### Credits, A Special Thank You
