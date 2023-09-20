@@ -1,1 +1,1 @@
-v2.32 & macos_beta v0.14
+v2.33 & macos_beta v0.15
