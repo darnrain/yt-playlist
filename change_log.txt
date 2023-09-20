@@ -4,6 +4,8 @@
 Change log notes
 ================================
 
+Update: for notifications to work on macOS you need to give permissions to terminal-notifier
+
 v0.16 yt-playlist_macos_beta
 Added a new dependencie jemalloc, will lower cpu usage running yt-playlist.
 
