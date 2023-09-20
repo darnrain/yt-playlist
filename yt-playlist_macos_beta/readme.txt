@@ -1,8 +1,10 @@
 macOS install yt-playlist.
 
-If just installed v0.14 then Install the new dependencies and then Automated install or Offline install.
+If on v0.14 or below, then Install the new dependencies and then Automated install or Offline install.
 
 If you are installing for the first time, start at Install brew.
+
+Might be a good idea to run "brew update && brew upgrade" after you upgrade macOS. Example macos big sur to monterey.
 
 ==========================================
 Install yt-playlist

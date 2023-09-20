@@ -6,7 +6,7 @@
         then
         if ! pgrep mpv >/dev/null
         then
-        if command -v yt-dlp >/dev/null && command -v mpv >/dev/null && command -v ffmpeg >/dev/null && command -v fzf >/dev/null && command -v mutagen-inspect >/dev/null && command -v socat >/dev/null && command -v awk >/dev/null && command -v sed >/dev/null && command -v tr >/dev/null && command -v bash >/dev/null && command -v curl >/dev/null
+        if command -v yt-dlp >/dev/null && command -v mpv >/dev/null && command -v ffmpeg >/dev/null && command -v fzf >/dev/null && command -v mutagen-inspect >/dev/null && command -v socat >/dev/null && command -v awk >/dev/null && command -v sed >/dev/null && command -v tr >/dev/null && command -v bash >/dev/null && command -v curl >/dev/null && command -v git >/dev/null
         then
         echo "============================"
         echo "Linux installer yt-playlist."
@@ -96,6 +96,11 @@
         if ! command -v curl >/dev/null
         then
         echo "curl is not installed."
+        fi
+
+        if ! command -v git >/dev/null
+        then
+        echo "git is not installed."
         fi
 
         if ! command -v awk >/dev/null

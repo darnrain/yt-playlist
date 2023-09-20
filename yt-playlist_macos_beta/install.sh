@@ -6,7 +6,7 @@
         then
         if ! pgrep mpv >/dev/null
         then
-        if command -v yt-dlp >/dev/null && command -v mpv >/dev/null && command -v ffmpeg >/dev/null && command -v fzf >/dev/null && command -v mutagen-inspect >/dev/null && command -v socat >/dev/null && command -v awk >/dev/null && command -v sed >/dev/null && command -v tr >/dev/null && command -v bash >/dev/null && command -v curl >/dev/null
+        if command -v yt-dlp >/dev/null && command -v mpv >/dev/null && command -v ffmpeg >/dev/null && command -v fzf >/dev/null && command -v mutagen-inspect >/dev/null && command -v socat >/dev/null && command -v gawk >/dev/null && command -v gsed >/dev/null && command -v tr >/dev/null && command -v bash >/dev/null && command -v curl >/dev/null && command -v gnl >/dev/null && command -v git >/dev/null && command -v gsleep >/dev/null
         then
         echo "============================"
         echo "Macos installer yt-playlist."
@@ -24,7 +24,7 @@
         fi
         if command -v mpv >/dev/null
         then
-        mpv_version=$(mpv --version | grep "mpv" | cut -b -10 | sed 's/mpv//g' | sed 's/^[ \t]*//')
+        mpv_version=$(mpv --version | grep "mpv" | cut -b -10 | gsed 's/mpv//g' | gsed 's/^[ \t]*//')
         echo "mpv is installed, version: ${mpv_version}"
         fi
         echo "============================"
@@ -99,19 +99,34 @@
         echo "curl is not installed."
         fi
 
-        if ! command -v awk >/dev/null
+        if ! command -v gawk >/dev/null
         then
-        echo "awk is not installed."
+        echo "gawk is not installed."
         fi
 
-        if ! command -v sed >/dev/null
+        if ! command -v gsed >/dev/null
         then
-        echo "sed is not installed."
+        echo "gsed is not installed."
         fi
 
         if ! command -v tr >/dev/null
         then
         echo "tr is not installed."
+        fi
+
+        if ! command -v gnl >/dev/null
+        then
+        echo "gnl is not installed."
+        fi
+
+        if ! command -v git >/dev/null
+        then
+        echo "git is not installed."
+        fi
+
+        if ! command -v gsleep >/dev/null
+        then
+        echo "gsleep is not installed."
         fi
 
         if ! command -v bash >/dev/null

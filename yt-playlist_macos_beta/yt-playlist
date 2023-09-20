@@ -16,7 +16,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="v0.14_macos_beta"
+version="v0.15_macos_beta"
 
 #mainmenu
 
@@ -2322,9 +2322,9 @@ function title_notification_function ()
 {
         if test -f "${tmp_dir}/mpv_hd_running"
         then
-        if command -v notify-send >/dev/null
+        if command -v terminal-notifier >/dev/null
         then
-        notify-send -i ${tmp_dir}/yt-playlist_icons.jpg "yt-playlist" "Not available when playing hd video"
+        terminal-notifier -title "yt-playlist" -message "Not available when playing hd video"
         echo '{ "command": ["show-text", "Not available when playing hd video." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         exit
         else
@@ -2338,13 +2338,13 @@ fi
         check_for_artist=$(echo '{ "command": ["get_property", "media-title"] }' | socat - ${tmp_dir}/mpvsocket | cut -d'"' -f4)
         if [[ ! "${check_for_artist}" = *-* ]]
         then
-        if command -v notify-send >/dev/null
+        if command -v terminal-notifier >/dev/null
         then
         echo '{ "command": ["show-text", "Please wait, getting atrist & title." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
-        notify-send -i ${tmp_dir}/yt-playlist_icons.jpg "yt-playlist" "Please wait, getting atrist & title."
+        terminal-notifier -title "yt-playlist" -message "Please wait, getting atrist & title."
         yt_media_title_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
         yt_media_title=$(yt-dlp --no-warnings --quiet --flat-playlist -I 1 --print "%(uploader)s - %(title)s" "$yt_media_title_url")
-        notify-send -i ${tmp_dir}/yt-playlist_icons.jpg "yt-playlist" "$yt_media_title"
+        terminal-notifier -title "yt-playlist" -message "$yt_media_title"
         yt_terminal_title=$(printf '"%s" \n' "$yt_media_title")
 	echo show-text "$yt_terminal_title" | socat - "${tmp_dir}/mpvsocket"
         else
@@ -2355,9 +2355,9 @@ fi
 	echo show-text "$yt_terminal_title" | socat - "${tmp_dir}/mpvsocket"
         fi
         else
-        if command -v notify-send >/dev/null
+        if command -v terminal-notifier >/dev/null
         then
-        notify-send -i ${tmp_dir}/yt-playlist_icons.jpg "yt-playlist" "$check_for_artist"
+        terminal-notifier -title "yt-playlist" -message "$check_for_artist"
         yt_terminal_title=$(printf '"%s" \n' "$check_for_artist")
 	echo show-text "$yt_terminal_title" | socat - "${tmp_dir}/mpvsocket"
         else
@@ -2372,13 +2372,13 @@ fi
         check_for_artist=$(echo '{ "command": ["get_property", "media-title"] }' | socat - ${tmp_dir}/mpvsocket | cut -d'"' -f4)
         if [[ ! "${check_for_artist}" = *-* ]]
         then
-        if command -v notify-send >/dev/null
+        if command -v terminal-notifier >/dev/null
         then
         echo '{ "command": ["show-text", "Please wait, getting atrist & title." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
-        notify-send "yt-playlist" "Please wait, getting atrist & title."
+        terminal-notifier -title "yt-playlist" -message "Please wait, getting atrist & title."
         yt_media_title_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
         yt_media_title=$(yt-dlp --no-warnings --quiet --flat-playlist -I 1 --print "%(uploader)s - %(title)s" "$yt_media_title_url")
-        notify-send "yt-playlist" "$yt_media_title"
+        terminal-notifier -title "yt-playlist" -message "$yt_media_title"
         yt_terminal_title=$(printf '"%s" \n' "$yt_media_title")
 	echo show-text "$yt_terminal_title" | socat - "${tmp_dir}/mpvsocket"
         else
@@ -2389,9 +2389,9 @@ fi
 	echo show-text "$yt_terminal_title" | socat - "${tmp_dir}/mpvsocket"
         fi
         else
-        if command -v notify-send >/dev/null
+        if command -v terminal-notifier >/dev/null
         then
-        notify-send "yt-playlist" "$check_for_artist"
+        terminal-notifier -title "yt-playlist" -message "$check_for_artist"
         yt_terminal_title=$(printf '"%s" \n' "$check_for_artist")
 	echo show-text "$yt_terminal_title" | socat - "${tmp_dir}/mpvsocket"
         else
@@ -2405,13 +2405,13 @@ fi
         check_for_artist=$(echo '{ "command": ["get_property", "media-title"] }' | socat - ${tmp_dir}/mpvsocket | cut -d'"' -f4)
         if [[ ! "${check_for_artist}" = *-* ]]
         then
-        if command -v notify-send >/dev/null
+        if command -v terminal-notifier >/dev/null
         then
         echo '{ "command": ["show-text", "Please wait, getting atrist & title." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
-        notify-send "yt-playlist" "Please wait, getting atrist & title."
+        terminal-notifier -title "yt-playlist" -message "Please wait, getting atrist & title."
         yt_media_title_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
         yt_media_title=$(yt-dlp --no-warnings --quiet --flat-playlist -I 1 --print "%(uploader)s - %(title)s" "$yt_media_title_url")
-        notify-send "yt-playlist" "$yt_media_title"
+        terminal-notifier -title "yt-playlist" -message "$yt_media_title"
         yt_terminal_title=$(printf '"%s" \n' "$yt_media_title")
 	echo show-text "$yt_terminal_title" | socat - "${tmp_dir}/mpvsocket"
         else
@@ -2422,9 +2422,9 @@ fi
 	echo show-text "$yt_terminal_title" | socat - "${tmp_dir}/mpvsocket"
         fi
         else
-        if command -v notify-send >/dev/null
+        if command -v terminal-notifier >/dev/null
         then
-        notify-send "yt-playlist" "$check_for_artist"
+        terminal-notifier -title "yt-playlist" -message "$check_for_artist"
         yt_terminal_title=$(printf '"%s" \n' "$check_for_artist")
 	echo show-text "$yt_terminal_title" | socat - "${tmp_dir}/mpvsocket"
         else
@@ -2597,15 +2597,15 @@ function show_count_down_time_function ()
 
 function music_download_audio_function ()
 {
-        if command -v notify-send >/dev/null
+        if command -v terminal-notifier >/dev/null
         then
-        notify-send "yt-playlist" "Downloading audio, please wait."
+        terminal-notifier -title "yt-playlist" -message "Downloading audio, please wait."
         echo '{ "command": ["show-text", "Downloading audio, please wait." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         yt_playlist_download_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
 	sleep 2
         yt-dlp --no-warnings --quiet -x -f "$music_download_format" -o "${audio_dir}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "$yt_playlist_download_url" 2>/dev/null
         echo show-text "$show_audio_dir" | socat - "${tmp_dir}/mpvsocket"
-        notify-send "yt-playlist" "Saved to: ${audio_dir}"
+        terminal-notifier -title "yt-playlist" -message "Saved to: ${audio_dir}"
         else
         echo '{ "command": ["show-text", "Downloading audio, please wait." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         yt_playlist_download_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
@@ -2619,9 +2619,9 @@ function download_audio_function ()
 {
         if test -f "${tmp_dir}/mpv_hd_running"
         then
-        if command -v notify-send >/dev/null
+        if command -v terminal-notifier >/dev/null
         then
-        notify-send -i ${tmp_dir}/yt-playlist_icons.jpg "yt-playlist" "Not available when playing hd video"
+        terminal-notifier -title "yt-playlist" -message "Not available when playing hd video"
         echo '{ "command": ["show-text", "Not available when playing hd video." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         exit
         else
@@ -2638,15 +2638,15 @@ fi
 
         if test -f "${tmp_dir}/mpv_bookmark_running"
         then
-        if command -v notify-send >/dev/null
+        if command -v terminal-notifier >/dev/null
         then
-        notify-send "yt-playlist" "Downloading audio, please wait."
+        terminal-notifier -title "yt-playlist" -message "Downloading audio, please wait."
         echo '{ "command": ["show-text", "Downloading audio, please wait." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         yt_playlist_download_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
 	sleep 2
         yt-dlp --no-warnings --quiet -x -f "$audio_download_format" -o "${audio_dir}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "$yt_playlist_download_url" 2>/dev/null
         echo show-text "$show_audio_dir" | socat - "${tmp_dir}/mpvsocket"
-        notify-send "yt-playlist" "Saved to: ${audio_dir}"
+        terminal-notifier -title "yt-playlist" -message "Saved to: ${audio_dir}"
         else
         echo '{ "command": ["show-text", "Downloading audio, please wait." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         yt_playlist_download_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
@@ -2658,15 +2658,15 @@ fi
 
         if test -f "${tmp_dir}/mpv_video_running"
         then
-        if command -v notify-send >/dev/null
+        if command -v terminal-notifier >/dev/null
         then
-        notify-send -i ${tmp_dir}/yt-playlist_icons.jpg "yt-playlist" "Downloading audio, please wait."
+        terminal-notifier -title "yt-playlist" -message "Downloading audio, please wait."
         echo '{ "command": ["show-text", "Downloading audio, please wait." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         yt_playlist_download_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
 	sleep 2
         yt-dlp --no-warnings --quiet -x -f "$audio_download_format" -o "${audio_dir}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "$yt_playlist_download_url" 2>/dev/null
         echo show-text "$show_audio_dir" | socat - "${tmp_dir}/mpvsocket"
-        notify-send -i ${tmp_dir}/yt-playlist_icons.jpg "yt-playlist" "Saved to: ${audio_dir}"
+        terminal-notifier -title "yt-playlist" -message "Saved to: ${audio_dir}"
         else
         echo '{ "command": ["show-text", "Downloading audio, please wait." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         yt_playlist_download_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
@@ -2681,9 +2681,9 @@ function download_video_function ()
 {
         if test -f "${tmp_dir}/mpv_hd_running"
         then
-        if command -v notify-send >/dev/null
+        if command -v terminal-notifier >/dev/null
         then
-        notify-send -i ${tmp_dir}/yt-playlist_icons.jpg "yt-playlist" "Not available when playing hd video"
+        terminal-notifier -title "yt-playlist" -message "Not available when playing hd video"
         echo '{ "command": ["show-text", "Not available when playing hd video." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         exit
         else
@@ -2693,9 +2693,9 @@ function download_video_function ()
 fi
         if test -f "${tmp_dir}/mpv_music_running"
         then
-        if command -v notify-send >/dev/null
+        if command -v terminal-notifier >/dev/null
         then
-        notify-send "yt-playlist" "Not available when playing music."
+        terminal-notifier -title "yt-playlist" -message "Not available when playing music."
         echo '{ "command": ["show-text", "Not available when playing music." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         exit
         else
@@ -2706,15 +2706,15 @@ fi
 
         if test -f "${tmp_dir}/mpv_bookmark_running"
         then
-        if command -v notify-send >/dev/null
+        if command -v terminal-notifier >/dev/null
         then
-        notify-send "yt-playlist" "Downloading video, please wait."
+        terminal-notifier -title "yt-playlist" -message "Downloading video, please wait."
         echo '{ "command": ["show-text", "Downloading video, please wait." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         yt_playlist_download_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
 	sleep 2
         yt-dlp --no-warnings --quiet -f "$video_download_format" -o "${video_dir}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "$yt_playlist_download_url" 2>/dev/null
         echo show-text "$show_video_dir" | socat - "${tmp_dir}/mpvsocket"
-        notify-send "yt-playlist" "Saved to: ${video_dir}"
+        terminal-notifier -title "yt-playlist" -message "Saved to: ${video_dir}"
         else
         echo '{ "command": ["show-text", "Downloading video, please wait." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         yt_playlist_download_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
@@ -2726,15 +2726,15 @@ fi
 
         if test -f "${tmp_dir}/mpv_video_running"
         then
-        if command -v notify-send >/dev/null
+        if command -v terminal-notifier >/dev/null
         then
-        notify-send -i ${tmp_dir}/yt-playlist_icons.jpg "yt-playlist" "Downloading video, please wait."
+        terminal-notifier -title "yt-playlist" -message "Downloading video, please wait."
         echo '{ "command": ["show-text", "Downloading video, please wait." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         yt_playlist_download_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
 	sleep 2
         yt-dlp --no-warnings --quiet -f "$video_download_format" -o "${video_dir}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "$yt_playlist_download_url" 2>/dev/null
         echo show-text "$show_video_dir" | socat - "${tmp_dir}/mpvsocket"
-        notify-send -i ${tmp_dir}/yt-playlist_icons.jpg "yt-playlist" "Saved to: ${video_dir}"
+        terminal-notifier -title "yt-playlist" -message "Saved to: ${video_dir}"
         else
         echo '{ "command": ["show-text", "Downloading video, please wait." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         yt_playlist_download_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
@@ -3054,10 +3054,10 @@ function mpv_play_pause_function ()
 {
 	if test -f "${tmp_dir}/mpv_hd_running"
         then
-        if command -v notify-send >/dev/null
+        if command -v terminal-notifier >/dev/null
         then
         echo '{ "command": ["show-text", "Play/Pause" ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
-        notify-send -i ${tmp_dir}/yt-playlist_icons.jpg "yt-playlist" "Play/Pause"
+        terminal-notifier -title "yt-playlist" -message "Play/Pause"
         echo cycle pause | socat - "${tmp_dir}/mpvsocket"
         else
         echo '{ "command": ["show-text", "Play/Pause" ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
@@ -3067,10 +3067,10 @@ fi
 
 	if test -f "${tmp_dir}/mpv_video_running"
         then
-        if command -v notify-send >/dev/null
+        if command -v terminal-notifier >/dev/null
         then
         echo '{ "command": ["show-text", "Play/Pause" ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
-        notify-send -i ${tmp_dir}/yt-playlist_icons.jpg "yt-playlist" "Play/Pause"
+        terminal-notifier -title "yt-playlist" -message "Play/Pause"
         echo cycle pause | socat - "${tmp_dir}/mpvsocket"
         else
         echo '{ "command": ["show-text", "Play/Pause" ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
@@ -3080,10 +3080,10 @@ fi
 
 	if test -f "${tmp_dir}/mpv_bookmark_running"
         then
-        if command -v notify-send >/dev/null
+        if command -v terminal-notifier >/dev/null
         then
         echo '{ "command": ["show-text", "Play/Pause" ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
-        notify-send "yt-playlist" "Play/Pause"
+        terminal-notifier -title "yt-playlist" -message "Play/Pause"
         echo cycle pause | socat - "${tmp_dir}/mpvsocket"
         else
         echo '{ "command": ["show-text", "Play/Pause" ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
@@ -3093,10 +3093,10 @@ fi
 
 	if test -f "${tmp_dir}/mpv_music_running"
         then
-        if command -v notify-send >/dev/null
+        if command -v terminal-notifier >/dev/null
         then
         echo '{ "command": ["show-text", "Play/Pause" ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
-        notify-send "yt-playlist" "Play/Pause"
+        terminal-notifier -title "yt-playlist" -message "Play/Pause"
         echo cycle pause | socat - "${tmp_dir}/mpvsocket"
         else
         echo '{ "command": ["show-text", "Play/Pause" ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
@@ -3114,10 +3114,10 @@ function mpv_next_function ()
 
 	if test -f "${tmp_dir}/mpv_video_running"
         then
-        if command -v notify-send >/dev/null
+        if command -v terminal-notifier >/dev/null
         then
         echo '{ "command": ["show-text", "Next track" ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
-        notify-send -i "${tmp_dir}/yt-playlist_icons.jpg" "yt-playlist" "Next track"
+        terminal-notifier -title "yt-playlist" -message "Next track"
         echo playlist-next | socat - "${tmp_dir}/mpvsocket"
         else
         echo '{ "command": ["show-text", "Next track" ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
@@ -3127,10 +3127,10 @@ fi
 
 	if test -f "${tmp_dir}/mpv_bookmark_running"
         then
-        if command -v notify-send >/dev/null
+        if command -v terminal-notifier >/dev/null
         then
         echo '{ "command": ["show-text", "Next track" ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
-        notify-send "yt-playlist" "Next track"
+        terminal-notifier -title "yt-playlist" -message "Next track"
         echo playlist-next | socat - "${tmp_dir}/mpvsocket"
         else
         echo '{ "command": ["show-text", "Next track" ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
@@ -3140,10 +3140,10 @@ fi
 
 	if test -f "${tmp_dir}/mpv_music_running"
         then
-        if command -v notify-send >/dev/null
+        if command -v terminal-notifier >/dev/null
         then
         echo '{ "command": ["show-text", "Next track" ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
-        notify-send "yt-playlist" "Next track"
+        terminal-notifier -title "yt-playlist" -message "Next track"
         echo playlist-next | socat - "${tmp_dir}/mpvsocket"
         else
         echo '{ "command": ["show-text", "Next track" ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
@@ -3161,10 +3161,10 @@ function mpv_prev_function ()
 
 	if test -f "${tmp_dir}/mpv_video_running"
         then
-        if command -v notify-send >/dev/null
+        if command -v terminal-notifier >/dev/null
         then
         echo '{ "command": ["show-text", "Prev track" ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
-        notify-send -i ${tmp_dir}/yt-playlist_icons.jpg "yt-playlist" "Prev track"
+        terminal-notifier -title "yt-playlist" -message "Prev track"
         echo playlist-prev | socat - "${tmp_dir}/mpvsocket"
         else
         echo '{ "command": ["show-text", "Prev track" ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
@@ -3174,10 +3174,10 @@ fi
 
 	if test -f "${tmp_dir}/mpv_bookmark_running"
         then
-        if command -v notify-send >/dev/null
+        if command -v terminal-notifier >/dev/null
         then
         echo '{ "command": ["show-text", "Prev track" ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
-        notify-send "yt-playlist" "Prev track"
+        terminal-notifier -title "yt-playlist" -message "Prev track"
         echo playlist-prev | socat - "${tmp_dir}/mpvsocket"
         else
         echo '{ "command": ["show-text", "Prev track" ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
@@ -3187,10 +3187,10 @@ fi
 
 	if test -f "${tmp_dir}/mpv_music_running"
         then
-        if command -v notify-send >/dev/null
+        if command -v terminal-notifier >/dev/null
         then
         echo '{ "command": ["show-text", "Prev track" ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
-        notify-send "yt-playlist" "Prev track"
+        terminal-notifier -title "yt-playlist" -message "Prev track"
         echo playlist-prev | socat - "${tmp_dir}/mpvsocket"
         else
         echo '{ "command": ["show-text", "Prev track" ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
