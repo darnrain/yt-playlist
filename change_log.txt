@@ -4,6 +4,10 @@
 Change log notes
 ================================
 
+v0.18 yt-playlist_macos_beta
+yt-playlist with now use /usr/local/bin/bash installed by brew. Updated the dependencies in readme.txt
+No changes were made to Linux or Termux only macOS in v2.34.2
+
 v0.17 yt-playlist_macos_beta
 Updated the readme.txt file, changed the press y to load yt-playlist. It now works.
 No changes were made to Linux or Termux only macOS in v2.34.1
