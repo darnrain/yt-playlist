@@ -98,6 +98,8 @@ Suppprted file types:
 subscriptions.csv
 music-library-songs.csv
 Example: "yt-playlist --import subscriptions.csv"
+
+ --cover_art is Linxu version only.
 </pre>
 
 ### Credits, A Special Thank You
