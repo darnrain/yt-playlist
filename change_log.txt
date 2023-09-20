@@ -5,7 +5,7 @@ Change log notes
 ================================
 
 v0.17 yt-playlist_macos_beta
-Upated the readme.txt file, changed the press y to load yt-playlist. It now works.
+Updated the readme.txt file, changed the press y to load yt-playlist. It now works.
 No changes were made to Linux or Termux only macOS in v2.34.1
 
 v0.16 yt-playlist_macos_beta
