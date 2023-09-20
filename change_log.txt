@@ -8,7 +8,7 @@ v2.35
 Changes to Linux only, updated version number on Termux.
 Getting cover notifications on Linux takes time, getting 100 results.
 3.45 seconds with cover art.
-1.71 seconds with out cover art.
+1.71 seconds without cover art.
 You will see this when you play an Channel/Playlist/Album for the first time, it has to download all the songs and get the cover art. So I have added a command line argument. 
 "yt-playlsit --cover_art"
 By default cover art is disabled now. To enable it just run yt-playlist with that argument. It's a trade off, cover art notifications but takes longer to start music/video, or no cover art but 2x faster starting?
