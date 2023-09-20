@@ -16,7 +16,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="v0.18_macos_beta"
+version="v0.19_macos_beta"
 
 #mainmenu
 
@@ -3228,7 +3228,6 @@ function results_function ()
         yt_playlist_total_number=$(echo "${yt_playlist_results}" | wc -l)
         yt_playlist_total="Channel results: $yt_playlist_total_number"
         export bookmark_video_or_music="Video:"
-        yt-dlp --no-warnings --quiet -x --write-thumbnail --flat-playlist -o "${tmp_dir}/yt-playlist_icons" -I 1 https://www.youtube.com/channel/$yt_playlist_id >/dev/null
         clear
   fi
 fi
@@ -3244,7 +3243,6 @@ fi
         yt_playlist_total_number=$(echo "${yt_playlist_results}" | wc -l)
         yt_playlist_total="Playlist results: $yt_playlist_total_number"
         export bookmark_video_or_music="Music:"
-        yt-dlp --no-warnings --quiet -x --write-thumbnail --flat-playlist -o "${tmp_dir}/yt-playlist_icons" -I 1 https://youtube.com/playlist?list=$yt_playlist_id >/dev/null
         clear
   fi
 fi
@@ -3260,7 +3258,6 @@ fi
         yt_playlist_total_number=$(echo "${yt_playlist_results}" | wc -l)
         yt_playlist_total="Playlist results: $yt_playlist_total_number"
         export bookmark_video_or_music="Video:"
-        yt-dlp --no-warnings --quiet -x --write-thumbnail --flat-playlist -o "${tmp_dir}/yt-playlist_icons" -I 1 https://youtube.com/playlist?list=$yt_playlist_id >/dev/null
         clear
   fi
 fi
@@ -3276,7 +3273,6 @@ fi
         yt_playlist_total_number=$(echo "${yt_playlist_results}" | wc -l)
         yt_playlist_total="Album results: $yt_playlist_total_number"
         export bookmark_video_or_music="Music:"
-        yt-dlp --no-warnings --quiet -x --write-thumbnail --flat-playlist -o "${tmp_dir}/yt-playlist_icons" -I 1 https://youtube.com/playlist?list=$yt_playlist_id >/dev/null
         clear
   fi
 fi

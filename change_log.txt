@@ -1,10 +1,12 @@
-9-19-2023
+9-20-2023
 
 ================================
 Change log notes
 ================================
 
-Just an fyi macOS monterey is way slooooow. Went back to big sur, so much faster.
+v0.18 yt-playlist_macos_beta
+This macOS port was taken from the Linux version, Linux downloads the cover art of the Channel/Playlist/Album. I have not found out how to display that in the notifications on mac. So I have removed the download of that cover art.
+No changes were made to Linux or Termux only macOS in v2.34.3
 
 v0.18 yt-playlist_macos_beta
 yt-playlist with now use /usr/local/bin/bash installed by brew. Updated the dependencies in readme.txt
