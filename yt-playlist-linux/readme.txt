@@ -1,4 +1,4 @@
-Linux install yt-playlist.
+Linux yt-playlist.
 
 ==========================================
 Install yt-playlist
