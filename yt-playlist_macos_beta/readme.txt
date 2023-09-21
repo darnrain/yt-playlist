@@ -6,6 +6,9 @@ If you are installing for the first time, start at Install brew.
 
 For notifications to work on macOS you need to give permissions to terminal-notifier.
 
+If your on a older version of macOS like me, macOS High Siera and are getting an error message when trying to install brew, "Cant download software because of network problems." Then go to this link and sign in and find "Command line tools for your version of OS.
+https://developer.apple.com/download/all/?q=command%20line%20tools
+
 ==========================================
 Install yt-playlist
 ==========================================
