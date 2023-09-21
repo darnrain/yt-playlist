@@ -6,7 +6,9 @@ If you are installing for the first time, start at Install brew.
 
 For notifications to work on macOS you need to give permissions to terminal-notifier.
 
-If your on an older version of macOS like me, macOS High Siera and are getting an error message when trying to install brew, "Cant download software because of network problems." Then go to this link and sign in and find "Command line tools for your version of macOS. Also if you are running an older version of macOS, then you will need to compile everything and that will take some time.
+It's recomended to have macOS big sur or higher, otherwise you have to compile all the packages and that may take hr's. Also if your haveing lag issues with macOS big sur or higher, then disable your screen saver.
+
+If your on an older version of macOS and are getting an error message when trying to install brew, "Cant download software because of network problems." Then go to this link and sign in and find "Command line tools for your version of macOS. Also if you are running an older version of macOS, then you will need to compile everything and that will take some time.
 https://developer.apple.com/download/all/?q=command%20line%20tools
 
 ==========================================
