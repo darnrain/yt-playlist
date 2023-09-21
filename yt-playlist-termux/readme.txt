@@ -1,4 +1,4 @@
-Termux install yt-playlist.
+Termux yt-playlist.
 
 Dependencies will be automatically installed.
 
