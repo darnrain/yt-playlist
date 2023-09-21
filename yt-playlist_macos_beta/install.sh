@@ -1,11 +1,6 @@
 #!/usr/local/bin/bash
 
         externel_argument="$1"
-
-	ps_list=$(ps -e)
-	yt_playlist_count=$(echo "$ps_list" | grep yt-playlist | wc -l)
-        if [[ "$yt_playlist_count" -lt 2 ]]
-	then
         if command -v yt-dlp >/dev/null && command -v mpv >/dev/null && command -v ffmpeg >/dev/null && command -v fzf >/dev/null && command -v mutagen-inspect >/dev/null && command -v socat >/dev/null && command -v gawk >/dev/null && command -v gsed >/dev/null && command -v tr >/dev/null && command -v bash >/dev/null && command -v curl >/dev/null && command -v gnl >/dev/null && command -v git >/dev/null && command -v gsleep >/dev/null
         then
         echo "============================"
@@ -143,7 +138,4 @@
         echo "Then install again."
         echo "============================"
         exit
-        fi
-        else
-        echo "Please close yt-playlist before installing."
         fi

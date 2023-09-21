@@ -4,6 +4,9 @@
 Change log notes
 ================================
 
+Linux v2.38 | macOS v0.22 | Termux v2.38
+Removed the check to make sure yt-playlist is not loaded before installing yt-playlist. It was just causing too many issues with macOS beta. So I thought I would just remove it from all the installers.
+
 Linux v2.37.2 | macOS v0.21 | Termux v2.37
 Updated the Linux auto dependencies.txt file to include:
 If you get an error message:

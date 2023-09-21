@@ -39,11 +39,6 @@ function termux_install_function ()
         echo 'Then type "y" to run yt-playlist'
         echo "============================"
 }
-
-	ps_list=$(ps -e)
-	yt_playlist_count=$(echo "$ps_list" | grep yt-playlist | wc -l)
-        if [[ "$yt_playlist_count" -lt 1 ]]
-	then
         if command -v yt-dlp >/dev/null && command -v mpv >/dev/null && command -v ffmpeg >/dev/null && command -v fzf >/dev/null && command -v mutagen-inspect >/dev/null && command -v socat >/dev/null && command -v fx >/dev/null && command -v wget >/dev/null && command -v curl >/dev/null
         then
         echo "============================"
@@ -87,7 +82,3 @@ function termux_install_function ()
         termux_install_function 
         exit
         fi
-        else
-        echo "Please close yt-playlist before installing."
-        fi
-
