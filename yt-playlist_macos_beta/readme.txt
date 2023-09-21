@@ -1,4 +1,4 @@
-macOS install yt-playlist.
+macOS yt-playlist.
 
 It's recommended to have macOS big sur or higher, otherwise you will have to compile all the dependencies and that may take hr's. If your having frame drops with mpv on macOS big sur or higher, then disable your screen saver, siri and uninstall Xquartz if installed.
 
