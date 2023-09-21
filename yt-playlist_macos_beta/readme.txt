@@ -1,10 +1,15 @@
 macOS install yt-playlist.
 
+It's recommended to have macOS big sur or higher, otherwise you have to compile all the packages and that may take hr's. If your having video lag issues with macOS big sur or higher, then disable your screen saver and siri.
+
 If on v0.18 or below, then Install the new dependencies and then Automated install or Offline install, otherwise go to Automated install or Offline install.
 
 If you are installing for the first time, start at Install brew.
 
 For notifications to work on macOS you need to give permissions to terminal-notifier.
+
+If your on an older version of macOS and are getting an error message when trying to install brew, "Cant download software because of network problems." Then go to this link and sign in and find "Command line tools for your version of macOS. Also if you are running an older version of macOS, then you will need to compile everything and that could take hr's.
+https://developer.apple.com/download/all/?q=command%20line%20tools
 
 ==========================================
 Install yt-playlist
