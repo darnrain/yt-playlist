@@ -16,7 +16,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="v0.22_macos_beta"
+version="v0.22.1_macos_beta"
 
 #mainmenu
 
@@ -2990,7 +2990,7 @@ mpv_hd_arguments_function
 
 function mpv_hd_gpu_on_function ()
 {
-mpv_hd_gpu=( "--hwdec=auto-safe --vo=gpu" )
+mpv_hd_gpu=( "--hwdec=auto --vo=libmpv" )
 mpv_hd_arguments_function
 }
 
@@ -3024,7 +3024,7 @@ function mpv_video_gpu_on_function ()
 {
 if [ -n "$mpv_video_mp4" ]
 then
-mpv_video_gpu=( "--hwdec=auto-safe --vo=gpu" )
+mpv_video_gpu=( "--hwdec=auto --vo=libmpv" )
 mpv_video_arguments_function
 fi
 }

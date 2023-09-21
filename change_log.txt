@@ -4,6 +4,13 @@
 Change log notes
 ================================
 
+Linux v2.38.1 | macOS v0.22.1 | Termux v2.38
+Changed --hwdec=auto-safe to --hwdec=auto on Linux.
+This will enable HW gpu even if the GPU is not listed in the safe database.
+
+Changed --hwdec=auto--safe --vo=gpu to --hwdec=auto --vo=libmpv on macOS beta.
+The HW gpu was not enabled, now it is.
+
 Linux v2.38 | macOS v0.22 | Termux v2.38
 Removed the check to make sure yt-playlist is not loaded before installing yt-playlist. It was just causing too many issues with macOS beta. So I thought I would just remove it from all the installers.
 
