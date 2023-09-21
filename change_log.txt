@@ -1,8 +1,11 @@
-9-20-2023
+9-21-2023
 
 ================================
 Change log notes
 ================================
+
+Linux v2.37.1 | macOS v0.21 | Termux v2.37
+Added support for zsh shell to just press y to load yt-playlist on Linux.
 
 Linux v2.37 | macOS v0.21 | Termux v2.37
 Fixed not installing on Linux mint, maybe other debian based Linux.

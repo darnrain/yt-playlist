@@ -13,7 +13,7 @@ Offline install:
 sudo chmod +x ./install.sh; ./install.sh
 
 Type y to run yt-playlist:
-echo "alias y='yt-playlist'" >> ${HOME}/.bashrc; source ${HOME}/.bashrc
+echo "alias y='yt-playlist'" | tee -a ${HOME}/.bashrc ${HOME}/.zshrc; source ${HOME}/.bashrc; source ${HOME}/.zshrc
 
 ==========================================
 Unnstall yt-playlist
