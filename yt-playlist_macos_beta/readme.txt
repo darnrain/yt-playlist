@@ -1,6 +1,6 @@
 macOS install yt-playlist.
 
-It's recommended to have macOS big sur or higher, otherwise you have to compile all the packages and that may take hr's. If your having video lag issues with macOS big sur or higher, then disable your screen saver.
+It's recommended to have macOS big sur or higher, otherwise you have to compile all the packages and that may take hr's. If your having video lag issues with macOS big sur or higher, then disable your screen saver and siri.
 
 If on v0.18 or below, then Install the new dependencies and then Automated install or Offline install, otherwise go to Automated install or Offline install.
 
