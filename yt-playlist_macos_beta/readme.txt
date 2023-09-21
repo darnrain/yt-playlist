@@ -2,9 +2,7 @@ macOS install yt-playlist.
 
 It's recommended to have macOS big sur or higher, otherwise you will have to compile all the dependencies and that may take hr's. If your having frame drops with mpv on macOS big sur or higher, then disable your screen saver, siri and uninstall Xquartz if installed.
 
-If on v0.18 or below, then Install the new dependencies and then Automated install or Offline install, otherwise go to Automated install or Offline install.
-
-If you are installing for the first time, start at Install brew.
+If you are installing for the first time, start at Install brew. If on v0.18 or below, then start at Install the dependencies, otherwise go to Automated install or Offline install to upgrade.
 
 For notifications to work on macOS you need to give permissions to terminal-notifier.
 
