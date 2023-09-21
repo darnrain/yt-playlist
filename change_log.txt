@@ -4,6 +4,12 @@
 Change log notes
 ================================
 
+Linux v2.37.2 | macOS v0.21 | Termux v2.37
+Updated the Linux auto dependencies.txt file to include:
+If you get an error message:
+"chmod: cannot access '/usr/bin/yt-dlp': No such file or directory"
+Then copy and paste again, yt-dlp did not get downloaded.
+
 Linux v2.37.1 | macOS v0.21 | Termux v2.37
 Added support for zsh shell to just press y to load yt-playlist on Linux.
 
