@@ -1,5 +1,7 @@
 Linux yt-playlist.
 
+See dependencies.txt file, for the list of required dependencies.
+
 ==========================================
 Install yt-playlist
 ==========================================
