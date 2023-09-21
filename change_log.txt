@@ -4,7 +4,7 @@
 Change log notes
 ================================
 
-Update: I think the macOS version is just about ready to come out of beta status, and join the v2.x versions. If anyone is having issues with the macOS beta, then make sure your on the latest version, if that still does not fix it, you can open an issue. I have been testing it out this whole time, on my 2014 late mac mini with 4 gig's of ram, running big sur. I can run 1080p 60FPS just fine.
+Update: I think the macOS version is just about ready to come out of beta status, and join the v2.x versions. If anyone is having issues with the macOS beta, then make sure your on the latest version, if that still does not fix it, you can open an issue. I have been testing it out this whole time, on my 2014 late mac mini with 4 gig's of ram, running big sur. I can play a 1080p video at 60FPS with under 20 frame drops.
 
 Linux v2.38.1 | macOS v0.22.1 | Termux v2.38
 Changed --hwdec=auto-safe to --hwdec=auto on Linux.
