@@ -1,6 +1,6 @@
 #!/data/data/com.termux/files/usr/bin/bash 
 
-     	if command -v yt-playlist == *yt-playlist >/dev/null
+     	if command -v yt-playlist >/dev/null
      	then
         echo "============================"
      	echo "Termux uninstaller yt-playlist"

@@ -4,6 +4,15 @@
 Change log notes
 ================================
 
+Linux v2.37 | macOS v0.21 | Termux v2.37
+Fixed not installing on Linux mint, maybe other debian based Linux.
+Added jemalloc to the list of auto dependencies for debian based Linux.
+Fixed jemalloc on Linux and macOS it was not working correct.
+Fixed Permission denied on macOS beta when trying to run yt-playlist.
+Upated the uninstall.sh on all three.
+
+Also if you guys are having issues, you always can open an issue.
+
 Linux v2.36.2 | macOS v0.20.2 | Termux v2.36.2
 Just some small changes to the yt-playlist code, regarding downloading audio and video.
 

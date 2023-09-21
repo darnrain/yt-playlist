@@ -11,7 +11,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: /sdcard/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 yt_video_number="1:100"
-version="v2.36.2"
+version="v2.37"
 
 #mainmenu
 

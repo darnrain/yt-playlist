@@ -11,7 +11,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="v2.36.2"
+version="v2.37"
 
 #mainmenu
 
@@ -2281,6 +2281,7 @@ resume_playback_off_function
 mpv_log_file_off_funciton
 mpv_music_opus_function
 mpv_video_m4a_function
+enable_jemalloc_function
 clean_up_function
 main_menu_function
 fi
@@ -2317,6 +2318,53 @@ function clean_up_function ()
         then
         mv "${yt_playlist_home_dir}/yt-playlist_search_history.txt" "${yt_playlist_home_dir}/yt-playlist_history.txt"
         fi
+}
+
+function enable_jemalloc_function ()
+{
+	if test -f "/usr/lib/libjemalloc.so.1"
+	then
+        jemalloc="yes"
+	export LD_PRELOAD='/usr/lib/libjemalloc.so.1'
+        else
+	if test -f "/usr/lib/libjemalloc.so.2"
+	then
+        jemalloc="yes"
+	export LD_PRELOAD='/usr/lib/libjemalloc.so.2'
+        else
+	if test -f "/usr/lib64/libjemalloc.so.1"
+	then
+        jemalloc="yes"
+	export LD_PRELOAD='/usr/lib64/libjemalloc.so.1'
+        else
+	if test -f "/usr/lib64/libjemalloc.so.2"
+	then
+        jemalloc="yes"
+	export LD_PRELOAD='/usr/lib64/libjemalloc.so.2'
+        else
+	if test -f "/usr/lib/x86_64-linux-gnu/libjemalloc.so.1"
+	then
+        jemalloc="yes"
+	export LD_PRELOAD='/usr/lib/x86_64-linux-gnu/libjemalloc.so.1'
+        else
+	if test -f "/usr/lib/x86_64-linux-gnu/libjemalloc.so.2"
+	then
+        jemalloc="yes"
+	export LD_PRELOAD='/usr/lib/x86_64-linux-gnu/libjemalloc.so.2'
+        else
+	if test -f "/usr/local/lib/libjemalloc.2.dylib"
+	then
+        jemalloc="yes"
+	export LD_PRELOAD='/usr/local/lib/libjemalloc.2.dylib'
+        else
+        unset jemalloc
+  fi
+    fi
+     fi
+      fi
+    fi
+  fi
+fi
 }
 
 function quit_function ()
@@ -3826,13 +3874,5 @@ fi
         else
         unset cover_art
         fi
-
-	if command -v jemalloc-config >/dev/null
-	then
-        jemalloc="yes"
-	export LD_PRELOAD=`jemalloc-config --libdir`/libjemalloc.so.`jemalloc-config --revision`
-        else
-        unset jemalloc
-	fi
 
 	yt_playlist_start_function

@@ -1,6 +1,6 @@
-#!/bin/sh
+#!/usr/local/bin/bash
 
-     	if command -v yt-playlist == *yt-playlist >/dev/null
+     	if command -v yt-playlist >/dev/null
      	then
         echo "============================"
      	echo "Linux uninstaller yt-playlist"
