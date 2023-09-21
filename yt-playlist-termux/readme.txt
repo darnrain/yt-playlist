@@ -1,6 +1,6 @@
 Termux yt-playlist.
 
-Dependencies will automatically be downloaded and installed.
+Dependencies will automatically be downloaded and installed. It may take about 5-10 minutes for a first time install, after that upgrades are fast.
 
 ==========================================
 Install yt-playlist
