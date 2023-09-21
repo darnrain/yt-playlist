@@ -16,7 +16,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="v0.20.1_macos_beta"
+version="v0.20.2_macos_beta"
 
 #mainmenu
 
@@ -2273,7 +2273,7 @@ yt_playlist_count=$(echo "$ps_list" | grep yt-playlist | wc -l)
 
 if [[ "$yt_playlist_count" -gt 1 ]]
 then
-echo "Error: yt-playlist is already running, or wrong argument."
+echo "Error: yt-playlist is already running, or incorrect argument."
 exit
 else
 mpv_video_fullscreen_off_function
@@ -3733,8 +3733,11 @@ fi
 	download_audio_function
         exit
         else
-	download_audio_function
+        if [[ "$external_arguments2" = "yt_playlist_audio" ]]
+	then
+        download_audio_function
         exit
+      fi
     fi
   fi
 fi
@@ -3747,8 +3750,11 @@ fi
 	download_video_function
         exit
         else
-	download_video_function
+        if [[ "$external_arguments2" = "yt_playlist_video" ]]
+	then
+        download_video_function
         exit
+    fi
   fi
 fi
 

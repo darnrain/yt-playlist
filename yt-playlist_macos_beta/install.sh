@@ -50,8 +50,8 @@
         touch ${HOME}/.config/yt-playlist/yt-playlist_bookmark.txt
         touch ${HOME}/.config/yt-playlist/yt-playlist_music.txt
         touch ${HOME}/.config/yt-playlist/input.conf
-        echo "d run /usr/local/bin/yt-playlist --download_audio" > ${HOME}/.config/yt-playlist/input.conf
-        echo "D run /usr/local/bin/yt-playlist --download_video" >> ${HOME}/.config/yt-playlist/input.conf
+        echo "d run /usr/local/bin/yt-playlist --download_audio yt_playlist_audio" > ${HOME}/.config/yt-playlist/input.conf
+        echo "D run /usr/local/bin/yt-playlist --download_video yt_playlist_video" >> ${HOME}/.config/yt-playlist/input.conf
         echo "s run /usr/local/bin/yt-playlist --sleep_time" >> ${HOME}/.config/yt-playlist/input.conf
         echo "b run /usr/local/bin/yt-playlist --bookmark" >> ${HOME}/.config/yt-playlist/input.conf
         echo "f run /usr/local/bin/yt-playlist --favorites" >> ${HOME}/.config/yt-playlist/input.conf

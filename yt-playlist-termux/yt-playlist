@@ -11,7 +11,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: /sdcard/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 yt_video_number="1:100"
-version="v2.36.1"
+version="v2.36.2"
 
 #mainmenu
 
@@ -2009,7 +2009,7 @@ yt_playlist_count=$(echo "$ps_list" | grep yt-playlist | wc -l)
 
 if [[ "$yt_playlist_count" -gt 1 ]]
 then
-echo "Error: yt-playlist is already running, or wrong argument."
+echo "Error: yt-playlist is already running, or incorrect argument."
 exit
 else
 resume_playback_off_function
@@ -3318,8 +3318,11 @@ fi
 	download_audio_function
         exit
         else
-	download_audio_function
+        if [[ "$external_arguments2" = "yt_playlist_audio" ]]
+	then
+        download_audio_function
         exit
+      fi
     fi
   fi
 fi
@@ -3332,8 +3335,11 @@ fi
 	download_video_function
         exit
         else
-	download_video_function
+        if [[ "$external_arguments2" = "yt_playlist_video" ]]
+	then
+        download_video_function
         exit
+    fi
   fi
 fi
 

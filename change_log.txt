@@ -4,6 +4,9 @@
 Change log notes
 ================================
 
+Linux v2.36.2 | macOS v0.20.2 | Termux v2.36.2
+Just some small changes to the yt-playlist code, regarding downloading audio and video.
+
 Linux v2.36.1 | macOS v0.20.1 | Termux v2.36.1
 Fixed bug with the changes I made in the last version. If you typed in the wrong argument, then yt-playlist would not accept anymore arguments.
 
