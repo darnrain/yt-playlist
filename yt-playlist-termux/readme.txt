@@ -1,6 +1,6 @@
 Termux yt-playlist.
 
-Dependencies will be automatically installed.
+Dependencies will automatically be downloaded and installed.
 
 ==========================================
 Install yt-playlist
