@@ -4,6 +4,8 @@
 Change log notes
 ================================
 
+Update: I plan on adding an option to mpv to use the dedicated graphics card. Right now it's only using your internal GPU, I think as I do not have a dedicated graphics card in my laptop. This will affect Linux and macOS versions only. If you do not have a  dedicated graphics card and enable this option then mpv will not play video.
+
 Update: I think the macOS version is just about ready to come out of beta status, and join the v2.x versions. If anyone is having issues with the macOS beta, then make sure your on the latest version, if that still does not fix it, you can open an issue. I have been testing it out this whole time, on my 2014 late mac mini with 4 gig's of ram, running big sur. I can play a 1080p video, at 60FPS no problem.
 
 Linux v2.38.1 | macOS v0.22.1 | Termux v2.38
