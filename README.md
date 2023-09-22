@@ -67,14 +67,6 @@ More photos.<br>
 * Works on any architecture.
 * I will test more as time permits.
 
-### Linux ram requirements:
-* Recommended 6GB ram for HD 8k. Cache is set to 1.5GB.
-* Recommended 4GB ram for HD 4k. Cache is set to 1.15GB.
-* Recommended 3GB ram for HD 2k. Cache is set to 768MB.
-* Recommended 2GB ram for HD 1080p. Cache is set to 384MB.
-* Recommended 512MB ram for SD 720p. Cache is set to 70MB.
-* Recommended 256MB ram for Audio/music. Cache is set to 15MB.
-
 ### Command arguments:
 <pre>
 Help menu:              -h or --help
