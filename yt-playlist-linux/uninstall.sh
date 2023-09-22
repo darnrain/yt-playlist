@@ -7,6 +7,7 @@
         echo "============================"
      	sudo rm -v /usr/bin/yt-playlist
      	rm -v ${HOME}/.config/yt-playlist/input.conf
+     	rm -R -v ${HOME}/.config/yt-playlist/scripts/
      	echo "Not removed '${HOME}/.config/yt-playlist/'"
      	echo "Bookmarks, Music, Favorites and History were not deleted."
         echo "============================"

@@ -4,6 +4,9 @@
 Change log notes
 ================================
 
+Linux v2.40.1 | macOS v2.40.1 | Termux v2.40.1
+Small update, uninstall.sh will now remove ~/.config/yt-playlist/scripts/ 
+
 Linux v2.40 | macOS v2.40 | Termux v2.40
 I was able to speed up yt-dlp by adding the argument -N4
 Added a cache wait time to the Play HD menu of 120 seconds. This should help smooth out the starting of hd videos.
