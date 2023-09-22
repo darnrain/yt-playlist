@@ -4,6 +4,10 @@
 Change log notes
 ================================
 
+Linux v2.40 | macOS v2.40 | Termux v2.40
+I was able to speed up yt-dlp by adding the argument -N4
+Added a cache wait time to the Play HD menu of 120 seconds. This should help smooth out the starting of hd videos.
+
 Linux v2.39 | macOS v2.39.1 | Termux v2.39
 Fixed macOS Automated installer.
 

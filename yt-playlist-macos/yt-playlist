@@ -16,7 +16,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="v2.39.1"
+version="v2.40"
 
 #mainmenu
 
@@ -154,10 +154,10 @@ Choose an option:  "
 	then
         clear
         echo "Downloading line: $yt_playlist_download"
-        yt-dlp -x --playlist-items "$yt_playlist_download" -f "$audio_format" -o "${audio_dir}/${yt_playlist_vanilla_title}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata  "https://www.youtube.com/channel/${yt_playlist_id}/videos"
+        yt-dlp -N4 -x --playlist-items "$yt_playlist_download" -f "$audio_format" -o "${audio_dir}/${yt_playlist_vanilla_title}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata  "https://www.youtube.com/channel/${yt_playlist_id}/videos"
         else
         echo "Downloading line: $yt_playlist_download"
-        yt-dlp -x --playlist-items "$yt_playlist_download" -f "$audio_format" -o "${audio_dir}/${yt_playlist_vanilla_title}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "https://www.youtube.com/playlist?list=$yt_playlist_id"
+        yt-dlp -N4 -x --playlist-items "$yt_playlist_download" -f "$audio_format" -o "${audio_dir}/${yt_playlist_vanilla_title}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "https://www.youtube.com/playlist?list=$yt_playlist_id"
         fi
         clear
         echo "Saved to: ${audio_dir}/${yt_playlist_vanilla_title}/"
@@ -199,10 +199,10 @@ Choose an option:  "
 	then
         clear
         echo "Downloading line: $yt_playlist_download"
-        yt-dlp --playlist-items "$yt_playlist_download" -f "$format" -o "${video_dir}/${yt_playlist_vanilla_title}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata  "https://www.youtube.com/channel/${yt_playlist_id}/videos"
+        yt-dlp -N4 --playlist-items "$yt_playlist_download" -f "$format" -o "${video_dir}/${yt_playlist_vanilla_title}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata  "https://www.youtube.com/channel/${yt_playlist_id}/videos"
         else
         echo "Downloading line: $yt_playlist_download"
-        yt-dlp --playlist-items "$yt_playlist_download" -f "$format" -o "${video_dir}/${yt_playlist_vanilla_title}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "https://www.youtube.com/playlist?list=$yt_playlist_id"
+        yt-dlp -N4 --playlist-items "$yt_playlist_download" -f "$format" -o "${video_dir}/${yt_playlist_vanilla_title}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "https://www.youtube.com/playlist?list=$yt_playlist_id"
         fi
         clear
         echo "Saved to: ${video_dir}/${yt_playlist_vanilla_title}/"
@@ -1412,6 +1412,8 @@ fi
     esac
 }
 
+#playhdmenu
+
 function play_hd_menu_function ()
 {
 	clear
@@ -1472,7 +1474,7 @@ Choose an option:  "
         echo "Please wait."
         echo ""
         touch "${tmp_dir}/mpv_hd_running"
-        yt-dlp --no-warnings --quiet ‐‐extractor‐args "youtube:player‐client=web" -f "bestvideo[vcodec^=avc1][height<=1080]/bestvideo[vcodec^=vp09][height<=1080]" "${yt_playlist_hd_url}" -o - 2>/dev/null | mpv ${mpv_log_file_arguments[@]} ${mpv_hd_arguments[@]} --title="$yt_playlist_hd_title" --audio-file=<(yt-dlp --no-warnings --quiet ‐‐extractor‐args "youtube:player‐client=web" -f 251/140/ba "${yt_playlist_hd_url}" -o - 2>/dev/null) -
+        yt-dlp -N4 --no-warnings --quiet -f "bestvideo[vcodec^=avc1][height<=1080]/bestvideo[vcodec^=vp09][height<=1080]" "${yt_playlist_hd_url}" -o - 2>/dev/null | mpv ${mpv_log_file_arguments[@]} ${mpv_hd_arguments[@]} --title="$yt_playlist_hd_title" --audio-file=<(yt-dlp -N4 --no-warnings --quiet -f 251/140/ba "${yt_playlist_hd_url}" -o - 2>/dev/null) -
         play_hd_menu_function
         else
         play_hd_menu_function
@@ -1505,7 +1507,7 @@ Choose an option:  "
         echo "Please wait."
         echo ""
         touch "${tmp_dir}/mpv_hd_running"
-        yt-dlp --no-warnings --quiet ‐‐extractor‐args "youtube:player‐client=web" -f "bestvideo[vcodec^=av01][height<=1440]/bestvideo[vcodec^=vp09][height<=1440]" "${yt_playlist_hd_url}" -o - 2>/dev/null | mpv ${mpv_log_file_arguments[@]} ${mpv_hd_arguments[@]} --title="$yt_playlist_hd_title" --audio-file=<(yt-dlp --no-warnings --quiet ‐‐extractor‐args "youtube:player‐client=web" -f 251/140/ba "${yt_playlist_hd_url}" -o - 2>/dev/null) -
+        yt-dlp -N4 --no-warnings --quiet -f "bestvideo[vcodec^=av01][height<=1440]/bestvideo[vcodec^=vp09][height<=1440]" "${yt_playlist_hd_url}" -o - 2>/dev/null | mpv ${mpv_log_file_arguments[@]} ${mpv_hd_arguments[@]} --title="$yt_playlist_hd_title" --audio-file=<(yt-dlp -N4 --no-warnings --quiet -f 251/140/ba "${yt_playlist_hd_url}" -o - 2>/dev/null) -
         play_hd_menu_function
         else
         play_hd_menu_function
@@ -1538,7 +1540,7 @@ Choose an option:  "
         echo "Please wait."
         echo ""
         touch "${tmp_dir}/mpv_hd_running"
-        yt-dlp --no-warnings --quiet ‐‐extractor‐args "youtube:player‐client=web" -f "bestvideo[vcodec^=av01][height<=2160]/bestvideo[vcodec^=vp09][height<=2160]" "${yt_playlist_hd_url}" -o - 2>/dev/null | mpv ${mpv_log_file_arguments[@]} ${mpv_hd_arguments[@]} --title="$yt_playlist_hd_title" --audio-file=<(yt-dlp --no-warnings --quiet ‐‐extractor‐args "youtube:player‐client=web" -f 251/140/ba "${yt_playlist_hd_url}" -o - 2>/dev/null) -
+        yt-dlp -N4 --no-warnings --quiet -f "bestvideo[vcodec^=av01][height<=2160]/bestvideo[vcodec^=vp09][height<=2160]" "${yt_playlist_hd_url}" -o - 2>/dev/null | mpv ${mpv_log_file_arguments[@]} ${mpv_hd_arguments[@]} --title="$yt_playlist_hd_title" --audio-file=<(yt-dlp -N4 --no-warnings --quiet -f 251/140/ba "${yt_playlist_hd_url}" -o - 2>/dev/null) -
         play_hd_menu_function
         else
         play_hd_menu_function
@@ -1571,7 +1573,7 @@ Choose an option:  "
         echo "Please wait."
         echo ""
         touch "${tmp_dir}/mpv_hd_running"
-        yt-dlp --no-warnings --quiet ‐‐extractor‐args "youtube:player‐client=web" -f "bestvideo[vcodec^=av01][height<=4320]/bestvideo[vcodec^=vp09][height<=4320]" "${yt_playlist_hd_url}" -o - 2>/dev/null | mpv ${mpv_log_file_arguments[@]} ${mpv_hd_arguments[@]} --title="$yt_playlist_hd_title" --audio-file=<(yt-dlp --no-warnings --quiet ‐‐extractor‐args "youtube:player‐client=web" -f 251/140/ba "${yt_playlist_hd_url}" -o - 2>/dev/null) -
+        yt-dlp -N4 --no-warnings --quiet -f "bestvideo[vcodec^=av01][height<=4320]/bestvideo[vcodec^=vp09][height<=4320]" "${yt_playlist_hd_url}" -o - 2>/dev/null | mpv ${mpv_log_file_arguments[@]} ${mpv_hd_arguments[@]} --title="$yt_playlist_hd_title" --audio-file=<(yt-dlp -N4 --no-warnings --quiet -f 251/140/ba "${yt_playlist_hd_url}" -o - 2>/dev/null) -
         play_hd_menu_function
         else
         play_hd_menu_function
@@ -2410,14 +2412,14 @@ fi
         echo '{ "command": ["show-text", "Please wait, getting atrist & title." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         terminal-notifier -title "yt-playlist" -message "Please wait, getting atrist & title."
         yt_media_title_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
-        yt_media_title=$(yt-dlp --no-warnings --quiet --flat-playlist -I 1 --print "%(uploader)s - %(title)s" "$yt_media_title_url")
+        yt_media_title=$(yt-dlp -N4 --no-warnings --quiet --flat-playlist -I 1 --print "%(uploader)s - %(title)s" "$yt_media_title_url")
         terminal-notifier -title "yt-playlist" -message "$yt_media_title"
         yt_terminal_title=$(printf '"%s" \n' "$yt_media_title")
 	echo show-text "$yt_terminal_title" | socat - "${tmp_dir}/mpvsocket"
         else
         echo '{ "command": ["show-text", "Please wait, getting atrist & title." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         yt_media_title_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
-        yt_media_title=$(yt-dlp --no-warnings --quiet --flat-playlist -I 1 --print "%(uploader)s - %(title)s" "$yt_media_title_url")
+        yt_media_title=$(yt-dlp -N4 --no-warnings --quiet --flat-playlist -I 1 --print "%(uploader)s - %(title)s" "$yt_media_title_url")
         yt_terminal_title=$(printf '"%s" \n' "$yt_media_title")
 	echo show-text "$yt_terminal_title" | socat - "${tmp_dir}/mpvsocket"
         fi
@@ -2444,14 +2446,14 @@ fi
         echo '{ "command": ["show-text", "Please wait, getting atrist & title." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         terminal-notifier -title "yt-playlist" -message "Please wait, getting atrist & title."
         yt_media_title_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
-        yt_media_title=$(yt-dlp --no-warnings --quiet --flat-playlist -I 1 --print "%(uploader)s - %(title)s" "$yt_media_title_url")
+        yt_media_title=$(yt-dlp -N4 --no-warnings --quiet --flat-playlist -I 1 --print "%(uploader)s - %(title)s" "$yt_media_title_url")
         terminal-notifier -title "yt-playlist" -message "$yt_media_title"
         yt_terminal_title=$(printf '"%s" \n' "$yt_media_title")
 	echo show-text "$yt_terminal_title" | socat - "${tmp_dir}/mpvsocket"
         else
         echo '{ "command": ["show-text", "Please wait, getting atrist & title." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         yt_media_title_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
-        yt_media_title=$(yt-dlp --no-warnings --quiet --flat-playlist -I 1 --print "%(uploader)s - %(title)s" "$yt_media_title_url")
+        yt_media_title=$(yt-dlp -N4 --no-warnings --quiet --flat-playlist -I 1 --print "%(uploader)s - %(title)s" "$yt_media_title_url")
         yt_terminal_title=$(printf '"%s" \n' "$yt_media_title")
 	echo show-text "$yt_terminal_title" | socat - "${tmp_dir}/mpvsocket"
         fi
@@ -2477,14 +2479,14 @@ fi
         echo '{ "command": ["show-text", "Please wait, getting atrist & title." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         terminal-notifier -title "yt-playlist" -message "Please wait, getting atrist & title."
         yt_media_title_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
-        yt_media_title=$(yt-dlp --no-warnings --quiet --flat-playlist -I 1 --print "%(uploader)s - %(title)s" "$yt_media_title_url")
+        yt_media_title=$(yt-dlp -N4 --no-warnings --quiet --flat-playlist -I 1 --print "%(uploader)s - %(title)s" "$yt_media_title_url")
         terminal-notifier -title "yt-playlist" -message "$yt_media_title"
         yt_terminal_title=$(printf '"%s" \n' "$yt_media_title")
 	echo show-text "$yt_terminal_title" | socat - "${tmp_dir}/mpvsocket"
         else
         echo '{ "command": ["show-text", "Please wait, getting atrist & title." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         yt_media_title_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
-        yt_media_title=$(yt-dlp --no-warnings --quiet --flat-playlist -I 1 --print "%(uploader)s - %(title)s" "$yt_media_title_url")
+        yt_media_title=$(yt-dlp -N4 --no-warnings --quiet --flat-playlist -I 1 --print "%(uploader)s - %(title)s" "$yt_media_title_url")
         yt_terminal_title=$(printf '"%s" \n' "$yt_media_title")
 	echo show-text "$yt_terminal_title" | socat - "${tmp_dir}/mpvsocket"
         fi
@@ -2670,14 +2672,14 @@ function music_download_audio_function ()
         echo '{ "command": ["show-text", "Downloading audio, please wait." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         yt_playlist_download_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
 	sleep 2
-        yt-dlp --no-warnings --quiet -x -f "$music_download_format" -o "${audio_dir}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "$yt_playlist_download_url" 2>/dev/null
+        yt-dlp -N4 --no-warnings --quiet -x -f "$music_download_format" -o "${audio_dir}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "$yt_playlist_download_url" 2>/dev/null
         echo show-text "$show_audio_dir" | socat - "${tmp_dir}/mpvsocket"
         terminal-notifier -title "yt-playlist" -message "Saved to: ${audio_dir}"
         else
         echo '{ "command": ["show-text", "Downloading audio, please wait." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         yt_playlist_download_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
 	sleep 2
-        yt-dlp --no-warnings --quiet -x -f "$music_download_format" -o "${audio_dir}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "$yt_playlist_download_url" 2>/dev/null
+        yt-dlp -N4 --no-warnings --quiet -x -f "$music_download_format" -o "${audio_dir}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "$yt_playlist_download_url" 2>/dev/null
         echo show-text "$show_audio_dir" | socat - "${tmp_dir}/mpvsocket"
         fi
 }
@@ -2711,14 +2713,14 @@ fi
         echo '{ "command": ["show-text", "Downloading audio, please wait." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         yt_playlist_download_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
 	sleep 2
-        yt-dlp --no-warnings --quiet -x -f "$audio_download_format" -o "${audio_dir}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "$yt_playlist_download_url" 2>/dev/null
+        yt-dlp -N4 --no-warnings --quiet -x -f "$audio_download_format" -o "${audio_dir}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "$yt_playlist_download_url" 2>/dev/null
         echo show-text "$show_audio_dir" | socat - "${tmp_dir}/mpvsocket"
         terminal-notifier -title "yt-playlist" -message "Saved to: ${audio_dir}"
         else
         echo '{ "command": ["show-text", "Downloading audio, please wait." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         yt_playlist_download_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
 	sleep 2
-        yt-dlp --no-warnings --quiet -x -f "$audio_download_format" -o "${audio_dir}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "$yt_playlist_download_url" 2>/dev/null
+        yt-dlp -N4 --no-warnings --quiet -x -f "$audio_download_format" -o "${audio_dir}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "$yt_playlist_download_url" 2>/dev/null
         echo show-text "$show_audio_dir" | socat - "${tmp_dir}/mpvsocket"
   fi
 fi
@@ -2731,14 +2733,14 @@ fi
         echo '{ "command": ["show-text", "Downloading audio, please wait." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         yt_playlist_download_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
 	sleep 2
-        yt-dlp --no-warnings --quiet -x -f "$audio_download_format" -o "${audio_dir}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "$yt_playlist_download_url" 2>/dev/null
+        yt-dlp -N4 --no-warnings --quiet -x -f "$audio_download_format" -o "${audio_dir}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "$yt_playlist_download_url" 2>/dev/null
         echo show-text "$show_audio_dir" | socat - "${tmp_dir}/mpvsocket"
         terminal-notifier -title "yt-playlist" -message "Saved to: ${audio_dir}"
         else
         echo '{ "command": ["show-text", "Downloading audio, please wait." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         yt_playlist_download_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
 	sleep 2
-        yt-dlp --no-warnings --quiet -x -f "$audio_download_format" -o "${audio_dir}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "$yt_playlist_download_url" 2>/dev/null
+        yt-dlp -N4 --no-warnings --quiet -x -f "$audio_download_format" -o "${audio_dir}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "$yt_playlist_download_url" 2>/dev/null
         echo show-text "$show_audio_dir" | socat - "${tmp_dir}/mpvsocket"
   fi
 fi
@@ -2779,14 +2781,14 @@ fi
         echo '{ "command": ["show-text", "Downloading video, please wait." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         yt_playlist_download_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
 	sleep 2
-        yt-dlp --no-warnings --quiet -f "$video_download_format" -o "${video_dir}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "$yt_playlist_download_url" 2>/dev/null
+        yt-dlp -N4 --no-warnings --quiet -f "$video_download_format" -o "${video_dir}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "$yt_playlist_download_url" 2>/dev/null
         echo show-text "$show_video_dir" | socat - "${tmp_dir}/mpvsocket"
         terminal-notifier -title "yt-playlist" -message "Saved to: ${video_dir}"
         else
         echo '{ "command": ["show-text", "Downloading video, please wait." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         yt_playlist_download_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
 	sleep 2
-        yt-dlp --no-warnings --quiet -f "$video_download_format" -o "${video_dir}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "$yt_playlist_download_url" 2>/dev/null
+        yt-dlp -N4 --no-warnings --quiet -f "$video_download_format" -o "${video_dir}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "$yt_playlist_download_url" 2>/dev/null
         echo show-text "$show_video_dir" | socat - "${tmp_dir}/mpvsocket"
   fi
 fi
@@ -2799,14 +2801,14 @@ fi
         echo '{ "command": ["show-text", "Downloading video, please wait." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         yt_playlist_download_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
 	sleep 2
-        yt-dlp --no-warnings --quiet -f "$video_download_format" -o "${video_dir}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "$yt_playlist_download_url" 2>/dev/null
+        yt-dlp -N4 --no-warnings --quiet -f "$video_download_format" -o "${video_dir}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "$yt_playlist_download_url" 2>/dev/null
         echo show-text "$show_video_dir" | socat - "${tmp_dir}/mpvsocket"
         terminal-notifier -title "yt-playlist" -message "Saved to: ${video_dir}"
         else
         echo '{ "command": ["show-text", "Downloading video, please wait." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         yt_playlist_download_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
 	sleep 2
-        yt-dlp --no-warnings --quiet -f "$video_download_format" -o "${video_dir}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "$yt_playlist_download_url" 2>/dev/null
+        yt-dlp -N4 --no-warnings --quiet -f "$video_download_format" -o "${video_dir}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "$yt_playlist_download_url" 2>/dev/null
         echo show-text "$show_video_dir" | socat - "${tmp_dir}/mpvsocket"
   fi
 fi
@@ -2836,7 +2838,7 @@ function bookmark_function ()
         sleep 2
         else
         echo '{ "command": ["show-text", "Saving to bookmarks." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
-        yt_playlist_bookmark_results=$(yt-dlp --no-warnings --quiet --flat-playlist -I 1 --print "%(id)s ${bookmark_video_or_music} %(title)s" "$yt_playlist_bookmark_results_url" 2>/dev/null)
+        yt_playlist_bookmark_results=$(yt-dlp -N4 --no-warnings --quiet --flat-playlist -I 1 --print "%(id)s ${bookmark_video_or_music} %(title)s" "$yt_playlist_bookmark_results_url" 2>/dev/null)
         sed -i'' '/^$/d' "${yt_playlist_home_dir}/yt-playlist_bookmark.txt" >/dev/null
         echo "https://www.youtube.com/watch?v=${yt_playlist_bookmark_results}" >> "${yt_playlist_home_dir}/yt-playlist_bookmark.txt"
         sleep 2
@@ -2968,7 +2970,7 @@ function play_hd_menu_video_function ()
 yt_playlist_hd_title=$(echo "${yt_playlist_hd}" | awk '{$1=$2=$3=$4=""; print $0}' | sed 's/^[ \t]*//')
 yt_playlist_hd_url=$(echo "${yt_playlist_hd}" | awk '{print $1'})
 echo "Please wait."
-yt_best_hd_video_resolution1=$(yt-dlp --no-warnings --list-formats "${yt_playlist_hd_url}" | awk 'END { print }' | cut -b -24 | cut -b 11- | tr -s '[:space:]')
+yt_best_hd_video_resolution1=$(yt-dlp -N4 --no-warnings --list-formats "${yt_playlist_hd_url}" | awk 'END { print }' | cut -b -24 | cut -b 11- | tr -s '[:space:]')
 yt_best_hd_video_resolution=$(echo "Best video resolution: $yt_best_hd_video_resolution1 FPS")
 mpv_hd_arguments_function
 clear
@@ -3000,7 +3002,7 @@ mpv_hd_arguments_function
 
 function mpv_hd_arguments_function ()
 {
-mpv_hd_arguments=( "${mpv_hd_gpu}" "${mpv_hd_fullscreen}" --cache=yes --cache-secs=600 --demuxer-max-bytes=2G --demuxer-max-back-bytes=256M --demuxer-donate-buffer=no --config-dir="${yt_playlist_home_dir}" --sid=no --video-sync=display-resample --volume=95 --volume-max=100 --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket" )
+mpv_hd_arguments=( "${mpv_hd_gpu}" "${mpv_hd_fullscreen}" --cache=yes --cache-pause-wait=120 --cache-secs=600 --demuxer-max-bytes=2G --demuxer-max-back-bytes=256M --demuxer-donate-buffer=no --config-dir="${yt_playlist_home_dir}" --sid=no --video-sync=display-resample --volume=95 --volume-max=100 --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket" )
 }
 
 function mpv_video_fullscreen_on_function ()
@@ -3291,7 +3293,7 @@ function results_function ()
         else
         clear
         echo "Please wait."
-        yt_playlist_results=$(yt-dlp --no-warnings --quiet --flat-playlist --compat-options no-youtube-unavailable-videos -I "$yt_video_number" --print "%(url)s Video: %(duration>%H:%M:%S)s - %(title)s" "https://www.youtube.com/channel/${yt_playlist_id}/videos" | sed '/Private video/d' | sed '/Deleted video/d' | sed 's/|//g' | tr -s '[:space:]' | nl -n"ln" -w2 -s " " 2>/dev/null)
+        yt_playlist_results=$(yt-dlp -N4 --no-warnings --quiet --flat-playlist --compat-options no-youtube-unavailable-videos -I "$yt_video_number" --print "%(url)s Video: %(duration>%H:%M:%S)s - %(title)s" "https://www.youtube.com/channel/${yt_playlist_id}/videos" | sed '/Private video/d' | sed '/Deleted video/d' | sed 's/|//g' | tr -s '[:space:]' | nl -n"ln" -w2 -s " " 2>/dev/null)
         yt_playlist_total_number=$(echo "${yt_playlist_results}" | wc -l)
         yt_playlist_total="Channel results: $yt_playlist_total_number"
         export bookmark_video_or_music="Video:"
@@ -3306,7 +3308,7 @@ fi
         else
         clear
         echo "Please wait."
-        yt_playlist_results=$(yt-dlp --no-warnings --quiet --flat-playlist --compat-options no-youtube-unavailable-videos -I "$yt_video_number" --print "%(url)s Music: %(title)s" "https://youtube.com/playlist?list=${yt_playlist_id}" | sed 's/Topic -//g' | sed '/Private video/d' | sed '/Deleted video/d' | sed 's/|//g' | tr -s '[:space:]' | nl -n"ln" -w2 -s " " 2>/dev/null)
+        yt_playlist_results=$(yt-dlp -N4 --no-warnings --quiet --flat-playlist --compat-options no-youtube-unavailable-videos -I "$yt_video_number" --print "%(url)s Music: %(title)s" "https://youtube.com/playlist?list=${yt_playlist_id}" | sed 's/Topic -//g' | sed '/Private video/d' | sed '/Deleted video/d' | sed 's/|//g' | tr -s '[:space:]' | nl -n"ln" -w2 -s " " 2>/dev/null)
         yt_playlist_total_number=$(echo "${yt_playlist_results}" | wc -l)
         yt_playlist_total="Playlist results: $yt_playlist_total_number"
         export bookmark_video_or_music="Music:"
@@ -3321,7 +3323,7 @@ fi
         else
         clear
         echo "Please wait."
-        yt_playlist_results=$(yt-dlp --no-warnings --quiet --flat-playlist --compat-options no-youtube-unavailable-videos -I "$yt_video_number" --print "%(url)s Video: %(duration>%H:%M:%S)s - %(title)s" "https://youtube.com/playlist?list=${yt_playlist_id}" | sed '/Private video/d' | sed '/Deleted video/d' | sed 's/|//g' | tr -s '[:space:]' | nl -n"ln" -w2 -s " " 2>/dev/null)
+        yt_playlist_results=$(yt-dlp -N4 --no-warnings --quiet --flat-playlist --compat-options no-youtube-unavailable-videos -I "$yt_video_number" --print "%(url)s Video: %(duration>%H:%M:%S)s - %(title)s" "https://youtube.com/playlist?list=${yt_playlist_id}" | sed '/Private video/d' | sed '/Deleted video/d' | sed 's/|//g' | tr -s '[:space:]' | nl -n"ln" -w2 -s " " 2>/dev/null)
         yt_playlist_total_number=$(echo "${yt_playlist_results}" | wc -l)
         yt_playlist_total="Playlist results: $yt_playlist_total_number"
         export bookmark_video_or_music="Video:"
@@ -3336,7 +3338,7 @@ fi
         else
         clear
         echo "Please wait."
-        yt_playlist_results=$(yt-dlp --no-warnings --quiet --flat-playlist --compat-options no-youtube-unavailable-videos -I "$yt_video_number" --print "%(url)s Music: %(uploader)s - %(title)s" "https://youtube.com/playlist?list=${yt_playlist_id}" | sed 's/Topic -//g' | sed '/Private video/d' | sed '/Deleted video/d' | sed 's/|//g' | tr -s '[:space:]' | nl -n"ln" -w2 -s " " 2>/dev/null)
+        yt_playlist_results=$(yt-dlp -N4 --no-warnings --quiet --flat-playlist --compat-options no-youtube-unavailable-videos -I "$yt_video_number" --print "%(url)s Music: %(uploader)s - %(title)s" "https://youtube.com/playlist?list=${yt_playlist_id}" | sed 's/Topic -//g' | sed '/Private video/d' | sed '/Deleted video/d' | sed 's/|//g' | tr -s '[:space:]' | nl -n"ln" -w2 -s " " 2>/dev/null)
         yt_playlist_total_number=$(echo "${yt_playlist_results}" | wc -l)
         yt_playlist_total="Album results: $yt_playlist_total_number"
         export bookmark_video_or_music="Music:"
@@ -3352,7 +3354,7 @@ function fast_music_search_function ()
 clear
 echo "Please wait."
 ytm_search_plus=$(echo "$ytm_search" | sed 's/ /+/g' )
-ytm_music_search=$(yt-dlp --flat-playlist --print "%(webpage_url)s Search: ${ytm_search} - %(title)s" -I ${ytm_search_number} "https://music.youtube.com/search?q=${ytm_search_plus}&sp=EgWKAQIIAWoKEAoQAxAEEAkQBQ" | sed 's/music.//g' | sed 's/www.//g' 2>/dev/null)
+ytm_music_search=$(yt-dlp -N4 --flat-playlist --print "%(webpage_url)s Search: ${ytm_search} - %(title)s" -I ${ytm_search_number} "https://music.youtube.com/search?q=${ytm_search_plus}&sp=EgWKAQIIAWoKEAoQAxAEEAkQBQ" | sed 's/music.//g' | sed 's/www.//g' 2>/dev/null)
 if [ -n "$ytm_music_search" ]
 then
 echo "${ytm_music_search}" >> "${yt_playlist_home_dir}/yt-playlist_music.txt"
@@ -3369,12 +3371,12 @@ function slow_music_search_function ()
 clear
 echo "Please wait, searching for Music."
 yt_search_plus=$(echo "$ytm_search" | sed 's/ /+/g' )
-yt_music_url=$(yt-dlp --no-warnings --quiet --flat-playlist --print "%(url)s" -I "$ytm_search_number" "https://music.youtube.com/search?q=${yt_search_plus}&sp=EgWKAQIIAWoKEAoQAxAEEAkQBQ" | sed 's/music.//g' | awk '{ORS=" "}1' 2>/dev/null)
+yt_music_url=$(yt-dlp -N4 --no-warnings --quiet --flat-playlist --print "%(url)s" -I "$ytm_search_number" "https://music.youtube.com/search?q=${yt_search_plus}&sp=EgWKAQIIAWoKEAoQAxAEEAkQBQ" | sed 's/music.//g' | awk '{ORS=" "}1' 2>/dev/null)
 if [ -n "$yt_music_url" ]
 then
 clear
 echo "Please wait, getting music information."
-ytm_music_search=$(yt-dlp --no-warnings --quiet --flat-playlist --print "%(webpage_url)s Artist: %(creator)s - %(title)s" -I 1 ${yt_music_url} | sed 's/www.//g' 2>/dev/null)
+ytm_music_search=$(yt-dlp -N4 --no-warnings --quiet --flat-playlist --print "%(webpage_url)s Artist: %(creator)s - %(title)s" -I 1 ${yt_music_url} | sed 's/www.//g' 2>/dev/null)
 if [ -n "$ytm_music_search" ]
 then
 echo "${ytm_music_search}" >> "${yt_playlist_home_dir}/yt-playlist_music.txt"
@@ -3392,12 +3394,12 @@ function ytm_album_search_function ()
 clear
 echo "Please wait, searching for YTMusic Ablum."
 ytm_search_plus=$(echo "$ytm_search" | sed 's/ /+/g' )
-ytm_album_url=$(yt-dlp --no-warnings --quiet --flat-playlist --print "%(webpage_url)s" -I "$ytm_search_number" "https://music.youtube.com/search?q=${ytm_search_plus}&sp=EgWKAQIYAWoKEAoQAxAEEAkQBQ" | awk '{ORS=" "}1' 2>/dev/null)
+ytm_album_url=$(yt-dlp -N4 --no-warnings --quiet --flat-playlist --print "%(webpage_url)s" -I "$ytm_search_number" "https://music.youtube.com/search?q=${ytm_search_plus}&sp=EgWKAQIYAWoKEAoQAxAEEAkQBQ" | awk '{ORS=" "}1' 2>/dev/null)
 if [ -n "$ytm_album_url" ]
 then
 clear
 echo "Please wait, getting Album information."
-ytm_album_search=$(yt-dlp --no-warnings --quiet --flat-playlist --print "%(playlist_id)s Album: %(channel)s - %(playlist_title)s" -I 1 ${ytm_album_url} | sed 's/YouTube Music/YTMusic/g' | sed 's/Topic -//g' | sed 's/Album -//g' | tr -s '[:space:]' 2>/dev/null)
+ytm_album_search=$(yt-dlp -N4 --no-warnings --quiet --flat-playlist --print "%(playlist_id)s Album: %(channel)s - %(playlist_title)s" -I 1 ${ytm_album_url} | sed 's/YouTube Music/YTMusic/g' | sed 's/Topic -//g' | sed 's/Album -//g' | tr -s '[:space:]' 2>/dev/null)
 if [ -n "$ytm_album_search" ]
 then
 echo "7807897890789078907807" "==============================" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
@@ -3414,12 +3416,12 @@ function ytm_playlist_search_[1]_function ()
 clear
 echo "Please wait, searching for YTMusic Playlist."
 ytm_search_plus=$(echo "$ytm_search" | sed 's/ /+/g' )
-ytm_playlist_url=$(yt-dlp --no-warnings --quiet --flat-playlist --print "%(webpage_url)s" -I "$ytm_search_number" "https://music.youtube.com/search?q=${ytm_search_plus}&sp=EgeKAQQoADgBagwQAxAJEAQQDhAKEAU" | awk '{ORS=" "}1' 2>/dev/null)
+ytm_playlist_url=$(yt-dlp -N4 --no-warnings --quiet --flat-playlist --print "%(webpage_url)s" -I "$ytm_search_number" "https://music.youtube.com/search?q=${ytm_search_plus}&sp=EgeKAQQoADgBagwQAxAJEAQQDhAKEAU" | awk '{ORS=" "}1' 2>/dev/null)
 if [ -n "$ytm_playlist_url" ]
 then
 clear
 echo "Please wait, getting Playlist information."
-ytm_playlist_search=$(yt-dlp --no-warnings --quiet --flat-playlist --print "%(playlist_id)s Playlist: %(playlist_title)s" -I 1 ${ytm_playlist_url} | sed 's/YouTube Music/YTMusic/g' | sed 's/Topic -//g' | tr -s '[:space:]' 2>/dev/null)
+ytm_playlist_search=$(yt-dlp -N4 --no-warnings --quiet --flat-playlist --print "%(playlist_id)s Playlist: %(playlist_title)s" -I 1 ${ytm_playlist_url} | sed 's/YouTube Music/YTMusic/g' | sed 's/Topic -//g' | tr -s '[:space:]' 2>/dev/null)
 if [ -n "$ytm_playlist_search" ]
 then
 echo "7807897890789078907807" "==============================" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
@@ -3436,12 +3438,12 @@ function ytm_playlist_search_[2]_function ()
 clear
 echo "Please wait, searching for YTMusic Playlist."
 ytm_search_plus=$(echo "$ytm_search" | sed 's/ /+/g' )
-ytm_playlist_url=$(yt-dlp --no-warnings --quiet --flat-playlist --print "%(webpage_url)s" -I "$ytm_search_number" "https://music.youtube.com/search?q=${ytm_search_plus}&sp=EgeKAQQoAEABagoQChADEAQQCRAF" | awk '{ORS=" "}1' 2>/dev/null)
+ytm_playlist_url=$(yt-dlp -N4 --no-warnings --quiet --flat-playlist --print "%(webpage_url)s" -I "$ytm_search_number" "https://music.youtube.com/search?q=${ytm_search_plus}&sp=EgeKAQQoAEABagoQChADEAQQCRAF" | awk '{ORS=" "}1' 2>/dev/null)
 if [ -n "$ytm_playlist_url" ]
 then
 clear
 echo "Please wait, getting Playlist information."
-ytm_playlist_search=$(yt-dlp --no-warnings --quiet --flat-playlist --print "%(playlist_id)s Playlist: %(playlist_title)s" -I 1 ${ytm_playlist_url} | sed 's/YouTube Music/YTMusic/g' | sed 's/Topic -//g' | tr -s '[:space:]' 2>/dev/null)
+ytm_playlist_search=$(yt-dlp -N4 --no-warnings --quiet --flat-playlist --print "%(playlist_id)s Playlist: %(playlist_title)s" -I 1 ${ytm_playlist_url} | sed 's/YouTube Music/YTMusic/g' | sed 's/Topic -//g' | tr -s '[:space:]' 2>/dev/null)
 if [ -n "$ytm_playlist_search" ]
 then
 echo "7807897890789078907807" "==============================" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
@@ -3459,9 +3461,9 @@ clear
 echo "Please wait."
 if [[ "${yt_paste_url}" = *OLAK5uy* ]]
 then
-yt_paste_playlist_url=$(yt-dlp --no-warnings --quiet --flat-playlist --print "%(playlist_id)s Album: %(playlist_title)s" -I 1 ${yt_paste_url} | sed 's/YouTube Music/YTMusic/g' | sed 's/Topic -//g' | sed 's/Album -//g' | tr -s '[:space:]' 2>/dev/null)
+yt_paste_playlist_url=$(yt-dlp -N4 --no-warnings --quiet --flat-playlist --print "%(playlist_id)s Album: %(playlist_title)s" -I 1 ${yt_paste_url} | sed 's/YouTube Music/YTMusic/g' | sed 's/Topic -//g' | sed 's/Album -//g' | tr -s '[:space:]' 2>/dev/null)
 else
-yt_paste_playlist_url=$(yt-dlp --no-warnings --quiet --flat-playlist --print "%(playlist_id)s Playlist: %(playlist_uploader)s - %(playlist_title)s" -I 1 ${yt_paste_url} | sed 's/YouTube Music/YTMusic/g' | sed 's/Topic -//g' | sed 's/Album -//g' | tr -s '[:space:]' 2>/dev/null)
+yt_paste_playlist_url=$(yt-dlp -N4 --no-warnings --quiet --flat-playlist --print "%(playlist_id)s Playlist: %(playlist_uploader)s - %(playlist_title)s" -I 1 ${yt_paste_url} | sed 's/YouTube Music/YTMusic/g' | sed 's/Topic -//g' | sed 's/Album -//g' | tr -s '[:space:]' 2>/dev/null)
 fi
 if [ -n "$yt_paste_playlist_url" ]
 then
@@ -3481,9 +3483,9 @@ clear
 echo "Please wait."
 if [[ "${yt_paste_url}" = *@* ]]
 then
-yt_paste_channel_url=$(yt-dlp --no-warnings --quiet --flat-playlist --print "%(playlist_id)s Channel: %(playlist_uploader)s" -I 1 ${yt_paste_url} 2>/dev/null)
+yt_paste_channel_url=$(yt-dlp -N4 --no-warnings --quiet --flat-playlist --print "%(playlist_id)s Channel: %(playlist_uploader)s" -I 1 ${yt_paste_url} 2>/dev/null)
 else
-yt_paste_channel_url=$(yt-dlp --no-warnings --quiet --flat-playlist --print "%(channel_id)s Channel: %(playlist_uploader)s" -I 1 ${yt_paste_url} 2>/dev/null)
+yt_paste_channel_url=$(yt-dlp -N4 --no-warnings --quiet --flat-playlist --print "%(channel_id)s Channel: %(playlist_uploader)s" -I 1 ${yt_paste_url} 2>/dev/null)
 fi
 if [ -n "$yt_paste_channel_url" ]
 then
@@ -3501,7 +3503,7 @@ function paste_video_url_function ()
 {
 clear
 echo "Please wait."
-yt_paste_video_url=$(yt-dlp --no-warnings --quiet --flat-playlist --print "%(webpage_url)s Video: %(channel)s - %(title)s" -I 1 ${yt_paste_url} | sed 's/music.//' 2>/dev/null)
+yt_paste_video_url=$(yt-dlp -N4 --no-warnings --quiet --flat-playlist --print "%(webpage_url)s Video: %(channel)s - %(title)s" -I 1 ${yt_paste_url} | sed 's/music.//' 2>/dev/null)
 if [ -n "$yt_paste_video_url" ]
 then
 yt_paste_video_check_url=$(echo "$yt_paste_video_url" | awk '{print $1'})
@@ -3526,7 +3528,7 @@ function yt_playlist_search_function ()
 clear
 echo "Please wait."
 yt_search_plus=$(echo "$yt_search" | sed 's/ /+/g' )
-yt_playlist_search=$(yt-dlp --no-warnings --quiet --flat-playlist --print "%(id)s Playlist: %(title)s" -I "$yt_search_number" "https://youtube.com/search?q=${yt_search_plus}&sp=EgIQAw%253D%253D" | sed 's/YouTube Music/YTMusic/g' | sed 's/|//g' | sed 's/(//g' | sed 's/)//g' 2>/dev/null)
+yt_playlist_search=$(yt-dlp -N4 --no-warnings --quiet --flat-playlist --print "%(id)s Playlist: %(title)s" -I "$yt_search_number" "https://youtube.com/search?q=${yt_search_plus}&sp=EgIQAw%253D%253D" | sed 's/YouTube Music/YTMusic/g' | sed 's/|//g' | sed 's/(//g' | sed 's/)//g' 2>/dev/null)
 if [ -n "$yt_playlist_search" ]
 then
 echo "7807897890789078907807" "==============================" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
@@ -3542,7 +3544,7 @@ function yt_channel_search_function ()
 clear
 echo "Please wait."
 yt_search_plus=$(echo "$yt_search" | sed 's/ /+/g' )
-yt_channel_search=$(yt-dlp --no-warnings --quiet --flat-playlist --print "%(channel_id)s Channel: %(channel)s" -I "$yt_search_number" "https://youtube.com/search?q=${yt_search_plus}&sp=EgIQAg%253D%253D" 2>/dev/null)
+yt_channel_search=$(yt-dlp -N4 --no-warnings --quiet --flat-playlist --print "%(channel_id)s Channel: %(channel)s" -I "$yt_search_number" "https://youtube.com/search?q=${yt_search_plus}&sp=EgIQAg%253D%253D" 2>/dev/null)
 if [ -n "$yt_channel_search" ]
 then
 echo "7807897890789078907807" "==============================" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
@@ -3557,11 +3559,11 @@ function get_channel_playlist_function ()
 {
 clear
 echo "Please wait."
-get_channel_playlist=$(yt-dlp --no-warnings --quiet --flat-playlist --print "%(id)s Playlist: %(playlist_uploader)s - %(title)s" -I "$yt_search_number" "https://www.youtube.com/channel/${yt_playlist_id}/playlists?view=1" | sed 's/YouTube Music/YTMusic/g' 2>/dev/null)
+get_channel_playlist=$(yt-dlp -N4 --no-warnings --quiet --flat-playlist --print "%(id)s Playlist: %(playlist_uploader)s - %(title)s" -I "$yt_search_number" "https://www.youtube.com/channel/${yt_playlist_id}/playlists?view=1" | sed 's/YouTube Music/YTMusic/g' 2>/dev/null)
 if [ -z "$get_channel_playlist" ]
 then
 unset get_channel_playlist
-get_channel_playlist=$(yt-dlp --no-warnings --quiet --flat-playlist --print "%(id)s Playlist: %(playlist_uploader)s - %(title)s" -I "$yt_search_number" "https://www.youtube.com/channel/${yt_playlist_id}/playlists" | sed 's/YouTube Music/YTMusic/g' 2>/dev/null)
+get_channel_playlist=$(yt-dlp -N4 --no-warnings --quiet --flat-playlist --print "%(id)s Playlist: %(playlist_uploader)s - %(title)s" -I "$yt_search_number" "https://www.youtube.com/channel/${yt_playlist_id}/playlists" | sed 's/YouTube Music/YTMusic/g' 2>/dev/null)
 fi
 if [ -n "$get_channel_playlist" ]
 then
