@@ -1,9 +1,14 @@
-9-21-2023
+9-22-2023
 
 ================================
 Change log notes
 ================================
 
+Linux v2.39 | macOS v2.39 | Termux v2.39
+macOS version is out of beta now. I got it working as good as it's going to get.
+Changed the way cache works on the Play HD menu. Before it was just reading ahead a max size of MB. Now mpv will read ahead for a max 600 seconds up to 2GB. The back cache buffer is set at 256MB.
+So this change should decrease the ram usage. Also changed the way cache works on the Play SD menu and Play Bookmark menu and Play Music menu. Now video and music is set to 120 seconds read ahead. 
+Changed the Automated install command for macOS version.
 
 Linux v2.38.1 | macOS v0.22.2 | Termux v2.38
 Fixed the internal hardware gpu on macOS.

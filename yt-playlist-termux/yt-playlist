@@ -11,7 +11,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: /sdcard/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 yt_video_number="1:100"
-version="v2.38"
+version="v2.39"
 
 #mainmenu
 
@@ -1113,7 +1113,6 @@ echo -ne "== Play SD Bookmark Menu ==
 7) Enable resume playback.
 8) Delete bookmarks.
 m) Main menu.
-
 Choose an option:  "
     read -r ans
     case $ans in
@@ -2016,6 +2015,7 @@ resume_playback_off_function
 mpv_log_file_off_funciton
 mpv_music_opus_function
 mpv_video_m4a_function
+enable_jemalloc_function
 clean_up_function
 main_menu_function
 fi
@@ -2052,6 +2052,53 @@ function clean_up_function ()
         then
         mv "${yt_playlist_home_dir}/yt-playlist_search_history.txt" "${yt_playlist_home_dir}/yt-playlist_history.txt"
         fi
+}
+
+function enable_jemalloc_function ()
+{
+	if test -f "/usr/lib/libjemalloc.so.1"
+	then
+        jemalloc="yes"
+	export LD_PRELOAD='/usr/lib/libjemalloc.so.1'
+        else
+	if test -f "/usr/lib/libjemalloc.so.2"
+	then
+        jemalloc="yes"
+	export LD_PRELOAD='/usr/lib/libjemalloc.so.2'
+        else
+	if test -f "/usr/lib64/libjemalloc.so.1"
+	then
+        jemalloc="yes"
+	export LD_PRELOAD='/usr/lib64/libjemalloc.so.1'
+        else
+	if test -f "/usr/lib64/libjemalloc.so.2"
+	then
+        jemalloc="yes"
+	export LD_PRELOAD='/usr/lib64/libjemalloc.so.2'
+        else
+	if test -f "/usr/lib/x86_64-linux-gnu/libjemalloc.so.1"
+	then
+        jemalloc="yes"
+	export LD_PRELOAD='/usr/lib/x86_64-linux-gnu/libjemalloc.so.1'
+        else
+	if test -f "/usr/lib/x86_64-linux-gnu/libjemalloc.so.2"
+	then
+        jemalloc="yes"
+	export LD_PRELOAD='/usr/lib/x86_64-linux-gnu/libjemalloc.so.2'
+        else
+	if test -f "/usr/local/lib/libjemalloc.2.dylib"
+	then
+        jemalloc="yes"
+	export LD_PRELOAD='/usr/local/lib/libjemalloc.2.dylib'
+        else
+        unset jemalloc
+  fi
+    fi
+     fi
+      fi
+    fi
+  fi
+fi
 }
 
 function quit_function ()
@@ -2601,7 +2648,7 @@ function play_sd_menu_bookmark_menu_hud_function ()
 
 function mpv_video_m4a_function ()
 {
-mpv_audio_video=( "--ytdl-format=22/18/b --video=no --demuxer-max-bytes=10M --demuxer-max-back-bytes=5M --term-osd-bar" )
+mpv_audio_video=( "--ytdl-format=22/18/b --video=no --term-osd-bar" )
 mpv_video_m4a="yes"
 unset mpv_video_opus
 export audio_download_format="140/ba"
@@ -2611,7 +2658,7 @@ mpv_video_arguments_function
 
 function mpv_video_opus_function ()
 {
-mpv_audio_video=( "--ytdl-format=251/140/ba --video=no --demuxer-max-bytes=10M --demuxer-max-back-bytes=5M --term-osd-bar" )
+mpv_audio_video=( "--ytdl-format=251/140/ba --video=no --term-osd-bar" )
 unset mpv_video_m4a
 mpv_video_opus="yes"
 export audio_download_format="251/ba"
@@ -2621,7 +2668,7 @@ mpv_video_arguments_function
 
 function mpv_video_arguments_function ()
 {
-mpv_video_arguments=( "${mpv_audio_video}" --config-dir="${yt_playlist_home_dir}" --script-opts=ytdl_hook-try_ytdl_first=yes --term-playing-msg='${media-title}' --cache=yes --sid=no --volume=95 --volume-max=100 --ao=pulse --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket")
+mpv_video_arguments=( "${mpv_audio_video}" --config-dir="${yt_playlist_home_dir}" --script-opts=ytdl_hook-try_ytdl_first=yes --term-playing-msg='${media-title}' --cache=yes --cache-secs=120 --sid=no --volume=95 --volume-max=100 --ao=pulse --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket")
 }
 
 function resume_playback_on_function ()
@@ -2638,7 +2685,7 @@ unset resume_playback_on_or_off
 
 function mpv_music_m4a_function ()
 {
-mpv_music_audio=( "--ytdl-format=22/18/b --video=no --demuxer-max-bytes=10M --demuxer-max-back-bytes=5M --term-osd-bar" )
+mpv_music_audio=( "--ytdl-format=22/18/b --video=no --term-osd-bar" )
 mpv_music_m4a="yes"
 unset mpv_music_opus
 export music_download_format="140/ba"
@@ -2647,7 +2694,7 @@ mpv_music_arguments_function
 
 function mpv_music_opus_function ()
 {
-mpv_music_audio=( "--ytdl-format=251/140/ba --video=no --demuxer-max-bytes=10M --demuxer-max-back-bytes=5M --term-osd-bar" )
+mpv_music_audio=( "--ytdl-format=251/140/ba --video=no --term-osd-bar" )
 unset mpv_music_m4a
 mpv_music_opus="yes"
 export music_download_format="251/ba"
@@ -2656,7 +2703,7 @@ mpv_music_arguments_function
 
 function mpv_music_arguments_function ()
 {
-mpv_music_arguments=( "${mpv_music_audio}" --config-dir="${yt_playlist_home_dir}" --script-opts=ytdl_hook-try_ytdl_first=yes --term-playing-msg='${media-title}' --cache=yes --sid=no --volume=95 --volume-max=100 --ao=pulse --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket")
+mpv_music_arguments=( "${mpv_music_audio}" --config-dir="${yt_playlist_home_dir}" --script-opts=ytdl_hook-try_ytdl_first=yes --term-playing-msg='${media-title}' --cache=yes --cache-secs=120 --sid=no --volume=95 --volume-max=100 --ao=pulse --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket")
 }
 
 function mpv_log_file_on_funciton ()
@@ -3342,6 +3389,7 @@ fi
     fi
   fi
 fi
+
 
         if [[ "$external_arguments1" = "--play_pause" ]]
 	then
