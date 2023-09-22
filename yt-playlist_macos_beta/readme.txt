@@ -1,6 +1,6 @@
 macOS yt-playlist.
 
-It's recommended to have macOS big sur or higher, otherwise you will have to compile all the dependencies and that may take hr's. If your having frame drops with mpv on macOS big sur or higher, then disable your screen saver, siri and uninstall Xquartz if installed, then reboot.
+It's recommended to have macOS big sur or higher, otherwise you will have to compile all the dependencies and that may take hr's.
 
 If you are installing for the first time, start at Install brew. If your upgrading and are on v0.18 or below, then start at Install the dependencies, otherwise start at Automated install or Offline install.
 
