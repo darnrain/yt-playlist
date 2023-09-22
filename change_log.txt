@@ -4,6 +4,9 @@
 Change log notes
 ================================
 
+Linux v2.39 | macOS v2.39.1 | Termux v2.39
+Fixed macOS Automated installer.
+
 Linux v2.39 | macOS v2.39 | Termux v2.39
 macOS version is out of beta now. I got it working as good as it's going to get.
 Changed the way cache works on the Play HD menu. Before it was just reading ahead a max size of MB. Now mpv will read ahead for a max 600 seconds up to 2GB. The back cache buffer is set at 256MB.

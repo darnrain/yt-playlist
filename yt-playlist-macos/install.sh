@@ -25,7 +25,7 @@
         echo "============================"
         if [[ "$externel_argument" = "--online_install" ]]
 	then
-        sudo cp /tmp/yt-playlist/yt-playlist_macos_beta/yt-playlist /usr/local/bin/
+        sudo cp /tmp/yt-playlist/yt-playlist-macos/yt-playlist /usr/local/bin/
         else
         sudo cp ./yt-playlist /usr/local/bin/
         fi
