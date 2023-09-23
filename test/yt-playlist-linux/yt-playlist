@@ -1,5 +1,10 @@
 #!/bin/bash 
 
+	if [ "$EUID" == "0" ]
+	then echo "Please do not run as root."
+  	exit
+	fi
+
 # yt-playlist Linux
 
 external_arguments1="$1"
