@@ -1,0 +1,66 @@
+#!/usr/local/bin/bash
+
+# yt-playlist macOS
+
+PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+PATH="/usr/local/opt/gawk/libexec/gnubin:$PATH"
+PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
+PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
+external_arguments1="$1"
+external_arguments2="$2"
+yt_playlist_home_dir="${HOME}/.config/yt-playlist"
+audio_dir="${HOME}/Music"
+video_dir="${HOME}/Videos"
+show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
+show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
+tmp_dir="/tmp"
+yt_video_number="1:100"
+version="v2.41.1"
+
+
+remove all
+--ao=pulse
+
+
+replace
+notify-send -i "${tmp_dir}/yt-playlist_icons.jpg" "yt-playlist"
+with
+terminal-notifier -title "yt-playlist" -message
+
+replace
+notify-send "yt-playlist"
+with
+terminal-notifier -title "yt-playlist" -message
+
+replace
+if command -v notify-send >/dev/null
+with
+if command -v terminal-notifier >/dev/null
+
+
+remove all 4 from results function
+
+	if [ -n "$cover_art" ]
+	then
+        yt-dlp -N4 --no-warnings --quiet -x --write-thumbnail --flat-playlist -o "${tmp_dir}/yt-playlist_icons" -I 1 https://youtube.com/playlist?list=$yt_playlist_id >/dev/null
+        else
+        if test -f "${tmp_dir}/yt-playlist_icons.jpg"
+        then
+        rm "${tmp_dir}/yt-playlist_icons.jpg"
+  fi
+fi
+
+
+replace
+--vo=gpu
+with
+--vo=libmpv
+
+replace
+--hwdec=auto
+with
+--hwdec=videotoolbox
+
+
+
