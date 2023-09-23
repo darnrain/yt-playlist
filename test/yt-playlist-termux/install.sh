@@ -1,5 +1,10 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
+	if [ "$EUID" == "0" ]
+	then echo "Please do not run as root"
+  	exit
+	fi
+
         externel_argument="$1"
 
 function termux_install_function ()

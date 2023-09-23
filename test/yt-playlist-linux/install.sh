@@ -1,5 +1,10 @@
 #!/bin/bash
 
+	if [ "$EUID" == "0" ]
+	then echo "Please do not run as root"
+  	exit
+	fi
+
         externel_argument="$1"
         if command -v yt-dlp >/dev/null && command -v mpv >/dev/null && command -v ffmpeg >/dev/null && command -v fzf >/dev/null && command -v mutagen-inspect >/dev/null && command -v socat >/dev/null && command -v awk >/dev/null && command -v sed >/dev/null && command -v tr >/dev/null && command -v bash >/dev/null && command -v curl >/dev/null && command -v git >/dev/null
         then
