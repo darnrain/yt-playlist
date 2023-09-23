@@ -55,7 +55,7 @@ More photos.<br>
 * yt-playlist will not work on Ubuntu, because of the snap permissions.
 * Anything older than macOS big sur, you will need to compile all the dependencies and that could take hr's.
 * macOS apple white remote, when watching video FF and RR get's stuck.
-* If install.sh or Automated install is taking more than 5 seconds, then check your internet connection.
+* If install.sh or Automated install is taking longer than 5 seconds, then check your internet connection.
 * Termux first time install, takes about 10 minuts or so to install all the dependencies.
 
 ### Tested OS and working as of 9-20-2023:
