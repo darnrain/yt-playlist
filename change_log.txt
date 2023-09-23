@@ -4,6 +4,9 @@
 Change log notes
 ================================
 
+Linux v2.42.5 | macOS v2.42.4 Termux v2.42.4
+Fixed typo in the linux dependencies.txt auto install commands.
+
 Linux v2.42.4 | macOS v2.42.4 Termux v2.42.4
 Added 5 retrys to curl, install.sh and dependencies.txt.
 
