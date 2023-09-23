@@ -3258,7 +3258,7 @@ fi
 
 	if test -f "${tmp_dir}/mpv_bookmark_running"
         then
-        if command -v notify-send >/dev/null
+        if command -v terminal-notifier >/dev/null
         then
         echo '{ "command": ["show-text", "Next track" ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         terminal-notifier -title "yt-playlist" -message "Next track"
@@ -3271,7 +3271,7 @@ fi
 
 	if test -f "${tmp_dir}/mpv_music_running"
         then
-        if command -v notify-send >/dev/null
+        if command -v terminal-notifier >/dev/null
         then
         echo '{ "command": ["show-text", "Next track" ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         terminal-notifier -title "yt-playlist" -message "Next track"
