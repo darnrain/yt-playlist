@@ -4,6 +4,9 @@
 Change log notes
 ================================
 
+Linux v2.41 | macOS v2.41.1 Termux v2.40.1
+Fixed HW GPU on Play SD menu macos.
+
 Linux v2.41 | macOS v2.41 Termux v2.40.1
 Added to the Play HD menu.
 8) Max cache size 640MB.

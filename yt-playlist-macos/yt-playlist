@@ -16,7 +16,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="v2.41"
+version="v2.41.1"
 
 #mainmenu
 
@@ -3086,7 +3086,7 @@ function mpv_video_gpu_on_function ()
 {
 if [ -n "$mpv_video_mp4" ]
 then
-mpv_video_gpu=( "--hwdec=videotoolbox --vo=gpu" )
+mpv_video_gpu=( "--hwdec=videotoolbox --vo=libmpv" )
 mpv_video_arguments_function
 fi
 }
