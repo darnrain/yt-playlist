@@ -16,7 +16,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="v2.40.1"
+version="v2.41"
 
 #mainmenu
 
@@ -1442,7 +1442,10 @@ echo -ne "== Play HD Menu ==.
 5) Enable HW GPU.
 6) Enable fullscreen.
 7) Disable HW GPU & fullscreen.
-8) Enter number of video results.
+8) Max cache size 640MB.
+9) Max cache size 1280MB.
+10) Max cache size 2560MB.
+11) Enter number of video results.
 m) Main menu.
 Choose an option:  "
     read -r ans
@@ -1593,6 +1596,18 @@ Choose an option:  "
         play_hd_menu_function
         ;;
     8)
+        mpv_hd_cache3_function
+        play_hd_menu_function
+        ;;
+    9)
+        mpv_hd_cache2_function
+        play_hd_menu_function
+        ;;
+    10)
+        mpv_hd_cache1_function
+        play_hd_menu_function
+        ;;
+    11)
         printf " \n"
         printf "Enter video results number: \n"
         read yt_video_number
@@ -2276,6 +2291,7 @@ then
 echo "Error: yt-playlist is already running, or incorrect argument."
 exit
 else
+mpv_hd_cache3_function
 mpv_video_fullscreen_off_function
 mpv_video_gpu_off_function
 resume_playback_off_function
@@ -2959,6 +2975,22 @@ function play_hd_menu_hud_function ()
         else
         echo "Fullscreen off."
         fi
+
+	if [ -n "$mpv_hd_cache_show1" ]
+	then
+	echo "Max cache size 2560MB."
+        fi
+
+	if [ -n "$mpv_hd_cache_show2" ]
+	then
+	echo "Max cache size 1280MB"
+        fi
+
+	if [ -n "$mpv_hd_cache_show3" ]
+	then
+	echo "Max cache size 640MB."
+        fi
+
         if test -f "${tmp_dir}/count_down_timer.txt"
         then
         echo "Sleep timer not available."
@@ -3000,9 +3032,39 @@ unset mpv_hd_gpu
 mpv_hd_arguments_function
 }
 
+function mpv_hd_cache1_function ()
+{
+unset mpv_hd_cache
+unset mpv_hd_cache_show2
+unset mpv_hd_cache_show3
+mpv_hd_cache_show1="yes"
+mpv_hd_cache=( "--cache=yes --cache-pause-wait=120 --cache-secs=600 --demuxer-max-bytes=2G --demuxer-max-back-bytes=512M --demuxer-donate-buffer=no" )
+mpv_hd_arguments_function
+}
+
+function mpv_hd_cache2_function ()
+{
+unset mpv_hd_cache
+unset mpv_hd_cache_show1
+unset mpv_hd_cache_show3
+mpv_hd_cache_show2="yes"
+mpv_hd_cache=( "--cache=yes --cache-pause-wait=120 --cache-secs=600 --demuxer-max-bytes=1G --demuxer-max-back-bytes=256M --demuxer-donate-buffer=no" )
+mpv_hd_arguments_function
+}
+
+function mpv_hd_cache3_function ()
+{
+unset mpv_hd_cache
+unset mpv_hd_cache_show1
+unset mpv_hd_cache_show2
+mpv_hd_cache_show3="yes"
+mpv_hd_cache=( "--cache=yes --cache-pause-wait=120 --cache-secs=600 --demuxer-max-bytes=512M --demuxer-max-back-bytes=128M --demuxer-donate-buffer=no" )
+mpv_hd_arguments_function
+}
+
 function mpv_hd_arguments_function ()
 {
-mpv_hd_arguments=( "${mpv_hd_gpu}" "${mpv_hd_fullscreen}" --cache=yes --cache-pause-wait=120 --cache-secs=600 --demuxer-max-bytes=2G --demuxer-max-back-bytes=256M --demuxer-donate-buffer=no --config-dir="${yt_playlist_home_dir}" --sid=no --video-sync=display-resample --volume=95 --volume-max=100 --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket" )
+mpv_hd_arguments=( "${mpv_hd_gpu}" "${mpv_hd_fullscreen}" "${mpv_hd_cache}" --config-dir="${yt_playlist_home_dir}" --sid=no --video-sync=display-resample --volume=95 --volume-max=100 --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket" )
 }
 
 function mpv_video_fullscreen_on_function ()
@@ -3024,7 +3086,7 @@ function mpv_video_gpu_on_function ()
 {
 if [ -n "$mpv_video_mp4" ]
 then
-mpv_video_gpu=( "--hwdec=videotoolbox --vo=libmpv" )
+mpv_video_gpu=( "--hwdec=videotoolbox --vo=gpu" )
 mpv_video_arguments_function
 fi
 }
@@ -3196,7 +3258,7 @@ fi
 
 	if test -f "${tmp_dir}/mpv_bookmark_running"
         then
-        if command -v terminal-notifier >/dev/null
+        if command -v notify-send >/dev/null
         then
         echo '{ "command": ["show-text", "Next track" ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         terminal-notifier -title "yt-playlist" -message "Next track"
@@ -3209,7 +3271,7 @@ fi
 
 	if test -f "${tmp_dir}/mpv_music_running"
         then
-        if command -v terminal-notifier >/dev/null
+        if command -v notify-send >/dev/null
         then
         echo '{ "command": ["show-text", "Next track" ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         terminal-notifier -title "yt-playlist" -message "Next track"
