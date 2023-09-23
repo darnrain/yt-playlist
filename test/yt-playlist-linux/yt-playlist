@@ -1,12 +1,11 @@
 #!/bin/bash 
 
-	if [ "$EUID" == "0" ]
-	then echo "Please do not run as root."
-  	exit
-	fi
-
 # yt-playlist Linux
 
+if [ "$EUID" == "0" ]
+then echo "Please do not run as root."
+exit
+fi
 external_arguments1="$1"
 external_arguments2="$2"
 yt_playlist_home_dir="${HOME}/.config/yt-playlist"

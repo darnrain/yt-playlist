@@ -1,12 +1,11 @@
 #!/usr/local/bin/bash
 
-	if [ "$EUID" == "0" ]
-	then echo "Please do not run as root."
-  	exit
-	fi
-
 # yt-playlist macOS
 
+if [ "$EUID" == "0" ]
+then echo "Please do not run as root."
+exit
+fi
 PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 PATH="/usr/local/opt/gawk/libexec/gnubin:$PATH"
