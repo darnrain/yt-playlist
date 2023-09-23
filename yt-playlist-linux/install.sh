@@ -23,7 +23,7 @@
         echo "mpv is installed, version: ${mpv_version}"
         fi
         echo "============================"
-        if [[ "$externel_argument" = "--online_install" ]]
+        if [[ "$externel_argument" = "--main" ]]
 	then
         sudo cp /tmp/yt-playlist/yt-playlist-linux/yt-playlist /usr/bin/
         else

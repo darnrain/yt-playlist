@@ -4,6 +4,19 @@
 Change log notes
 ================================
 
+Linux v2.42 | macOS v2.42 Termux v2.42
+Added a test directory. I changed the Automated install commands.
+
+Linux:
+if [ -d /tmp/yt-playlist/ ]; then yes|rm -R /tmp/yt-playlist/; fi; git clone https://github.com/darnrain/yt-playlist.git /tmp/yt-playlist/; sudo chmod +x /tmp/yt-playlist/yt-playlist-linux/install.sh; /tmp/yt-playlist/yt-playlist-linux/install.sh --main
+
+macOS:
+if [ -d /tmp/yt-playlist/ ]; then yes|rm -R /tmp/yt-playlist/; fi; git clone https://github.com/darnrain/yt-playlist.git /tmp/yt-playlist/; sudo chmod +x /tmp/yt-playlist/yt-playlist-macos/install.sh; /tmp/yt-playlist/yt-playlist-macos/install.sh --main
+
+Termux:
+if [ -d ${TMPDIR}/yt-playlist/ ]; then yes|rm -R ${TMPDIR}/yt-playlist/; fi; if ! command -v git; then pkg install git; fi; git clone https://github.com/darnrain/yt-playlist.git ${TMPDIR}/yt-playlist/; chmod +x ${TMPDIR}/yt-playlist/yt-playlist-termux/install.sh; ${TMPDIR}/yt-playlist/yt-playlist-termux/install.sh --main
+
+
 Linux v2.41 | macOS v2.41.1 Termux v2.40.1
 Fixed HW GPU on Play SD menu macos.
 
