@@ -4,6 +4,8 @@ It's recommended to have macOS big sur or higher, otherwise you will have to com
 
 If you are installing for the first time, start at Install brew. If your upgrading start at Automated install or Offline install.
 
+Apple white remote, when watching video FF and RR get's stuck. I have not found a solution.
+
 For notifications to work on macOS you need to give permissions to terminal-notifier.
 
 If your on an older version of macOS and are getting an error message when trying to install brew, "Cant download software because of network problems." Then go to this link and sign in and find "Command line tools for your version of macOS.
@@ -17,7 +19,7 @@ Install brew: https://brew.sh/
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 Install the dependencies:
-brew install curl nano bash unzip git mpv yt-dlp findutils gawk jemalloc grep fx gnu-sed coreutils terminal-notifier ffmpeg fzf socat python3 python-mutagen
+brew install curl bash unzip git mpv yt-dlp gawk jemalloc grep fx gnu-sed coreutils terminal-notifier ffmpeg fzf socat python3 python-mutagen
 
 Automated install:
 if [ -d /tmp/yt-playlist/ ]; then yes|rm -R /tmp/yt-playlist/; fi; git clone https://github.com/darnrain/yt-playlist.git /tmp/yt-playlist/; sudo chmod +x /tmp/yt-playlist/yt-playlist-macos/install.sh; /tmp/yt-playlist/yt-playlist-macos/install.sh --main
