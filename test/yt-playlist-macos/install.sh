@@ -27,8 +27,13 @@
 	then
         sudo cp /tmp/yt-playlist/yt-playlist-macos/yt-playlist /usr/local/bin/
         else
+        if [[ "$externel_argument" = "--test" ]]
+	then
+        sudo cp /tmp/yt-playlist/test/yt-playlist-macos/yt-playlist /usr/local/bin/
+        else
         sudo cp ./yt-playlist /usr/local/bin/
-        fi
+  fi
+fi
         sudo chmod +x /usr/local/bin/yt-playlist
         sudo chown ${USER} /usr/local/bin/yt-playlist
         mkdir -p ${HOME}/.config/

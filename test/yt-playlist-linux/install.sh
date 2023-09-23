@@ -27,8 +27,13 @@
 	then
         sudo cp /tmp/yt-playlist/yt-playlist-linux/yt-playlist /usr/bin/
         else
+        if [[ "$externel_argument" = "--test" ]]
+	then
+        sudo cp /tmp/yt-playlist/test/yt-playlist-linux/yt-playlist /usr/bin/
+        else
         sudo cp ./yt-playlist /usr/bin/
-        fi
+  fi
+fi
         sudo chmod +x /usr/bin/yt-playlist
         mkdir -p ${HOME}/.config/yt-playlist/
         mkdir -p ${HOME}/.config/yt-playlist/scripts/
