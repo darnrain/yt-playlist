@@ -17,7 +17,7 @@ Install brew: https://brew.sh/
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 Install the dependencies:
-brew install curl nano bash unzip git mpv yt-dlp findutils gawk jemalloc grep fx gnu-sed coreutils terminal-notifier ffmpeg fzf socat python3 python-mutagen
+brew install curl bash unzip git mpv yt-dlp gawk jemalloc grep fx gnu-sed coreutils terminal-notifier ffmpeg fzf socat python3 python-mutagen
 
 Automated install:
 if [ -d /tmp/yt-playlist/ ]; then yes|rm -R /tmp/yt-playlist/; fi; git clone https://github.com/darnrain/yt-playlist.git /tmp/yt-playlist/; sudo chmod +x /tmp/yt-playlist/yt-playlist-macos/install.sh; /tmp/yt-playlist/yt-playlist-macos/install.sh --main
