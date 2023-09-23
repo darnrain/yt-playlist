@@ -53,8 +53,7 @@ More photos.<br>
  
 ### Known issues:
 * yt-playlist will not work on Ubuntu, because of the snap permissions.
-* Fast internet connection to stream 1080p, 2k, 4k, 8k.
-* Playing 2k, 4k, 8k requires a fast comptuer/gpu.
+* macOS older than big sur, you will need to compile all the dependencies and that could take hr's.
 
 ### Tested OS and working as of 9-20-2023:
 * macOS big sur
