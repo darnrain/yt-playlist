@@ -1,8 +1,11 @@
-9-22-2023
+9-23-2023
 
 ================================
 Change log notes
 ================================
+
+Linux v2.42.1 | macOS v2.42.1 Termux v2.42.1
+Added a check to install.sh to check and see if running as root.
 
 Linux v2.42 | macOS v2.42 Termux v2.42
 Added a test directory. I changed the Automated install commands.
