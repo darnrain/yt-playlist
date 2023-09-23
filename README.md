@@ -53,7 +53,7 @@ More photos.<br>
  
 ### Known issues:
 * yt-playlist will not work on Ubuntu, because of the snap permissions.
-* macOS older than big sur, you will need to compile all the dependencies and that could take hr's.
+* Anything older than macOS big sur, you will need to compile all the dependencies and that could take hr's.
 * Apple white remote, when watching video FF and RR get's stuck.
 * If install.sh or Automated install is taking more than 5 seconds, then check your internet connection.
 
