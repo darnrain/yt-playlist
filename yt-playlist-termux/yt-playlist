@@ -2,6 +2,10 @@
 
 # yt-playlist Termux
 
+if [ "$EUID" == "0" ]
+then echo "Please do not run as root."
+exit
+fi
 external_arguments1=$1
 external_arguments2="$2"
 yt_playlist_home_dir="${HOME}/.config/yt-playlist"
@@ -11,7 +15,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: /sdcard/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 yt_video_number="1:100"
-version="v2.42.2"
+version="v2.42.3"
 
 #mainmenu
 

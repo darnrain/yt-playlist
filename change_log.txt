@@ -4,6 +4,9 @@
 Change log notes
 ================================
 
+Linux v2.42.3 | macOS v2.42.3 Termux v2.42.3
+Added root check to yt-playlist, updated install.sh and uninstall.sh root check.
+
 Linux v2.42.2 | macOS v2.42.2 Termux v2.42.2
 Added a check to uninstall.sh to check and see if running as root.
 
