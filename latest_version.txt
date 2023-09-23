@@ -1,1 +1,1 @@
-Linux v2.42 | macOS v2.42 Termux v2.42
+Linux v2.42.1 | macOS v2.42.1 Termux v2.42.1
