@@ -26,6 +26,7 @@
         if [[ "$externel_argument" = "--online_install" ]]
 	then
         sudo cp /tmp/yt-playlist/yt-playlist-linux/yt-playlist /usr/bin/
+        else
         if [[ "$externel_argument" = "--test" ]]
 	then
         sudo cp /tmp/yt-playlist/test/yt-playlist-linux/yt-playlist /usr/bin/

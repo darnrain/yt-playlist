@@ -7,6 +7,7 @@ function termux_install_function ()
         if [[ "$externel_argument" = "--online_install" ]]
 	then
         cp ${TMPDIR}/yt-playlist/yt-playlist-termux/yt-playlist /data/data/com.termux/files/usr/bin/
+        else
         if [[ "$externel_argument" = "--test" ]]
 	then
         cp ${TMPDIR}/yt-playlist/test/yt-playlist-termux/yt-playlist /data/data/com.termux/files/usr/bin/
