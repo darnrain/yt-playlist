@@ -26,9 +26,9 @@ fi
         mkdir -p ${HOME}/.config/yt-playlist/scripts/sponsorblock_shared/
         if ! test -f ${HOME}/.config/yt-playlist/scripts/sponsorblock.lua
         then
-        curl -s https://raw.githubusercontent.com/po5/mpv_sponsorblock/master/sponsorblock.lua -L -o ${HOME}/.config/yt-playlist/scripts/sponsorblock.lua
-        curl -s https://raw.githubusercontent.com/po5/mpv_sponsorblock/master/sponsorblock_shared/main.lua -L -o ${HOME}/.config/yt-playlist/scripts/sponsorblock_shared/main.lua
-        curl -s https://raw.githubusercontent.com/po5/mpv_sponsorblock/master/sponsorblock_shared/sponsorblock.py -L -o ${HOME}/.config/yt-playlist/scripts/sponsorblock_shared/sponsorblock.py
+        curl --retry 5 --retry-max-time 60 -s https://raw.githubusercontent.com/po5/mpv_sponsorblock/master/sponsorblock.lua -L -o ${HOME}/.config/yt-playlist/scripts/sponsorblock.lua
+        curl --retry 5 --retry-max-time 60 -s https://raw.githubusercontent.com/po5/mpv_sponsorblock/master/sponsorblock_shared/main.lua -L -o ${HOME}/.config/yt-playlist/scripts/sponsorblock_shared/main.lua
+        curl --retry 5 --retry-max-time 60 -s https://raw.githubusercontent.com/po5/mpv_sponsorblock/master/sponsorblock_shared/sponsorblock.py -L -o ${HOME}/.config/yt-playlist/scripts/sponsorblock_shared/sponsorblock.py
         fi
         touch ${HOME}/.config/yt-playlist/yt-playlist_favorites.txt
         touch ${HOME}/.config/yt-playlist/yt-playlist_history.txt

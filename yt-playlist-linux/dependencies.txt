@@ -47,12 +47,9 @@ the dependencies and the removal
 of yt-dlp and youtube-dl.
 If jemalloc not enabled try:
 sudo apt install libjemalloc1
-If you get an error message:
-"chmod: cannot access '/usr/bin/yt-dlp': No such file or directory"
-Then copy and paste again, yt-dlp did not get downloaded.
 Just copy and paste into the terminal:
 ============================
-sudo apt update; sudo apt install curl git unzip libjemalloc2 mpv ffmpeg fzf socat python3 python3-mutagen; sudo curl https://github.com/antonmedv/fx/releases/download/24.1.0/fx_linux_amd64 -L -o /usr/bin/fx; sudo chmod +x /usr/bin/fx; sudo apt remove yt-dlp; sudo apt remove youtube-dl; pipx uninstall yt-dlp; pipx uninstall youtube-dl; sudo curl https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -L -o /usr/bin/yt-dlp; sudo chmod +x /usr/bin/yt-dlp
+sudo apt update; sudo apt install curl git unzip libjemalloc2 mpv ffmpeg fzf socat python3 python3-mutagen; sudo curl https://github.com/antonmedv/fx/releases/download/24.1.0/fx_linux_amd64 -L -o /usr/bin/fx; sudo chmod +x /usr/bin/fx; sudo apt remove yt-dlp; sudo apt remove youtube-dl; pipx uninstall yt-dlp; pipx uninstall youtube-dl; sudo --retry 5 --retry-max-time 60 curl https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -L -o /usr/bin/yt-dlp; sudo chmod +x /usr/bin/yt-dlp
 ============================
 
 ============================
@@ -63,10 +60,7 @@ This command requires sudo access,
 and to confirm the installation of 
 the dependencies and the removal 
 of yt-dlp and youtube-dl.
-If you get an error message:
-"chmod: cannot access '/usr/bin/yt-dlp': No such file or directory"
-Then copy and paste again, yt-dlp did not get downloaded.
 Just copy and paste into the terminal:
 ============================
-sudo pacman -Syu curl git unzip fx mpv jemalloc ffmpeg fzf socat python python-mutagen; sudo pacman -R yt-dlp; sudo pacman -R youtube-dl; sudo pacman -R yt-dlp-git; sudo pacman -R youtube-dl-git; pipx uninstall yt-dlp; pipx uninstall youtube-dl; sudo curl https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -L -o /usr/bin/yt-dlp; sudo chmod +x /usr/bin/yt-dlp
+sudo pacman -Syu curl git unzip fx mpv jemalloc ffmpeg fzf socat python python-mutagen; sudo pacman -R yt-dlp; sudo pacman -R youtube-dl; sudo pacman -R yt-dlp-git; sudo pacman -R youtube-dl-git; pipx uninstall yt-dlp; pipx uninstall youtube-dl; sudo --retry 5 --retry-max-time 60 curl https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -L -o /usr/bin/yt-dlp; sudo chmod +x /usr/bin/yt-dlp
 ============================

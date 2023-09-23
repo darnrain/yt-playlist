@@ -4,6 +4,9 @@
 Change log notes
 ================================
 
+Linux v2.42.4 | macOS v2.42.4 Termux v2.42.4
+Added 5 retrys to curl, install.sh and dependencies.txt.
+
 Linux v2.42.3 | macOS v2.42.3 Termux v2.42.3
 Added root check to yt-playlist, updated install.sh and uninstall.sh root check.
 
