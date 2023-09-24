@@ -7,7 +7,7 @@ Change log notes
 Linux v2.43 | macOS v2.43 Termux v2.43
 Updated the readme.txt on macOS.
 Max cache Play SD menu, YTMusic menu and Bookmark menu of 40MB.
-added --vd-lavc-dr=yes to the Play HD menu Linux and macOS.Enable  direct  rendering  (default: auto). If this is set to yes, the video will be decoded directly to GPU video memory (or staging buffers).  This can speed up video upload, and may help with large resolutions or slow hardware.
+added --vd-lavc-dr=yes to the Play HD menu and the Play SD menu, Linux and macOS. Enable direct rendering (default: auto). If this is set to yes, the video will be decoded directly to GPU video memory (or staging buffers).  This can speed up video upload, and may help with large resolutions or slow hardware.
 Added --video-output-levels=full To Linux and macOS, RGB color levels full = (0-255 per component) Play HD menu and Play SD menu.
 Fixed the white apple remote on macOS. Now you press to FF and RR 5 seconds and hold for next track or prev track.
 Added support for white apple remove on Linux. press to FF or RR volume already worked so did play/pause. Running on a mac mini. FF and RR only works on video when mpv is the active window.
