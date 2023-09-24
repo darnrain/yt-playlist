@@ -1,0 +1,2 @@
+
+Make an option to choose full or limited RGB.
