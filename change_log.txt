@@ -1,8 +1,10 @@
-9-23-2023
+9-24-2023
 
 ================================
 Change log notes
 ================================
+
+Starting now, the latest version will be under the test directory. There is a test_change_log.txt. If you want to install it with the Automated install, change --main to --test
 
 yt-dlp 2023.09.24
 see upgrade_yt-dlp.txt
