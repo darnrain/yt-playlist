@@ -4,18 +4,14 @@
 Change log notes
 ================================
 
-yt-dlp 2023.09.24
-Arch and Debian based linux can update by running the auto dependencies in dependencies.txt
+yt-dlp 2023.09.24 is out.
+Arch and Debian based linux can always upgrade yt-dlp by running the auto dependencies in dependencies.txt
 
 Termux can update by running this command:
 pip install --upgrade yt-dlp
 
 macOS will need to wait tell brew pushes an update.
 brew upgrade
-
-type: "yt-dlp --version" to check the version your on.
-
-Looks like the new yt-dlp works with yt-playlist.
 
 Linux v2.42.5 | macOS v2.42.6 Termux v2.42.4
 Updated the macOS readme.txt file, removed findutils and nano from the dependencies. nano was installed for me, when I was working on macOS beta. Anyway if you want to uninstall them you can:
