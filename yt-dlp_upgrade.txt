@@ -1,5 +1,4 @@
 How to update yt-dlp for yt-playlist.
-yt-dlp, mpv and fzf are the core dependencies for yt-playlist, so keeping them up to date is a good idea.
 
 Arch and Debian based linux can always upgrade to the latest version of yt-dlp by running the auto dependencies in dependencies.txt
 
