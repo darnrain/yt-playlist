@@ -6,6 +6,8 @@ Change log notes
 
 Starting now, the latest version will be under the test directory. There is a test_change_log.txt. If you want to install it with the Automated install, change --main to --test
 
+Keep in mind the test version may not work. You can always just reinstall the --main version.
+
 After I get done testing it, I will upload to main.
 
 yt-dlp 2023.09.24
