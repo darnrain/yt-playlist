@@ -7,3 +7,8 @@ Max cache Play SD menu, YTMusic menu and Bookmark menu of 15MB.
 Linux v2.43 | macOS v2.43.1 Termux v2.43
 changed --vo=libmpv to --vo=gpu requires macOS 10.8 and up
 
+Linux v2.43.2 | macOS v2.43.2 Termux v2.43
+Changed --vo=gpu back to --vo=libmpv
+added --vd-lavc-dr=yes
+to the Play HD menu Linux and macOS.
+Enable  direct  rendering  (default: auto). If this is set to yes, the video will be decoded directly to GPU video memory (or staging buffers).  This can speed up video upload, and may help with large resolutions or slow hardware.
