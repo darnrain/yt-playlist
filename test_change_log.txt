@@ -1,0 +1,47 @@
+9-24-23
+
+Linux v2.43 | macOS v2.43 Termux v2.43
+Updated the readme.txt on macOS.
+Max cache Play SD menu, YTMusic menu and Bookmark menu of 15MB.
+
+Linux v2.43 | macOS v2.43.1 Termux v2.43
+changed --vo=libmpv to --vo=gpu requires macOS 10.8 and up
+
+Linux v2.43.2 | macOS v2.43.2 Termux v2.43
+Changed --vo=gpu back to --vo=libmpv
+added --vd-lavc-dr=yes
+to the Play HD menu Linux and macOS.
+Enable  direct  rendering  (default: auto). If this is set to yes, the video will be decoded directly to GPU video memory (or staging buffers).  This can speed up video upload, and may help with large resolutions or slow hardware.
+
+Linux v2.43.3 | macOS v2.43.3 Termux v2.43
+Added --video-output-levels=full
+To Linux and macOS, RGB color levels full = (0-255 per component)
+Play HD menu and Play SD menu.
+
+Linux v2.43.4 | macOS v2.43.4 Termux v2.43
+Chnaged location of --vd-lavc-dr=yes
+It's now only enabled when you enable gpu.
+
+Linux v2.43.5_test | macOS v2.43.5_test Termux v2.43_test
+Added test to the version number, when I am done testing this version it will be v2.43
+
+Linux v2.43.6_test | macOS v2.43.6_test Termux v2.43.6_test
+Changed the max cache size to 40MB Play SD menu, Bookmark menu and YTMusic menu.
+
+Linux v2.43.6_test | macOS v2.43.7_test Termux v2.43.6_test
+Fixed the white apple remote on macOS. Now you press to FF and RR 5 seconds and hold for next track or prev track. This update you will need to clone repo and 
+go into test directory
+sudo chmod +x ./install.sh; ./install.sh
+
+Linux v2.43.8_test | macOS v2.43.7_test Termux v2.43.6_test
+Added support for white apple remote on Linux. press to FF or RR 5 seconds at a time or hold to FF or RR. Volume already worked so did play/pause. Running on a mac mini. This update you will need to clone repo and 
+go into test directory
+sudo chmod +x ./install.sh; ./install.sh
+
+Only works when watching video with mpv, if you want to map menu to next track you would do that in linux "yt-playlist --next"
+
+
+
+
+
+
