@@ -21,3 +21,6 @@ Play HD menu and Play SD menu.
 Linux v2.43.4 | macOS v2.43.4 Termux v2.43
 Chnaged location of --vd-lavc-dr=yes
 It's now only enabled when you enable gpu.
+
+Linux v2.43.5_test | macOS v2.43.5_test Termux v2.43_test
+Added test to the version number, when I am done testing this version it will be v2.43
