@@ -5,7 +5,7 @@ Change log notes
 ================================
 
 yt-dlp 2023.09.24
-see yt-dlp_upgrade.txt
+see upgrade_yt-dlp.txt
 
 Linux v2.42.5 | macOS v2.42.6 Termux v2.42.4
 Updated the macOS readme.txt file, removed findutils and nano from the dependencies. nano was installed for me, when I was working on macOS beta. Anyway if you want to uninstall them you can:
