@@ -19,8 +19,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="v2.42.6"
-
+version="v2.43"
 
 #mainmenu
 
@@ -3026,7 +3025,7 @@ mpv_hd_arguments_function
 
 function mpv_hd_gpu_on_function ()
 {
-mpv_hd_gpu=( "--hwdec=videotoolbox --vo=libmpv" )
+mpv_hd_gpu=( "--hwdec=videotoolbox --vo=libmpv --vd-lavc-dr=yes" )
 mpv_hd_arguments_function
 }
 
@@ -3068,7 +3067,7 @@ mpv_hd_arguments_function
 
 function mpv_hd_arguments_function ()
 {
-mpv_hd_arguments=( "${mpv_hd_gpu}" "${mpv_hd_fullscreen}" "${mpv_hd_cache}" --config-dir="${yt_playlist_home_dir}" --sid=no --video-sync=display-resample --volume=95 --volume-max=100 --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket" )
+mpv_hd_arguments=( "${mpv_hd_gpu}" "${mpv_hd_fullscreen}" "${mpv_hd_cache}" --config-dir="${yt_playlist_home_dir}" --sid=no --video-sync=display-resample --video-output-levels=full --volume=95 --volume-max=100 --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket" )
 }
 
 function mpv_video_fullscreen_on_function ()
@@ -3090,7 +3089,7 @@ function mpv_video_gpu_on_function ()
 {
 if [ -n "$mpv_video_mp4" ]
 then
-mpv_video_gpu=( "--hwdec=videotoolbox --vo=libmpv" )
+mpv_video_gpu=( "--hwdec=videotoolbox --vo=libmpv --vd-lavc-dr=yes" )
 mpv_video_arguments_function
 fi
 }
@@ -3103,7 +3102,7 @@ mpv_video_arguments_function
 
 function mpv_video_mp4_function ()
 {
-mpv_audio_video=( "--ytdl-format=22/18/b --video-sync=display-resample" )
+mpv_audio_video=( "--ytdl-format=22/18/b --video-sync=display-resample --video-output-levels=full" )
 mpv_video_mp4="yes"
 unset mpv_video_m4a
 unset mpv_video_opus
@@ -3136,7 +3135,7 @@ mpv_video_arguments_function
 
 function mpv_video_arguments_function ()
 {
-mpv_video_arguments=( "${mpv_audio_video}" "${mpv_video_gpu}" "${mpv_video_fullscreen}" --config-dir="${yt_playlist_home_dir}" --script-opts=ytdl_hook-try_ytdl_first=yes --term-playing-msg='${media-title}' --cache=yes --cache-secs=120 --sid=no --volume=95 --volume-max=100 --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket")
+mpv_video_arguments=( "${mpv_audio_video}" "${mpv_video_gpu}" "${mpv_video_fullscreen}" --config-dir="${yt_playlist_home_dir}" --script-opts=ytdl_hook-try_ytdl_first=yes --term-playing-msg='${media-title}' --cache=yes --cache-secs=120 --demuxer-max-bytes=35M --demuxer-max-back-bytes=5M --sid=no --volume=95 --volume-max=100 --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket")
 }
 
 function resume_playback_on_function ()
@@ -3171,7 +3170,7 @@ mpv_music_arguments_function
 
 function mpv_music_arguments_function ()
 {
-mpv_music_arguments=( "${mpv_music_audio}" --config-dir="${yt_playlist_home_dir}" --script-opts=ytdl_hook-try_ytdl_first=yes --term-playing-msg='${media-title}' --cache=yes --cache-secs=120 --sid=no --volume=95 --volume-max=100 --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket")
+mpv_music_arguments=( "${mpv_music_audio}" --config-dir="${yt_playlist_home_dir}" --script-opts=ytdl_hook-try_ytdl_first=yes --term-playing-msg='${media-title}' --cache=yes --cache-secs=120 --demuxer-max-bytes=35M --demuxer-max-back-bytes=5M --sid=no --volume=95 --volume-max=100 --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket")
 }
 
 function mpv_log_file_on_funciton ()

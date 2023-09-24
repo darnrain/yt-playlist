@@ -63,6 +63,10 @@ fi
         echo "f run /usr/local/bin/yt-playlist --favorites" >> ${HOME}/.config/yt-playlist/input.conf
         echo "t run /usr/local/bin/yt-playlist --date_time" >> ${HOME}/.config/yt-playlist/input.conf
         echo "T run /usr/local/bin/yt-playlist --title" >> ${HOME}/.config/yt-playlist/input.conf
+        echo "NEXT seek 5" >> ${HOME}/.config/yt-playlist/input.conf
+        echo "PREV seek -5" >> ${HOME}/.config/yt-playlist/input.conf
+        echo "FORWARD playlist-next" >> ${HOME}/.config/yt-playlist/input.conf
+        echo "REWIND playlist-prev" >> ${HOME}/.config/yt-playlist/input.conf
         echo 'Type "yt-playlist" to run program.'
         echo "============================"
         exit
