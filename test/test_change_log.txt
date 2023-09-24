@@ -33,6 +33,11 @@ Fixed the white apple remote on macOS. Now you press to FF and RR 5 seconds and 
 go into test directory
 sudo chmod +x ./install.sh; ./install.sh
 
+Linux v2.43.8_test | macOS v2.43.7_test Termux v2.43.6_test
+Added support for white apple remove on Linux. press to FF or RR volume already worked so did play/pause. Running on a mac mini. This update you will need to clone repo and 
+go into test directory
+sudo chmod +x ./install.sh; ./install.sh
+
 
 
 
