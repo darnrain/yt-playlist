@@ -1,2 +1,2 @@
 
-Make an option to choose full or limited RGB.
+Not sure yet. I will update when I think of something.
