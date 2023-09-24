@@ -1,4 +1,9 @@
 9-24-23
 
+Linux v2.43 | macOS v2.43 Termux v2.43
 Updated the readme.txt on macOS.
 Max cache Play SD menu, YTMusic menu and Bookmark menu of 15MB.
+
+Linux v2.43 | macOS v2.43.1 Termux v2.43
+changed --vo=libmpv to --vo=gpu requires macOS 10.8 and up
+
