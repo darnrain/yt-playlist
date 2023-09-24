@@ -24,3 +24,8 @@ It's now only enabled when you enable gpu.
 
 Linux v2.43.5_test | macOS v2.43.5_test Termux v2.43_test
 Added test to the version number, when I am done testing this version it will be v2.43
+
+Linux v2.43.6_test | macOS v2.43.6_test Termux v2.43.6_test
+Changed the max cache size to 40MB Play SD menu, Bookmark menu and YTMusic menu.
+
+
