@@ -34,9 +34,12 @@ go into test directory
 sudo chmod +x ./install.sh; ./install.sh
 
 Linux v2.43.8_test | macOS v2.43.7_test Termux v2.43.6_test
-Added support for white apple remove on Linux. press to FF or RR volume already worked so did play/pause. Running on a mac mini. This update you will need to clone repo and 
+Added support for white apple remote on Linux. press or hold to FF or RR 5 seconds at a time. Volume already worked so did play/pause. Running on a mac mini. This update you will need to clone repo and 
 go into test directory
 sudo chmod +x ./install.sh; ./install.sh
+
+Linux v2.43.9_test | macOS v2.43.7_test Termux v2.43.6_test
+Added support to white apple remote on Linux. Press menu for next track.
 
 
 

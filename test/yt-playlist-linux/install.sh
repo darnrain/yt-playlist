@@ -63,6 +63,7 @@ fi
         echo "T run /usr/bin/yt-playlist --title" >> ${HOME}/.config/yt-playlist/input.conf
         echo "0x21ff27 seek 5" >> ${HOME}/.config/yt-playlist/input.conf
         echo "0x21ff26 seek -5" >> ${HOME}/.config/yt-playlist/input.conf
+        echo "MENU playlist-next" >> ${HOME}/.config/yt-playlist/input.conf
         echo 'Type "yt-playlist" to run program.'
         echo "============================"
         exit
