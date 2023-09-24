@@ -4,6 +4,15 @@
 Change log notes
 ================================
 
+yt-dlp 2023.09.24
+Update: A new yt-dlp just got released, Arch based and Debian based Linux can run the auto dependencies.txt command to update to the latest version.
+
+macOS will need to wait tell brew pushes an update: 
+brew upgrade
+
+Termux type this to upgrade:
+pip install --upgrade yt-dlp
+
 Linux v2.42.5 | macOS v2.42.6 Termux v2.42.4
 Updated the macOS readme.txt file, removed findutils and nano from the dependencies. nano was installed for me, when I was working on macOS beta. Anyway if you want to uninstall them you can:
 brew uninstall findutils nano
