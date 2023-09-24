@@ -5,7 +5,7 @@ Arch and Debian based linux can always upgrade to the latest version of yt-dlp b
 Termux can update by running this command:
 pip install --upgrade yt-dlp
 
-macOS.
+macOS becasue yt-dlp just got released 9-23-23 it may take two days or so for mac to get an update.
 brew upgrade
 
 Check version:
