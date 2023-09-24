@@ -15,7 +15,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="v2.43.2"
+version="v2.43.3"
 
 #mainmenu
 
@@ -3067,7 +3067,7 @@ mpv_hd_arguments_function
 
 function mpv_hd_arguments_function ()
 {
-mpv_hd_arguments=( "${mpv_hd_gpu}" "${mpv_hd_fullscreen}" "${mpv_hd_cache}" --config-dir="${yt_playlist_home_dir}" --sid=no --video-sync=display-resample --vd-lavc-dr=yes --volume=95 --volume-max=100 --ao=pulse --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket" )
+mpv_hd_arguments=( "${mpv_hd_gpu}" "${mpv_hd_fullscreen}" "${mpv_hd_cache}" --config-dir="${yt_playlist_home_dir}" --sid=no --video-sync=display-resample --video-output-levels=full --vd-lavc-dr=yes --volume=95 --volume-max=100 --ao=pulse --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket" )
 }
 
 function mpv_video_fullscreen_on_function ()
@@ -3102,7 +3102,7 @@ mpv_video_arguments_function
 
 function mpv_video_mp4_function ()
 {
-mpv_audio_video=( "--ytdl-format=22/18/b --video-sync=display-resample" )
+mpv_audio_video=( "--ytdl-format=22/18/b --video-sync=display-resample --video-output-levels=full" )
 mpv_video_mp4="yes"
 unset mpv_video_m4a
 unset mpv_video_opus

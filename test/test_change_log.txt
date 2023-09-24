@@ -12,3 +12,9 @@ Changed --vo=gpu back to --vo=libmpv
 added --vd-lavc-dr=yes
 to the Play HD menu Linux and macOS.
 Enable  direct  rendering  (default: auto). If this is set to yes, the video will be decoded directly to GPU video memory (or staging buffers).  This can speed up video upload, and may help with large resolutions or slow hardware.
+
+Linux v2.43.3 | macOS v2.43.3 Termux v2.43
+Added --video-output-levels=full
+To Linux and macOS, RGB color levels full = (0-255 per component)
+Play HD menu and Play SD menu.
+
