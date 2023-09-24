@@ -2,11 +2,11 @@ How to update yt-dlp for yt-playlist.
 
 Arch and Debian based linux can always upgrade to the latest version of yt-dlp by running the auto dependencies in dependencies.txt
 
-Termux can update by running this command:
+Termux update command:
 pip install --upgrade yt-dlp
 
-macOS becasue yt-dlp just got released 9-23-23 it may take two days or so for mac to get an update.
-brew upgrade
+macOS update command:
+brew install yt-dlp/taps/yt-dlp
 
 Check version:
 yt-dlp --version
