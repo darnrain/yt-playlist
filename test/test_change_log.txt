@@ -1,0 +1,4 @@
+9-24-23
+
+Updated the readme.txt on macOS.
+Max cache Play SD menu, YTMusic menu and Bookmark menu of 15MB.
