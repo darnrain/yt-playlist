@@ -1,4 +1,4 @@
-How to update yt-dlp for yt-playlist.
+How to update yt-dlp to the latest version.
 
 Arch and Debian based linux can always upgrade to the latest version of yt-dlp by running the auto dependencies in dependencies.txt
 
