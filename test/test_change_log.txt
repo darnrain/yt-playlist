@@ -29,7 +29,7 @@ Linux v2.43.6_test | macOS v2.43.6_test Termux v2.43.6_test
 Changed the max cache size to 40MB Play SD menu, Bookmark menu and YTMusic menu.
 
 Linux v2.43.6_test | macOS v2.43.7_test Termux v2.43.6_test
-Fixed the white apple remote on macOS. Now you press to FF and RR 5 seconds and hold for next track or prev track.
+Fixed the white apple remote on macOS. Now you press to FF and RR 5 seconds and hold for next track or prev track. This update you will need to clone repo and sudo chmod +x ./install.sh; ./install.sh
 
 
 
