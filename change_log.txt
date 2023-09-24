@@ -13,6 +13,8 @@ pip install --upgrade yt-dlp
 macOS will need to wait tell brew pushes an update.
 brew upgrade
 
+type: "yt-dlp --version" to check the version your on.
+
 Looks like the new yt-dlp works with yt-playlist.
 
 Linux v2.42.5 | macOS v2.42.6 Termux v2.42.4
