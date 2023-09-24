@@ -67,6 +67,7 @@ fi
         echo "PREV seek -5" >> ${HOME}/.config/yt-playlist/input.conf
         echo "FORWARD playlist-next" >> ${HOME}/.config/yt-playlist/input.conf
         echo "REWIND playlist-prev" >> ${HOME}/.config/yt-playlist/input.conf
+
         echo 'Type "yt-playlist" to run program.'
         echo "============================"
         exit
