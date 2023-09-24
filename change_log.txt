@@ -10,7 +10,7 @@ Update: A new yt-dlp just got released, Arch based and Debian based Linux can ru
 macOS will need to wait tell brew pushes an update: 
 brew upgrade
 
-Termux type this to upgrade:
+Termux type this command to upgrade:
 pip install --upgrade yt-dlp
 
 Linux v2.42.5 | macOS v2.42.6 Termux v2.42.4
