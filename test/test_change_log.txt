@@ -12,4 +12,6 @@ to Play SD menu Linux and macOS. Same as the Play HD menu.
 Linux v2.45.3_test | macOS v2.45.3_test Termux v2.45.1_test
 Changed Play SD menu & Play Bookmark menu video is set at the default with no gamma settings & limited RGB. 
 
-
+Linux v2.45.4_test | macOS v2.45.4_test Termux v2.45.4_test
+added --ignore-errors to the results function, getting an error message of "ERROR: Incomplete data received" it's a youtube error message server side.
+ 
