@@ -1,4 +1,4 @@
-This is the test folder, the latest updates to yt-playlist. I will upload and package to main when finished. You should consider this beta. It may not work as expected. You are welcome to install test, if anything you can always downgrade back to main.
+This is the test folder, the latest cutting edge updates to yt-playlist. You are welcome to install the test version. Just keep in mind that it may not work as expected. You can always downgrade back to the main version.
 
 Automated install: You can change --main to --test to install the test version.
 
