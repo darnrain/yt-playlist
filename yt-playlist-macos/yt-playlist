@@ -19,7 +19,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="v2.43"
+version="v2.44"
 
 #mainmenu
 
@@ -2168,8 +2168,6 @@ echo -ne "== Billboard charts Menu ==
 4) Billboard Global 200.
 5) Billboard Artist 100.
 6) Rolling Stone's 500 Greatest Songs.
-7) 1001 Albums You Must Hear Before You Die.
-8) Chartmasters Top Songs.
 m) Main menu.
 Choose an option:  "
     read -r ans
@@ -2242,28 +2240,6 @@ Choose an option:  "
         billboard_menu_function
         else
         echo "Please install fx and curl to run."
-        sleep 2
-        billboard_menu_function
-        fi
-        ;;
-    7)  
-        if command -v less >/dev/null && command -v curl >/dev/null
-        then
-        curl -s https://gist.githubusercontent.com/tatygrassini/6306893/raw/f1511a1a843eddd20f8a26d7809a09854acd4a9e/1001-albums -L 2>&1 | less
-        billboard_menu_function
-        else
-        echo "Please install less and curl to run."
-        sleep 2
-        billboard_menu_function
-        fi
-        ;;
-    8)  
-        if command -v less >/dev/null && command -v curl >/dev/null
-        then
-        curl -s https://raw.githubusercontent.com/darnrain/yt-playlist/main/top_songs/top_songs.txt -L 2>&1 | nl -ba -w2 -s ".  " | less
-        billboard_menu_function
-        else
-        echo "Please install less and curl to run."
         sleep 2
         billboard_menu_function
         fi
@@ -3025,7 +3001,7 @@ mpv_hd_arguments_function
 
 function mpv_hd_gpu_on_function ()
 {
-mpv_hd_gpu=( "--hwdec=videotoolbox --vo=libmpv --vd-lavc-dr=yes" )
+mpv_hd_gpu=( "--hwdec=videotoolbox --vo=libmpv --vd-lavc-dr=yes --hwdec-extra-frames=256" )
 mpv_hd_arguments_function
 }
 
@@ -3067,7 +3043,7 @@ mpv_hd_arguments_function
 
 function mpv_hd_arguments_function ()
 {
-mpv_hd_arguments=( "${mpv_hd_gpu}" "${mpv_hd_fullscreen}" "${mpv_hd_cache}" --config-dir="${yt_playlist_home_dir}" --sid=no --video-sync=display-resample --video-output-levels=full --volume=95 --volume-max=100 --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket" )
+mpv_hd_arguments=( "${mpv_hd_gpu}" "${mpv_hd_fullscreen}" "${mpv_hd_cache}" --config-dir="${yt_playlist_home_dir}" --sid=no --video-sync=display-resample --gamma=2.2 --video-output-levels=full --volume=95 --volume-max=100 --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket" )
 }
 
 function mpv_video_fullscreen_on_function ()

@@ -4,6 +4,16 @@
 Change log notes
 ================================
 
+Linux v2.44 | macOS v2.44 Termux v2.44
+Added to the Play HD menu Linux and macOS.
+--hwdec-extra-frames=256 
+Number  of GPU frames hardware decoding should preallocate (default: see --list-options output). If this is too low, frame allocation may fail during decoding, and video frames might get dropped and/or corrupted. Setting it too high simply wastes GPU memory and  has no advantages.
+Changed the gamma on the Play HD menu Linux and macOS, made it brighter with full RGB color values.
+Removed from the Billboard menu.
+7) 1001 Albums You Must Hear Before You Die.
+Removed from the Billboard menu.
+8) Chartmasters Top Songs.
+
 Linux v2.43 | macOS v2.43 Termux v2.43
 Updated the readme.txt on macOS.
 Max cache Play SD menu, YTMusic menu and Bookmark menu of 40MB.
