@@ -15,7 +15,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="v2.44"
+version="v2.44.1_test"
 
 #mainmenu
 
@@ -754,6 +754,7 @@ fi
         if ! [[ "$yt_video_number" =~ ^[0-9] ]]
         then
         echo "Please enter a number."
+        yt_video_number="1:100"
         sleep 0.8
         play_sd_menu_function
         else
@@ -765,12 +766,14 @@ fi
 	then
         clear
         echo "No results found"
+        yt_video_number="1:100"
         sleep 0.8
         play_sd_menu_function
         fi
         play_sd_menu_function
         else
         echo "Please enter a number."
+        yt_video_number="1:100"
         sleep 0.8
         play_sd_menu_function
         fi
@@ -1619,6 +1622,7 @@ Choose an option:  "
         if ! [[ "$yt_video_number" =~ ^[0-9] ]]
         then
         echo "Please enter a number."
+        yt_video_number="1:100"
         sleep 0.8
         play_hd_menu_function
         else
@@ -1630,12 +1634,14 @@ Choose an option:  "
 	then
         clear
         echo "No results found"
+        yt_video_number="1:100"
         sleep 0.8
         play_hd_menu_function
         fi
         play_hd_menu_function
         else
         echo "Please enter a number."
+        yt_video_number="1:100"
         sleep 0.8
         play_hd_menu_function
         fi

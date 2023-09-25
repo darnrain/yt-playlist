@@ -15,7 +15,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: /sdcard/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 yt_video_number="1:100"
-version="v2.44"
+version="v2.44.1_test"
 
 #mainmenu
 
@@ -1817,27 +1817,37 @@ fi
         playlist_menu_function
         fi
         ;;
-   11)
-        if [ "$yt_playlist_id" = "7807897890789078907807" ]
+    11)
+        printf " \n"
+        printf "Enter music/video results number: \n"
+        read yt_video_number
+        if [ -n "$yt_video_number" ]
         then
-        echo "Not a channel/playlist/album."
+        if ! [[ "$yt_video_number" =~ ^[0-9] ]]
+        then
+        echo "Please enter a number."
+        yt_video_number="1:100"
         sleep 0.8
-        playlist_menu_function
-        fi
-        if [ -n "$yt_playlist_id" ]
-        then
-	if [[ "$yt_playlist_id" = UC* ]]
-        then
-        printf "https://www.youtube.com/channel/${yt_playlist_id} \n${yt_playlist_title}" | less
-        playlist_menu_function
+        play_sd_menu_function
         else
-        printf "https://youtube.com/playlist?list=${yt_playlist_id} \n${yt_playlist_title}" | less
-        playlist_menu_function
+        yt_video_number="1:${yt_video_number}"
         fi
+        unset yt_playlist_results
+        results_function
+        if [ -z "$yt_playlist_results" ]
+	then
+        clear
+        echo "No results found"
+        yt_video_number="1:100"
+        sleep 0.8
+        play_sd_menu_function
+        fi
+        play_sd_menu_function
         else
-        echo "No channel/playlist/album loaded."
-	sleep 0.8
-        playlist_menu_function
+        echo "Please enter a number."
+        yt_video_number="1:100"
+        sleep 0.8
+        play_sd_menu_function
         fi
         ;;
     m)

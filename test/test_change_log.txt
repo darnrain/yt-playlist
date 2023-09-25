@@ -1,3 +1,9 @@
 9-24-23
 
-Latest v2.44
+Linux v2.44.1 | macOS v2.44.1 Termux v2.44.1
+Fixed bug, with "Enter number of music/video results."
+Play SD menu and Play HD menu.
+If no number endered then it would unset the default results number of 100, then no results found.
+
+
+
