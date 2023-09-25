@@ -7,3 +7,6 @@ Number  of GPU frames hardware decoding should preallocate (default: see --list-
 
 Linux v2.44.2_test | macOS v2.44.2_test Termux v2.44_test
 Changed the gamma on the Play HD menu Linux and macOS, made it brighter with full RGB color values.
+
+Linux v2.44.3_test | macOS v2.44.3_test Termux v2.44_test
+I set the gamma way to high, decreased to a level I think looks good.
