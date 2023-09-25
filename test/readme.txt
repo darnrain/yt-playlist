@@ -2,4 +2,4 @@ This is the test folder, the latest cutting edge updates to yt-playlist. You are
 
 Automated install: Change --main to --test to install the test version.
 
-Offline install: sudo chmod +x ./install.sh; ./install.sh
+Offline install; sudo chmod +x ./install.sh: ./install.sh

@@ -1,4 +1,4 @@
-9-24-23
+9-25-23
 
 Linux v2.45.1_test | macOS v2.45.1_test Termux v2.45.1_test
 Fixed bug, with "Enter number of music/video results."
@@ -10,6 +10,6 @@ Added --gamma=2.2
 to Play SD menu Linux and macOS. Same as the Play HD menu.
 
 Linux v2.45.3_test | macOS v2.45.3_test Termux v2.45.1_test
-On second thought I think I will leave the Play SD menu video at the default with no gamma settings, just in case yt-playlist is ran on a raspberry pi that does not support gamma. 
+Changed Play SD menu & Play Bookmark menu video is set at the default with no gamma settings & limited RGB. 
 
 
