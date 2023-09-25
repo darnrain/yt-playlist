@@ -14,4 +14,7 @@ Changed Play SD menu & Play Bookmark menu video is set at the default with no ga
 
 Linux v2.45.4_test | macOS v2.45.4_test Termux v2.45.4_test
 added --ignore-errors to the results function, getting an error message of "ERROR: Incomplete data received" it's a youtube error message server side.
- 
+
+
+Linux v2.45.5_test | macOS v2.45.5_test Termux v2.45.5_test
+Removed --ignore-errors using sed to remove all words that have ERROR in them.
