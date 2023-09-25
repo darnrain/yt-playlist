@@ -9,5 +9,7 @@ Linux v2.45.2_test | macOS v2.45.2_test Termux v2.45.1_test
 Added --gamma=2.2 
 to Play SD menu Linux and macOS. Same as the Play HD menu.
 
+Linux v2.45.3_test | macOS v2.45.3_test Termux v2.45.1_test
+On second thought I think I will leave the Play SD menu video at the default with no gamma settings, just in case yt-playlist is ran on a raspberry pi that does not support gamma. 
 
 
