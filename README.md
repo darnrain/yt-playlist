@@ -54,6 +54,7 @@ More photos.<br>
 ### Known issues:
 * yt-playlist will not work on Ubuntu, because of the snap permissions.
 * Anything older than macOS big sur, you will need to compile all the dependencies and that could take hr's.
+* Sometimes getting results can display a quick error message ERROR: Incomplete data received.
 * If install.sh or Automated install is taking longer than 5 seconds, then check your internet connection.
 * Termux first time install, takes about 10 minuts or so to install all the dependencies.
 
