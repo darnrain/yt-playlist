@@ -15,3 +15,7 @@ Linux v2.44.4_test | macOS v2.44.4_test Termux v2.44.4_test
 Removed from the Billboard menu.
 8) Chartmasters Top Songs.
 
+Linux v2.44.5_test | macOS v2.44.5_test Termux v2.44.5_test
+Removed from the Billboard menu. I want yt-playlist to be a nice program to use, I don't want any references about death.
+7) 1001 Albums You Must Hear Before You Die.
+
