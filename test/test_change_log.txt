@@ -10,3 +10,8 @@ Changed the gamma on the Play HD menu Linux and macOS, made it brighter with ful
 
 Linux v2.44.3_test | macOS v2.44.3_test Termux v2.44_test
 I set the gamma way to high, decreased to a level I think looks good.
+
+Linux v2.44.4_test | macOS v2.44.4_test Termux v2.44.4_test
+Removed from the Billboard menu.
+8) Chartmasters Top Songs.
+
