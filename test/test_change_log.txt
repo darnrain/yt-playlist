@@ -45,5 +45,5 @@ Linux v2.46.5 | macOS v2.46.5 Termux v2.46.5
 Updated the readme.txt Automated install and Manual uninstall. Changed yes|rm -R /tmp/yt-playlist/ to rm -rf /tmp/yt-playlist/
 
 Linux v2.46.6 | macOS v2.46.6 Termux v2.46.6
-Removed change log notes in yt-playlist, you can check version by pressing option 9 on Termux option 8. The change change_log.txt will still be on GitHub.
+Removed change log notes in yt-playlist, you can check version by pressing option 9 on Termux option 8. I play on making another option just for change log notes, main and test.
 
