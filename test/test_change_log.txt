@@ -47,3 +47,8 @@ Updated the readme.txt Automated install and Manual uninstall. Changed yes|rm -R
 Linux v2.46.6 | macOS v2.46.6 Termux v2.46.6
 Removed change log notes in yt-playlist, you can check version by pressing option 9 on Termux option 8. I plan on making another option just for change log notes, main and test.
 
+Linux v2.46.7 | macOS v2.46.7 Termux v2.46.7
+Updated the version check option, to include the main version and test version numbers.
+The notes are not implemented yet.
+
+

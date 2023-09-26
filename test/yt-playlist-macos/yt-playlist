@@ -19,7 +19,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="v2.46.6_test"
+version="macOS v2.46.7_test"
 
 #mainmenu
 
@@ -328,10 +328,16 @@ fi
    9)
         if command -v less >/dev/null && command -v curl >/dev/null
         then
-        printf " \n"
-        version_check=$(curl -s https://raw.githubusercontent.com/darnrain/yt-playlist/main/latest_version.txt -L 2>&1)
-        echo "Installed version: $version"
-        echo "Latest version: $version_check"
+        clear
+        main_version_check=$(curl -s https://raw.githubusercontent.com/darnrain/yt-playlist/main/main_version.txt -L 2>&1)
+        test_version_check=$(curl -s https://raw.githubusercontent.com/darnrain/yt-playlist/main/test/test_version.txt -L 2>&1)
+        echo "Installed version:"
+        echo "$version"
+        echo "Main versions:"
+        echo "$main_version_check"
+        echo "Test versions:"
+        echo "$test_version_check"
+        echo "Type notes at main menu to read change log."
         printf "Download yt-playlist: \n"
         printf "https://github.com/darnrain/yt-playlist \n"
         printf "git clone https://github.com/darnrain/yt-playlist.git \n"
