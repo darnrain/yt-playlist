@@ -14,7 +14,8 @@ video_dir="/sdcard/Videos"
 show_audio_dir=$(printf '"%s" \n' "Saved to: /sdcard/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
-
+yt_video_number="1:100"
+version="v2.46.3_test"
 
 
 Delete the:
