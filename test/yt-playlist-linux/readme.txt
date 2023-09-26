@@ -11,7 +11,7 @@ if [ -d /tmp/yt-playlist/ ]; then yes|rm -R /tmp/yt-playlist/; fi; git clone htt
 
 or
 
-Offline install:
+Manual install:
 sudo chmod +x ./install.sh; ./install.sh
 
 Type y to run yt-playlist:
@@ -24,5 +24,5 @@ Unnstall yt-playlist
 Automated uninstall:
 if [ -d /tmp/yt-playlist/ ]; then yes|rm -R /tmp/yt-playlist/; fi; git clone https://github.com/darnrain/yt-playlist.git /tmp/yt-playlist/; sudo chmod +x /tmp/yt-playlist/yt-playlist-linux/uninstall.sh; /tmp/yt-playlist/yt-playlist-linux/uninstall.sh
 
-Offline uninstall:
+Manual uninstall:
 sudo chmod +x ./uninstall.sh; ./uninstall.sh

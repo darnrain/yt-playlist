@@ -11,7 +11,7 @@ if [ -d ${TMPDIR}/yt-playlist/ ]; then yes|rm -R ${TMPDIR}/yt-playlist/; fi; if 
 
 or
 
-Offline install:
+Manual install:
 chmod +x ./install.sh; ./install.sh
 
 ==========================================
@@ -23,5 +23,5 @@ if [ -d ${TMPDIR}/yt-playlist/ ]; then yes|rm -R ${TMPDIR}/yt-playlist/; fi; git
 
 or 
 
-Offline uninstall:
+Manual uninstall:
 chmod +x ./uninstall.sh; ./uninstall.sh
