@@ -10,5 +10,3 @@ brew install yt-dlp/taps/yt-dlp
 
 Check version:
 yt-dlp --version
-
-After you upgrade yt-dlp you will need to restart your computer, or exit Termux and open it again.
