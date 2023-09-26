@@ -1,8 +1,18 @@
-9-25-2023
+9-26-2023
 
 ================================
 Change log notes
 ================================
+
+Linux v2.46 | macOS v2.46 Termux v2.46
+Added the notes menu. You can type notes at the main menu to read change log notes main and test.
+Updated the readme.txt Automated install and Manual uninstall. Changed yes|rm -R /tmp/yt-playlist/ to rm -rf /tmp/yt-playlist/
+Changed Offline install to Manual install in the readme.txt.
+Fixed error message on results function.
+Fixed error message on Play HD menu.
+Fixing these errors it looks like the Play HD menu now downloads the video a lot faster.
+Changed the RGB color on the Play SD menu to full gamma 2.2
+Updated the Check for update option to include main and test.
 
 Linux v2.45 | macOS v2.45 Termux v2.45
 Fixed bug, with "Enter number of music/video results."
