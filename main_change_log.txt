@@ -1,7 +1,7 @@
 9-25-2023
 
 ================================
-Change log notes
+Main change log notes
 ================================
 
 Linux v2.45 | macOS v2.45 Termux v2.45
