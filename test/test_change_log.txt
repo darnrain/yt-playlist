@@ -1,54 +1,59 @@
-9-25-23
+9-26-2023
 
-Linux v2.45.1_test | macOS v2.45.1_test Termux v2.45.1_test
-Fixed bug, with "Enter number of music/video results."
-Play SD menu and Play HD menu.
-If no number endered then it would unset the default results number of 100, then no results found.
+================================
+Test change log notes
+================================
 
-Linux v2.45.2_test | macOS v2.45.2_test Termux v2.45.1_test
-Added --gamma=2.2 
-to Play SD menu Linux and macOS. Same as the Play HD menu.
+Linux v2.46.8 | macOS v2.46.8 Termux v2.46.8
+Added the notes menu. You can type notes at the main menu to read change log notes main and test.
 
-Linux v2.45.3_test | macOS v2.45.3_test Termux v2.45.1_test
-Changed Play SD menu & Play Bookmark menu video is set at the default with no gamma settings & limited RGB. 
+Linux v2.46.7 | macOS v2.46.7 Termux v2.46.7
+Updated the version check option, to include the main version and test version numbers.
+The notes are not implemented yet.
 
-Linux v2.45.4_test | macOS v2.45.4_test Termux v2.45.4_test
-added --ignore-errors to the results function, getting an error message of "ERROR: Incomplete data received" it's a youtube error message server side.
+Linux v2.46.6 | macOS v2.46.6 Termux v2.46.6
+Removed change log notes in yt-playlist, you can check version by pressing option 9 on Termux option 8. I plan on making another option just for change log notes, main and test.
 
-Linux v2.45.5_test | macOS v2.45.5_test Termux v2.45.5_test
-Removed --ignore-errors using sed to remove all words that have ERROR in them.
+Linux v2.46.5 | macOS v2.46.5 Termux v2.46.5
+Updated the readme.txt Automated install and Manual uninstall. Changed yes|rm -R /tmp/yt-playlist/ to rm -rf /tmp/yt-playlist/
 
-Linux v2.45.6_test | macOS v2.45.6_test Termux v2.45.6_test
-Added back the --ignore-errors I guess errors from yt-dlp can not be suppressed. I will add this to the known issues.
-
-Linux v2.45 | macOS v2.45 Termux v2.45
-Moved all three to main.
-
-Linux v2.46.1 | macOS v2.46.1 Termux v2.46
-Linux & macOS
-Changed the RGB color on the Play SD menu to full gamma 2.2
-
-Linux v2.46.2 | macOS v2.46.2 Termux v2.46
-Added --color always to Play HD menu
-Whether  to  emit color codes in output, optionally prefixed by the STREAM (stdout or stderr) to apply the setting to.  Can be one of
-"always", "auto" (default), "never", or "no_color" (use non color terminal sequences).  Can be used multiple times
+Linux v2.46.4 | macOS v2.46.4 Termux v2.46.4
+Changed Offline install to Manual install in the readme.txt. The manual still has to have internet to download sponsorblock from GitHub. It only downloads one time, once you have it installed the installer skips downloading it again.
 
 Linux v2.46.3 | macOS v2.46.3 Termux v2.46.3
 Fixed error message on results function.
 Fixed error message on Play HD menu.
 Fixing these errors it looks like the Play HD menu now downloads the video a lot faster.
 
-Linux v2.46.4 | macOS v2.46.4 Termux v2.46.4
-Changed Offline install to Manual install in the readme.txt. The manual still has to have internet to download sponsorblock from GitHub. It only downloads one time, once you have it installed the installer skips downloading it again.
+Linux v2.46.2 | macOS v2.46.2 Termux v2.46
+Added --color always to Play HD menu
+Whether  to  emit color codes in output, optionally prefixed by the STREAM (stdout or stderr) to apply the setting to.  Can be one of
+"always", "auto" (default), "never", or "no_color" (use non color terminal sequences).  Can be used multiple times
 
-Linux v2.46.5 | macOS v2.46.5 Termux v2.46.5
-Updated the readme.txt Automated install and Manual uninstall. Changed yes|rm -R /tmp/yt-playlist/ to rm -rf /tmp/yt-playlist/
+Linux v2.46.1 | macOS v2.46.1 Termux v2.46
+Linux & macOS
+Changed the RGB color on the Play SD menu to full gamma 2.2
 
-Linux v2.46.6 | macOS v2.46.6 Termux v2.46.6
-Removed change log notes in yt-playlist, you can check version by pressing option 9 on Termux option 8. I plan on making another option just for change log notes, main and test.
+Linux v2.45 | macOS v2.45 Termux v2.45
+Moved all three to main.
 
-Linux v2.46.7 | macOS v2.46.7 Termux v2.46.7
-Updated the version check option, to include the main version and test version numbers.
-The notes are not implemented yet.
+Linux v2.45.6_test | macOS v2.45.6_test Termux v2.45.6_test
+Added back the --ignore-errors I guess errors from yt-dlp can not be suppressed. I will add this to the known issues.
 
+Linux v2.45.5_test | macOS v2.45.5_test Termux v2.45.5_test
+Removed --ignore-errors using sed to remove all words that have ERROR in them.
 
+Linux v2.45.4_test | macOS v2.45.4_test Termux v2.45.4_test
+added --ignore-errors to the results function, getting an error message of "ERROR: Incomplete data received" it's a youtube error message server side.
+
+Linux v2.45.3_test | macOS v2.45.3_test Termux v2.45.1_test
+Changed Play SD menu & Play Bookmark menu video is set at the default with no gamma settings & limited RGB. 
+
+Linux v2.45.2_test | macOS v2.45.2_test Termux v2.45.1_test
+Added --gamma=2.2 
+to Play SD menu Linux and macOS. Same as the Play HD menu.
+
+Linux v2.45.1_test | macOS v2.45.1_test Termux v2.45.1_test
+Fixed bug, with "Enter number of music/video results."
+Play SD menu and Play HD menu.
+If no number endered then it would unset the default results number of 100, then no results found.

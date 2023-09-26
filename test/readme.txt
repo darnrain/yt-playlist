@@ -2,4 +2,4 @@ This is the test folder, I upload the latest changes to yt-playlist, before I te
 
 Automated install: Change --main to --test to install the test version.
 
-Offline install: sudo chmod +x ./install.sh; ./install.sh
+Manual install: sudo chmod +x ./install.sh; ./install.sh
