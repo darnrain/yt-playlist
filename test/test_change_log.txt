@@ -40,5 +40,7 @@ Fixed error message on Play HD menu.
 Linux v2.46.4 | macOS v2.46.4 Termux v2.46.4
 Changed Offline install to Manual install in the readme.txt. The manual still has to have internet to download sponsorblock from GitHub. It only downloads one time, once you have it installed the installer skips downloading it again.
 
+Linux v2.46.5 | macOS v2.46.5 Termux v2.46.5
+Updated the readme.txt Automated install and Manual uninstall. Changed yes|rm -R /tmp/yt-playlist/ to rm -rf /tmp/yt-playlist/
 
 
