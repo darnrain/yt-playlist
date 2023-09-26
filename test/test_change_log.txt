@@ -36,6 +36,7 @@ Whether  to  emit color codes in output, optionally prefixed by the STREAM (stdo
 Linux v2.46.3 | macOS v2.46.3 Termux v2.46.3
 Fixed error message on results function.
 Fixed error message on Play HD menu.
+Fixing these errors it looks like the Play HD menu now downloads the video a lot faster.
 
 Linux v2.46.4 | macOS v2.46.4 Termux v2.46.4
 Changed Offline install to Manual install in the readme.txt. The manual still has to have internet to download sponsorblock from GitHub. It only downloads one time, once you have it installed the installer skips downloading it again.
