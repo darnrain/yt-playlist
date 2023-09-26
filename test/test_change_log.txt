@@ -28,4 +28,10 @@ Linux v2.46.1 | macOS v2.46.1 Termux v2.46
 Linux & macOS
 Changed the RGB color on the Play SD menu to full gamma 2.2
 
+Linux v2.46.2 | macOS v2.46.2 Termux v2.46
+Added --color always to Play HD menu
+Whether  to  emit color codes in output, optionally prefixed by the STREAM (stdout or stderr) to apply the setting to.  Can be one of
+"always", "auto" (default), "never", or "no_color" (use non color terminal sequences).  Can be used multiple times
+
+
 

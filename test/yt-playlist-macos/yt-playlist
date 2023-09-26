@@ -19,7 +19,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="v2.46.1_test"
+version="v2.46.2_test"
 
 #mainmenu
 
@@ -1483,7 +1483,7 @@ Choose an option:  "
         echo "Please wait."
         echo ""
         touch "${tmp_dir}/mpv_hd_running"
-        yt-dlp -N4 --no-warnings --quiet -f "bestvideo[vcodec^=avc1][height<=1080]/bestvideo[vcodec^=vp09][height<=1080]" "${yt_playlist_hd_url}" -o - 2>/dev/null | mpv ${mpv_log_file_arguments[@]} ${mpv_hd_arguments[@]} --title="$yt_playlist_hd_title" --audio-file=<(yt-dlp -N4 --no-warnings --quiet -f 251/140/ba "${yt_playlist_hd_url}" -o - 2>/dev/null) -
+        yt-dlp -N4 --no-warnings --quiet --color always -f "bestvideo[vcodec^=avc1][height<=1080]/bestvideo[vcodec^=vp09][height<=1080]" "${yt_playlist_hd_url}" -o - 2>/dev/null | mpv ${mpv_log_file_arguments[@]} ${mpv_hd_arguments[@]} --title="$yt_playlist_hd_title" --audio-file=<(yt-dlp -N4 --no-warnings --quiet -f 251/140/ba "${yt_playlist_hd_url}" -o - 2>/dev/null) -
         play_hd_menu_function
         else
         play_hd_menu_function
@@ -1516,7 +1516,7 @@ Choose an option:  "
         echo "Please wait."
         echo ""
         touch "${tmp_dir}/mpv_hd_running"
-        yt-dlp -N4 --no-warnings --quiet -f "bestvideo[vcodec^=av01][height<=1440]/bestvideo[vcodec^=vp09][height<=1440]" "${yt_playlist_hd_url}" -o - 2>/dev/null | mpv ${mpv_log_file_arguments[@]} ${mpv_hd_arguments[@]} --title="$yt_playlist_hd_title" --audio-file=<(yt-dlp -N4 --no-warnings --quiet -f 251/140/ba "${yt_playlist_hd_url}" -o - 2>/dev/null) -
+        yt-dlp -N4 --no-warnings --quiet --color always -f "bestvideo[vcodec^=av01][height<=1440]/bestvideo[vcodec^=vp09][height<=1440]" "${yt_playlist_hd_url}" -o - 2>/dev/null | mpv ${mpv_log_file_arguments[@]} ${mpv_hd_arguments[@]} --title="$yt_playlist_hd_title" --audio-file=<(yt-dlp -N4 --no-warnings --quiet -f 251/140/ba "${yt_playlist_hd_url}" -o - 2>/dev/null) -
         play_hd_menu_function
         else
         play_hd_menu_function
@@ -1549,7 +1549,7 @@ Choose an option:  "
         echo "Please wait."
         echo ""
         touch "${tmp_dir}/mpv_hd_running"
-        yt-dlp -N4 --no-warnings --quiet -f "bestvideo[vcodec^=av01][height<=2160]/bestvideo[vcodec^=vp09][height<=2160]" "${yt_playlist_hd_url}" -o - 2>/dev/null | mpv ${mpv_log_file_arguments[@]} ${mpv_hd_arguments[@]} --title="$yt_playlist_hd_title" --audio-file=<(yt-dlp -N4 --no-warnings --quiet -f 251/140/ba "${yt_playlist_hd_url}" -o - 2>/dev/null) -
+        yt-dlp -N4 --no-warnings --quiet --color always -f "bestvideo[vcodec^=av01][height<=2160]/bestvideo[vcodec^=vp09][height<=2160]" "${yt_playlist_hd_url}" -o - 2>/dev/null | mpv ${mpv_log_file_arguments[@]} ${mpv_hd_arguments[@]} --title="$yt_playlist_hd_title" --audio-file=<(yt-dlp -N4 --no-warnings --quiet -f 251/140/ba "${yt_playlist_hd_url}" -o - 2>/dev/null) -
         play_hd_menu_function
         else
         play_hd_menu_function
@@ -1582,7 +1582,7 @@ Choose an option:  "
         echo "Please wait."
         echo ""
         touch "${tmp_dir}/mpv_hd_running"
-        yt-dlp -N4 --no-warnings --quiet -f "bestvideo[vcodec^=av01][height<=4320]/bestvideo[vcodec^=vp09][height<=4320]" "${yt_playlist_hd_url}" -o - 2>/dev/null | mpv ${mpv_log_file_arguments[@]} ${mpv_hd_arguments[@]} --title="$yt_playlist_hd_title" --audio-file=<(yt-dlp -N4 --no-warnings --quiet -f 251/140/ba "${yt_playlist_hd_url}" -o - 2>/dev/null) -
+        yt-dlp -N4 --no-warnings --quiet --color always -f "bestvideo[vcodec^=av01][height<=4320]/bestvideo[vcodec^=vp09][height<=4320]" "${yt_playlist_hd_url}" -o - 2>/dev/null | mpv ${mpv_log_file_arguments[@]} ${mpv_hd_arguments[@]} --title="$yt_playlist_hd_title" --audio-file=<(yt-dlp -N4 --no-warnings --quiet -f 251/140/ba "${yt_playlist_hd_url}" -o - 2>/dev/null) -
         play_hd_menu_function
         else
         play_hd_menu_function
