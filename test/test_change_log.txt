@@ -20,3 +20,6 @@ Removed --ignore-errors using sed to remove all words that have ERROR in them.
 
 Linux v2.45.6_test | macOS v2.45.6_test Termux v2.45.6_test
 Added back the --ignore-errors I guess errors from yt-dlp can not be suppressed. I will add this to the known issues.
+
+Linux v2.45 | macOS v2.45 Termux v2.45
+Moved all three to main.
