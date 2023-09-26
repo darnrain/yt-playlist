@@ -19,7 +19,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="v2.46.5_test"
+version="v2.46.6_test"
 
 #mainmenu
 
@@ -328,37 +328,16 @@ fi
    9)
         if command -v less >/dev/null && command -v curl >/dev/null
         then
-        printf "\n"
-        printf "Update menu \n"
-        printf "1=Check for update. or 2=View change log. \n"
-        read answer
-        if [ -n "$answer" ]
-        then
-        if [ "$answer" != "${answer#[1]}" ]
-        then
+        printf " \n"
         version_check=$(curl -s https://raw.githubusercontent.com/darnrain/yt-playlist/main/latest_version.txt -L 2>&1)
-        echo ""
         echo "Installed version: $version"
         echo "Latest version: $version_check"
-        printf "Download yt-playlist from. \n"
+        printf "Download yt-playlist: \n"
         printf "https://github.com/darnrain/yt-playlist \n"
         printf "git clone https://github.com/darnrain/yt-playlist.git \n"
         printf " \n"
         printf "%s " "Press enter to continue" 
         read ans
-        main_menu_function
-        else
-        curl -s https://raw.githubusercontent.com/darnrain/yt-playlist/main/change_log.txt -L 2>&1 | less
-        main_menu_function
-        fi
-        else
-        echo "Please choose an option."
-        sleep 0.8
-        main_menu_function
-        fi
-        else
-        echo "Please install less and curl to run."
-        sleep 2
         main_menu_function
         fi
         ;;
