@@ -1,8 +1,15 @@
-9-24-2023
+9-25-2023
 
 ================================
 Change log notes
 ================================
+
+Linux v2.45 | macOS v2.45 Termux v2.45
+Fixed bug, with "Enter number of music/video results."
+Play SD menu and Play HD menu.
+If no number endered then it would unset the default results number of 100, then no results found.
+Changed Play SD menu & Play Bookmark menu video default gamma settings & limited RGB. 
+Added --ignore-errors to yt-dlp results function. Sometimes there is an error message that pops up getting the results. It's not a problem just a YouTube error message.
 
 Linux v2.44 | macOS v2.44 Termux v2.44
 Added to the Play HD menu Linux and macOS.
