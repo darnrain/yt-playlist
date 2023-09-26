@@ -15,7 +15,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="v2.45"
+version="v2.46.1_test"
 
 #mainmenu
 
@@ -3084,7 +3084,7 @@ mpv_video_arguments_function
 
 function mpv_video_mp4_function ()
 {
-mpv_audio_video=( "--ytdl-format=22/18/b --video-sync=display-resample --video-output-levels=limited" )
+mpv_audio_video=( "--ytdl-format=22/18/b --video-sync=display-resample --video-output-levels=full --gamma=2.2" )
 mpv_video_mp4="yes"
 unset mpv_video_m4a
 unset mpv_video_opus
