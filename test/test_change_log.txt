@@ -4,6 +4,9 @@
 Test change log notes
 ================================
 
+Linux v2.46 | macOS v2.46 Termux v2.46
+Moved all three to main.
+
 Linux v2.46.8 | macOS v2.46.8 Termux v2.46.8
 Added the notes menu. You can type notes at the main menu to read change log notes main and test.
 
