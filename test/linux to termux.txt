@@ -15,7 +15,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: /sdcard/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 yt_video_number="1:100"
-version="Termux v2.47.14_test"
+version="Termux v2.47.19_test"
 
 
 Delete the:
@@ -83,15 +83,14 @@ q) Quit.
 #bookmarkmenu
 1) Play + shuffle + inf loop.
 2) Play once + shuffle.
-3) Play from a start postion.
+3) Play from a start position.
 4) Play a custom playlist.
-5) Enable Audio aac 128kbps 44.1kHz.
-6) Enable Audio opus 128kbps 48kHz.
+5) Enable audio aac 128kbps 44.1kHz.
+6) Enable audio opus 128kbps 48kHz.
 7) Enable resume playback.
-8) Delete bookmarks.
+8) Enable audio sponsorblock.
+9) Delete bookmarks.
 m) Main menu.
-
-
 
 
 
@@ -100,13 +99,14 @@ m) Main menu.
 #playsdmenu
 1) Play + shuffle + inf loop.
 2) Play once + shuffle.
-3) Play from a start postion.
+3) Play from a start position.
 4) Play a custom playlist.
 5) Open in NewPipe.
-6) Enable Audio aac 128kbps 44.1kHz.
-7) Enable Audio opus 128kbps 48kHz.
+6) Enable audio aac 128kbps 44.1kHz.
+7) Enable audio opus 128kbps 48kHz.
 8) Enabled resume playback.
-9) Enter number of music/video results.
+9) Enable audio sponsorblock.
+10) Enter number of music/video results.
 m) Main menu.
 
 
@@ -132,6 +132,14 @@ pulseaudio -D --exit-idle-time=600
 pactl -- set-sink-volume @DEFAULT_SINK@ 100%
 $1 $2 $3 $4 $5 $6 $7 $8 $9 ${10} ${11} ${12} ${13} ${14} ${15} ${16} ${17} ${18} ${19} ${20} ${21} ${22} ${23} ${24} ${25}
 }
+
+
+
+rename 
+Audio/video sponsorblock
+to
+Audio sponsorblock
+
 
 
 function help_function ()
@@ -197,6 +205,7 @@ echo "Bookmarks yes"
 echo "Download Audio yes"
 echo "Download Video yes"
 echo "Download sponsorblock yes"
+echo "Audio sponsorblock yes"
 echo "Resume playback yes"
 echo "Show date and time yes"
 echo "Title notifications yes"
@@ -213,6 +222,7 @@ echo "Bookmarks no"
 echo "Download Audio yes"
 echo "Download Video yes"
 echo "Download sponsorblock yes"
+echo "Audio sponsorblock yes"
 echo "Resume playback yes"
 echo "Show date and time yes"
 echo "Title notifications yes"
@@ -229,6 +239,7 @@ echo "Bookmarks no"
 echo "Download Audio yes"
 echo "Download Video no"
 echo "Download sponsorblock no"
+echo "Audio sponsorblock no"
 echo "Resume playback no"
 echo "Show date and time yes"
 echo "Title notifications yes"

@@ -15,7 +15,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: /sdcard/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 yt_video_number="1:100"
-version="Termux v2.47.18_test"
+version="Termux v2.47.19_test"
 
 #mainmenu
 
@@ -242,6 +242,7 @@ fi
         else
         echo "Please enter an option."
         sleep 0.8
+        main_menu_function
         fi
         ;;
    8)
@@ -471,13 +472,14 @@ function play_sd_menu_function ()
 echo -ne "== Play SD Menu ==
 1) Play + shuffle + inf loop.
 2) Play once + shuffle.
-3) Play from a start postion.
+3) Play from a start position.
 4) Play a custom playlist.
 5) Open in NewPipe.
-6) Enable Audio aac 128kbps 44.1kHz.
-7) Enable Audio opus 128kbps 48kHz.
+6) Enable audio aac 128kbps 44.1kHz.
+7) Enable audio opus 128kbps 48kHz.
 8) Enabled resume playback.
-9) Enter number of music/video results.
+9) Enable audio sponsorblock.
+10) Enter number of music/video results.
 m) Main menu.
 Choose an option:  "
     read -r ans
@@ -771,7 +773,28 @@ fi
         play_sd_menu_function
         fi
         ;;
-    9)
+   9)
+        printf "\n"
+        printf "Audio sponsorblock menu. \n"
+        printf "1=Enable. or 2=Disable. \n"
+        read answer
+        if [ -n "$answer" ]
+        then
+        if [ "$answer" != "${answer#[1]}" ]
+        then
+        audio_video_sponsorblock_on_function
+        play_sd_menu_function
+        else
+        audio_video_sponsorblock_off_function
+        play_sd_menu_function
+        fi
+        else
+        echo "Please enter an option."
+        sleep 0.8
+        play_sd_menu_function
+        fi
+        ;;
+    10)
         printf " \n"
         printf "Enter music/video results number: \n"
         read yt_video_number
@@ -1168,12 +1191,13 @@ function play_sd_bookmark_menu_function ()
 echo -ne "== Play SD Bookmark Menu ==
 1) Play + shuffle + inf loop.
 2) Play once + shuffle.
-3) Play from a start postion.
+3) Play from a start position.
 4) Play a custom playlist.
-5) Enable Audio aac 128kbps 44.1kHz.
-6) Enable Audio opus 128kbps 48kHz.
+5) Enable audio aac 128kbps 44.1kHz.
+6) Enable audio opus 128kbps 48kHz.
 7) Enable resume playback.
-8) Delete bookmarks.
+8) Enable audio sponsorblock.
+9) Delete bookmarks.
 m) Main menu.
 Choose an option:  "
     read -r ans
@@ -1401,7 +1425,28 @@ fi
         play_sd_bookmark_menu_function
         fi
         ;;
-    8)
+   8)
+        printf "\n"
+        printf "Audio sponsorblock menu. \n"
+        printf "1=Enable. or 2=Disable. \n"
+        read answer
+        if [ -n "$answer" ]
+        then
+        if [ "$answer" != "${answer#[1]}" ]
+        then
+        audio_video_sponsorblock_on_function
+        play_sd_menu_function
+        else
+        audio_video_sponsorblock_off_function
+        play_sd_menu_function
+        fi
+        else
+        echo "Please enter an option."
+        sleep 0.8
+        play_sd_menu_function
+        fi
+        ;;
+    9)
         delete_bookmark=$(cat "${yt_playlist_home_dir}/yt-playlist_bookmark.txt" | nl -n"ln" -w2 -s " " | tac | nl -n"ln" -w2 -s " "  | fzf --reverse --header="Delete bookmarks." --bind ctrl-a:select-all,ctrl-d:deselect-all -m --with-nth=1,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $2}' | tr -s ';[:space:]' '[ *]' | sed 's/ /d;/g' | sed '$ s/.$//')
         if [ -n "$delete_bookmark" ]
 	then
@@ -2053,6 +2098,7 @@ mpv_hd_cache3_function
 mpv_video_fullscreen_off_function
 mpv_video_gpu_off_function
 resume_playback_off_function
+audio_video_sponsorblock_off_function
 yt_dlp_sponsorblock_off_function
 mpv_log_file_off_funciton
 mpv_music_opus_function
@@ -2698,11 +2744,11 @@ function play_sd_menu_bookmark_menu_hud_function ()
         else
         echo "Resume playback disabled."
         fi
-	if test -f "${tmp_dir}/yt_dlp_sponsorblock"
+        if [ -z "$audio_video_sponsorblock" ]
 	then
-        echo "Download sponsorblock enabled."
+        echo "Audio sponsorblock enabled."
         else
-        echo "Download sponsorblock disabled."
+        echo "Audio sponsorblock disabled."
         fi
         if test -f "${tmp_dir}/count_down_timer.txt"
         then
@@ -2732,7 +2778,7 @@ mpv_video_arguments_function
 
 function mpv_video_arguments_function ()
 {
-mpv_video_arguments=( "${mpv_audio_video}" --config-dir="${yt_playlist_home_dir}" --script-opts=ytdl_hook-try_ytdl_first=yes --term-playing-msg='${media-title}' --cache=yes --cache-secs=120 --demuxer-max-bytes=35M --demuxer-max-back-bytes=5M --sid=no --volume=95 --volume-max=100 --ao=pulse --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket")
+mpv_video_arguments=( "${mpv_audio_video}" "${audio_video_sponsorblock}" --config-dir="${yt_playlist_home_dir}" --script-opts=ytdl_hook-try_ytdl_first=yes --term-playing-msg='${media-title}' --cache=yes --cache-secs=120 --demuxer-max-bytes=35M --demuxer-max-back-bytes=5M --sid=no --volume=95 --volume-max=100 --ao=pulse --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket")
 }
 
 function resume_playback_on_function ()
@@ -2792,6 +2838,18 @@ if test -f "${tmp_dir}/yt_dlp_sponsorblock"
 then
 rm "${tmp_dir}/yt_dlp_sponsorblock"
 fi
+}
+
+function audio_video_sponsorblock_on_function ()
+{
+unset audio_video_sponsorblock
+mpv_video_arguments_function
+}
+
+function audio_video_sponsorblock_off_function ()
+{
+audio_video_sponsorblock=( "--load-scripts=no" )
+mpv_video_arguments_function
 }
 
 function mpv_play_pause_function ()
@@ -3336,6 +3394,7 @@ echo "Bookmarks yes"
 echo "Download Audio yes"
 echo "Download Video yes"
 echo "Download sponsorblock yes"
+echo "Audio sponsorblock yes"
 echo "Resume playback yes"
 echo "Show date and time yes"
 echo "Title notifications yes"
@@ -3352,6 +3411,7 @@ echo "Bookmarks no"
 echo "Download Audio yes"
 echo "Download Video yes"
 echo "Download sponsorblock yes"
+echo "Audio sponsorblock yes"
 echo "Resume playback yes"
 echo "Show date and time yes"
 echo "Title notifications yes"
@@ -3368,6 +3428,7 @@ echo "Bookmarks no"
 echo "Download Audio yes"
 echo "Download Video no"
 echo "Download sponsorblock no"
+echo "Audio sponsorblock no"
 echo "Resume playback no"
 echo "Show date and time yes"
 echo "Title notifications yes"

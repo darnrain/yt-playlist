@@ -19,7 +19,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="macOS v2.47.18_test"
+version="macOS v2.47.19_test"
 
 #mainmenu
 
@@ -263,6 +263,7 @@ fi
         else
         echo "Please enter an option."
         sleep 0.8
+        main_menu_function
         fi
         ;;
    9)
@@ -494,13 +495,14 @@ echo -ne "== Play SD Menu ==
 2) Play once + shuffle.
 3) Play from a start position.
 4) Play a custom playlist.
-5) Enable Audio/Video 720p h264 30 FPS aac 128kbps 44.1kHz.
+5) Enable audio/video 720p h264 30 FPS aac 128kbps 44.1kHz.
 6) Enable HW GPU.
 7) Enable fullscreen.
-8) Enable Audio aac 128kbps 44.1kHz.
-9) Enable Audio opus 128kbps 48kHz.
+8) Enable audio aac 128kbps 44.1kHz.
+9) Enable audio opus 128kbps 48kHz.
 10) Enabled resume playback.
-11) Enter number of music/video results.
+11) Enable audio/video sponsorblock.
+12) Enter number of music/video results.
 m) Main menu.
 Choose an option:  "
     read -r ans
@@ -800,7 +802,28 @@ fi
         play_sd_menu_function
         fi
         ;;
-    11)
+   11)
+        printf "\n"
+        printf "Audio/video sponsorblock menu. \n"
+        printf "1=Enable. or 2=Disable. \n"
+        read answer
+        if [ -n "$answer" ]
+        then
+        if [ "$answer" != "${answer#[1]}" ]
+        then
+        audio_video_sponsorblock_on_function
+        play_sd_menu_function
+        else
+        audio_video_sponsorblock_off_function
+        play_sd_menu_function
+        fi
+        else
+        echo "Please enter an option."
+        sleep 0.8
+        play_sd_menu_function
+        fi
+        ;;
+    12)
         printf " \n"
         printf "Enter music/video results number: \n"
         read yt_video_number
@@ -1199,13 +1222,14 @@ echo -ne "== Play SD Bookmark Menu ==
 2) Play once + shuffle.
 3) Play from a start position.
 4) Play a custom playlist.
-5) Enable Audio/Video 720p h264 30 FPS aac 128kbps 44.1kHz.
+5) Enable audio/video 720p h264 30 FPS aac 128kbps 44.1kHz.
 6) Enable HW GPU.
 7) Enable fullscreen.
-8) Enable Audio aac 128kbps 44.1kHz.
-9) Enable Audio opus 128kbps 48kHz.
+8) Enable audio aac 128kbps 44.1kHz.
+9) Enable audio opus 128kbps 48kHz.
 10) Enable resume playback.
-11) Delete bookmarks.
+11) Enable audio/video sponsorblock.
+12) Delete bookmarks.
 m) Main menu.
 Choose an option:  "
     read -r ans
@@ -1449,7 +1473,28 @@ fi
         play_sd_bookmark_menu_function
         fi
         ;;
-    11)
+   11)
+        printf "\n"
+        printf "Audio/video sponsorblock menu. \n"
+        printf "1=Enable. or 2=Disable. \n"
+        read answer
+        if [ -n "$answer" ]
+        then
+        if [ "$answer" != "${answer#[1]}" ]
+        then
+        audio_video_sponsorblock_on_function
+        play_sd_menu_function
+        else
+        audio_video_sponsorblock_off_function
+        play_sd_menu_function
+        fi
+        else
+        echo "Please enter an option."
+        sleep 0.8
+        play_sd_menu_function
+        fi
+        ;;
+    12)
         delete_bookmark=$(cat "${yt_playlist_home_dir}/yt-playlist_bookmark.txt" | nl -n"ln" -w2 -s " " | tac | nl -n"ln" -w2 -s " "  | fzf --reverse --header="Delete bookmarks." --bind ctrl-a:select-all,ctrl-d:deselect-all -m --with-nth=1,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $2}' | tr -s ';[:space:]' '[ *]' | sed 's/ /d;/g' | sed '$ s/.$//')
         if [ -n "$delete_bookmark" ]
 	then
@@ -2335,6 +2380,7 @@ mpv_hd_cache3_function
 mpv_video_fullscreen_off_function
 mpv_video_gpu_off_function
 resume_playback_off_function
+audio_video_sponsorblock_off_function
 yt_dlp_sponsorblock_off_function
 mpv_log_file_off_funciton
 mpv_music_opus_function
@@ -3012,11 +3058,11 @@ fi
         else
         echo "Resume playback disabled."
         fi
-	if test -f "${tmp_dir}/yt_dlp_sponsorblock"
+        if [ -z "$audio_video_sponsorblock" ]
 	then
-        echo "Download sponsorblock enabled."
+        echo "Audio/video sponsorblock enabled."
         else
-        echo "Download sponsorblock disabled."
+        echo "Audio/video sponsorblock disabled."
         fi
         if test -f "${tmp_dir}/count_down_timer.txt"
         then
@@ -3195,7 +3241,7 @@ mpv_video_arguments_function
 
 function mpv_video_arguments_function ()
 {
-mpv_video_arguments=( "${mpv_audio_video}" "${mpv_video_gpu}" "${mpv_video_fullscreen}" --config-dir="${yt_playlist_home_dir}" --script-opts=ytdl_hook-try_ytdl_first=yes --term-playing-msg='${media-title}' --cache=yes --cache-secs=120 --demuxer-max-bytes=35M --demuxer-max-back-bytes=5M --sid=no --volume=95 --volume-max=100 --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket")
+mpv_video_arguments=( "${mpv_audio_video}" "${mpv_video_gpu}" "${mpv_video_fullscreen}" "${audio_video_sponsorblock}" --config-dir="${yt_playlist_home_dir}" --script-opts=ytdl_hook-try_ytdl_first=yes --term-playing-msg='${media-title}' --cache=yes --cache-secs=120 --demuxer-max-bytes=35M --demuxer-max-back-bytes=5M --sid=no --volume=95 --volume-max=100 --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket")
 }
 
 function resume_playback_on_function ()
@@ -3255,6 +3301,18 @@ if test -f "${tmp_dir}/yt_dlp_sponsorblock"
 then
 rm "${tmp_dir}/yt_dlp_sponsorblock"
 fi
+}
+
+function audio_video_sponsorblock_on_function ()
+{
+unset audio_video_sponsorblock
+mpv_video_arguments_function
+}
+
+function audio_video_sponsorblock_off_function ()
+{
+audio_video_sponsorblock=( "--load-scripts=no" )
+mpv_video_arguments_function
 }
 
 function mpv_play_pause_function ()
@@ -3458,15 +3516,6 @@ function results_function ()
         yt_playlist_total_number=$(echo "${yt_playlist_results}" | wc -l)
         yt_playlist_total="Channel results: $yt_playlist_total_number"
         export bookmark_video_or_music="Video:"
-	if [ -n "$cover_art" ]
-	then
-        yt-dlp -N4 --no-warnings --quiet -x --write-thumbnail --flat-playlist -o "${tmp_dir}/yt-playlist_icons" -I 1 https://youtube.com/playlist?list=$yt_playlist_id >/dev/null
-        else
-        if test -f "${tmp_dir}/yt-playlist_icons.jpg"
-        then
-        rm "${tmp_dir}/yt-playlist_icons.jpg"
-  fi
-fi
         clear
   fi
 fi
@@ -3808,6 +3857,7 @@ echo "Bookmarks yes"
 echo "Download Audio yes"
 echo "Download Video yes"
 echo "Download sponsorblock yes"
+echo "Audio/video sponsorblock yes"
 echo "Resume playback yes"
 echo "Show date and time yes"
 echo "Title notifications yes"
@@ -3824,6 +3874,7 @@ echo "Bookmarks no"
 echo "Download Audio no"
 echo "Download Video no"
 echo "Download sponsorblock no"
+echo "Audio/video sponsorblock no"
 echo "Resume playback no"
 echo "Show date and time yes"
 echo "Title notifications no"
@@ -3840,6 +3891,7 @@ echo "Bookmarks no"
 echo "Download Audio yes"
 echo "Download Video yes"
 echo "Download sponsorblock yes"
+echo "Audio/video sponsorblock yes"
 echo "Resume playback yes"
 echo "Show date and time yes"
 echo "Title notifications yes"
@@ -3856,6 +3908,7 @@ echo "Bookmarks no"
 echo "Download Audio yes"
 echo "Download Video no"
 echo "Download sponsorblock no"
+echo "Audio/video sponsorblock no"
 echo "Resume playback no"
 echo "Show date and time yes"
 echo "Title notifications yes"
