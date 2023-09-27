@@ -15,7 +15,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: /sdcard/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 yt_video_number="1:100"
-version="Termux v2.47.16_test"
+version="Termux v2.47.17_test"
 
 #mainmenu
 
@@ -43,9 +43,9 @@ function main_menu_function ()
         fi
 	if test -f "${tmp_dir}/yt_dlp_sponsorblock"
 	then
-        echo "Download sponsorblock enabled"
+        echo "Download sponsorblock enabled."
         else
-        echo "Download sponsorblock disabled"
+        echo "Download sponsorblock disabled."
         fi
         if test -f "${tmp_dir}/count_down_timer.txt"
         then
