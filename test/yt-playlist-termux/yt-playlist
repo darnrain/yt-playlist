@@ -15,7 +15,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: /sdcard/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 yt_video_number="1:100"
-version="Termux v2.47.2_test"
+version="Termux v2.47.3_test"
 
 #mainmenu
 
@@ -399,13 +399,13 @@ fi
         sleep 0.8
         main_menu_function
         fi
-        ;;
+        ;; 
     q)
         quit_function
         ;;
     Q)
         quit_function
-        ;;    
+        ;;     
    *)
         echo "Wrong option."
         sleep 0.3
@@ -2864,6 +2864,29 @@ fi
 fi
 }
 
+function mpv_stop_function ()
+{
+	if test -f "${tmp_dir}/mpv_hd_running"
+        then
+        echo stop | socat - "${tmp_dir}/mpvsocket"
+        fi
+
+	if test -f "${tmp_dir}/mpv_video_running"
+        then
+        echo stop | socat - "${tmp_dir}/mpvsocket"
+        fi
+
+	if test -f "${tmp_dir}/mpv_bookmark_running"
+        then
+        echo stop | socat - "${tmp_dir}/mpvsocket"
+        fi
+
+	if test -f "${tmp_dir}/mpv_music_running"
+        then
+        echo stop | socat - "${tmp_dir}/mpvsocket"
+        fi
+}
+
 
 function title_function ()
 {
@@ -3178,6 +3201,7 @@ echo "Version:                -v or --version"
 echo "Play/Pause              --play_pause"
 echo "Next track              --next"
 echo "Prev track              --prev"
+echo "Stop or exit            --stop"
 echo "Desktop and terminal"
 echo "notifications get"
 echo "artist and title        --title"
@@ -3408,6 +3432,12 @@ fi
         if [[ "$external_arguments1" = "--prev" ]]
 	then
         mpv_prev_function
+        exit
+        fi
+
+        if [[ "$external_arguments1" = "--stop" ]]
+	then
+        mpv_stop_function
         exit
         fi
 
