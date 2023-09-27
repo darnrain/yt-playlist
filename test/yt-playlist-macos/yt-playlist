@@ -19,7 +19,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="macOS v2.47.12_test"
+version="macOS v2.47.13_test"
 
 #mainmenu
 
@@ -359,11 +359,11 @@ fi
         then
         if [ "$answer" != "${answer#[1]}" ]
         then
-        main_notes_check=$(curl -s https://raw.githubusercontent.com/darnrain/yt-playlist/main/main_change_log.txt -L 2>&1)
+        main_notes_check=$(curl --retry 5 --retry-max-time 60 -s https://raw.githubusercontent.com/darnrain/yt-playlist/main/main_change_log.txt -L 2>&1)
         echo "$main_notes_check" | less
         main_menu_function
         else
-        test_notes_check=$(curl -s https://raw.githubusercontent.com/darnrain/yt-playlist/main/test/test_change_log.txt -L 2>&1)
+        test_notes_check=$(curl --retry 5 --retry-max-time 60 -s https://raw.githubusercontent.com/darnrain/yt-playlist/main/test/test_change_log.txt -L 2>&1)
         echo "$test_notes_check" | less
         main_menu_function
         fi

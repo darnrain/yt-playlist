@@ -4,6 +4,9 @@
 Test change log notes
 ================================
 
+Linux v2.47.13_test | macOS v2.47.13_test Termux v2.47.13_test
+Notes menu will now retry up to 5 times max 60 seconds each to download info.
+
 Linux v2.47.12_test | macOS v2.47.12_test Termux v2.47.12_test
 Check for updates and Billboard menu will now retry up to 5 times max 60 seconds each to download info.
 
