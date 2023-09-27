@@ -15,7 +15,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="Linux v2.47.11_test"
+version="Linux v2.47.12_test"
 
 #mainmenu
 
@@ -328,8 +328,8 @@ fi
    9)
         if command -v less >/dev/null && command -v curl >/dev/null
         then
-        main_version_check=$(curl -s https://raw.githubusercontent.com/darnrain/yt-playlist/main/main_version.txt -L 2>&1)
-        test_version_check=$(curl -s https://raw.githubusercontent.com/darnrain/yt-playlist/main/test/test_version.txt -L 2>&1)
+        main_version_check=$(curl --retry 5 --retry-max-time 60 -s https://raw.githubusercontent.com/darnrain/yt-playlist/main/main_version.txt -L 2>&1)
+        test_version_check=$(curl --retry 5 --retry-max-time 60 -s https://raw.githubusercontent.com/darnrain/yt-playlist/main/test/test_version.txt -L 2>&1)
         echo ""
         echo "Installed version:"
         echo "$version"
@@ -2198,7 +2198,7 @@ Choose an option:  "
         if command -v fx >/dev/null && command -v curl >/dev/null
         then
         export FX_THEME=2
-        curl -s https://raw.githubusercontent.com/mhollingshead/billboard-hot-100/main/recent.json -L 2>&1 | fx
+        curl --retry 5 --retry-max-time 60 -s https://raw.githubusercontent.com/mhollingshead/billboard-hot-100/main/recent.json -L 2>&1 | fx
         billboard_menu_function
         else
         echo "Please install fx and curl to run."
@@ -2210,7 +2210,7 @@ Choose an option:  "
         if command -v fx >/dev/null && command -v curl >/dev/null
         then
         export FX_THEME=2
-        curl -s https://raw.githubusercontent.com/KoreanThinker/billboard-json/main/billboard-hot-100/recent.json -L 2>&1 | fx
+        curl --retry 5 --retry-max-time 60 -s https://raw.githubusercontent.com/KoreanThinker/billboard-json/main/billboard-hot-100/recent.json -L 2>&1 | fx
         billboard_menu_function
         else
         echo "Please install fx and curl to run."
@@ -2222,7 +2222,7 @@ Choose an option:  "
         if command -v fx >/dev/null && command -v curl >/dev/null
         then
         export FX_THEME=2
-        curl -s https://raw.githubusercontent.com/KoreanThinker/billboard-json/main/billboard-200/recent.json -L 2>&1 | fx
+        curl --retry 5 --retry-max-time 60 -s https://raw.githubusercontent.com/KoreanThinker/billboard-json/main/billboard-200/recent.json -L 2>&1 | fx
         billboard_menu_function
         else
         echo "Please install fx and curl to run."
@@ -2234,7 +2234,7 @@ Choose an option:  "
         if command -v fx >/dev/null && command -v curl >/dev/null
         then
         export FX_THEME=2
-        curl -s https://raw.githubusercontent.com/KoreanThinker/billboard-json/main/billboard-global-200/recent.json -L 2>&1 | fx
+        curl --retry 5 --retry-max-time 60 -s https://raw.githubusercontent.com/KoreanThinker/billboard-json/main/billboard-global-200/recent.json -L 2>&1 | fx
         billboard_menu_function
         else
         echo "Please install fx and curl to run."
@@ -2246,7 +2246,7 @@ Choose an option:  "
         if command -v fx >/dev/null && command -v curl >/dev/null
         then
         export FX_THEME=2
-        curl -s https://raw.githubusercontent.com/KoreanThinker/billboard-json/main/billboard-artist-100/recent.json -L 2>&1 | fx
+        curl --retry 5 --retry-max-time 60 -s https://raw.githubusercontent.com/KoreanThinker/billboard-json/main/billboard-artist-100/recent.json -L 2>&1 | fx
         billboard_menu_function
         else
         echo "Please install fx and curl to run."
@@ -2258,7 +2258,7 @@ Choose an option:  "
         if command -v fx >/dev/null && command -v curl >/dev/null
         then
         export FX_THEME=2
-        curl -s https://gist.githubusercontent.com/nanotaboada/a90ce99a9bc8ca3c63c0f1dfeb41d41d/raw/55b47f2da187d5d9c9f069d4e354d76ee806eded/songs.json -L 2>&1 | fx
+        curl --retry 5 --retry-max-time 60 -s https://gist.githubusercontent.com/nanotaboada/a90ce99a9bc8ca3c63c0f1dfeb41d41d/raw/55b47f2da187d5d9c9f069d4e354d76ee806eded/songs.json -L 2>&1 | fx
         billboard_menu_function
         else
         echo "Please install fx and curl to run."
