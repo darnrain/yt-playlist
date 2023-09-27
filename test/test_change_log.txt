@@ -4,8 +4,11 @@
 Test change log notes
 ================================
 
+Linux v2.47.9_test | macOS v2.47.9_test Termux v2.47.9_test
+Disable sponsorblock script on the Play YTMusic menu.
+
 Linux v2.47.8_test | macOS v2.47.8_test Termux v2.47.7_test
-Disable sponsorblock script on the Play HD menu. It will not work on the Play HD menu and could have been causing issues.
+Disable sponsorblock script on the Play HD menu.
 
 Linux v2.47.7_test | macOS v2.47.7_test Termux v2.47.7_test
 Fixed the notes menu, if no number entered the error message Please enter an option was not showing.
@@ -15,7 +18,6 @@ I am going to undo the changes I made in v2.47.1 macOS.
 Hold menu button down on white apple remote to display the title.
 The default is to stop playing mpv.
 If you would like that feature then run this command. You will need to run each time your update yt-playlist.
-You can change --title to what ever yt-playlist argument you want to use.
 
 echo "STOP run /usr/local/bin/yt-playlist --title" >> ${HOME}/.config/yt-playlist/input.conf
 
