@@ -1,3 +1,3 @@
-Linux v2.47.14_test
-macOS v.2.47.14_test
-Termux v2.47.14_test
+Linux v2.47.15_test
+macOS v.2.47.15_test
+Termux v2.47.15_test

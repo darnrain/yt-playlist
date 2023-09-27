@@ -15,7 +15,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="Linux v2.47.14_test"
+version="Linux v2.47.15_test"
 
 #mainmenu
 
@@ -248,7 +248,7 @@ fi
    8)
         printf "\n"
         printf "Download sponsorblock menu. \n"
-        printf "1=Enalbe. or 2=Disable. \n"
+        printf "1=Enable. or 2=Disable. \n"
         read answer
         if [ -n "$answer" ]
         then

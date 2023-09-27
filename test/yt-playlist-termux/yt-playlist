@@ -15,7 +15,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: /sdcard/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 yt_video_number="1:100"
-version="Termux v2.47.14_test"
+version="Termux v2.47.15_test"
 
 #mainmenu
 
@@ -227,7 +227,7 @@ fi
    7)
         printf "\n"
         printf "Download sponsorblock menu. \n"
-        printf "1=Enalbe. or 2=Disable. \n"
+        printf "1=Enable. or 2=Disable. \n"
         read answer
         if [ -n "$answer" ]
         then
