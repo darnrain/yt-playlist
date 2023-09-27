@@ -15,7 +15,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: /sdcard/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 yt_video_number="1:100"
-version="Termux v2.47.3_test"
+version="Termux v2.47.14_test"
 
 
 Delete the:
@@ -65,8 +65,9 @@ function play_sd_menu_bookmark_menu_hud_function ()
 4) Playlist menu.
 5) Billboard charts menu.
 6) Download.
-7) Sleep timer.
-8) Check for update.
+7) Enable dl sponsorblock.
+8) Sleep timer.
+9) Check for update.
 q) Quit.
 
 

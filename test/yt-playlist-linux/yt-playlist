@@ -15,7 +15,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="Linux v2.47.13_test"
+version="Linux v2.47.14_test"
 
 #mainmenu
 
@@ -45,6 +45,12 @@ function main_menu_function ()
 	then
         echo "mpv log file enabled."
         fi
+	if test -f "${tmp_dir}/yt_dlp_sponsorblock"
+	then
+        echo "Download sponsorblock enabled"
+        else
+        echo "Download sponsorblock disabled"
+        fi
         if test -f "${tmp_dir}/count_down_timer.txt"
         then
         cat "${tmp_dir}/count_down_timer.txt"
@@ -58,8 +64,9 @@ echo -ne "== Main Menu ==
 5) Playlist menu.
 6) Billboard charts menu.
 7) Download.
-8) Sleep timer.
-9) Check for update.
+8) Enable dl sponsorblock.
+9) Sleep timer.
+10) Check for update.
 q) Quit.
 Choose an option:  "
     read -r ans
@@ -156,11 +163,17 @@ Choose an option:  "
 	if [[ "$yt_playlist_id" = UC* ]]
 	then
         clear
+	if test -f "${tmp_dir}/yt_dlp_sponsorblock"
+	then
+        yt_dlp_sponsorblock=( "--sponsorblock-remove sponsor" )
+        else
+        unset yt_dlp_sponsorblock
+        fi
         echo "Downloading line: $yt_playlist_download"
-        yt-dlp -N4 -x --playlist-items "$yt_playlist_download" -f "$audio_format" -o "${audio_dir}/${yt_playlist_vanilla_title}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata  "https://www.youtube.com/channel/${yt_playlist_id}/videos"
+        yt-dlp -N4 ${yt_dlp_sponsorblock[@]} -x --playlist-items "$yt_playlist_download" -f "$audio_format" -o "${audio_dir}/${yt_playlist_vanilla_title}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata  "https://www.youtube.com/channel/${yt_playlist_id}/videos"
         else
         echo "Downloading line: $yt_playlist_download"
-        yt-dlp -N4 -x --playlist-items "$yt_playlist_download" -f "$audio_format" -o "${audio_dir}/${yt_playlist_vanilla_title}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "https://www.youtube.com/playlist?list=$yt_playlist_id"
+        yt-dlp -N4 ${yt_dlp_sponsorblock[@]} -x --playlist-items "$yt_playlist_download" -f "$audio_format" -o "${audio_dir}/${yt_playlist_vanilla_title}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "https://www.youtube.com/playlist?list=$yt_playlist_id"
         fi
         clear
         echo "Saved to: ${audio_dir}/${yt_playlist_vanilla_title}/"
@@ -201,11 +214,17 @@ Choose an option:  "
         if [[ "$yt_playlist_id" = UC* ]]
 	then
         clear
+	if test -f "${tmp_dir}/yt_dlp_sponsorblock"
+	then
+        yt_dlp_sponsorblock=( "--sponsorblock-remove sponsor" )
+        else
+        unset yt_dlp_sponsorblock
+        fi
         echo "Downloading line: $yt_playlist_download"
-        yt-dlp -N4 --playlist-items "$yt_playlist_download" -f "$format" -o "${video_dir}/${yt_playlist_vanilla_title}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata  "https://www.youtube.com/channel/${yt_playlist_id}/videos"
+        yt-dlp -N4 ${yt_dlp_sponsorblock[@]} --playlist-items "$yt_playlist_download" -f "$format" -o "${video_dir}/${yt_playlist_vanilla_title}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata  "https://www.youtube.com/channel/${yt_playlist_id}/videos"
         else
         echo "Downloading line: $yt_playlist_download"
-        yt-dlp -N4 --playlist-items "$yt_playlist_download" -f "$format" -o "${video_dir}/${yt_playlist_vanilla_title}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "https://www.youtube.com/playlist?list=$yt_playlist_id"
+        yt-dlp -N4 ${yt_dlp_sponsorblock[@]} --playlist-items "$yt_playlist_download" -f "$format" -o "${video_dir}/${yt_playlist_vanilla_title}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "https://www.youtube.com/playlist?list=$yt_playlist_id"
         fi
         clear
         echo "Saved to: ${video_dir}/${yt_playlist_vanilla_title}/"
@@ -227,6 +246,26 @@ fi
         fi
         ;;
    8)
+        printf "\n"
+        printf "Download sponsorblock menu. \n"
+        printf "1=Enalbe. or 2=Disable. \n"
+        read answer
+        if [ -n "$answer" ]
+        then
+        if [ "$answer" != "${answer#[1]}" ]
+        then
+        yt_dlp_sponsorblock_on_function
+        main_menu_function
+        else
+        yt_dlp_sponsorblock_off_function
+        main_menu_function
+        fi
+        else
+        echo "Please enter an option."
+        sleep 0.8
+        fi
+        ;;
+   9)
         printf " \n"
         printf "Sleep timer menu. \n"
         printf "1=Enable or 2=Disable \n"
@@ -325,7 +364,7 @@ fi
         main_menu_function
         fi
         ;;
-   9)
+   10)
         if command -v less >/dev/null && command -v curl >/dev/null
         then
         main_version_check=$(curl --retry 5 --retry-max-time 60 -s https://raw.githubusercontent.com/darnrain/yt-playlist/main/main_version.txt -L 2>&1)
@@ -2296,6 +2335,7 @@ mpv_hd_cache3_function
 mpv_video_fullscreen_off_function
 mpv_video_gpu_off_function
 resume_playback_off_function
+yt_dlp_sponsorblock_off_function
 mpv_log_file_off_funciton
 mpv_music_opus_function
 mpv_video_m4a_function
@@ -2581,6 +2621,10 @@ function stop_sleep_timer_function ()
         pkill sleep
         rm "${tmp_dir}/sleep_timer_running"
         fi
+	if test -f "${tmp_dir}/yt_dlp_sponsorblock"
+	then
+        rm "${tmp_dir}/yt_dlp_sponsorblock"
+        fi
 }
 
 function sleep_timer_function ()
@@ -2700,7 +2744,7 @@ function music_download_audio_function ()
 }
 
 function download_audio_function ()
-{
+{          
         if test -f "${tmp_dir}/mpv_hd_running"
         then
         if command -v notify-send >/dev/null
@@ -2720,6 +2764,13 @@ fi
         exit
         fi
 
+	if test -f "${tmp_dir}/yt_dlp_sponsorblock"
+	then
+        yt_dlp_sponsorblock=( "--sponsorblock-remove sponsor" )
+        else
+        unset yt_dlp_sponsorblock
+        fi
+
         if test -f "${tmp_dir}/mpv_bookmark_running"
         then
         if command -v notify-send >/dev/null
@@ -2728,14 +2779,14 @@ fi
         echo '{ "command": ["show-text", "Downloading audio, please wait." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         yt_playlist_download_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
 	sleep 2
-        yt-dlp -N4 --no-warnings --quiet -x -f "$audio_download_format" -o "${audio_dir}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "$yt_playlist_download_url" 
+        yt-dlp -N4 --no-warnings --quiet ${yt_dlp_sponsorblock[@]} -x -f "$audio_download_format" -o "${audio_dir}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "$yt_playlist_download_url" 
         echo show-text "$show_audio_dir" | socat - "${tmp_dir}/mpvsocket"
         notify-send "yt-playlist" "Saved to: ${audio_dir}"
         else
         echo '{ "command": ["show-text", "Downloading audio, please wait." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         yt_playlist_download_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
 	sleep 2
-        yt-dlp -N4 --no-warnings --quiet -x -f "$audio_download_format" -o "${audio_dir}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "$yt_playlist_download_url" 
+        yt-dlp -N4 --no-warnings --quiet ${yt_dlp_sponsorblock[@]} -x -f "$audio_download_format" -o "${audio_dir}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "$yt_playlist_download_url" 
         echo show-text "$show_audio_dir" | socat - "${tmp_dir}/mpvsocket"
   fi
 fi
@@ -2748,14 +2799,14 @@ fi
         echo '{ "command": ["show-text", "Downloading audio, please wait." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         yt_playlist_download_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
 	sleep 2
-        yt-dlp -N4 --no-warnings --quiet -x -f "$audio_download_format" -o "${audio_dir}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "$yt_playlist_download_url" 
+        yt-dlp -N4 --no-warnings --quiet ${yt_dlp_sponsorblock[@]} -x -f "$audio_download_format" -o "${audio_dir}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "$yt_playlist_download_url" 
         echo show-text "$show_audio_dir" | socat - "${tmp_dir}/mpvsocket"
         notify-send -i "${tmp_dir}/yt-playlist_icons.jpg" "yt-playlist" "Saved to: ${audio_dir}"
         else
         echo '{ "command": ["show-text", "Downloading audio, please wait." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         yt_playlist_download_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
 	sleep 2
-        yt-dlp -N4 --no-warnings --quiet -x -f "$audio_download_format" -o "${audio_dir}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "$yt_playlist_download_url" 
+        yt-dlp -N4 --no-warnings --quiet ${yt_dlp_sponsorblock[@]} -x -f "$audio_download_format" -o "${audio_dir}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "$yt_playlist_download_url" 
         echo show-text "$show_audio_dir" | socat - "${tmp_dir}/mpvsocket"
   fi
 fi
@@ -2788,6 +2839,13 @@ fi
   fi
 fi
 
+	if test -f "${tmp_dir}/yt_dlp_sponsorblock"
+	then
+        yt_dlp_sponsorblock=( "--sponsorblock-remove sponsor" )
+        else
+        unset yt_dlp_sponsorblock
+        fi
+
         if test -f "${tmp_dir}/mpv_bookmark_running"
         then
         if command -v notify-send >/dev/null
@@ -2796,14 +2854,14 @@ fi
         echo '{ "command": ["show-text", "Downloading video, please wait." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         yt_playlist_download_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
 	sleep 2
-        yt-dlp -N4 --no-warnings --quiet -f "$video_download_format" -o "${video_dir}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "$yt_playlist_download_url" 
+        yt-dlp -N4 --no-warnings --quiet ${yt_dlp_sponsorblock[@]} -f "$video_download_format" -o "${video_dir}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "$yt_playlist_download_url" 
         echo show-text "$show_video_dir" | socat - "${tmp_dir}/mpvsocket"
         notify-send "yt-playlist" "Saved to: ${video_dir}"
         else
         echo '{ "command": ["show-text", "Downloading video, please wait." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         yt_playlist_download_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
 	sleep 2
-        yt-dlp -N4 --no-warnings --quiet -f "$video_download_format" -o "${video_dir}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "$yt_playlist_download_url" 
+        yt-dlp -N4 --no-warnings --quiet ${yt_dlp_sponsorblock[@]} -f "$video_download_format" -o "${video_dir}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "$yt_playlist_download_url" 
         echo show-text "$show_video_dir" | socat - "${tmp_dir}/mpvsocket"
   fi
 fi
@@ -2816,14 +2874,14 @@ fi
         echo '{ "command": ["show-text", "Downloading video, please wait." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         yt_playlist_download_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
 	sleep 2
-        yt-dlp -N4 --no-warnings --quiet -f "$video_download_format" -o "${video_dir}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "$yt_playlist_download_url" 
+        yt-dlp -N4 --no-warnings --quiet ${yt_dlp_sponsorblock[@]} -f "$video_download_format" -o "${video_dir}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "$yt_playlist_download_url" 
         echo show-text "$show_video_dir" | socat - "${tmp_dir}/mpvsocket"
         notify-send -i "${tmp_dir}/yt-playlist_icons.jpg" "yt-playlist" "Saved to: ${video_dir}"
         else
         echo '{ "command": ["show-text", "Downloading video, please wait." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         yt_playlist_download_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
 	sleep 2
-        yt-dlp -N4 --no-warnings --quiet -f "$video_download_format" -o "${video_dir}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "$yt_playlist_download_url" 
+        yt-dlp -N4 --no-warnings --quiet ${yt_dlp_sponsorblock[@]} -f "$video_download_format" -o "${video_dir}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "$yt_playlist_download_url" 
         echo show-text "$show_video_dir" | socat - "${tmp_dir}/mpvsocket"
   fi
 fi
@@ -3178,6 +3236,19 @@ mpv_log_file_arguments=( --log-file=${yt_playlist_home_dir}/mpv_log_file.txt )
 function mpv_log_file_off_funciton ()
 {
 unset mpv_log_file_arguments
+}
+
+function yt_dlp_sponsorblock_on_function ()
+{
+touch "${tmp_dir}/yt_dlp_sponsorblock"
+}
+
+function yt_dlp_sponsorblock_off_function ()
+{
+if test -f "${tmp_dir}/yt_dlp_sponsorblock"
+then
+rm "${tmp_dir}/yt_dlp_sponsorblock"
+fi
 }
 
 function mpv_play_pause_function ()
