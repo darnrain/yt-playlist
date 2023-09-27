@@ -15,7 +15,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="Linux v2.47.5_test"
+version="Linux v2.47.7_test"
 
 #mainmenu
 
@@ -360,19 +360,21 @@ fi
         if [ "$answer" != "${answer#[1]}" ]
         then
         main_notes_check=$(curl -s https://raw.githubusercontent.com/darnrain/yt-playlist/main/main_change_log.txt -L 2>&1)
-        echo "$main_notes_check" | less -n
+        echo "$main_notes_check" | less
         main_menu_function
         else
         test_notes_check=$(curl -s https://raw.githubusercontent.com/darnrain/yt-playlist/main/test/test_change_log.txt -L 2>&1)
-        echo "$test_notes_check" | less -n
+        echo "$test_notes_check" | less
         main_menu_function
         fi
         else
-        echo "Please eneter an option."
+        echo "Please enter an option."
+        sleep 0.8
         main_menu_function
         fi
         else
         echo "Please install curl or less."
+        sleep 0.8
         main_menu_function
         fi
         ;;

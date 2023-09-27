@@ -4,6 +4,9 @@
 Test change log notes
 ================================
 
+Linux v2.47.7_test | macOS v2.47.7_test Termux v2.47.7_test
+Fixed the notes menu, if no number entered the error message Please enter an option was not showing.
+
 Linux v2.47.5_test | macOS v2.47.6_test Termux v2.47.5_test
 I am going to undo the changes I made in v2.47.1 macOS.
 Hold menu button down on white apple remote to display the title.
