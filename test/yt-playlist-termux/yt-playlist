@@ -15,7 +15,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: /sdcard/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 yt_video_number="1:100"
-version="Termux v2.47_test"
+version="Termux v2.47.2_test"
 
 #mainmenu
 
@@ -2355,23 +2355,21 @@ function sleep_timer_function ()
 
         if test -f "${tmp_dir}/mpv_video_running"
         then
-	echo cycle pause | socat - "${tmp_dir}/mpvsocket" 
+	echo stop | socat - "${tmp_dir}/mpvsocket" 
 	sleep 2 | sed 's/Terminated//'
 	fi
 
         if test -f "${tmp_dir}/mpv_bookmark_running"
         then
-	echo cycle pause | socat - "${tmp_dir}/mpvsocket" 
+	echo stop | socat - "${tmp_dir}/mpvsocket" 
 	sleep 2 | sed 's/Terminated//'
 	fi
 
         if test -f "${tmp_dir}/mpv_music_running"
         then
-	echo cycle pause | socat - "${tmp_dir}/mpvsocket" 
+	echo stop | socat - "${tmp_dir}/mpvsocket" 
 	sleep 2 | sed 's/Terminated//'
 	fi
-
-   	echo "'set' 'volume' '95'" | socat - "${tmp_dir}/mpvsocket" 
 }
 
 function show_date_time_function
