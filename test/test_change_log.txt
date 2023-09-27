@@ -4,6 +4,9 @@
 Test change log notes
 ================================
 
+Linux v2.47.16_test | macOS v2.47.16_test Termux v2.47.16_test
+Updated the help menu to include Download sponsorblock.
+
 Linux v2.47.15_test | macOS v2.47.15_test Termux v2.47.15_test
 Fixed typo
 
