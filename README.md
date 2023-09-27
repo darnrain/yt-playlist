@@ -75,6 +75,7 @@ Version:                -v or --version
 Play/Pause              --play_pause
 Next track              --next
 Prev track              --prev
+Stop or exit            --stop
 Desktop and terminal
 notifications get
 artist and title        --title
