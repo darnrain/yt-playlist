@@ -15,7 +15,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="Linux v2.47.9_test"
+version="Linux v2.47.11_test"
 
 #mainmenu
 
@@ -328,9 +328,9 @@ fi
    9)
         if command -v less >/dev/null && command -v curl >/dev/null
         then
-        clear
         main_version_check=$(curl -s https://raw.githubusercontent.com/darnrain/yt-playlist/main/main_version.txt -L 2>&1)
         test_version_check=$(curl -s https://raw.githubusercontent.com/darnrain/yt-playlist/main/test/test_version.txt -L 2>&1)
+        echo ""
         echo "Installed version:"
         echo "$version"
         echo "Main versions:"
