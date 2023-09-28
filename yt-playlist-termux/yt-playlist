@@ -15,7 +15,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: /sdcard/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 yt_video_number="1:100"
-version="Termux v2.47"
+version="Termux v2.48"
 
 #mainmenu
 
@@ -1427,7 +1427,7 @@ fi
         ;;
    8)
         printf "\n"
-        printf "Audio sponsorblock menu. \n"
+        printf "Audio/video sponsorblock menu. \n"
         printf "1=Enable. or 2=Disable. \n"
         read answer
         if [ -n "$answer" ]
@@ -1435,15 +1435,15 @@ fi
         if [ "$answer" != "${answer#[1]}" ]
         then
         audio_video_sponsorblock_on_function
-        play_sd_menu_function
+        play_sd_bookmark_menu_function
         else
         audio_video_sponsorblock_off_function
-        play_sd_menu_function
+        play_sd_bookmark_menu_function
         fi
         else
         echo "Please enter an option."
         sleep 0.8
-        play_sd_menu_function
+        play_sd_bookmark_menu_function
         fi
         ;;
     9)

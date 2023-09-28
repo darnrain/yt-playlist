@@ -4,6 +4,10 @@
 Change log notes
 ================================
 
+Linux v2.48 | macOS v2.48 | Termux v2.48
+Push update to v2.48
+Fixed Play SD bookmark menu, if Enable audio/video sponsorblock then it would bring you to the Play SD menu.
+
 Linux v2.47 | macOS v2.47 Termux | v2.47
 Added the option in Play SD menu and Play SD bookmark menu to enable or disable audio/video sponsorblock.
 Added an option to the main menu download with sponsorblock. Works on the Main menu and real time download.
