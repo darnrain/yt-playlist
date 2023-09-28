@@ -31,9 +31,8 @@ More photos.<br>
 * Sponsors will be skipped automatically.
 * Downlaod with sponsers cut out automatically.
 * No YouTube/YouTube Music ads.
-* Very little cpu usage.
+* Very little cpu usage and memory requirements.
 * A text mode, listen to video or music.
-* The Termux version is audio only.
 * Background audio playback on Termux.
 * Open a channel, playlist and album in NewPipe. Termux version only.
 * Import Google takeout, your YouTube subscriptions and YouTube Music.
