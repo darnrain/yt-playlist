@@ -1,8 +1,26 @@
-9-26-2023
+9-27-2023
 
 ================================
 Change log notes
 ================================
+
+Linux v2.47 | macOS v2.47 Termux | v2.47
+Added the option in Play SD menu and Play SD bookmark menu to enable or disable audio/video sponsorblock.
+Added an option to the main menu download with sponsorblock. Works on the Main menu and real time download.
+Fixed a bug with with the main menu Download sponsorblock if no number typed in.
+Updated the help menu to include Download sponsorblock.
+Notes menu will now retry up to 5 times max 60 seconds each to download info.
+Check for updates and Billboard menu will now retry up to 5 times max 60 seconds each to download info.
+Check for update does not clear screen now.
+Disabled sponsorblock script on the Play YTMusic menu.
+Disabled sponsorblock script on the Play HD menu.
+Removed the delay checking version. 
+Added a new command line argument, --stop
+Will exit or stop mpv from playing bringing you back to your desktop.
+Sleep timer will now exit mpv back to your desktop instead of just pausing mpv.
+macOS can install mpv from https://mpv.io/installation/
+Also it's a good idea to check for updates now and then on macOS.
+brew update; brew upgrade
 
 Linux v2.46 | macOS v2.46 Termux v2.46
 Added the notes menu. You can type notes at the main menu to read change log notes main and test.

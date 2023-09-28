@@ -19,7 +19,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="macOS v2.46"
+version="macOS v2.47"
 
 #mainmenu
 
@@ -45,6 +45,12 @@ function main_menu_function ()
 	then
         echo "mpv log file enabled."
         fi
+	if test -f "${tmp_dir}/yt_dlp_sponsorblock"
+	then
+        echo "Download sponsorblock enabled."
+        else
+        echo "Download sponsorblock disabled."
+        fi
         if test -f "${tmp_dir}/count_down_timer.txt"
         then
         cat "${tmp_dir}/count_down_timer.txt"
@@ -58,8 +64,9 @@ echo -ne "== Main Menu ==
 5) Playlist menu.
 6) Billboard charts menu.
 7) Download.
-8) Sleep timer.
-9) Check for update.
+8) Enable dl sponsorblock.
+9) Sleep timer.
+10) Check for update.
 q) Quit.
 Choose an option:  "
     read -r ans
@@ -96,10 +103,10 @@ Choose an option:  "
         main_menu_function
         fi
         ;;
-   3)   
+   3)
         play_sd_bookmark_menu_function
         ;;
-   4)   
+   4)
         play_music_menu_function
         ;;
    5)
@@ -156,11 +163,17 @@ Choose an option:  "
 	if [[ "$yt_playlist_id" = UC* ]]
 	then
         clear
+	if test -f "${tmp_dir}/yt_dlp_sponsorblock"
+	then
+        yt_dlp_sponsorblock=( "--sponsorblock-remove sponsor" )
+        else
+        unset yt_dlp_sponsorblock
+        fi
         echo "Downloading line: $yt_playlist_download"
-        yt-dlp -N4 -x --playlist-items "$yt_playlist_download" -f "$audio_format" -o "${audio_dir}/${yt_playlist_vanilla_title}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata  "https://www.youtube.com/channel/${yt_playlist_id}/videos"
+        yt-dlp -N4 ${yt_dlp_sponsorblock[@]} -x --playlist-items "$yt_playlist_download" -f "$audio_format" -o "${audio_dir}/${yt_playlist_vanilla_title}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata  "https://www.youtube.com/channel/${yt_playlist_id}/videos"
         else
         echo "Downloading line: $yt_playlist_download"
-        yt-dlp -N4 -x --playlist-items "$yt_playlist_download" -f "$audio_format" -o "${audio_dir}/${yt_playlist_vanilla_title}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "https://www.youtube.com/playlist?list=$yt_playlist_id"
+        yt-dlp -N4 ${yt_dlp_sponsorblock[@]} -x --playlist-items "$yt_playlist_download" -f "$audio_format" -o "${audio_dir}/${yt_playlist_vanilla_title}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "https://www.youtube.com/playlist?list=$yt_playlist_id"
         fi
         clear
         echo "Saved to: ${audio_dir}/${yt_playlist_vanilla_title}/"
@@ -201,11 +214,17 @@ Choose an option:  "
         if [[ "$yt_playlist_id" = UC* ]]
 	then
         clear
+	if test -f "${tmp_dir}/yt_dlp_sponsorblock"
+	then
+        yt_dlp_sponsorblock=( "--sponsorblock-remove sponsor" )
+        else
+        unset yt_dlp_sponsorblock
+        fi
         echo "Downloading line: $yt_playlist_download"
-        yt-dlp -N4 --playlist-items "$yt_playlist_download" -f "$format" -o "${video_dir}/${yt_playlist_vanilla_title}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata  "https://www.youtube.com/channel/${yt_playlist_id}/videos"
+        yt-dlp -N4 ${yt_dlp_sponsorblock[@]} --playlist-items "$yt_playlist_download" -f "$format" -o "${video_dir}/${yt_playlist_vanilla_title}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata  "https://www.youtube.com/channel/${yt_playlist_id}/videos"
         else
         echo "Downloading line: $yt_playlist_download"
-        yt-dlp -N4 --playlist-items "$yt_playlist_download" -f "$format" -o "${video_dir}/${yt_playlist_vanilla_title}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "https://www.youtube.com/playlist?list=$yt_playlist_id"
+        yt-dlp -N4 ${yt_dlp_sponsorblock[@]} --playlist-items "$yt_playlist_download" -f "$format" -o "${video_dir}/${yt_playlist_vanilla_title}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "https://www.youtube.com/playlist?list=$yt_playlist_id"
         fi
         clear
         echo "Saved to: ${video_dir}/${yt_playlist_vanilla_title}/"
@@ -227,6 +246,27 @@ fi
         fi
         ;;
    8)
+        printf "\n"
+        printf "Download sponsorblock menu. \n"
+        printf "1=Enable. or 2=Disable. \n"
+        read answer
+        if [ -n "$answer" ]
+        then
+        if [ "$answer" != "${answer#[1]}" ]
+        then
+        yt_dlp_sponsorblock_on_function
+        main_menu_function
+        else
+        yt_dlp_sponsorblock_off_function
+        main_menu_function
+        fi
+        else
+        echo "Please enter an option."
+        sleep 0.8
+        main_menu_function
+        fi
+        ;;
+   9)
         printf " \n"
         printf "Sleep timer menu. \n"
         printf "1=Enable or 2=Disable \n"
@@ -325,15 +365,12 @@ fi
         main_menu_function
         fi
         ;;
-   9)
+   10)
         if command -v less >/dev/null && command -v curl >/dev/null
         then
-        clear
-        echo "Please wait."
-        sleep 2
-        clear
-        main_version_check=$(curl -s https://raw.githubusercontent.com/darnrain/yt-playlist/main/main_version.txt -L 2>&1)
-        test_version_check=$(curl -s https://raw.githubusercontent.com/darnrain/yt-playlist/main/test/test_version.txt -L 2>&1)
+        main_version_check=$(curl --retry 5 --retry-max-time 60 -s https://raw.githubusercontent.com/darnrain/yt-playlist/main/main_version.txt -L 2>&1)
+        test_version_check=$(curl --retry 5 --retry-max-time 60 -s https://raw.githubusercontent.com/darnrain/yt-playlist/main/test/test_version.txt -L 2>&1)
+        echo ""
         echo "Installed version:"
         echo "$version"
         echo "Main versions:"
@@ -344,7 +381,7 @@ fi
         printf "https://github.com/darnrain/yt-playlist \n"
         printf "git clone https://github.com/darnrain/yt-playlist.git \n"
         printf " \n"
-        printf "%s " "Press enter to continue" 
+        printf "%s " "Press enter to continue"
         read ans
         main_menu_function
         else
@@ -362,20 +399,22 @@ fi
         then
         if [ "$answer" != "${answer#[1]}" ]
         then
-        main_notes_check=$(curl -s https://raw.githubusercontent.com/darnrain/yt-playlist/main/main_change_log.txt -L 2>&1)
-        echo "$main_notes_check" | less -n
+        main_notes_check=$(curl --retry 5 --retry-max-time 60 -s https://raw.githubusercontent.com/darnrain/yt-playlist/main/main_change_log.txt -L 2>&1)
+        echo "$main_notes_check" | less
         main_menu_function
         else
-        test_notes_check=$(curl -s https://raw.githubusercontent.com/darnrain/yt-playlist/main/test/test_change_log.txt -L 2>&1)
-        echo "$test_notes_check" | less -n
+        test_notes_check=$(curl --retry 5 --retry-max-time 60 -s https://raw.githubusercontent.com/darnrain/yt-playlist/main/test/test_change_log.txt -L 2>&1)
+        echo "$test_notes_check" | less
         main_menu_function
         fi
         else
-        echo "Please eneter an option."
+        echo "Please enter an option."
+        sleep 0.8
         main_menu_function
         fi
         else
         echo "Please install curl or less."
+        sleep 0.8
         main_menu_function
         fi
         ;;
@@ -426,7 +465,7 @@ fi
         ;;
     Q)
         quit_function
-        ;;    
+        ;;
    *)
         echo "Wrong option."
         sleep 0.3
@@ -440,7 +479,7 @@ fi
 function play_sd_menu_function ()
 {
 	clear
-        clean_up_function 
+        clean_up_function
 	if [ -n "$yt_playlist_id" ]
 	then
 	echo "${yt_playlist_title}"
@@ -456,13 +495,14 @@ echo -ne "== Play SD Menu ==
 2) Play once + shuffle.
 3) Play from a start position.
 4) Play a custom playlist.
-5) Enable Audio/Video 720p h264 30 FPS aac 128kbps 44.1kHz.
+5) Enable audio/video 720p h264 30 FPS aac 128kbps 44.1kHz.
 6) Enable HW GPU.
 7) Enable fullscreen.
-8) Enable Audio aac 128kbps 44.1kHz.
-9) Enable Audio opus 128kbps 48kHz.
+8) Enable audio aac 128kbps 44.1kHz.
+9) Enable audio opus 128kbps 48kHz.
 10) Enabled resume playback.
-11) Enter number of music/video results.
+11) Enable audio/video sponsorblock.
+12) Enter number of music/video results.
 m) Main menu.
 Choose an option:  "
     read -r ans
@@ -762,7 +802,28 @@ fi
         play_sd_menu_function
         fi
         ;;
-    11)
+   11)
+        printf "\n"
+        printf "Audio/video sponsorblock menu. \n"
+        printf "1=Enable. or 2=Disable. \n"
+        read answer
+        if [ -n "$answer" ]
+        then
+        if [ "$answer" != "${answer#[1]}" ]
+        then
+        audio_video_sponsorblock_on_function
+        play_sd_menu_function
+        else
+        audio_video_sponsorblock_off_function
+        play_sd_menu_function
+        fi
+        else
+        echo "Please enter an option."
+        sleep 0.8
+        play_sd_menu_function
+        fi
+        ;;
+    12)
         printf " \n"
         printf "Enter music/video results number: \n"
         read yt_video_number
@@ -1161,13 +1222,14 @@ echo -ne "== Play SD Bookmark Menu ==
 2) Play once + shuffle.
 3) Play from a start position.
 4) Play a custom playlist.
-5) Enable Audio/Video 720p h264 30 FPS aac 128kbps 44.1kHz.
+5) Enable audio/video 720p h264 30 FPS aac 128kbps 44.1kHz.
 6) Enable HW GPU.
 7) Enable fullscreen.
-8) Enable Audio aac 128kbps 44.1kHz.
-9) Enable Audio opus 128kbps 48kHz.
+8) Enable audio aac 128kbps 44.1kHz.
+9) Enable audio opus 128kbps 48kHz.
 10) Enable resume playback.
-11) Delete bookmarks.
+11) Enable audio/video sponsorblock.
+12) Delete bookmarks.
 m) Main menu.
 Choose an option:  "
     read -r ans
@@ -1411,7 +1473,28 @@ fi
         play_sd_bookmark_menu_function
         fi
         ;;
-    11)
+   11)
+        printf "\n"
+        printf "Audio/video sponsorblock menu. \n"
+        printf "1=Enable. or 2=Disable. \n"
+        read answer
+        if [ -n "$answer" ]
+        then
+        if [ "$answer" != "${answer#[1]}" ]
+        then
+        audio_video_sponsorblock_on_function
+        play_sd_menu_function
+        else
+        audio_video_sponsorblock_off_function
+        play_sd_menu_function
+        fi
+        else
+        echo "Please enter an option."
+        sleep 0.8
+        play_sd_menu_function
+        fi
+        ;;
+    12)
         delete_bookmark=$(cat "${yt_playlist_home_dir}/yt-playlist_bookmark.txt" | nl -n"ln" -w2 -s " " | tac | nl -n"ln" -w2 -s " "  | fzf --reverse --header="Delete bookmarks." --bind ctrl-a:select-all,ctrl-d:deselect-all -m --with-nth=1,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $2}' | tr -s ';[:space:]' '[ *]' | sed 's/ /d;/g' | sed '$ s/.$//')
         if [ -n "$delete_bookmark" ]
 	then
@@ -2195,11 +2278,11 @@ m) Main menu.
 Choose an option:  "
     read -r ans
     case $ans in
-    1)  
+    1)
         if command -v fx >/dev/null && command -v curl >/dev/null
         then
         export FX_THEME=2
-        curl -s https://raw.githubusercontent.com/mhollingshead/billboard-hot-100/main/recent.json -L 2>&1 | fx
+        curl --retry 5 --retry-max-time 60 -s https://raw.githubusercontent.com/mhollingshead/billboard-hot-100/main/recent.json -L 2>&1 | fx
         billboard_menu_function
         else
         echo "Please install fx and curl to run."
@@ -2207,11 +2290,11 @@ Choose an option:  "
         billboard_menu_function
         fi
         ;;
-    2)  
+    2)
         if command -v fx >/dev/null && command -v curl >/dev/null
         then
         export FX_THEME=2
-        curl -s https://raw.githubusercontent.com/KoreanThinker/billboard-json/main/billboard-hot-100/recent.json -L 2>&1 | fx
+        curl --retry 5 --retry-max-time 60 -s https://raw.githubusercontent.com/KoreanThinker/billboard-json/main/billboard-hot-100/recent.json -L 2>&1 | fx
         billboard_menu_function
         else
         echo "Please install fx and curl to run."
@@ -2219,11 +2302,11 @@ Choose an option:  "
         billboard_menu_function
         fi
         ;;
-    3)  
+    3)
         if command -v fx >/dev/null && command -v curl >/dev/null
         then
         export FX_THEME=2
-        curl -s https://raw.githubusercontent.com/KoreanThinker/billboard-json/main/billboard-200/recent.json -L 2>&1 | fx
+        curl --retry 5 --retry-max-time 60 -s https://raw.githubusercontent.com/KoreanThinker/billboard-json/main/billboard-200/recent.json -L 2>&1 | fx
         billboard_menu_function
         else
         echo "Please install fx and curl to run."
@@ -2231,11 +2314,11 @@ Choose an option:  "
         billboard_menu_function
         fi
         ;;
-    4)  
+    4)
         if command -v fx >/dev/null && command -v curl >/dev/null
         then
         export FX_THEME=2
-        curl -s https://raw.githubusercontent.com/KoreanThinker/billboard-json/main/billboard-global-200/recent.json -L 2>&1 | fx
+        curl --retry 5 --retry-max-time 60 -s https://raw.githubusercontent.com/KoreanThinker/billboard-json/main/billboard-global-200/recent.json -L 2>&1 | fx
         billboard_menu_function
         else
         echo "Please install fx and curl to run."
@@ -2243,11 +2326,11 @@ Choose an option:  "
         billboard_menu_function
         fi
         ;;
-    5)  
+    5)
         if command -v fx >/dev/null && command -v curl >/dev/null
         then
         export FX_THEME=2
-        curl -s https://raw.githubusercontent.com/KoreanThinker/billboard-json/main/billboard-artist-100/recent.json -L 2>&1 | fx
+        curl --retry 5 --retry-max-time 60 -s https://raw.githubusercontent.com/KoreanThinker/billboard-json/main/billboard-artist-100/recent.json -L 2>&1 | fx
         billboard_menu_function
         else
         echo "Please install fx and curl to run."
@@ -2255,11 +2338,11 @@ Choose an option:  "
         billboard_menu_function
         fi
         ;;
-    6)  
+    6)
         if command -v fx >/dev/null && command -v curl >/dev/null
         then
         export FX_THEME=2
-        curl -s https://gist.githubusercontent.com/nanotaboada/a90ce99a9bc8ca3c63c0f1dfeb41d41d/raw/55b47f2da187d5d9c9f069d4e354d76ee806eded/songs.json -L 2>&1 | fx
+        curl --retry 5 --retry-max-time 60 -s https://gist.githubusercontent.com/nanotaboada/a90ce99a9bc8ca3c63c0f1dfeb41d41d/raw/55b47f2da187d5d9c9f069d4e354d76ee806eded/songs.json -L 2>&1 | fx
         billboard_menu_function
         else
         echo "Please install fx and curl to run."
@@ -2297,6 +2380,8 @@ mpv_hd_cache3_function
 mpv_video_fullscreen_off_function
 mpv_video_gpu_off_function
 resume_playback_off_function
+audio_video_sponsorblock_off_function
+yt_dlp_sponsorblock_off_function
 mpv_log_file_off_funciton
 mpv_music_opus_function
 mpv_video_m4a_function
@@ -2582,6 +2667,10 @@ function stop_sleep_timer_function ()
         pkill sleep
         rm "${tmp_dir}/sleep_timer_running"
         fi
+	if test -f "${tmp_dir}/yt_dlp_sponsorblock"
+	then
+        rm "${tmp_dir}/yt_dlp_sponsorblock"
+        fi
 }
 
 function sleep_timer_function ()
@@ -2598,7 +2687,7 @@ function sleep_timer_function ()
 	secs=$((95))
 	while [ $secs -gt 0 ]; do
    	number=$(echo "$secs")
-   	echo "'set' 'volume' '$number'" | socat - "${tmp_dir}/mpvsocket" 
+   	echo "'set' 'volume' '$number'" | socat - "${tmp_dir}/mpvsocket"
         if test -f "${tmp_dir}/stop_sleep_timer"
         then
         break
@@ -2613,7 +2702,7 @@ function sleep_timer_function ()
 	secs=$((95))
 	while [ $secs -gt 0 ]; do
    	number=$(echo "$secs")
-   	echo "'set' 'volume' '$number'" | socat - "${tmp_dir}/mpvsocket" 
+   	echo "'set' 'volume' '$number'" | socat - "${tmp_dir}/mpvsocket"
         if test -f "${tmp_dir}/stop_sleep_timer"
         then
         break
@@ -2628,7 +2717,7 @@ function sleep_timer_function ()
 	secs=$((95))
 	while [ $secs -gt 0 ]; do
    	number=$(echo "$secs")
-   	echo "'set' 'volume' '$number'" | socat - "${tmp_dir}/mpvsocket" 
+   	echo "'set' 'volume' '$number'" | socat - "${tmp_dir}/mpvsocket"
         if test -f "${tmp_dir}/stop_sleep_timer"
         then
         break
@@ -2640,23 +2729,21 @@ function sleep_timer_function ()
 
         if test -f "${tmp_dir}/mpv_video_running"
         then
-	echo cycle pause | socat - "${tmp_dir}/mpvsocket" 
+	echo stop | socat - "${tmp_dir}/mpvsocket"
 	sleep 2 | sed 's/Terminated//'
 	fi
 
         if test -f "${tmp_dir}/mpv_bookmark_running"
         then
-	echo cycle pause | socat - "${tmp_dir}/mpvsocket" 
+	echo stop | socat - "${tmp_dir}/mpvsocket"
 	sleep 2 | sed 's/Terminated//'
 	fi
 
         if test -f "${tmp_dir}/mpv_music_running"
         then
-	echo cycle pause | socat - "${tmp_dir}/mpvsocket" 
+	echo stop | socat - "${tmp_dir}/mpvsocket"
 	sleep 2 | sed 's/Terminated//'
 	fi
-
-   	echo "'set' 'volume' '95'" | socat - "${tmp_dir}/mpvsocket" 
 }
 
 function show_date_time_function
@@ -2723,6 +2810,13 @@ fi
         exit
         fi
 
+	if test -f "${tmp_dir}/yt_dlp_sponsorblock"
+	then
+        yt_dlp_sponsorblock=( "--sponsorblock-remove sponsor" )
+        else
+        unset yt_dlp_sponsorblock
+        fi
+
         if test -f "${tmp_dir}/mpv_bookmark_running"
         then
         if command -v terminal-notifier >/dev/null
@@ -2731,14 +2825,14 @@ fi
         echo '{ "command": ["show-text", "Downloading audio, please wait." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         yt_playlist_download_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
 	sleep 2
-        yt-dlp -N4 --no-warnings --quiet -x -f "$audio_download_format" -o "${audio_dir}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "$yt_playlist_download_url" 
+        yt-dlp -N4 --no-warnings --quiet ${yt_dlp_sponsorblock[@]} -x -f "$audio_download_format" -o "${audio_dir}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "$yt_playlist_download_url" 
         echo show-text "$show_audio_dir" | socat - "${tmp_dir}/mpvsocket"
         terminal-notifier -title "yt-playlist" -message "Saved to: ${audio_dir}"
         else
         echo '{ "command": ["show-text", "Downloading audio, please wait." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         yt_playlist_download_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
 	sleep 2
-        yt-dlp -N4 --no-warnings --quiet -x -f "$audio_download_format" -o "${audio_dir}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "$yt_playlist_download_url" 
+        yt-dlp -N4 --no-warnings --quiet ${yt_dlp_sponsorblock[@]} -x -f "$audio_download_format" -o "${audio_dir}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "$yt_playlist_download_url" 
         echo show-text "$show_audio_dir" | socat - "${tmp_dir}/mpvsocket"
   fi
 fi
@@ -2751,14 +2845,14 @@ fi
         echo '{ "command": ["show-text", "Downloading audio, please wait." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         yt_playlist_download_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
 	sleep 2
-        yt-dlp -N4 --no-warnings --quiet -x -f "$audio_download_format" -o "${audio_dir}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "$yt_playlist_download_url" 
+        yt-dlp -N4 --no-warnings --quiet ${yt_dlp_sponsorblock[@]} -x -f "$audio_download_format" -o "${audio_dir}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "$yt_playlist_download_url" 
         echo show-text "$show_audio_dir" | socat - "${tmp_dir}/mpvsocket"
         terminal-notifier -title "yt-playlist" -message "Saved to: ${audio_dir}"
         else
         echo '{ "command": ["show-text", "Downloading audio, please wait." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         yt_playlist_download_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
 	sleep 2
-        yt-dlp -N4 --no-warnings --quiet -x -f "$audio_download_format" -o "${audio_dir}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "$yt_playlist_download_url" 
+        yt-dlp -N4 --no-warnings --quiet ${yt_dlp_sponsorblock[@]} -x -f "$audio_download_format" -o "${audio_dir}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "$yt_playlist_download_url" 
         echo show-text "$show_audio_dir" | socat - "${tmp_dir}/mpvsocket"
   fi
 fi
@@ -2791,6 +2885,13 @@ fi
   fi
 fi
 
+	if test -f "${tmp_dir}/yt_dlp_sponsorblock"
+	then
+        yt_dlp_sponsorblock=( "--sponsorblock-remove sponsor" )
+        else
+        unset yt_dlp_sponsorblock
+        fi
+
         if test -f "${tmp_dir}/mpv_bookmark_running"
         then
         if command -v terminal-notifier >/dev/null
@@ -2799,14 +2900,14 @@ fi
         echo '{ "command": ["show-text", "Downloading video, please wait." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         yt_playlist_download_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
 	sleep 2
-        yt-dlp -N4 --no-warnings --quiet -f "$video_download_format" -o "${video_dir}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "$yt_playlist_download_url" 
+        yt-dlp -N4 --no-warnings --quiet ${yt_dlp_sponsorblock[@]} -f "$video_download_format" -o "${video_dir}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "$yt_playlist_download_url" 
         echo show-text "$show_video_dir" | socat - "${tmp_dir}/mpvsocket"
         terminal-notifier -title "yt-playlist" -message "Saved to: ${video_dir}"
         else
         echo '{ "command": ["show-text", "Downloading video, please wait." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         yt_playlist_download_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
 	sleep 2
-        yt-dlp -N4 --no-warnings --quiet -f "$video_download_format" -o "${video_dir}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "$yt_playlist_download_url" 
+        yt-dlp -N4 --no-warnings --quiet ${yt_dlp_sponsorblock[@]} -f "$video_download_format" -o "${video_dir}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "$yt_playlist_download_url" 
         echo show-text "$show_video_dir" | socat - "${tmp_dir}/mpvsocket"
   fi
 fi
@@ -2819,14 +2920,14 @@ fi
         echo '{ "command": ["show-text", "Downloading video, please wait." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         yt_playlist_download_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
 	sleep 2
-        yt-dlp -N4 --no-warnings --quiet -f "$video_download_format" -o "${video_dir}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "$yt_playlist_download_url" 
+        yt-dlp -N4 --no-warnings --quiet ${yt_dlp_sponsorblock[@]} -f "$video_download_format" -o "${video_dir}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "$yt_playlist_download_url" 
         echo show-text "$show_video_dir" | socat - "${tmp_dir}/mpvsocket"
         terminal-notifier -title "yt-playlist" -message "Saved to: ${video_dir}"
         else
         echo '{ "command": ["show-text", "Downloading video, please wait." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         yt_playlist_download_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
 	sleep 2
-        yt-dlp -N4 --no-warnings --quiet -f "$video_download_format" -o "${video_dir}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "$yt_playlist_download_url" 
+        yt-dlp -N4 --no-warnings --quiet ${yt_dlp_sponsorblock[@]} -f "$video_download_format" -o "${video_dir}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "$yt_playlist_download_url" 
         echo show-text "$show_video_dir" | socat - "${tmp_dir}/mpvsocket"
   fi
 fi
@@ -2957,6 +3058,12 @@ fi
         else
         echo "Resume playback disabled."
         fi
+        if [ -z "$audio_video_sponsorblock" ]
+	then
+        echo "Audio/video sponsorblock enabled."
+        else
+        echo "Audio/video sponsorblock disabled."
+        fi
         if test -f "${tmp_dir}/count_down_timer.txt"
         then
         cat "${tmp_dir}/count_down_timer.txt"
@@ -3066,7 +3173,7 @@ mpv_hd_arguments_function
 
 function mpv_hd_arguments_function ()
 {
-mpv_hd_arguments=( "${mpv_hd_gpu}" "${mpv_hd_fullscreen}" "${mpv_hd_cache}" --config-dir="${yt_playlist_home_dir}" --sid=no --video-sync=display-resample --gamma=2.2 --video-output-levels=full --volume=95 --volume-max=100 --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket" )
+mpv_hd_arguments=( "${mpv_hd_gpu}" "${mpv_hd_fullscreen}" "${mpv_hd_cache}" --config-dir="${yt_playlist_home_dir}" --sid=no --video-sync=display-resample --gamma=2.2 --video-output-levels=full --volume=95 --volume-max=100 --load-scripts=no --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket" )
 }
 
 function mpv_video_fullscreen_on_function ()
@@ -3134,7 +3241,7 @@ mpv_video_arguments_function
 
 function mpv_video_arguments_function ()
 {
-mpv_video_arguments=( "${mpv_audio_video}" "${mpv_video_gpu}" "${mpv_video_fullscreen}" --config-dir="${yt_playlist_home_dir}" --script-opts=ytdl_hook-try_ytdl_first=yes --term-playing-msg='${media-title}' --cache=yes --cache-secs=120 --demuxer-max-bytes=35M --demuxer-max-back-bytes=5M --sid=no --volume=95 --volume-max=100 --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket")
+mpv_video_arguments=( "${mpv_audio_video}" "${mpv_video_gpu}" "${mpv_video_fullscreen}" "${audio_video_sponsorblock}" --config-dir="${yt_playlist_home_dir}" --script-opts=ytdl_hook-try_ytdl_first=yes --term-playing-msg='${media-title}' --cache=yes --cache-secs=120 --demuxer-max-bytes=35M --demuxer-max-back-bytes=5M --sid=no --volume=95 --volume-max=100 --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket")
 }
 
 function resume_playback_on_function ()
@@ -3169,7 +3276,7 @@ mpv_music_arguments_function
 
 function mpv_music_arguments_function ()
 {
-mpv_music_arguments=( "${mpv_music_audio}" --config-dir="${yt_playlist_home_dir}" --script-opts=ytdl_hook-try_ytdl_first=yes --term-playing-msg='${media-title}' --cache=yes --cache-secs=120 --demuxer-max-bytes=35M --demuxer-max-back-bytes=5M --sid=no --volume=95 --volume-max=100 --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket")
+mpv_music_arguments=( "${mpv_music_audio}" --config-dir="${yt_playlist_home_dir}" --script-opts=ytdl_hook-try_ytdl_first=yes --term-playing-msg='${media-title}' --cache=yes --cache-secs=120 --demuxer-max-bytes=35M --demuxer-max-back-bytes=5M --sid=no --volume=95 --volume-max=100 --load-scripts=no --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket")
 }
 
 function mpv_log_file_on_funciton ()
@@ -3181,6 +3288,31 @@ mpv_log_file_arguments=( --log-file=${yt_playlist_home_dir}/mpv_log_file.txt )
 function mpv_log_file_off_funciton ()
 {
 unset mpv_log_file_arguments
+}
+
+function yt_dlp_sponsorblock_on_function ()
+{
+touch "${tmp_dir}/yt_dlp_sponsorblock"
+}
+
+function yt_dlp_sponsorblock_off_function ()
+{
+if test -f "${tmp_dir}/yt_dlp_sponsorblock"
+then
+rm "${tmp_dir}/yt_dlp_sponsorblock"
+fi
+}
+
+function audio_video_sponsorblock_on_function ()
+{
+unset audio_video_sponsorblock
+mpv_video_arguments_function
+}
+
+function audio_video_sponsorblock_off_function ()
+{
+audio_video_sponsorblock=( "--load-scripts=no" )
+mpv_video_arguments_function
 }
 
 function mpv_play_pause_function ()
@@ -3330,6 +3462,29 @@ fi
         echo playlist-prev | socat - "${tmp_dir}/mpvsocket"
   fi
 fi
+}
+
+function mpv_stop_function ()
+{
+	if test -f "${tmp_dir}/mpv_hd_running"
+        then
+        echo stop | socat - "${tmp_dir}/mpvsocket"
+        fi
+
+	if test -f "${tmp_dir}/mpv_video_running"
+        then
+        echo stop | socat - "${tmp_dir}/mpvsocket"
+        fi
+
+	if test -f "${tmp_dir}/mpv_bookmark_running"
+        then
+        echo stop | socat - "${tmp_dir}/mpvsocket"
+        fi
+
+	if test -f "${tmp_dir}/mpv_music_running"
+        then
+        echo stop | socat - "${tmp_dir}/mpvsocket"
+        fi
 }
 
 
@@ -3646,18 +3801,19 @@ echo "Version:                -v or --version"
 echo "Play/Pause              --play_pause"
 echo "Next track              --next"
 echo "Prev track              --prev"
+echo "Stop or exit            --stop"
 echo "Desktop and terminal"
 echo "notifications get"
 echo "artist and title        --title"
-echo "Download when playing" 
+echo "Download when playing"
 echo "Audio/Video"
 echo "Download audio          --download_audio opus"
 echo "                        --download_audio m4a"
 echo "Download video          --download_video mp4"
-echo "Import Google takeout:  --import" 
+echo "Import Google takeout:  --import"
 echo "Suppprted file types:"
-echo "subscriptions.csv" 
-echo "music-library-songs.csv"     
+echo "subscriptions.csv"
+echo "music-library-songs.csv"
 echo 'Example: "yt-playlist --import subscriptions.csv"'
 echo ""
 echo "debug"
@@ -3700,12 +3856,15 @@ echo "Sleep timer yes"
 echo "Bookmarks yes"
 echo "Download Audio yes"
 echo "Download Video yes"
+echo "Download sponsorblock yes"
+echo "Audio/video sponsorblock yes"
 echo "Resume playback yes"
 echo "Show date and time yes"
 echo "Title notifications yes"
 echo "FF yes"
 echo "RR yes"
-echo "Pause yes"
+echo "Play/Pause yes"
+echo "Stop yes"
 echo "Next video yes"
 echo "Prev video yes"
 echo ""
@@ -3714,12 +3873,15 @@ echo "Sleep timer no"
 echo "Bookmarks no"
 echo "Download Audio no"
 echo "Download Video no"
+echo "Download sponsorblock no"
+echo "Audio/video sponsorblock no"
 echo "Resume playback no"
 echo "Show date and time yes"
 echo "Title notifications no"
 echo "FF yes"
 echo "RR yes"
-echo "Pause yes"
+echo "Play/Pause yes"
+echo "Stop yes"
 echo "Next video no"
 echo "Prev video no"
 echo ""
@@ -3728,12 +3890,15 @@ echo "Sleep timer yes"
 echo "Bookmarks no"
 echo "Download Audio yes"
 echo "Download Video yes"
+echo "Download sponsorblock yes"
+echo "Audio/video sponsorblock yes"
 echo "Resume playback yes"
 echo "Show date and time yes"
 echo "Title notifications yes"
 echo "FF yes"
 echo "RR yes"
-echo "Pause yes"
+echo "Play/Pause yes"
+echo "Stop yes"
 echo "Next video yes"
 echo "Prev video yes"
 echo ""
@@ -3742,12 +3907,15 @@ echo "Sleep timer yes"
 echo "Bookmarks no"
 echo "Download Audio yes"
 echo "Download Video no"
+echo "Download sponsorblock no"
+echo "Audio/video sponsorblock no"
 echo "Resume playback no"
 echo "Show date and time yes"
 echo "Title notifications yes"
 echo "FF yes"
 echo "RR yes"
-echo "Pause yes"
+echo "Play/Pause yes"
+echo "Stop yes"
 echo "Next song yes"
 echo "Prev song yes"
 }
@@ -3777,7 +3945,7 @@ not_a_playlist_id="7807897890789078907807 Not a channel/playlist/album.
         echo "A total of "$import_take_out_number" songs were imported to the music menu."
         exit
         else
-        echo "Import Google takeout." 
+        echo "Import Google takeout."
         echo 'You can import "subscriptions.csv" and "music-library-songs.csv".'
         echo 'Example: "yt-playlist --import subscriptions.csv"'
         exit
@@ -3890,6 +4058,12 @@ fi
         if [[ "$external_arguments1" = "--prev" ]]
 	then
         mpv_prev_function
+        exit
+        fi
+
+        if [[ "$external_arguments1" = "--stop" ]]
+	then
+        mpv_stop_function
         exit
         fi
 
