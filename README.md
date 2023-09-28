@@ -40,7 +40,7 @@ More photos.<br>
 * Search YouTube for Playlists and Channels.
 * Search YouTube Music for Playlists and Albums.
 * Search Youtube Music for songs.
-* Paste YouTube or YTMusic url.
+* Paste a YouTube or a YouTube Music url.
 * Channel/Playlist/Album search results are saved to your history.
 * Download YouTube Playlists from a Channel.
 * Download up to 1080p 60 FPS videos.
