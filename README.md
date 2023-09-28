@@ -66,7 +66,6 @@ More photos.<br>
 * Termux
 * Should work on other flavors of linux.
 * Works on any architecture.
-* I will test more as time permits.
 
 ### Command arguments:
 <pre>
