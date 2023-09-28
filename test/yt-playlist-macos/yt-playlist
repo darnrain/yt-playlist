@@ -1,4 +1,4 @@
-##!/usr/local/bin/bash
+#!/usr/local/bin/bash
 
 # yt-playlist macOS
 
@@ -19,7 +19,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="macOS v2.47.20_test"
+version="macOS v2.47.21_test"
 
 #mainmenu
 
