@@ -65,7 +65,7 @@ More photos.<br>
 * POP!_OS Linux
 * Termux
 
-### Command arguments:
+### Command line arguments:
 <pre>
 Help menu:              -h or --help
 Version:                -v or --version
