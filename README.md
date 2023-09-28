@@ -64,8 +64,6 @@ More photos.<br>
 * MX Linux
 * POP!_OS Linux
 * Termux
-* Should work on other flavors of linux.
-* Works on any architecture.
 
 ### Command arguments:
 <pre>
