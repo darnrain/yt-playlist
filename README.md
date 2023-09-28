@@ -36,7 +36,7 @@ More photos.<br>
 * The Termux version is audio only.
 * Background audio playback on Termux.
 * Open a channel, playlist and album in NewPipe. Termux version only.
-* Import Google takeout, your YouTube subscriptions and YTMusic.
+* Import Google takeout, your YouTube subscriptions and YouTube Music.
 * Search YouTube for Playlists and Channels.
 * Search YouTube Music for Playlists and Albums.
 * Search Youtube Music for songs.
