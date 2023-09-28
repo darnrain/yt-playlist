@@ -88,6 +88,7 @@ fi
 
 delete the playhdmenu
 
+delete all words with cover in them
 
 
 #mainmenu

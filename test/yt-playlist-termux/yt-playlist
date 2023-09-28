@@ -37,10 +37,6 @@ function main_menu_function ()
 	then
         echo "jemalloc enabled."
         fi
-	if [ -n "$cover_art" ]
-	then
-        echo "Cover art notifications enabled."
-        fi
 	if [ -n "$mpv_log_file" ]
 	then
         echo "mpv log file enabled."
@@ -3592,13 +3588,6 @@ fi
 	then
         title_notification_function
         exit
-        fi
-
-        if [[ "$external_arguments1" = "--cover_art" ]]
-	then
-        cover_art="yes"
-        else
-        unset cover_art
         fi
 
 	yt_playlist_start_function
