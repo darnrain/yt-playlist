@@ -19,7 +19,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="macOS v2.48.1_test"
+version="macOS v2.48.2_test"
 
 #mainmenu
 
@@ -3468,25 +3468,48 @@ function mpv_stop_function ()
 {
 	if test -f "${tmp_dir}/mpv_hd_running"
         then
+        if command -v terminal-notifier >/dev/null
+        then
+        terminal-notifier -title "yt-playlist" -message "Stopped mpv player."
         echo stop | socat - "${tmp_dir}/mpvsocket"
-        fi
+        else
+        echo stop | socat - "${tmp_dir}/mpvsocket"
+  fi
+fi
 
 	if test -f "${tmp_dir}/mpv_video_running"
         then
+        if command -v terminal-notifier >/dev/null
+        then
+        terminal-notifier -title "yt-playlist" -message "Stopped mpv player."
         echo stop | socat - "${tmp_dir}/mpvsocket"
-        fi
+        else
+        echo stop | socat - "${tmp_dir}/mpvsocket"
+  fi
+fi
 
 	if test -f "${tmp_dir}/mpv_bookmark_running"
         then
+        if command -v terminal-notifier >/dev/null
+        then
+        terminal-notifier -title "yt-playlist" -message "Stopped mpv player."
         echo stop | socat - "${tmp_dir}/mpvsocket"
-        fi
+        else
+        echo stop | socat - "${tmp_dir}/mpvsocket"
+  fi
+fi
 
 	if test -f "${tmp_dir}/mpv_music_running"
         then
+        if command -v terminal-notifier >/dev/null
+        then
+        terminal-notifier -title "yt-playlist" -message "Stopped mpv player."
         echo stop | socat - "${tmp_dir}/mpvsocket"
-        fi
+        else
+        echo stop | socat - "${tmp_dir}/mpvsocket"
+  fi
+fi
 }
-
 
 function title_function ()
 {
