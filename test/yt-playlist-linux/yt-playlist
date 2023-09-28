@@ -15,7 +15,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="Linux v2.48.2_test"
+version="Linux v2.48.3_test"
 
 #mainmenu
 
@@ -2779,7 +2779,7 @@ function music_download_audio_function ()
 	sleep 2
         yt-dlp -N4 --no-warnings --quiet -x -f "$music_download_format" -o "${audio_dir}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "$yt_playlist_download_url" 
         echo show-text "$show_audio_dir" | socat - "${tmp_dir}/mpvsocket"
-        notify-send "yt-playlist" "Saved to: ${audio_dir}"
+        notify-send "yt-playlist" "Saved to: ${audio_dir}/"
         else
         echo '{ "command": ["show-text", "Downloading audio, please wait." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         yt_playlist_download_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
@@ -2827,7 +2827,7 @@ fi
 	sleep 2
         yt-dlp -N4 --no-warnings --quiet ${yt_dlp_sponsorblock[@]} -x -f "$audio_download_format" -o "${audio_dir}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "$yt_playlist_download_url" 
         echo show-text "$show_audio_dir" | socat - "${tmp_dir}/mpvsocket"
-        notify-send "yt-playlist" "Saved to: ${audio_dir}"
+        notify-send "yt-playlist" "Saved to: ${audio_dir}/"
         else
         echo '{ "command": ["show-text", "Downloading audio, please wait." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         yt_playlist_download_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
@@ -2847,7 +2847,7 @@ fi
 	sleep 2
         yt-dlp -N4 --no-warnings --quiet ${yt_dlp_sponsorblock[@]} -x -f "$audio_download_format" -o "${audio_dir}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "$yt_playlist_download_url" 
         echo show-text "$show_audio_dir" | socat - "${tmp_dir}/mpvsocket"
-        notify-send -i "${tmp_dir}/yt-playlist_icons.jpg" "yt-playlist" "Saved to: ${audio_dir}"
+        notify-send -i "${tmp_dir}/yt-playlist_icons.jpg" "yt-playlist" "Saved to: ${audio_dir}/"
         else
         echo '{ "command": ["show-text", "Downloading audio, please wait." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         yt_playlist_download_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
@@ -2902,7 +2902,7 @@ fi
 	sleep 2
         yt-dlp -N4 --no-warnings --quiet ${yt_dlp_sponsorblock[@]} -f "$video_download_format" -o "${video_dir}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "$yt_playlist_download_url" 
         echo show-text "$show_video_dir" | socat - "${tmp_dir}/mpvsocket"
-        notify-send "yt-playlist" "Saved to: ${video_dir}"
+        notify-send "yt-playlist" "Saved to: ${video_dir}/"
         else
         echo '{ "command": ["show-text", "Downloading video, please wait." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         yt_playlist_download_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
@@ -2922,7 +2922,7 @@ fi
 	sleep 2
         yt-dlp -N4 --no-warnings --quiet ${yt_dlp_sponsorblock[@]} -f "$video_download_format" -o "${video_dir}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "$yt_playlist_download_url" 
         echo show-text "$show_video_dir" | socat - "${tmp_dir}/mpvsocket"
-        notify-send -i "${tmp_dir}/yt-playlist_icons.jpg" "yt-playlist" "Saved to: ${video_dir}"
+        notify-send -i "${tmp_dir}/yt-playlist_icons.jpg" "yt-playlist" "Saved to: ${video_dir}/"
         else
         echo '{ "command": ["show-text", "Downloading video, please wait." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         yt_playlist_download_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
