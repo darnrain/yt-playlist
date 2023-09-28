@@ -1,8 +1,14 @@
-9-27-2023
+9-28-2023
 
 ================================
 Change log notes
 ================================
+
+
+Linux v2.49 | macOS v2.49 | Termux v2.49
+Added a forward slash at the tail end of the downloading notifications.
+Added notifications to the --stop argument.
+Fixed some error messages that were going to the wrong menu.
 
 Linux v2.48 | macOS v2.48 | Termux v2.48
 Push update to v2.48
