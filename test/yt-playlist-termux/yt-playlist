@@ -15,7 +15,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: /sdcard/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 yt_video_number="1:100"
-version="Termux v2.48"
+version="Termux v2.48.1_test"
 
 #mainmenu
 
@@ -993,7 +993,7 @@ fi
         else
         echo "Please choose an option."
 	sleep 0.8
-        play_sd_menu_function
+        play_music_menu_function
   fi
 fi
         yt_playlist_music_total=$(echo "${yt_playlist_music}" | wc -l)
@@ -1038,7 +1038,7 @@ fi
         else
         echo "Please choose an option."
 	sleep 0.8
-        play_sd_menu_function
+        play_music_menu_function
   fi
 fi
         yt_playlist_music_total=$(echo "${yt_playlist_music}" | wc -l)
@@ -1324,7 +1324,7 @@ fi
         else
         echo "Please choose an option."
 	sleep 0.8
-        play_bookmark_menu_function
+        play_sd_bookmark_menu_function
   fi
 fi
         yt_playlist_bookmark_total=$(cat "${tmp_dir}/yt_playlist_url.txt" | wc -l)
@@ -1369,7 +1369,7 @@ fi
         else
         echo "Please choose an option."
 	sleep 0.8
-        play_bookmark_menu_function
+        play_sd_bookmark_menu_function
   fi
 fi
         yt_playlist_bookmark_total=$(cat "${tmp_dir}/yt_playlist_url.txt" | wc -l)
