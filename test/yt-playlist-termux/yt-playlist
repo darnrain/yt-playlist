@@ -15,7 +15,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: /sdcard/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 yt_video_number="1:100"
-version="Termux v2.48.3_test"
+version="Termux v2.48.4_test"
 
 #mainmenu
 
@@ -2196,6 +2196,7 @@ then
 if [ "$answer" != "${answer#[yY]}" ]
 then
 stop_sleep_timer_function
+yt_dlp_sponsorblock_off_function
 exit
 else
 main_menu_function
@@ -2381,10 +2382,6 @@ function stop_sleep_timer_function ()
         pkill sleep
         pkill sleep
         rm "${tmp_dir}/sleep_timer_running"
-        fi
-	if test -f "${tmp_dir}/yt_dlp_sponsorblock"
-	then
-        rm "${tmp_dir}/yt_dlp_sponsorblock"
         fi
 }
 
@@ -2998,6 +2995,53 @@ fi
 fi
 }
 
+function mpv_mute_function ()
+{
+	if test -f "${tmp_dir}/mpv_hd_running"
+        then
+        if command -v notify-send >/dev/null
+        then
+        notify-send -i "${tmp_dir}/yt-playlist_icons.jpg" "yt-playlist" "Mute/Unmute"
+        echo cycle mute | socat - "${tmp_dir}/mpvsocket"
+        else
+        echo cycle mute | socat - "${tmp_dir}/mpvsocket"
+  fi
+fi
+
+	if test -f "${tmp_dir}/mpv_video_running"
+        then
+        if command -v notify-send >/dev/null
+        then
+        notify-send -i "${tmp_dir}/yt-playlist_icons.jpg" "yt-playlist" "Mute/Unmute"
+        echo cycle mute | socat - "${tmp_dir}/mpvsocket"
+        else
+        echo cycle mute | socat - "${tmp_dir}/mpvsocket"
+  fi
+fi
+
+	if test -f "${tmp_dir}/mpv_bookmark_running"
+        then
+        if command -v notify-send >/dev/null
+        then
+        notify-send "yt-playlist" "Mute/Unmute"
+        echo cycle mute | socat - "${tmp_dir}/mpvsocket"
+        else
+        echo cycle mute | socat - "${tmp_dir}/mpvsocket"
+  fi
+fi
+
+	if test -f "${tmp_dir}/mpv_music_running"
+        then
+        if command -v notify-send >/dev/null
+        then
+        notify-send "yt-playlist" "Mute/Unmute"
+        echo cycle mute | socat - "${tmp_dir}/mpvsocket"
+        else
+        echo cycle mute | socat - "${tmp_dir}/mpvsocket"
+  fi
+fi
+}
+
 function mpv_stop_function ()
 {
 	if test -f "${tmp_dir}/mpv_hd_running"
@@ -3015,7 +3059,7 @@ fi
         then
         if command -v notify-send >/dev/null
         then
-        notify-send "yt-playlist" "Stopped mpv player."
+        notify-send -i "${tmp_dir}/yt-playlist_icons.jpg" "yt-playlist" "Stopped mpv player."
         echo stop | socat - "${tmp_dir}/mpvsocket"
         else
         echo stop | socat - "${tmp_dir}/mpvsocket"
@@ -3069,7 +3113,7 @@ function results_function ()
         else
         clear
         echo "Please wait."
-        yt_playlist_results=$(2>/dev/null yt-dlp -N4 --ignore-errors --no-warnings --quiet --flat-playlist --compat-options no-youtube-unavailable-videos -I "$yt_video_number" --print "%(url)s Video: %(title)s" "https://www.youtube.com/channel/${yt_playlist_id}/videos" | sed '/Private video/d' | sed '/Deleted video/d' | sed 's/|//g' | tr -s '[:space:]' | nl -n"ln" -w2 -s " " &)
+        yt_playlist_results=$(2>/dev/null yt-dlp -N4 --ignore-errors --no-warnings --quiet --flat-playlist --compat-options no-youtube-unavailable-videos -I "$yt_video_number" --print "%(url)s Video: %(duration>%H:%M:%S)s - %(title)s" "https://www.youtube.com/channel/${yt_playlist_id}/videos" | sed '/Private video/d' | sed '/Deleted video/d' | sed 's/|//g' | tr -s '[:space:]' | nl -n"ln" -w2 -s " " &)
         yt_playlist_total_number=$(echo "${yt_playlist_results}" | wc -l)
         yt_playlist_total="Channel results: $yt_playlist_total_number"
         export bookmark_video_or_music="Video:"
@@ -3099,7 +3143,7 @@ fi
         else
         clear
         echo "Please wait."
-        yt_playlist_results=$(2>/dev/null yt-dlp -N4 --ignore-errors --no-warnings --quiet --flat-playlist --compat-options no-youtube-unavailable-videos -I "$yt_video_number" --print "%(url)s Video: %(title)s" "https://youtube.com/playlist?list=${yt_playlist_id}" | sed '/Private video/d' | sed '/Deleted video/d' | sed 's/|//g' | tr -s '[:space:]' | nl -n"ln" -w2 -s " " &)
+        yt_playlist_results=$(2>/dev/null yt-dlp -N4 --ignore-errors --no-warnings --quiet --flat-playlist --compat-options no-youtube-unavailable-videos -I "$yt_video_number" --print "%(url)s Video: %(duration>%H:%M:%S)s - %(title)s" "https://youtube.com/playlist?list=${yt_playlist_id}" | sed '/Private video/d' | sed '/Deleted video/d' | sed 's/|//g' | tr -s '[:space:]' | nl -n"ln" -w2 -s " " &)
         yt_playlist_total_number=$(echo "${yt_playlist_results}" | wc -l)
         yt_playlist_total="Playlist results: $yt_playlist_total_number"
         export bookmark_video_or_music="Video:"
@@ -3356,32 +3400,29 @@ function help_function ()
 echo "Help menu:              -h or --help"
 echo "Version:                -v or --version"
 echo "Play/Pause              --play_pause"
+echo "Mute/Unmute             --mute"
 echo "Next track              --next"
 echo "Prev track              --prev"
 echo "Stop or exit            --stop"
 echo "Desktop and terminal"
 echo "notifications get"
 echo "artist and title        --title"
-echo "Download when playing" 
+echo "Download when playing"
 echo "Audio"
 echo "Download audio          --download_audio opus"
 echo "                        --download_audio m4a"
 echo "Download video          --download_video mp4"
-echo "Import Google takeout:  --import" 
+echo "Import Google takeout:  --import"
 echo "Suppprted file types:"
-echo "subscriptions.csv" 
-echo "music-library-songs.csv"     
+echo "subscriptions.csv"
+echo "music-library-songs.csv"
 echo 'Example: "yt-playlist --import subscriptions.csv"'
 echo ""
-echo "debug"
+echo "Debug menu"
 echo 'At Main menu type: "debug"'
-echo "Internet status or mpv log file"
-echo "mpv log file is saved at"
-echo "~/.config/yt-playlist/mpv_log_file.txt"
 echo""
-echo "notes"
-echo "To read change log notes"
-echo "At Main menu type: notes"
+echo "Change log notes"
+echo 'At Main menu type: "notes"'
 echo ""
 echo "When playing Audio"
 echo "Right arrow for FF"
@@ -3421,6 +3462,7 @@ echo "Title notifications yes"
 echo "FF yes"
 echo "RR yes"
 echo "Play/Pause yes"
+echo "Mute/Unmute yes"
 echo "Stop yes"
 echo "Next video yes"
 echo "Prev video yes"
@@ -3438,6 +3480,7 @@ echo "Title notifications yes"
 echo "FF yes"
 echo "RR yes"
 echo "Play/Pause yes"
+echo "Mute/Unmute yes"
 echo "Stop yes"
 echo "Next video yes"
 echo "Prev video yes"
@@ -3455,6 +3498,7 @@ echo "Title notifications yes"
 echo "FF yes"
 echo "RR yes"
 echo "Play/Pause yes"
+echo "Mute/Unmute yes"
 echo "Stop yes"
 echo "Next song yes"
 echo "Prev song yes"
@@ -3598,6 +3642,12 @@ fi
         if [[ "$external_arguments1" = "--prev" ]]
 	then
         mpv_prev_function
+        exit
+        fi
+
+        if [[ "$external_arguments1" = "--mute" ]]
+	then
+        mpv_mute_function
         exit
         fi
 
