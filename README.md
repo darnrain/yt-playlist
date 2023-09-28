@@ -47,7 +47,7 @@ More photos.<br>
 * Download Audio or Video in real-time when mpv is playing.
 * Download m4a and opus audio files with thumbnails and metadata included.
 * No mp3 transcoding, native audio format only.
-* A built in Sleep Timer, that slowly lowers volume level, pauses mpv, restores volume level.
+* A built in Sleep Timer, that slowly lowers volume level and closes mpv player.
 * Automated installation Termux version.
 * 100% open source and free.
 * And more...
