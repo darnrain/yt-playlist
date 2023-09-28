@@ -4,14 +4,17 @@
 Test change log notes
 ================================
 
-Linux v2.47.20_test | macOS v2.47.21_test Termux v2.47.20_test
+Linux v2.47 | macOS v2.47 | Termux v2.47
+Moved all three to main.
+
+Linux v2.47.20_test | macOS v2.47.21_test | Termux v2.47.20_test
 Fixed macOS not loading.
 macOS can install mpv from https://mpv.io/installation/
 yt-playlist uses the version from brew.
 Also it's a good idea to check for updates now and then on macOS.
 brew update; brew upgrade
 
-Linux v2.47.20_test | macOS v2.47.20_test Termux v2.47.20_test
+Linux v2.47.20_test | macOS v2.47.20_test | Termux v2.47.20_test
 Forgot a step when converting from Linux to Termux. I converted macOS and Termux again.
 
 Linux v2.47.19_test | macOS v2.47.19_test Termux v2.47.19_test
