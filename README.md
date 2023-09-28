@@ -29,6 +29,7 @@ More photos.<br>
 * 1080p 60 FPS video defaults to h264.
 * Enable HW GPU on mpv player.
 * Sponsors will be skipped automatically.
+* Downlaod with sponsers cut out automatically.
 * No YouTube/YouTube Music ads.
 * Very little cpu usage.
 * A text mode, listen to video or music.
