@@ -15,7 +15,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: /sdcard/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 yt_video_number="1:100"
-version="Termux v2.47.19_test"
+version="Termux v2.47.20_test"
 
 #mainmenu
 
@@ -36,6 +36,10 @@ function main_menu_function ()
 	if [ -n "$jemalloc" ]
 	then
         echo "jemalloc enabled."
+        fi
+	if [ -n "$cover_art" ]
+	then
+        echo "Cover art notifications enabled."
         fi
 	if [ -n "$mpv_log_file" ]
 	then
@@ -82,10 +86,10 @@ Choose an option:  "
         main_menu_function
         fi
         ;;
-   2)   
+   2)
         play_sd_bookmark_menu_function
         ;;
-   3)   
+   3)
         play_music_menu_function
         ;;
    4)
@@ -360,7 +364,7 @@ fi
         printf "https://github.com/darnrain/yt-playlist \n"
         printf "git clone https://github.com/darnrain/yt-playlist.git \n"
         printf " \n"
-        printf "%s " "Press enter to continue" 
+        printf "%s " "Press enter to continue"
         read ans
         main_menu_function
         else
@@ -438,13 +442,13 @@ fi
         sleep 0.8
         main_menu_function
         fi
-        ;; 
+        ;;
     q)
         quit_function
         ;;
     Q)
         quit_function
-        ;;     
+        ;;
    *)
         echo "Wrong option."
         sleep 0.3
@@ -458,7 +462,7 @@ fi
 function play_sd_menu_function ()
 {
 	clear
-        clean_up_function 
+        clean_up_function
 	if [ -n "$yt_playlist_id" ]
 	then
 	echo "${yt_playlist_title}"
@@ -1988,7 +1992,7 @@ m) Main menu.
 Choose an option:  "
     read -r ans
     case $ans in
-    1)  
+    1)
         if command -v fx >/dev/null && command -v curl >/dev/null
         then
         export FX_THEME=2
@@ -2000,7 +2004,7 @@ Choose an option:  "
         billboard_menu_function
         fi
         ;;
-    2)  
+    2)
         if command -v fx >/dev/null && command -v curl >/dev/null
         then
         export FX_THEME=2
@@ -2012,7 +2016,7 @@ Choose an option:  "
         billboard_menu_function
         fi
         ;;
-    3)  
+    3)
         if command -v fx >/dev/null && command -v curl >/dev/null
         then
         export FX_THEME=2
@@ -2024,7 +2028,7 @@ Choose an option:  "
         billboard_menu_function
         fi
         ;;
-    4)  
+    4)
         if command -v fx >/dev/null && command -v curl >/dev/null
         then
         export FX_THEME=2
@@ -2036,7 +2040,7 @@ Choose an option:  "
         billboard_menu_function
         fi
         ;;
-    5)  
+    5)
         if command -v fx >/dev/null && command -v curl >/dev/null
         then
         export FX_THEME=2
@@ -2048,7 +2052,7 @@ Choose an option:  "
         billboard_menu_function
         fi
         ;;
-    6)  
+    6)
         if command -v fx >/dev/null && command -v curl >/dev/null
         then
         export FX_THEME=2
@@ -2094,9 +2098,6 @@ then
 echo "Error: yt-playlist is already running, or incorrect argument."
 exit
 else
-mpv_hd_cache3_function
-mpv_video_fullscreen_off_function
-mpv_video_gpu_off_function
 resume_playback_off_function
 audio_video_sponsorblock_off_function
 yt_dlp_sponsorblock_off_function
@@ -2405,7 +2406,7 @@ function sleep_timer_function ()
 	secs=$((95))
 	while [ $secs -gt 0 ]; do
    	number=$(echo "$secs")
-   	echo "'set' 'volume' '$number'" | socat - "${tmp_dir}/mpvsocket" 
+   	echo "'set' 'volume' '$number'" | socat - "${tmp_dir}/mpvsocket"
         if test -f "${tmp_dir}/stop_sleep_timer"
         then
         break
@@ -2420,7 +2421,7 @@ function sleep_timer_function ()
 	secs=$((95))
 	while [ $secs -gt 0 ]; do
    	number=$(echo "$secs")
-   	echo "'set' 'volume' '$number'" | socat - "${tmp_dir}/mpvsocket" 
+   	echo "'set' 'volume' '$number'" | socat - "${tmp_dir}/mpvsocket"
         if test -f "${tmp_dir}/stop_sleep_timer"
         then
         break
@@ -2435,7 +2436,7 @@ function sleep_timer_function ()
 	secs=$((95))
 	while [ $secs -gt 0 ]; do
    	number=$(echo "$secs")
-   	echo "'set' 'volume' '$number'" | socat - "${tmp_dir}/mpvsocket" 
+   	echo "'set' 'volume' '$number'" | socat - "${tmp_dir}/mpvsocket"
         if test -f "${tmp_dir}/stop_sleep_timer"
         then
         break
@@ -2447,19 +2448,19 @@ function sleep_timer_function ()
 
         if test -f "${tmp_dir}/mpv_video_running"
         then
-	echo stop | socat - "${tmp_dir}/mpvsocket" 
+	echo stop | socat - "${tmp_dir}/mpvsocket"
 	sleep 2 | sed 's/Terminated//'
 	fi
 
         if test -f "${tmp_dir}/mpv_bookmark_running"
         then
-	echo stop | socat - "${tmp_dir}/mpvsocket" 
+	echo stop | socat - "${tmp_dir}/mpvsocket"
 	sleep 2 | sed 's/Terminated//'
 	fi
 
         if test -f "${tmp_dir}/mpv_music_running"
         then
-	echo stop | socat - "${tmp_dir}/mpvsocket" 
+	echo stop | socat - "${tmp_dir}/mpvsocket"
 	sleep 2 | sed 's/Terminated//'
 	fi
 }
@@ -2508,7 +2509,7 @@ function music_download_audio_function ()
 }
 
 function download_audio_function ()
-{          
+{
         if test -f "${tmp_dir}/mpv_hd_running"
         then
         if command -v notify-send >/dev/null
@@ -3465,7 +3466,7 @@ not_a_playlist_id="7807897890789078907807 Not a channel/playlist/album.
         echo "A total of "$import_take_out_number" songs were imported to the music menu."
         exit
         else
-        echo "Import Google takeout." 
+        echo "Import Google takeout."
         echo 'You can import "subscriptions.csv" and "music-library-songs.csv".'
         echo 'Example: "yt-playlist --import subscriptions.csv"'
         exit
@@ -3591,6 +3592,13 @@ fi
 	then
         title_notification_function
         exit
+        fi
+
+        if [[ "$external_arguments1" = "--cover_art" ]]
+	then
+        cover_art="yes"
+        else
+        unset cover_art
         fi
 
 	yt_playlist_start_function

@@ -15,7 +15,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: /sdcard/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 yt_video_number="1:100"
-version="Termux v2.47.19_test"
+version="Termux v2.47.20_test"
 
 
 Delete the:
@@ -61,6 +61,32 @@ function play_sd_menu_bookmark_menu_hud_function ()
         cat "${tmp_dir}/count_down_timer.txt"
         fi
 }
+
+
+function yt_playlist_start_function ()
+{
+ps_list=$(ps -e)
+yt_playlist_count=$(echo "$ps_list" | grep yt-playlist | wc -l)
+
+if [[ "$yt_playlist_count" -gt 1 ]]
+then
+echo "Error: yt-playlist is already running, or incorrect argument."
+exit
+else
+resume_playback_off_function
+audio_video_sponsorblock_off_function
+yt_dlp_sponsorblock_off_function
+mpv_log_file_off_funciton
+mpv_music_opus_function
+mpv_video_m4a_function
+enable_jemalloc_function
+clean_up_function
+main_menu_function
+fi
+}
+
+
+delete the playhdmenu
 
 
 
