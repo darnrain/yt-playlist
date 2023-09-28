@@ -1427,7 +1427,7 @@ fi
         ;;
    8)
         printf "\n"
-        printf "Audio/video sponsorblock menu. \n"
+        printf "Audio sponsorblock menu. \n"
         printf "1=Enable. or 2=Disable. \n"
         read answer
         if [ -n "$answer" ]
