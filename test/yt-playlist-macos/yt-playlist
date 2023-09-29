@@ -19,7 +19,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="macOS v2.50"
+version="macOS v2.51.1_test"
 
 #mainmenu
 
@@ -208,7 +208,7 @@ Choose an option:  "
         sleep 0.8
         main_menu_function
         fi
-        yt_playlist_download=$(echo "${yt_playlist_results}" | fzf --reverse --header="Download audio: ${yt_playlist_vanilla_title}" --bind ctrl-a:select-all,ctrl-d:deselect-all -m --with-nth=1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $1}' | tr -s ';[:space:]' '[ *]' | sed 's/ /,/g' | sed '$ s/.$//')
+        yt_playlist_download=$(echo "${yt_playlist_results}" | fzf --reverse --header="Download video: ${yt_playlist_vanilla_title}" --bind ctrl-a:select-all,ctrl-d:deselect-all -m --with-nth=1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $1}' | tr -s ';[:space:]' '[ *]' | sed 's/ /,/g' | sed '$ s/.$//')
         if [ -n "$yt_playlist_download" ]
         then
         if [[ "$yt_playlist_id" = UC* ]]
@@ -1975,7 +1975,7 @@ fi
         sleep 0.8
         playlist_menu_function
         else
-        yt_playlist_id=$(echo "${ytm_album_search}" | nl -n"ln" -w2 -s " " | fzf --reverse --header="Load a YTMusic Album." --with-nth=1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $2}')
+        yt_playlist_id=$(echo "${ytm_album_search}" | nl -n"ln" -w2 -s " " | fzf --reverse --header="YTMusic Album search." --with-nth=1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $2}')
         title_function
         playlist_menu_function
         fi
@@ -2017,7 +2017,7 @@ fi
         sleep 0.8
         playlist_menu_function
         else
-        yt_playlist_id=$(echo "${ytm_playlist_search}" | nl -n"ln" -w2 -s " " | fzf --reverse --header="Load a YTMusic Playlist." --with-nth=1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $2}')
+        yt_playlist_id=$(echo "${ytm_playlist_search}" | nl -n"ln" -w2 -s " " | fzf --reverse --header="YTMusic Playlist search [1]." --with-nth=1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $2}')
         title_function
         playlist_menu_function
         fi
@@ -2059,7 +2059,7 @@ fi
         sleep 0.8
         playlist_menu_function
         else
-        yt_playlist_id=$(echo "${ytm_playlist_search}" | nl -n"ln" -w2 -s " " | fzf --reverse --header="Load a YTMusic Playlist." --with-nth=1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $2}')
+        yt_playlist_id=$(echo "${ytm_playlist_search}" | nl -n"ln" -w2 -s " " | fzf --reverse --header="YTMusic Playlist search [2]." --with-nth=1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $2}')
         title_function
         playlist_menu_function
         fi
@@ -2101,7 +2101,7 @@ fi
         sleep 0.8
         playlist_menu_function
         else
-        yt_playlist_id=$(echo "${yt_playlist_search}" | nl -n"ln" -w2 -s " " | fzf --reverse --header="Load a playlist." --with-nth=1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $2}')
+        yt_playlist_id=$(echo "${yt_playlist_search}" | nl -n"ln" -w2 -s " " | fzf --reverse --header="YT Playlist search." --with-nth=1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $2}')
         title_function
         playlist_menu_function
         fi
@@ -2143,7 +2143,7 @@ fi
         sleep 0.8
         playlist_menu_function
         else
-        yt_playlist_id=$(echo "${yt_channel_search}" | nl -n"ln" -w2 -s " " | fzf --reverse --header="Load a channel." --with-nth=1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $2}')
+        yt_playlist_id=$(echo "${yt_channel_search}" | nl -n"ln" -w2 -s " " | fzf --reverse --header="YT Channel search." --with-nth=1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $2}')
         title_function
         playlist_menu_function
         fi
@@ -2190,7 +2190,7 @@ fi
         sleep 0.8
         playlist_menu_function
         else
-        yt_playlist_id=$(echo "${get_channel_playlist}" | tac | nl -n"ln" -w2 -s " " | fzf --reverse --header="Load a playlist." --with-nth=1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $2}')
+        yt_playlist_id=$(echo "${get_channel_playlist}" | tac | nl -n"ln" -w2 -s " " | fzf --reverse --header="Get channel playlists." --with-nth=1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $2}')
         title_function
         playlist_menu_function
         fi
