@@ -15,7 +15,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="Linux v2.49"
+version="Linux v2.50"
 
 #mainmenu
 
@@ -2366,6 +2366,174 @@ Choose an option:  "
 
 #functions
 
+function command_line_arguments_funciton ()
+{
+	if [[ "$external_arguments1" = "--import" ]]
+	then
+	if [[ "$external_arguments2" = *subscriptions.csv ]]
+        then
+        unset import_take_out
+        import_take_out=$(cat $external_arguments2 | sed '/^$/d' | sed '1d' | sed 's/,/ /' | sed 's/,/ /' | awk '{print $1,"Channel:",$3,$4,$5,$6,$7,$8,$9}')
+        import_take_out_number=$(echo "$import_take_out" | wc -l)
+        echo "$import_take_out" >> ${yt_playlist_home_dir}/yt-playlist_favorites.txt
+        sed -i'' '/^$/d' ${yt_playlist_home_dir}/yt-playlist_favorites.txt
+        echo "A total of "$import_take_out_number" channels were imported to favorites"
+        exit
+        else
+	if [[ "$external_arguments2" = *music-library-songs.csv ]]
+        then
+        unset import_take_out
+        import_take_out=$(cat $external_arguments2 | sed '/^$/d' | sed '1d' | sed 's/,/ /' | sed 's/music.//' | awk '{print $1,"YTMusic:",$3,$4,$5,$6,$7,$8,$9}')
+        import_take_out_number=$(echo "$import_take_out" | wc -l)
+        echo "$import_take_out" >> "${yt_playlist_home_dir}/yt-playlist_music.txt"
+        sed -i'' '/^$/d' "${yt_playlist_home_dir}/yt-playlist_music.txt"
+        echo "A total of "$import_take_out_number" songs were imported to the music menu."
+        exit
+        else
+        echo "Import Google takeout."
+        echo 'You can import "subscriptions.csv" and "music-library-songs.csv".'
+        echo 'Example: "yt-playlist --import subscriptions.csv"'
+        exit
+    fi
+  fi
+fi
+
+	if [[ "$external_arguments1" = "-h" ]]
+	then
+        help_function
+        exit
+        fi
+
+	if [[ "$external_arguments1" = "--help" ]]
+	then
+        help_function
+        exit
+        fi
+
+	if [[ "$external_arguments1" = "--version" ]]
+	then
+        echo "$version"
+	exit
+	fi
+
+	if [[ "$external_arguments1" = "-v" ]]
+	then
+        echo "$version"
+	exit
+	fi
+
+        if [[ "$external_arguments1" = "--date_time" ]]
+	then
+        show_date_time_function
+	exit
+        fi
+
+        if [[ "$external_arguments1" = "--favorites" ]]
+	then
+        favorites_function
+	exit
+        fi
+
+        if [[ "$external_arguments1" = "--bookmark" ]]
+	then
+        bookmark_function
+	exit
+        fi
+
+        if [[ "$external_arguments1" = "--sleep_time" ]]
+	then
+	show_count_down_time_function
+	exit
+        fi
+
+        if [[ "$external_arguments1" = "--download_audio" ]]
+	then
+        if [[ "$external_arguments2" = "opus" ]]
+	then
+        music_download_format="251/ba"
+        audio_download_format="251/ba"
+	download_audio_function
+        exit
+        else
+        if [[ "$external_arguments2" = "m4a" ]]
+	then
+        music_download_format="140/ba"
+        audio_download_format="140/ba"
+	download_audio_function
+        exit
+        else
+        if [[ "$external_arguments2" = "yt_playlist_audio" ]]
+	then
+        download_audio_function
+        exit
+      fi
+    fi
+  fi
+fi
+
+        if [[ "$external_arguments1" = "--download_video" ]]
+	then
+        if [[ "$external_arguments2" = "mp4" ]]
+	then
+        video_download_format="22/18/b"
+	download_video_function
+        exit
+        else
+        if [[ "$external_arguments2" = "yt_playlist_video" ]]
+	then
+        download_video_function
+        exit
+    fi
+  fi
+fi
+
+
+        if [[ "$external_arguments1" = "--play_pause" ]]
+	then
+        mpv_play_pause_function
+        exit
+        fi
+
+        if [[ "$external_arguments1" = "--next" ]]
+	then
+        mpv_next_function
+        exit
+        fi
+
+        if [[ "$external_arguments1" = "--prev" ]]
+	then
+        mpv_prev_function
+        exit
+        fi
+
+        if [[ "$external_arguments1" = "--mute_unmute" ]]
+	then
+        mpv_mute_function
+        exit
+        fi
+
+        if [[ "$external_arguments1" = "--stop" ]]
+	then
+        mpv_stop_function
+        exit
+        fi
+
+        if [[ "$external_arguments1" = "--title" ]]
+	then
+        title_notification_function
+        exit
+        fi
+
+        if [[ "$external_arguments1" = "--cover_art" ]]
+	then
+        cover_art="yes"
+        yt_playlist_start_function
+        fi
+
+        echo "Error: incorrect argument."
+        exit
+}
+
 function yt_playlist_start_function ()
 {
 ps_list=$(ps -e)
@@ -2373,7 +2541,7 @@ yt_playlist_count=$(echo "$ps_list" | grep yt-playlist | wc -l)
 
 if [[ "$yt_playlist_count" -gt 1 ]]
 then
-echo "Error: yt-playlist is already running, or incorrect argument."
+echo "Error: yt-playlist is already running."
 exit
 else
 mpv_hd_cache3_function
@@ -3238,7 +3406,7 @@ mpv_video_arguments_function
 
 function mpv_video_arguments_function ()
 {
-mpv_video_arguments=( "${mpv_audio_video}" "${mpv_video_gpu}" "${mpv_video_fullscreen}" "${audio_video_sponsorblock}" --config-dir="${yt_playlist_home_dir}" --script-opts=ytdl_hook-try_ytdl_first=yes --term-playing-msg='${media-title}' --cache=yes --cache-secs=120 --demuxer-max-bytes=35M --demuxer-max-back-bytes=5M --sid=no --volume=95 --volume-max=100 --ao=pulse --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket")
+mpv_video_arguments=( "${mpv_audio_video}" "${mpv_video_gpu}" "${mpv_video_fullscreen}" "${audio_video_sponsorblock}" --config-dir="${yt_playlist_home_dir}" --script-opts=ytdl_hook-try_ytdl_first=yes --term-playing-msg='${media-title}' --cache=yes --cache-secs=120 --demuxer-max-bytes=35M --demuxer-max-back-bytes=5M --ytdl-raw-options=sub-lang=en,write-auto-sub= --sid=no --volume=95 --volume-max=100 --ao=pulse --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket")
 }
 
 function resume_playback_on_function ()
@@ -3902,7 +4070,7 @@ function help_function ()
 echo "Help menu:              -h or --help"
 echo "Version:                -v or --version"
 echo "Play/Pause              --play_pause"
-echo "Mute/Unmute             --mute"
+echo "Mute/Unmute             --mute_unmute"
 echo "Next track              --next"
 echo "Prev track              --prev"
 echo "Stop or exit            --stop"
@@ -3935,6 +4103,7 @@ echo "Spacebar to pause"
 echo '">" next track'
 echo '"<" prev track'
 echo "Enter key for next track"
+echo 'Enable English suttitles "j"'
 echo '"shift-q" to save playback position and quit'
 echo '"q" quit without saving playback position'
 echo '"shift-i" info'
@@ -3960,6 +4129,7 @@ echo "Download Audio yes"
 echo "Download Video yes"
 echo "Download sponsorblock yes"
 echo "Audio/video sponsorblock yes"
+echo "English subtitles yes"
 echo "Resume playback yes"
 echo "Show date and time yes"
 echo "Title notifications yes"
@@ -3978,6 +4148,7 @@ echo "Download Audio no"
 echo "Download Video no"
 echo "Download sponsorblock no"
 echo "Audio/video sponsorblock no"
+echo "English subtitles no"
 echo "Resume playback no"
 echo "Show date and time yes"
 echo "Title notifications no"
@@ -3996,6 +4167,7 @@ echo "Download Audio yes"
 echo "Download Video yes"
 echo "Download sponsorblock yes"
 echo "Audio/video sponsorblock yes"
+echo "English subtitles yes"
 echo "Resume playback yes"
 echo "Show date and time yes"
 echo "Title notifications yes"
@@ -4014,6 +4186,7 @@ echo "Download Audio yes"
 echo "Download Video no"
 echo "Download sponsorblock no"
 echo "Audio/video sponsorblock no"
+echo "English subtitles no"
 echo "Resume playback no"
 echo "Show date and time yes"
 echo "Title notifications yes"
@@ -4029,167 +4202,11 @@ echo "Prev song yes"
 not_a_playlist_id="7807897890789078907807 Not a channel/playlist/album.
 "
 
-	if [[ "$external_arguments1" = "--import" ]]
-	then
-	if [[ "$external_arguments2" = *subscriptions.csv ]]
+
+	if [ -n "$external_arguments1" ]
         then
-        unset import_take_out
-        import_take_out=$(cat $external_arguments2 | sed '/^$/d' | sed '1d' | sed 's/,/ /' | sed 's/,/ /' | awk '{print $1,"Channel:",$3,$4,$5,$6,$7,$8,$9}')
-        import_take_out_number=$(echo "$import_take_out" | wc -l)
-        echo "$import_take_out" >> ${yt_playlist_home_dir}/yt-playlist_favorites.txt
-        sed -i'' '/^$/d' ${yt_playlist_home_dir}/yt-playlist_favorites.txt
-        echo "A total of "$import_take_out_number" channels were imported to favorites"
+        command_line_arguments_funciton
         exit
         else
-	if [[ "$external_arguments2" = *music-library-songs.csv ]]
-        then
-        unset import_take_out
-        import_take_out=$(cat $external_arguments2 | sed '/^$/d' | sed '1d' | sed 's/,/ /' | sed 's/music.//' | awk '{print $1,"YTMusic:",$3,$4,$5,$6,$7,$8,$9}')
-        import_take_out_number=$(echo "$import_take_out" | wc -l)
-        echo "$import_take_out" >> "${yt_playlist_home_dir}/yt-playlist_music.txt"
-        sed -i'' '/^$/d' "${yt_playlist_home_dir}/yt-playlist_music.txt"
-        echo "A total of "$import_take_out_number" songs were imported to the music menu."
-        exit
-        else
-        echo "Import Google takeout."
-        echo 'You can import "subscriptions.csv" and "music-library-songs.csv".'
-        echo 'Example: "yt-playlist --import subscriptions.csv"'
-        exit
-    fi
-  fi
-fi
-
-	if [[ "$external_arguments1" = "-h" ]]
-	then
-        help_function
-        exit
-        fi
-
-	if [[ "$external_arguments1" = "--help" ]]
-	then
-        help_function
-        exit
-        fi
-
-	if [[ "$external_arguments1" = "--version" ]]
-	then
-        echo "$version"
-	exit
-	fi
-
-	if [[ "$external_arguments1" = "-v" ]]
-	then
-        echo "$version"
-	exit
-	fi
-
-        if [[ "$external_arguments1" = "--date_time" ]]
-	then
-        show_date_time_function
-	exit
-        fi
-
-        if [[ "$external_arguments1" = "--favorites" ]]
-	then
-        favorites_function
-	exit
-        fi
-
-        if [[ "$external_arguments1" = "--bookmark" ]]
-	then
-        bookmark_function
-	exit
-        fi
-
-        if [[ "$external_arguments1" = "--sleep_time" ]]
-	then
-	show_count_down_time_function
-	exit
-        fi
-
-        if [[ "$external_arguments1" = "--download_audio" ]]
-	then
-        if [[ "$external_arguments2" = "opus" ]]
-	then
-        music_download_format="251/ba"
-        audio_download_format="251/ba"
-	download_audio_function
-        exit
-        else
-        if [[ "$external_arguments2" = "m4a" ]]
-	then
-        music_download_format="140/ba"
-        audio_download_format="140/ba"
-	download_audio_function
-        exit
-        else
-        if [[ "$external_arguments2" = "yt_playlist_audio" ]]
-	then
-        download_audio_function
-        exit
-      fi
-    fi
-  fi
-fi
-
-        if [[ "$external_arguments1" = "--download_video" ]]
-	then
-        if [[ "$external_arguments2" = "mp4" ]]
-	then
-        video_download_format="22/18/b"
-	download_video_function
-        exit
-        else
-        if [[ "$external_arguments2" = "yt_playlist_video" ]]
-	then
-        download_video_function
-        exit
-    fi
-  fi
-fi
-
-
-        if [[ "$external_arguments1" = "--play_pause" ]]
-	then
-        mpv_play_pause_function
-        exit
-        fi
-
-        if [[ "$external_arguments1" = "--next" ]]
-	then
-        mpv_next_function
-        exit
-        fi
-
-        if [[ "$external_arguments1" = "--prev" ]]
-	then
-        mpv_prev_function
-        exit
-        fi
-
-        if [[ "$external_arguments1" = "--mute" ]]
-	then
-        mpv_mute_function
-        exit
-        fi
-
-        if [[ "$external_arguments1" = "--stop" ]]
-	then
-        mpv_stop_function
-        exit
-        fi
-
-        if [[ "$external_arguments1" = "--title" ]]
-	then
-        title_notification_function
-        exit
-        fi
-
-        if [[ "$external_arguments1" = "--cover_art" ]]
-	then
-        cover_art="yes"
-        else
-        unset cover_art
-        fi
-
 	yt_playlist_start_function
+        fi

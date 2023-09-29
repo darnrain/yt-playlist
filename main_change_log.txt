@@ -1,9 +1,15 @@
-9-28-2023
+9-29-2023
 
 ================================
 Change log notes
 ================================
 
+Linux v2.50 | macOS v2.50 | Termux v2.50
+Added English subtitles on Play SD menu and Play SD bookmark menu. Press "j" to enable, they are disabled by default.
+Updated help menu
+If wrong command line argument entered, then "Error: incorrect argument" If you run more that one yt-playlist then "Error: yt-playlist is already running."
+Changed the --mute command line argument to --mute_unmute that's more appropriate of what it's function is.
+Updated help menu.
 
 Linux v2.49 | macOS v2.49 | Termux v2.49
 Added a new command argument --mute
