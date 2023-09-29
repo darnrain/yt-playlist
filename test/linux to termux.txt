@@ -1,6 +1,6 @@
 #!/data/data/com.termux/files/usr/bin/bash 
 
-# Updated on 9-28-2023
+# Updated on 9-29-2023
 
 # yt-playlist Termux
 
@@ -234,6 +234,8 @@ echo "Stop or exit            --stop"
 echo "Desktop and terminal"
 echo "notifications get"
 echo "artist and title        --title"
+echo "Enable cover art"
+echo "notifications           --cover_art"
 echo "Download when playing"
 echo "Audio"
 echo "Download audio          --download_audio opus"
@@ -293,8 +295,8 @@ echo "RR yes"
 echo "Play/Pause yes"
 echo "Mute/Unmute yes"
 echo "Stop yes"
-echo "Next video yes"
-echo "Prev video yes"
+echo "Next track yes"
+echo "Prev track yes"
 echo ""
 echo "Play SD bookmark menu"
 echo "Sleep timer yes"
@@ -312,8 +314,8 @@ echo "RR yes"
 echo "Play/Pause yes"
 echo "Mute/Unmute yes"
 echo "Stop yes"
-echo "Next video yes"
-echo "Prev video yes"
+echo "Next track yes"
+echo "Prev track yes"
 echo ""
 echo "Play YTMusic menu"
 echo "Sleep timer yes"
@@ -331,8 +333,8 @@ echo "RR yes"
 echo "Play/Pause yes"
 echo "Mute/Unmute yes"
 echo "Stop yes"
-echo "Next song yes"
-echo "Prev song yes"
+echo "Next track yes"
+echo "Prev track yes"
 }
 
 
