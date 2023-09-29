@@ -1,5 +1,7 @@
 #!/usr/local/bin/bash
 
+# Updated on 9-28-2023
+
 # yt-playlist macOS
 
 if [ "$EUID" == "0" ]
@@ -19,7 +21,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="macOS v2.48.4_test"
+version="macOS v2.50.1_test"
 
 
 remove all
@@ -42,18 +44,74 @@ with
 if command -v terminal-notifier >/dev/null
 
 
-remove all 4 from results function
+replace results_function with this one.
 
-	if [ -n "$cover_art" ]
+function results_function ()
+{
+	if [[ "$yt_playlist_id" = UC* ]]
 	then
-        yt-dlp -N4 --no-warnings --quiet -x --write-thumbnail --flat-playlist -o "${tmp_dir}/yt-playlist_icons" -I 1 https://youtube.com/playlist?list=$yt_playlist_id >/dev/null
+        if [ -n "$yt_playlist_results" ]
+	then
+        clear
         else
-        if test -f "${tmp_dir}/yt-playlist_icons.jpg"
-        then
-        rm "${tmp_dir}/yt-playlist_icons.jpg"
+        clear
+        echo "Please wait."
+        yt_playlist_results=$(2>/dev/null yt-dlp -N4 --ignore-errors --no-warnings --quiet --flat-playlist --compat-options no-youtube-unavailable-videos -I "$yt_video_number" --print "%(url)s Video: %(duration>%H:%M:%S)s - %(title)s" "https://www.youtube.com/channel/${yt_playlist_id}/videos" | sed '/Private video/d' | sed '/Deleted video/d' | sed 's/|//g' | tr -s '[:space:]' | nl -n"ln" -w2 -s " " &)
+        yt_playlist_total_number=$(echo "${yt_playlist_results}" | wc -l)
+        yt_playlist_total="Channel results: $yt_playlist_total_number"
+        export bookmark_video_or_music="Video:"
+        clear
   fi
 fi
+        if [[ "$yt_playlist_id" = RD* ]]
+	then
+        if [ -n "$yt_playlist_results" ]
+	then
+        clear
+        else
+        clear
+        echo "Please wait."
+        yt_playlist_results=$(2>/dev/null yt-dlp -N4 --ignore-errors --no-warnings --quiet --flat-playlist --compat-options no-youtube-unavailable-videos -I "$yt_video_number" --print "%(url)s Music: %(title)s" "https://youtube.com/playlist?list=${yt_playlist_id}" | sed 's/Topic -//g' | sed '/Private video/d' | sed '/Deleted video/d' | sed 's/|//g' | tr -s '[:space:]' | nl -n"ln" -w2 -s " " &)
+        yt_playlist_total_number=$(echo "${yt_playlist_results}" | wc -l)
+        yt_playlist_total="Playlist results: $yt_playlist_total_number"
+        export bookmark_video_or_music="Music:"
+        clear
+  fi
+fi
+ 	if [[ "$yt_playlist_id" = PL* ]]
+	then
+        if [ -n "$yt_playlist_results" ]
+	then
+        clear
+        else
+        clear
+        echo "Please wait."
+        yt_playlist_results=$(2>/dev/null yt-dlp -N4 --ignore-errors --no-warnings --quiet --flat-playlist --compat-options no-youtube-unavailable-videos -I "$yt_video_number" --print "%(url)s Video: %(duration>%H:%M:%S)s - %(title)s" "https://youtube.com/playlist?list=${yt_playlist_id}" | sed '/Private video/d' | sed '/Deleted video/d' | sed 's/|//g' | tr -s '[:space:]' | nl -n"ln" -w2 -s " " &)
+        yt_playlist_total_number=$(echo "${yt_playlist_results}" | wc -l)
+        yt_playlist_total="Playlist results: $yt_playlist_total_number"
+        export bookmark_video_or_music="Video:"
+        clear
+  fi
+fi
+ 	if [[ "$yt_playlist_id" = OL* ]]
+	then
+        if [ -n "$yt_playlist_results" ]
+	then
+        clear
+        else
+        clear
+        echo "Please wait."
+        yt_playlist_results=$(2>/dev/null yt-dlp -N4 --ignore-errors --no-warnings --quiet --flat-playlist --compat-options no-youtube-unavailable-videos -I "$yt_video_number" --print "%(url)s Music: %(uploader)s - %(title)s" "https://youtube.com/playlist?list=${yt_playlist_id}" | sed 's/Topic -//g' | sed '/Private video/d' | sed '/Deleted video/d' | sed 's/|//g' | tr -s '[:space:]' | nl -n"ln" -w2 -s " " &)
+        yt_playlist_total_number=$(echo "${yt_playlist_results}" | wc -l)
+        yt_playlist_total="Album results: $yt_playlist_total_number"
+        export bookmark_video_or_music="Music:"
+        clear
+  fi
+fi
+}
 
+
+remove all words with cover
 
 replace
 --vo=gpu

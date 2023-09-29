@@ -4,6 +4,11 @@
 Test change log notes
 ================================
 
+Linux v2.50.1_test | macOS v2.50.1_test | Termux v2.50.1_test
+If wrong command line argument entered, then "Error: incorrect argument" If you run more that one yt-playlist then "Error: yt-playlist is already running."
+I changed the --mute command line argument to --mute_unmute that's more appropriate of what it's function is.
+Updated help menu.
+
 Linux v2.49 | macOS v2.49 | Termux v2.49
 Moved all three to main.
 
