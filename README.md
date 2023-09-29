@@ -70,7 +70,7 @@ More photos.<br>
 Help menu:              -h or --help
 Version:                -v or --version
 Play/Pause              --play_pause
-Mute/Unmute             --mute
+Mute/Unmute             --mute_unmute
 Next track              --next
 Prev track              --prev
 Stop or exit            --stop
