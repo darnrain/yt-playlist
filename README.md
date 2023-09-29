@@ -77,18 +77,43 @@ Stop or exit            --stop
 Desktop and terminal
 notifications get
 artist and title        --title
+Enable cover art
+notifications           --cover_art
 Download when playing
 Audio/Video
 Download audio          --download_audio opus
                         --download_audio m4a
 Download video          --download_video mp4
-Enable cover art
-notifications           --cover_art
 Import Google takeout:  --import
 Suppprted file types:
 subscriptions.csv
 music-library-songs.csv
 Example: "yt-playlist --import subscriptions.csv"
+
+Debug menu
+At Main menu type: "debug"
+
+Change log notes
+At Main menu type: "notes"
+
+When playing Audio/Video
+Right arrow for FF
+Left arrow for RR
+Spacebar to pause
+">" next track
+"<" prev track
+Enter key for next track
+Enable English suttitles "j"
+"shift-q" to save playback position and quit
+"q" quit without saving playback position
+"shift-i" info
+Save to favorites    "f"
+Save to Bookmarks    "b"
+Show sleep timer     "s"
+Download audio       "d"
+Download video "shift-d"
+Show date and time   "t"
+Artist & title "shift-t"
 
 --cover_art is Linux version only.
 </pre>
