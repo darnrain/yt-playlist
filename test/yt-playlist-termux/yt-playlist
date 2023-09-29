@@ -15,7 +15,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: /sdcard/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 yt_video_number="1:100"
-version="Termux v2.51.3_test"
+version="Termux v2.51.4_test"
 
 #mainmenu
 
@@ -1547,7 +1547,7 @@ Choose an option:  "
         playlist_menu_function
         fi
         else
-        echo "No channel loaded."
+        echo "No channel/playlist/album loaded."
         sleep 0.8
         playlist_menu_function
         fi

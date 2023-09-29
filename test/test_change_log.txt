@@ -4,6 +4,11 @@
 Test change log notes
 ================================
 
+No channel/playlist/album loaded
+
+Linux v2.51.4_test | macOS v2.51.4_test | Termux v2.51.4_test
+Updated option 3 on the Playlist menu. If no channel/playlist/album loaded it said No channel loaded. Changed error message to say No channel/playlist/album loaded.
+
 Linux v2.51.3_test | macOS v2.51.3_test | Termux v2.51.3_test
 Updated option 3 on the Playlist menu.
 
