@@ -15,7 +15,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="Linux v2.51.4_test"
+version="Linux v2.51.5_test"
 
 #mainmenu
 
@@ -2681,15 +2681,15 @@ fi
         then
         if command -v notify-send >/dev/null
         then
-        echo '{ "command": ["show-text", "Please wait, getting atrist & title." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
-        notify-send -i "${tmp_dir}/yt-playlist_icons.jpg" "yt-playlist" "Please wait, getting atrist & title."
+        echo '{ "command": ["show-text", "Please wait, getting artist & title." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
+        notify-send -i "${tmp_dir}/yt-playlist_icons.jpg" "yt-playlist" "Please wait, getting artist & title."
         yt_media_title_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
         yt_media_title=$(yt-dlp -N4 --no-warnings --quiet --flat-playlist -I 1 --print "%(uploader)s - %(title)s" "$yt_media_title_url")
         notify-send -i "${tmp_dir}/yt-playlist_icons.jpg" "yt-playlist" "$yt_media_title"
         yt_terminal_title=$(printf '"%s" \n' "$yt_media_title")
 	echo show-text "$yt_terminal_title" | socat - "${tmp_dir}/mpvsocket"
         else
-        echo '{ "command": ["show-text", "Please wait, getting atrist & title." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
+        echo '{ "command": ["show-text", "Please wait, getting artist & title." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         yt_media_title_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
         yt_media_title=$(yt-dlp -N4 --no-warnings --quiet --flat-playlist -I 1 --print "%(uploader)s - %(title)s" "$yt_media_title_url")
         yt_terminal_title=$(printf '"%s" \n' "$yt_media_title")
@@ -2715,15 +2715,15 @@ fi
         then
         if command -v notify-send >/dev/null
         then
-        echo '{ "command": ["show-text", "Please wait, getting atrist & title." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
-        notify-send "yt-playlist" "Please wait, getting atrist & title."
+        echo '{ "command": ["show-text", "Please wait, getting artist & title." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
+        notify-send "yt-playlist" "Please wait, getting artist & title."
         yt_media_title_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
         yt_media_title=$(yt-dlp -N4 --no-warnings --quiet --flat-playlist -I 1 --print "%(uploader)s - %(title)s" "$yt_media_title_url")
         notify-send "yt-playlist" "$yt_media_title"
         yt_terminal_title=$(printf '"%s" \n' "$yt_media_title")
 	echo show-text "$yt_terminal_title" | socat - "${tmp_dir}/mpvsocket"
         else
-        echo '{ "command": ["show-text", "Please wait, getting atrist & title." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
+        echo '{ "command": ["show-text", "Please wait, getting artist & title." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         yt_media_title_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
         yt_media_title=$(yt-dlp -N4 --no-warnings --quiet --flat-playlist -I 1 --print "%(uploader)s - %(title)s" "$yt_media_title_url")
         yt_terminal_title=$(printf '"%s" \n' "$yt_media_title")
@@ -2748,15 +2748,15 @@ fi
         then
         if command -v notify-send >/dev/null
         then
-        echo '{ "command": ["show-text", "Please wait, getting atrist & title." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
-        notify-send "yt-playlist" "Please wait, getting atrist & title."
+        echo '{ "command": ["show-text", "Please wait, getting artist & title." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
+        notify-send "yt-playlist" "Please wait, getting artist & title."
         yt_media_title_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
         yt_media_title=$(yt-dlp -N4 --no-warnings --quiet --flat-playlist -I 1 --print "%(uploader)s - %(title)s" "$yt_media_title_url")
         notify-send "yt-playlist" "$yt_media_title"
         yt_terminal_title=$(printf '"%s" \n' "$yt_media_title")
 	echo show-text "$yt_terminal_title" | socat - "${tmp_dir}/mpvsocket"
         else
-        echo '{ "command": ["show-text", "Please wait, getting atrist & title." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
+        echo '{ "command": ["show-text", "Please wait, getting artist & title." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         yt_media_title_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
         yt_media_title=$(yt-dlp -N4 --no-warnings --quiet --flat-playlist -I 1 --print "%(uploader)s - %(title)s" "$yt_media_title_url")
         yt_terminal_title=$(printf '"%s" \n' "$yt_media_title")
@@ -4099,11 +4099,11 @@ echo ""
 echo "When playing Audio/Video"
 echo "Right arrow for FF"
 echo "Left arrow for RR"
-echo "Spacebar to pause"
+echo "space bar to pause"
 echo '">" next track'
 echo '"<" prev track'
 echo "Enter key for next track"
-echo 'Enable English suttitles "j"'
+echo 'Enable English subtitles "j"'
 echo '"shift-q" to save playback position and quit'
 echo '"q" quit without saving playback position'
 echo '"shift-i" info'
