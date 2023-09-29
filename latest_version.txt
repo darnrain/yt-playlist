@@ -1,1 +1,0 @@
-Linux v2.49 | macOS v2.49 | Termux v2.49
