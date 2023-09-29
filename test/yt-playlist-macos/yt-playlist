@@ -19,7 +19,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="macOS v2.50.1_test"
+version="macOS v2.50.2_test"
 
 #mainmenu
 
@@ -3400,7 +3400,7 @@ mpv_video_arguments_function
 
 function mpv_video_arguments_function ()
 {
-mpv_video_arguments=( "${mpv_audio_video}" "${mpv_video_gpu}" "${mpv_video_fullscreen}" "${audio_video_sponsorblock}" --config-dir="${yt_playlist_home_dir}" --script-opts=ytdl_hook-try_ytdl_first=yes --term-playing-msg='${media-title}' --cache=yes --cache-secs=120 --demuxer-max-bytes=35M --demuxer-max-back-bytes=5M --sid=no --volume=95 --volume-max=100 --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket")
+mpv_video_arguments=( "${mpv_audio_video}" "${mpv_video_gpu}" "${mpv_video_fullscreen}" "${audio_video_sponsorblock}" --config-dir="${yt_playlist_home_dir}" --script-opts=ytdl_hook-try_ytdl_first=yes --term-playing-msg='${media-title}' --cache=yes --cache-secs=120 --demuxer-max-bytes=35M --demuxer-max-back-bytes=5M --ytdl-raw-options=sub-lang=en,write-auto-sub= --sid=no --volume=95 --volume-max=100 --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket")
 }
 
 function resume_playback_on_function ()
@@ -4059,6 +4059,7 @@ echo "Spacebar to pause"
 echo '">" next track'
 echo '"<" prev track'
 echo "Enter key for next track"
+echo 'Enable English suttitles "j"'
 echo '"shift-q" to save playback position and quit'
 echo '"q" quit without saving playback position'
 echo '"shift-i" info'
@@ -4084,6 +4085,7 @@ echo "Download Audio yes"
 echo "Download Video yes"
 echo "Download sponsorblock yes"
 echo "Audio/video sponsorblock yes"
+echo "English subtitles yes"
 echo "Resume playback yes"
 echo "Show date and time yes"
 echo "Title notifications yes"
@@ -4102,6 +4104,7 @@ echo "Download Audio no"
 echo "Download Video no"
 echo "Download sponsorblock no"
 echo "Audio/video sponsorblock no"
+echo "English subtitles no"
 echo "Resume playback no"
 echo "Show date and time yes"
 echo "Title notifications no"
@@ -4120,6 +4123,7 @@ echo "Download Audio yes"
 echo "Download Video yes"
 echo "Download sponsorblock yes"
 echo "Audio/video sponsorblock yes"
+echo "English subtitles yes"
 echo "Resume playback yes"
 echo "Show date and time yes"
 echo "Title notifications yes"
@@ -4138,6 +4142,7 @@ echo "Download Audio yes"
 echo "Download Video no"
 echo "Download sponsorblock no"
 echo "Audio/video sponsorblock no"
+echo "English subtitles no"
 echo "Resume playback no"
 echo "Show date and time yes"
 echo "Title notifications yes"

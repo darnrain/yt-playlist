@@ -1,8 +1,12 @@
-9-28-2023
+9-29-2023
 
 ================================
 Test change log notes
 ================================
+
+Linux v2.50.2_test | macOS v2.50.2_test | Termux v2.50.2_test
+Added English subtitles on Play SD menu and Play SD bookmark menu. Press "j" to enable, they are disabled by default.
+Updated help menu
 
 Linux v2.50.1_test | macOS v2.50.1_test | Termux v2.50.1_test
 If wrong command line argument entered, then "Error: incorrect argument" If you run more that one yt-playlist then "Error: yt-playlist is already running."
