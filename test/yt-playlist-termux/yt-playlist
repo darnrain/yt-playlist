@@ -15,7 +15,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: /sdcard/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 yt_video_number="1:100"
-version="Termux v2.51.2_test"
+version="Termux v2.51.3_test"
 
 #mainmenu
 
@@ -1523,34 +1523,8 @@ Choose an option:  "
         read answer
         if [ -n "$answer" ]
         then
-        if [ "$answer" != "${answer#[2]}" ]
-        then
-        clear
-        printf "Delete menu \n"
-        printf "1=Favorites or 2=History \n"
-        read answer
-        if [ -n "$answer" ]
-        then
         if [ "$answer" != "${answer#[1]}" ]
         then
-        unset yt_playlist_title
-        unset yt_playlist_id
-        delete_playlist=$(cat "${yt_playlist_home_dir}/yt-playlist_favorites.txt" | nl -n"ln" -w2 -s " " | tac | nl -n"ln" -w2 -s " "  | fzf --reverse --header="Delete favorites." --bind ctrl-a:select-all,ctrl-d:deselect-all -m --with-nth=1,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $2}' | tr -s ';[:space:]' '[ *]' | sed 's/ /d;/g' | sed '$ s/.$//')
-        sed -i'' "$delete_playlist" "${yt_playlist_home_dir}/yt-playlist_favorites.txt"
-        playlist_menu_function
-        else
-        unset yt_playlist_title
-        unset yt_playlist_id
-        delete_history=$( cat "${yt_playlist_home_dir}/yt-playlist_history.txt" | nl -n"ln" -w2 -s " " | tac | nl -n"ln" -w2 -s " " | fzf --reverse --header="Delete history." --bind ctrl-a:select-all,ctrl-d:deselect-all -m --with-nth=1,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $2}' | tr -s ';[:space:]' '[ *]' | sed 's/ /d;/g' | sed '$ s/.$//')
-        sed -i'' "$delete_history" "${yt_playlist_home_dir}/yt-playlist_history.txt"
-        playlist_menu_function
-        fi
-        else
-        echo "Please choose an option."
-        sleep 0.8
-        playlist_menu_function
-        fi
-        else
         if [ "$yt_playlist_id" = "7807897890789078907807" ]
         then
         echo "Not a channel/playlist/album."
@@ -1574,6 +1548,32 @@ Choose an option:  "
         fi
         else
         echo "No channel loaded."
+        sleep 0.8
+        playlist_menu_function
+        fi
+        else
+        clear
+        printf "Delete menu \n"
+        printf "1=Favorites or 2=History \n"
+        read answer
+        if [ -n "$answer" ]
+        then
+        if [ "$answer" != "${answer#[1]}" ]
+        then
+        unset yt_playlist_title
+        unset yt_playlist_id
+        delete_playlist=$(cat "${yt_playlist_home_dir}/yt-playlist_favorites.txt" | nl -n"ln" -w2 -s " " | tac | nl -n"ln" -w2 -s " "  | fzf --reverse --header="Delete favorites." --bind ctrl-a:select-all,ctrl-d:deselect-all -m --with-nth=1,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $2}' | tr -s ';[:space:]' '[ *]' | sed 's/ /d;/g' | sed '$ s/.$//')
+        sed -i'' "$delete_playlist" "${yt_playlist_home_dir}/yt-playlist_favorites.txt"
+        playlist_menu_function
+        else
+        unset yt_playlist_title
+        unset yt_playlist_id
+        delete_history=$( cat "${yt_playlist_home_dir}/yt-playlist_history.txt" | nl -n"ln" -w2 -s " " | tac | nl -n"ln" -w2 -s " " | fzf --reverse --header="Delete history." --bind ctrl-a:select-all,ctrl-d:deselect-all -m --with-nth=1,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $2}' | tr -s ';[:space:]' '[ *]' | sed 's/ /d;/g' | sed '$ s/.$//')
+        sed -i'' "$delete_history" "${yt_playlist_home_dir}/yt-playlist_history.txt"
+        playlist_menu_function
+        fi
+        else
+        echo "Please choose an option."
         sleep 0.8
         playlist_menu_function
   fi
