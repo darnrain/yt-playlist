@@ -19,7 +19,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="macOS v2.50"
+version="macOS v2.51"
 
 #mainmenu
 
@@ -208,7 +208,7 @@ Choose an option:  "
         sleep 0.8
         main_menu_function
         fi
-        yt_playlist_download=$(echo "${yt_playlist_results}" | fzf --reverse --header="Download audio: ${yt_playlist_vanilla_title}" --bind ctrl-a:select-all,ctrl-d:deselect-all -m --with-nth=1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $1}' | tr -s ';[:space:]' '[ *]' | sed 's/ /,/g' | sed '$ s/.$//')
+        yt_playlist_download=$(echo "${yt_playlist_results}" | fzf --reverse --header="Download video: ${yt_playlist_vanilla_title}" --bind ctrl-a:select-all,ctrl-d:deselect-all -m --with-nth=1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $1}' | tr -s ';[:space:]' '[ *]' | sed 's/ /,/g' | sed '$ s/.$//')
         if [ -n "$yt_playlist_download" ]
         then
         if [[ "$yt_playlist_id" = UC* ]]
@@ -1813,34 +1813,8 @@ Choose an option:  "
         read answer
         if [ -n "$answer" ]
         then
-        if [ "$answer" != "${answer#[2]}" ]
-        then
-        clear
-        printf "Delete menu \n"
-        printf "1=Favorites or 2=History \n"
-        read answer
-        if [ -n "$answer" ]
-        then
         if [ "$answer" != "${answer#[1]}" ]
         then
-        unset yt_playlist_title
-        unset yt_playlist_id
-        delete_playlist=$(cat "${yt_playlist_home_dir}/yt-playlist_favorites.txt" | nl -n"ln" -w2 -s " " | tac | nl -n"ln" -w2 -s " "  | fzf --reverse --header="Delete favorites." --bind ctrl-a:select-all,ctrl-d:deselect-all -m --with-nth=1,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $2}' | tr -s ';[:space:]' '[ *]' | sed 's/ /d;/g' | sed '$ s/.$//')
-        sed -i'' "$delete_playlist" "${yt_playlist_home_dir}/yt-playlist_favorites.txt"
-        playlist_menu_function
-        else
-        unset yt_playlist_title
-        unset yt_playlist_id
-        delete_history=$( cat "${yt_playlist_home_dir}/yt-playlist_history.txt" | nl -n"ln" -w2 -s " " | tac | nl -n"ln" -w2 -s " " | fzf --reverse --header="Delete history." --bind ctrl-a:select-all,ctrl-d:deselect-all -m --with-nth=1,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $2}' | tr -s ';[:space:]' '[ *]' | sed 's/ /d;/g' | sed '$ s/.$//')
-        sed -i'' "$delete_history" "${yt_playlist_home_dir}/yt-playlist_history.txt"
-        playlist_menu_function
-        fi
-        else
-        echo "Please choose an option."
-        sleep 0.8
-        playlist_menu_function
-        fi
-        else
         if [ "$yt_playlist_id" = "7807897890789078907807" ]
         then
         echo "Not a channel/playlist/album."
@@ -1863,7 +1837,33 @@ Choose an option:  "
         playlist_menu_function
         fi
         else
-        echo "No channel loaded."
+        echo "No channel/playlist/album loaded."
+        sleep 0.8
+        playlist_menu_function
+        fi
+        else
+        clear
+        printf "Delete menu \n"
+        printf "1=Favorites or 2=History \n"
+        read answer
+        if [ -n "$answer" ]
+        then
+        if [ "$answer" != "${answer#[1]}" ]
+        then
+        unset yt_playlist_title
+        unset yt_playlist_id
+        delete_playlist=$(cat "${yt_playlist_home_dir}/yt-playlist_favorites.txt" | nl -n"ln" -w2 -s " " | tac | nl -n"ln" -w2 -s " "  | fzf --reverse --header="Delete favorites." --bind ctrl-a:select-all,ctrl-d:deselect-all -m --with-nth=1,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $2}' | tr -s ';[:space:]' '[ *]' | sed 's/ /d;/g' | sed '$ s/.$//')
+        sed -i'' "$delete_playlist" "${yt_playlist_home_dir}/yt-playlist_favorites.txt"
+        playlist_menu_function
+        else
+        unset yt_playlist_title
+        unset yt_playlist_id
+        delete_history=$( cat "${yt_playlist_home_dir}/yt-playlist_history.txt" | nl -n"ln" -w2 -s " " | tac | nl -n"ln" -w2 -s " " | fzf --reverse --header="Delete history." --bind ctrl-a:select-all,ctrl-d:deselect-all -m --with-nth=1,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $2}' | tr -s ';[:space:]' '[ *]' | sed 's/ /d;/g' | sed '$ s/.$//')
+        sed -i'' "$delete_history" "${yt_playlist_home_dir}/yt-playlist_history.txt"
+        playlist_menu_function
+        fi
+        else
+        echo "Please choose an option."
         sleep 0.8
         playlist_menu_function
   fi
@@ -1975,7 +1975,7 @@ fi
         sleep 0.8
         playlist_menu_function
         else
-        yt_playlist_id=$(echo "${ytm_album_search}" | nl -n"ln" -w2 -s " " | fzf --reverse --header="Load a YTMusic Album." --with-nth=1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $2}')
+        yt_playlist_id=$(echo "${ytm_album_search}" | nl -n"ln" -w2 -s " " | fzf --reverse --header="YTMusic Album search." --with-nth=1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $2}')
         title_function
         playlist_menu_function
         fi
@@ -2017,7 +2017,7 @@ fi
         sleep 0.8
         playlist_menu_function
         else
-        yt_playlist_id=$(echo "${ytm_playlist_search}" | nl -n"ln" -w2 -s " " | fzf --reverse --header="Load a YTMusic Playlist." --with-nth=1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $2}')
+        yt_playlist_id=$(echo "${ytm_playlist_search}" | nl -n"ln" -w2 -s " " | fzf --reverse --header="YTMusic Playlist search [1]." --with-nth=1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $2}')
         title_function
         playlist_menu_function
         fi
@@ -2059,7 +2059,7 @@ fi
         sleep 0.8
         playlist_menu_function
         else
-        yt_playlist_id=$(echo "${ytm_playlist_search}" | nl -n"ln" -w2 -s " " | fzf --reverse --header="Load a YTMusic Playlist." --with-nth=1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $2}')
+        yt_playlist_id=$(echo "${ytm_playlist_search}" | nl -n"ln" -w2 -s " " | fzf --reverse --header="YTMusic Playlist search [2]." --with-nth=1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $2}')
         title_function
         playlist_menu_function
         fi
@@ -2101,7 +2101,7 @@ fi
         sleep 0.8
         playlist_menu_function
         else
-        yt_playlist_id=$(echo "${yt_playlist_search}" | nl -n"ln" -w2 -s " " | fzf --reverse --header="Load a playlist." --with-nth=1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $2}')
+        yt_playlist_id=$(echo "${yt_playlist_search}" | nl -n"ln" -w2 -s " " | fzf --reverse --header="YT Playlist search." --with-nth=1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $2}')
         title_function
         playlist_menu_function
         fi
@@ -2143,7 +2143,7 @@ fi
         sleep 0.8
         playlist_menu_function
         else
-        yt_playlist_id=$(echo "${yt_channel_search}" | nl -n"ln" -w2 -s " " | fzf --reverse --header="Load a channel." --with-nth=1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $2}')
+        yt_playlist_id=$(echo "${yt_channel_search}" | nl -n"ln" -w2 -s " " | fzf --reverse --header="YT Channel search." --with-nth=1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $2}')
         title_function
         playlist_menu_function
         fi
@@ -2190,7 +2190,7 @@ fi
         sleep 0.8
         playlist_menu_function
         else
-        yt_playlist_id=$(echo "${get_channel_playlist}" | tac | nl -n"ln" -w2 -s " " | fzf --reverse --header="Load a playlist." --with-nth=1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $2}')
+        yt_playlist_id=$(echo "${get_channel_playlist}" | tac | nl -n"ln" -w2 -s " " | fzf --reverse --header="Get channel playlists." --with-nth=1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 | awk '{print $2}')
         title_function
         playlist_menu_function
         fi
@@ -2675,15 +2675,15 @@ fi
         then
         if command -v terminal-notifier >/dev/null
         then
-        echo '{ "command": ["show-text", "Please wait, getting atrist & title." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
-        terminal-notifier -title "yt-playlist" -message "Please wait, getting atrist & title."
+        echo '{ "command": ["show-text", "Please wait, getting artist & title." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
+        terminal-notifier -title "yt-playlist" -message "Please wait, getting artist & title."
         yt_media_title_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
         yt_media_title=$(yt-dlp -N4 --no-warnings --quiet --flat-playlist -I 1 --print "%(uploader)s - %(title)s" "$yt_media_title_url")
         terminal-notifier -title "yt-playlist" -message "$yt_media_title"
         yt_terminal_title=$(printf '"%s" \n' "$yt_media_title")
 	echo show-text "$yt_terminal_title" | socat - "${tmp_dir}/mpvsocket"
         else
-        echo '{ "command": ["show-text", "Please wait, getting atrist & title." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
+        echo '{ "command": ["show-text", "Please wait, getting artist & title." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         yt_media_title_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
         yt_media_title=$(yt-dlp -N4 --no-warnings --quiet --flat-playlist -I 1 --print "%(uploader)s - %(title)s" "$yt_media_title_url")
         yt_terminal_title=$(printf '"%s" \n' "$yt_media_title")
@@ -2709,15 +2709,15 @@ fi
         then
         if command -v terminal-notifier >/dev/null
         then
-        echo '{ "command": ["show-text", "Please wait, getting atrist & title." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
-        terminal-notifier -title "yt-playlist" -message "Please wait, getting atrist & title."
+        echo '{ "command": ["show-text", "Please wait, getting artist & title." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
+        terminal-notifier -title "yt-playlist" -message "Please wait, getting artist & title."
         yt_media_title_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
         yt_media_title=$(yt-dlp -N4 --no-warnings --quiet --flat-playlist -I 1 --print "%(uploader)s - %(title)s" "$yt_media_title_url")
         terminal-notifier -title "yt-playlist" -message "$yt_media_title"
         yt_terminal_title=$(printf '"%s" \n' "$yt_media_title")
 	echo show-text "$yt_terminal_title" | socat - "${tmp_dir}/mpvsocket"
         else
-        echo '{ "command": ["show-text", "Please wait, getting atrist & title." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
+        echo '{ "command": ["show-text", "Please wait, getting artist & title." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         yt_media_title_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
         yt_media_title=$(yt-dlp -N4 --no-warnings --quiet --flat-playlist -I 1 --print "%(uploader)s - %(title)s" "$yt_media_title_url")
         yt_terminal_title=$(printf '"%s" \n' "$yt_media_title")
@@ -2742,15 +2742,15 @@ fi
         then
         if command -v terminal-notifier >/dev/null
         then
-        echo '{ "command": ["show-text", "Please wait, getting atrist & title." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
-        terminal-notifier -title "yt-playlist" -message "Please wait, getting atrist & title."
+        echo '{ "command": ["show-text", "Please wait, getting artist & title." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
+        terminal-notifier -title "yt-playlist" -message "Please wait, getting artist & title."
         yt_media_title_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
         yt_media_title=$(yt-dlp -N4 --no-warnings --quiet --flat-playlist -I 1 --print "%(uploader)s - %(title)s" "$yt_media_title_url")
         terminal-notifier -title "yt-playlist" -message "$yt_media_title"
         yt_terminal_title=$(printf '"%s" \n' "$yt_media_title")
 	echo show-text "$yt_terminal_title" | socat - "${tmp_dir}/mpvsocket"
         else
-        echo '{ "command": ["show-text", "Please wait, getting atrist & title." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
+        echo '{ "command": ["show-text", "Please wait, getting artist & title." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
         yt_media_title_url=$(echo '{ "command": ["get_property", "path"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d'"' -f4)
         yt_media_title=$(yt-dlp -N4 --no-warnings --quiet --flat-playlist -I 1 --print "%(uploader)s - %(title)s" "$yt_media_title_url")
         yt_terminal_title=$(printf '"%s" \n' "$yt_media_title")
@@ -4055,11 +4055,11 @@ echo ""
 echo "When playing Audio/Video"
 echo "Right arrow for FF"
 echo "Left arrow for RR"
-echo "Spacebar to pause"
+echo "spacebar to pause"
 echo '">" next track'
 echo '"<" prev track'
 echo "Enter key for next track"
-echo 'Enable English suttitles "j"'
+echo 'Enable English subtitles "j"'
 echo '"shift-q" to save playback position and quit'
 echo '"q" quit without saving playback position'
 echo '"shift-i" info'
@@ -4094,8 +4094,8 @@ echo "RR yes"
 echo "Play/Pause yes"
 echo "Mute/Unmute yes"
 echo "Stop yes"
-echo "Next video yes"
-echo "Prev video yes"
+echo "Next track yes"
+echo "Prev track yes"
 echo ""
 echo "Play HD menu"
 echo "Sleep timer no"
@@ -4113,8 +4113,8 @@ echo "RR yes"
 echo "Play/Pause yes"
 echo "Mute/Unmute yes"
 echo "Stop yes"
-echo "Next video no"
-echo "Prev video no"
+echo "Next track no"
+echo "Prev track no"
 echo ""
 echo "Play SD bookmark menu"
 echo "Sleep timer yes"
@@ -4132,8 +4132,8 @@ echo "RR yes"
 echo "Play/Pause yes"
 echo "Mute/Unmute yes"
 echo "Stop yes"
-echo "Next video yes"
-echo "Prev video yes"
+echo "Next track yes"
+echo "Prev track yes"
 echo ""
 echo "Play YTMusic menu"
 echo "Sleep timer yes"
@@ -4151,8 +4151,8 @@ echo "RR yes"
 echo "Play/Pause yes"
 echo "Mute/Unmute yes"
 echo "Stop yes"
-echo "Next song yes"
-echo "Prev song yes"
+echo "Next track yes"
+echo "Prev track yes"
 }
 
 not_a_playlist_id="7807897890789078907807 Not a channel/playlist/album.

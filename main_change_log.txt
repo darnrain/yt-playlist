@@ -4,6 +4,15 @@
 Change log notes
 ================================
 
+Linux v2.51 | macOS v2.51 | Termux v2.51
+Fixed typo atrist changed to artist.
+Fixed typo suttitles changed to subtitles.
+Updated option 3 on the Playlist menu. If no channel/playlist/album loaded it said No channel loaded. Changed error message to say No channel/playlist/album loaded.
+Updated option 3 on the Playlist menu.
+Updated help menu.
+Renamed the download fzf title for video, from audio to video.
+Renamed the fzf titles in the Playlist menu.
+
 Linux v2.50 | macOS v2.50 | Termux v2.50
 Added English subtitles on Play SD menu and Play SD bookmark menu. Press "j" to enable, they are disabled by default.
 Updated help menu
