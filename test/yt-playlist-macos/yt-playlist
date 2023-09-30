@@ -19,7 +19,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="macOS v2.51.5_test"
+version="macOS v2.51"
 
 #mainmenu
 
@@ -4055,7 +4055,7 @@ echo ""
 echo "When playing Audio/Video"
 echo "Right arrow for FF"
 echo "Left arrow for RR"
-echo "space bar to pause"
+echo "spacebar to pause"
 echo '">" next track'
 echo '"<" prev track'
 echo "Enter key for next track"

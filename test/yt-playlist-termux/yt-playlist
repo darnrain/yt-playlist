@@ -15,7 +15,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: /sdcard/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 yt_video_number="1:100"
-version="Termux v2.51.5_test"
+version="Termux v2.51"
 
 #mainmenu
 
@@ -3589,7 +3589,7 @@ echo ""
 echo "When playing Audio"
 echo "Right arrow for FF"
 echo "Left arrow for RR"
-echo "space bar to pause"
+echo "spacebar to pause"
 echo '">" next track'
 echo '"<" prev track'
 echo "Enter key for next track"
