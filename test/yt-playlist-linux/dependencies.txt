@@ -18,7 +18,6 @@ mutagen
 fzf
 less
 git
-less
 socat
 curl
 awk
