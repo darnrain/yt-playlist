@@ -480,8 +480,8 @@ esac
 
 function play_sd_menu_function ()
 {
-clear
-clean_up_function
+	clear
+	clean_up_function
 	if [ -n "$yt_playlist_id" ]
 	then
 	echo "${yt_playlist_title}"
