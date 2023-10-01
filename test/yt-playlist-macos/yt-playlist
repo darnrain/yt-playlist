@@ -22,7 +22,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="macOS v2.52.5_test"
+version="macOS v2.52.6_test"
 
 #mainmenu
 
@@ -390,7 +390,7 @@ fi
 	echo "Please install curl or less."
 	fi
 	;;
-	notes)
+notes)
 	if command -v less >/dev/null && command -v curl >/dev/null
 	then
 	printf "\n"
@@ -420,7 +420,7 @@ fi
 	main_menu_function
 	fi
 	;;
-	debug)
+debug)
 	printf " \n"
 	printf "Debug menu. \n"
 	printf "1=Internet status. or 2=mpv log file. \n"
