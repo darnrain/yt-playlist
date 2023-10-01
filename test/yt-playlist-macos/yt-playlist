@@ -19,7 +19,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="macOS v2.51"
+version="macOS v2.52.1_test"
 
 #mainmenu
 
@@ -3907,11 +3907,18 @@ function paste_playlist_url_function ()
 {
 clear
 echo "Please wait."
+if [[ "${yt_paste_url}" = *RDA* ]]
+then
+clear
+echo "Sorry but YTMusic Radio is not supported."
+sleep 2
+else
 if [[ "${yt_paste_url}" = *OLAK5uy* ]]
 then
 yt_paste_playlist_url=$(yt-dlp -N4 --no-warnings --quiet --flat-playlist --print "%(playlist_id)s Album: %(playlist_title)s" -I 1 ${yt_paste_url} | sed 's/YouTube Music/YTMusic/g' | sed 's/Topic -//g' | sed 's/Album -//g' | tr -s '[:space:]' )
 else
 yt_paste_playlist_url=$(yt-dlp -N4 --no-warnings --quiet --flat-playlist --print "%(playlist_id)s Playlist: %(playlist_uploader)s - %(playlist_title)s" -I 1 ${yt_paste_url} | sed 's/YouTube Music/YTMusic/g' | sed 's/Topic -//g' | sed 's/Album -//g' | tr -s '[:space:]' )
+fi
 fi
 if [ -n "$yt_paste_playlist_url" ]
 then
