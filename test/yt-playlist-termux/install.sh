@@ -5,9 +5,8 @@
 	exit
 	fi
 	externel_argument="$1"
-
-function termux_install_function ()
-{
+	function termux_install_function ()
+	{
 	if [[ "$externel_argument" = "--main" ]]
 	then
 	cp ${TMPDIR}/yt-playlist/yt-playlist-termux/yt-playlist /data/data/com.termux/files/usr/bin/
@@ -17,8 +16,8 @@ function termux_install_function ()
 	cp ${TMPDIR}/yt-playlist/test/yt-playlist-termux/yt-playlist /data/data/com.termux/files/usr/bin/
 	else
 	cp ./yt-playlist /data/data/com.termux/files/usr/bin/
-  fi
-fi
+	fi
+	fi
 	chmod +x /data/data/com.termux/files/usr/bin/yt-playlist
 	mkdir -p ${HOME}/.config/yt-playlist/
 	mkdir -p ${HOME}/.config/yt-playlist/scripts/
@@ -47,7 +46,7 @@ fi
 	echo 'Please type "exit" to close Termux.'
 	echo 'Then type "y" to run yt-playlist'
 	echo "============================"
-}
+	}
 	if command -v yt-dlp >/dev/null && command -v mpv >/dev/null && command -v ffmpeg >/dev/null && command -v fzf >/dev/null && command -v mutagen-inspect >/dev/null && command -v socat >/dev/null && command -v fx >/dev/null && command -v wget >/dev/null && command -v curl >/dev/null
 	then
 	echo "============================"
@@ -88,6 +87,6 @@ fi
 	echo "============================"
 	echo "All dependencies are installed."
 	echo "============================"
-	termux_install_function
+	termux_install_function 
 	exit
 	fi

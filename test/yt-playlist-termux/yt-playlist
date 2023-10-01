@@ -16,7 +16,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: /sdcard/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 yt_video_number="1:100"
-version="Termux v2.52.4_test"
+version="Termux v2.52.5_test"
 
 #mainmenu
 
@@ -457,8 +457,8 @@ esac
 
 function play_sd_menu_function ()
 {
-	clear
-	clean_up_function
+clear
+clean_up_function
 	if [ -n "$yt_playlist_id" ]
 	then
 	echo "${yt_playlist_title}"
@@ -1382,7 +1382,7 @@ fi
 	play_sd_menu_bookmark_menu_hud_function
 	echo "============================"
 	echo "Please wait."
-	echo ""
+	echo "" 
 	touch "${tmp_dir}/mpv_bookmark_running"
 	pulse_function mpv ${mpv_log_file_arguments[@]} ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=no --shuffle=no --playlist="${tmp_dir}/yt_playlist_url.txt"
 	play_sd_bookmark_menu_function
@@ -1633,7 +1633,6 @@ fi
   fi
 fi
 	;;
-
 5)
 	printf " \n"
 	printf "Enter Artist or Album name: \n"
@@ -2091,7 +2090,6 @@ function command_line_arguments_funciton ()
     fi
   fi
 fi
-
 	if [[ "$external_arguments1" = "-h" ]]
 	then
 	help_function
@@ -2152,11 +2150,10 @@ fi
 	then
 	download_audio_function
 	exit
-   fi
+  fi
     fi
   fi
 fi
-
 	if [[ "$external_arguments1" = "--download_video" ]]
 	then
 	if [[ "$external_arguments2" = "mp4" ]]
@@ -2293,10 +2290,10 @@ function enable_jemalloc_function ()
 	export LD_PRELOAD='/usr/local/lib/libjemalloc.2.dylib'
 	else
 	unset jemalloc
+    fi
   fi
 fi
   fi
-   fi
     fi
   fi
 fi
@@ -2699,7 +2696,6 @@ fi
 	exit
   fi
 fi
-
 	if test -f "${tmp_dir}/yt_dlp_sponsorblock"
 	then
 	yt_dlp_sponsorblock=( "--sponsorblock-remove sponsor" )
@@ -2821,7 +2817,7 @@ function music_menu_hud_function ()
 	then
 	cat "${tmp_dir}/count_down_timer.txt"
 	fi
-	}
+}
 
 function play_sd_menu_bookmark_menu_hud_function ()
 {
@@ -2882,7 +2878,7 @@ function resume_playback_on_function ()
 	resume_playback_on_or_off="yes"
 }
 
-	function resume_playback_off_function ()
+function resume_playback_off_function ()
 {
 	resume_playback_arguments=( "--resume-playback=no --save-position-on-quit=no" )
 	unset resume_playback_on_or_off
@@ -2911,7 +2907,7 @@ function mpv_music_arguments_function ()
 	mpv_music_arguments=( "${mpv_music_audio}" --config-dir="${yt_playlist_home_dir}" --script-opts=ytdl_hook-try_ytdl_first=yes --term-playing-msg='${media-title}' --cache=yes --cache-secs=120 --demuxer-max-bytes=35M --demuxer-max-back-bytes=5M --sid=no --volume=95 --volume-max=100 --load-scripts=no --ao=pulse --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket")
 }
 
-	function mpv_log_file_on_funciton ()
+function mpv_log_file_on_funciton ()
 {
 	rm ${yt_playlist_home_dir}/mpv_log_file.txt
 	mpv_log_file_arguments=( --log-file=${yt_playlist_home_dir}/mpv_log_file.txt )
@@ -2947,7 +2943,7 @@ function audio_video_sponsorblock_off_function ()
 	mpv_video_arguments_function
 }
 
-	function mpv_play_pause_function ()
+function mpv_play_pause_function ()
 {
 	if test -f "${tmp_dir}/mpv_hd_running"
 	then
@@ -2961,7 +2957,6 @@ function audio_video_sponsorblock_off_function ()
 	echo cycle pause | socat - "${tmp_dir}/mpvsocket"
   fi
 fi
-
 	if test -f "${tmp_dir}/mpv_video_running"
 	then
 	if command -v notify-send >/dev/null
@@ -2974,7 +2969,6 @@ fi
 	echo cycle pause | socat - "${tmp_dir}/mpvsocket"
   fi
 fi
-
 	if test -f "${tmp_dir}/mpv_bookmark_running"
 	then
 	if command -v notify-send >/dev/null
@@ -2987,7 +2981,6 @@ fi
 	echo cycle pause | socat - "${tmp_dir}/mpvsocket"
   fi
 fi
-
 	if test -f "${tmp_dir}/mpv_music_running"
 	then
 	if command -v notify-send >/dev/null
@@ -3020,7 +3013,6 @@ function mpv_next_function ()
 	echo playlist-next | socat - "${tmp_dir}/mpvsocket"
   fi
 fi
-
 	if test -f "${tmp_dir}/mpv_bookmark_running"
 	then
 	if command -v notify-send >/dev/null
@@ -3033,7 +3025,6 @@ fi
 	echo playlist-next | socat - "${tmp_dir}/mpvsocket"
   fi
 fi
-
 	if test -f "${tmp_dir}/mpv_music_running"
 	then
 	if command -v notify-send >/dev/null
@@ -3066,7 +3057,6 @@ function mpv_prev_function ()
 	echo playlist-prev | socat - "${tmp_dir}/mpvsocket"
   fi
 fi
-
 	if test -f "${tmp_dir}/mpv_bookmark_running"
 	then
 	if command -v notify-send >/dev/null
@@ -3079,7 +3069,6 @@ fi
 	echo playlist-prev | socat - "${tmp_dir}/mpvsocket"
   fi
 fi
-
 	if test -f "${tmp_dir}/mpv_music_running"
 	then
 	if command -v notify-send >/dev/null
@@ -3106,7 +3095,6 @@ function mpv_mute_function ()
 	echo cycle mute | socat - "${tmp_dir}/mpvsocket"
   fi
 fi
-
 	if test -f "${tmp_dir}/mpv_video_running"
 	then
 	if command -v notify-send >/dev/null
@@ -3117,7 +3105,6 @@ fi
 	echo cycle mute | socat - "${tmp_dir}/mpvsocket"
   fi
 fi
-
 	if test -f "${tmp_dir}/mpv_bookmark_running"
 	then
 	if command -v notify-send >/dev/null
@@ -3262,36 +3249,6 @@ fi
 fi
 }
 
-replace play_sd_menu_bookmark_menu_hud_function with this one.
-
-function play_sd_menu_bookmark_menu_hud_function ()
-{
-	if [ -n "$mpv_video_m4a" ]
-	then
-	echo "Audio aac 128kbps 44.1kHz."
-	fi
-	if [ -n "$mpv_video_opus" ]
-	then
-	echo "Audio opus 128kbps 48kHz."
-	fi
-	if [ -n "$resume_playback_on_or_off" ]
-	then
-	echo "Resume playback enabled."
-	else
-	echo "Resume playback disabled."
-	fi
-	if [ -z "$audio_video_sponsorblock" ]
-	then
-	echo "Audio sponsorblock enabled."
-	else
-	echo "Audio sponsorblock disabled."
-	fi
-	if test -f "${tmp_dir}/count_down_timer.txt"
-	then
-	cat "${tmp_dir}/count_down_timer.txt"
-	fi
-}
-
 #searchfunction
 
 function fast_music_search_function ()
@@ -3309,7 +3266,7 @@ function fast_music_search_function ()
 	echo "A total of "$yt_music_results_number" songs found."
 	sleep 1
 	fi
-	}
+}
 
 function slow_music_search_function ()
 {

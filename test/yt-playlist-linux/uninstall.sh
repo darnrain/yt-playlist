@@ -4,7 +4,6 @@
 	then echo "Please do not run as root."
 	exit
 	fi
-	
 	if command -v yt-playlist >/dev/null
 	then
 	echo "============================"

@@ -36,8 +36,8 @@
 	sudo cp /tmp/yt-playlist/test/yt-playlist-linux/yt-playlist /usr/bin/
 	else
 	sudo cp ./yt-playlist /usr/bin/
-  fi
-fi
+	fi
+	fi
 	sudo chmod +x /usr/bin/yt-playlist
 	mkdir -p ${HOME}/.config/yt-playlist/
 	mkdir -p ${HOME}/.config/yt-playlist/scripts/
