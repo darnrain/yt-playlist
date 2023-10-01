@@ -15,7 +15,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: /sdcard/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 yt_video_number="1:100"
-version="Termux v2.52.2_test"
+version="Termux v2.52.3_test"
 
 #mainmenu
 
@@ -3444,7 +3444,7 @@ echo "Please wait."
 if [[ "${yt_paste_url}" = *playlist?list=RDA* ]]
 then
 clear
-echo "Sorry but YTMusic Radio is not supported."
+echo "YTMusic Radio is not supported."
 sleep 2
 else
 if [[ "${yt_paste_url}" = *playlist?list=OLAK5uy* ]]
