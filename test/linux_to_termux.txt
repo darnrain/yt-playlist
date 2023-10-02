@@ -18,7 +18,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: /sdcard/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 yt_video_number="1:100"
-version="Termux v2.52.5_test"
+version="Termux v2.53.1_test"
 
 
 replace results_function with this one.
@@ -128,6 +128,7 @@ function yt_playlist_start_function ()
 	echo "Error: yt-playlist is already running."
 	exit
 	else
+	mpv_audio_output_function
 	resume_playback_off_function
 	audio_video_sponsorblock_off_function
 	yt_dlp_sponsorblock_off_function

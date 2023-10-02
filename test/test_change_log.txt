@@ -4,6 +4,9 @@
 Test change log notes
 ================================
 
+Linux v2.53.1_test | macOS v2.53.1_test | Termux v2.53.1_test
+Made a function that checks to see if pulseaudio, pipewire or coreaudio for mac is running. yt-playlist will set mpv to use that audio output.
+
 Linux v2.52 | macOS v2.52 | Termux v2.52
 Moved all three to main.
 
