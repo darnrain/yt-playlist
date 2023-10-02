@@ -38,10 +38,6 @@ function main_menu_function ()
 	then
 	echo "jemalloc enabled."
 	fi
-	if [ -n "$cover_art" ]
-	then
-	echo "Cover art notifications enabled."
-	fi
 	if [ -n "$mpv_log_file" ]
 	then
 	echo "mpv log file enabled."
@@ -2276,7 +2272,6 @@ function mpv_audio_output_function ()
 	mpv_audio_output=( "--ao=pulse" )
 	mpv_music_arguments_function
 	mpv_video_arguments_function
-	mpv_hd_arguments_function
 }
 
 function enable_jemalloc_function ()

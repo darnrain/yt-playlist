@@ -149,7 +149,6 @@ function mpv_audio_output_function ()
 	mpv_audio_output=( "--ao=pulse" )
 	mpv_music_arguments_function
 	mpv_video_arguments_function
-	mpv_hd_arguments_function
 }
 
 
