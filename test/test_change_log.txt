@@ -4,6 +4,9 @@
 Test change log notes
 ================================
 
+Linux v2.53.3_test | macOS v2.53.3_test | Termux v2.53.3_test
+Added correct punctuation to the media framework message.
+
 Linux v2.53.2_test | macOS v2.53.2_test | Termux v2.53.2_test
 At the Main menu you will now see a message of what media framework yt-playlist found and is using.
 

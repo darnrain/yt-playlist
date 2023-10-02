@@ -16,7 +16,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="Linux v2.53.2_test"
+version="Linux v2.53.3_test"
 
 #mainmenu
 
@@ -52,17 +52,17 @@ function main_menu_function ()
 	else
 	echo "Download sponsorblock disabled."
 	fi
+	if [[ "${mpv_audio_output}" = "--ao=pulse" ]]
+	then
+	echo "Found pulseaudio."
+	else
 	if [[ "${mpv_audio_output}" = "--ao=pipewire" ]]
 	then
-	echo "Found pipewire"
+	echo "Found pipewire."
 	else
 	if [[ "${mpv_audio_output}" = "--ao=coreaudio" ]]
 	then
-	echo "Found coreaudio"
-	else
-	if [[ "${mpv_audio_output}" = "--ao=pulse" ]]
-	then
-	echo "Found pulseaudio"
+	echo "Found coreaudio."
     fi
   fi
 fi
