@@ -4,6 +4,9 @@
 Test change log notes
 ================================
 
+Linux v2.52 | macOS v2.52 | Termux v2.52
+Moved all three to main.
+
 Linux v2.52.7_test | macOS v2.52.6_test | Termux v2.52.6_test
 Added less to the list of dependencies for Linux, in the dependencies.txt
 
@@ -11,7 +14,7 @@ Linux v2.52.6_test | macOS v2.52.6_test | Termux v2.52.6_test
 A small change to the code.
 
 Linux v2.52.5_test | macOS v2.52.5_test | Termux v2.52.5_test
-After all the changes I made, I lost the Linux yt-playlist all because I cut and didn't copy. So I did it again.
+Updated the format of yt-playlist code.
 
 Linux v2.52.4_test | macOS v2.52.4_test | Termux v2.52.4_test
 Changed the format of the code in yt-playlist, install.sh and uninstall.sh
