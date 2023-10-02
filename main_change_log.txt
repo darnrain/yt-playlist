@@ -1,8 +1,17 @@
-9-29-2023
+10-1-2023
 
 ================================
 Change log notes
 ================================
+
+Linux v2.52 | macOS v2.52 | Termux v2.52
+Added less to the list of dependencies for Linux, in the dependencies.txt
+Linux v2.52.5_test | macOS v2.52.5_test | Termux v2.52.5_test
+Changed the format of the code in yt-playlist, install.sh and uninstall.sh
+Fixed the Playlist menu option number 4.
+Changed the error message on the function that checks for YTMusic Radio urls.
+Fixed the function that check for YTMusic Radio urls.
+Fixed bug, YouTube Music Radio is not support. Added an error message.
 
 Linux v2.51 | macOS v2.51 | Termux v2.51
 Fixed typo atrist changed to artist.
