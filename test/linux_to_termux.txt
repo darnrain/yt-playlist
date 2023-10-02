@@ -141,6 +141,17 @@ function yt_playlist_start_function ()
 	fi
 }
 
+replace mpv audio output with this one.
+
+
+function mpv_audio_output_function ()
+{
+	mpv_audio_output=( "--ao=pulse" )
+	mpv_music_arguments_function
+	mpv_video_arguments_function
+	mpv_hd_arguments_function
+}
+
 
 delete the playhdmenu
 

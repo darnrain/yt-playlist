@@ -4,6 +4,9 @@
 Test change log notes
 ================================
 
+Linux v2.53.2_test | macOS v2.53.2_test | Termux v2.53.2_test
+At the Main menu you will now see a message of what media framework yt-playlist found and is using.
+
 Linux v2.53.1_test | macOS v2.53.1_test | Termux v2.53.1_test
 Made a function that checks to see if pulseaudio, pipewire or coreaudio for mac is running. yt-playlist will set mpv to use that audio output.
 

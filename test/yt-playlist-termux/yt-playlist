@@ -16,7 +16,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: /sdcard/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 yt_video_number="1:100"
-version="Termux v2.53.1_test"
+version="Termux v2.53.2_test"
 
 #mainmenu
 
@@ -38,6 +38,10 @@ function main_menu_function ()
 	then
 	echo "jemalloc enabled."
 	fi
+	if [ -n "$cover_art" ]
+	then
+	echo "Cover art notifications enabled."
+	fi
 	if [ -n "$mpv_log_file" ]
 	then
 	echo "mpv log file enabled."
@@ -48,6 +52,20 @@ function main_menu_function ()
 	else
 	echo "Download sponsorblock disabled."
 	fi
+	if [[ "${mpv_audio_output}" = "--ao=pipewire" ]]
+	then
+	echo "Found pipewire"
+	else
+	if [[ "${mpv_audio_output}" = "--ao=coreaudio" ]]
+	then
+	echo "Found coreaudio"
+	else
+	if [[ "${mpv_audio_output}" = "--ao=pulse" ]]
+	then
+	echo "Found pulseaudio"
+    fi
+  fi
+fi
 	if test -f "${tmp_dir}/count_down_timer.txt"
 	then
 	cat "${tmp_dir}/count_down_timer.txt"
@@ -2255,33 +2273,10 @@ function clean_up_function ()
 
 function mpv_audio_output_function ()
 {
-	ps_list=$(ps -e)
-	mpv_audio_search=$(echo "$ps_list" | grep pulseaudio | wc -l)
-	if [[ "$mpv_audio_search" -gt 0 ]]
-	then
 	mpv_audio_output=( "--ao=pulse" )
 	mpv_music_arguments_function
 	mpv_video_arguments_function
 	mpv_hd_arguments_function
-        else
-	mpv_audio_search=$(echo "$ps_list" | grep pipewire | wc -l)
-	if [[ "$mpv_audio_search" -gt 0 ]]
-	then
-	mpv_audio_output=( "--ao=pipewire" )
-	mpv_music_arguments_function
-	mpv_video_arguments_function
-	mpv_hd_arguments_function
-	else
-	mpv_audio_search=$(echo "$ps_list" | grep coreaudio | wc -l)
-	if [[ "$mpv_audio_search" -gt 0 ]]
-	then
-	mpv_audio_output=( "--ao=coreaudio" )
-	mpv_music_arguments_function
-	mpv_video_arguments_function
-	mpv_hd_arguments_function
-    fi
-  fi
-fi
 }
 
 function enable_jemalloc_function ()
