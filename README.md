@@ -67,7 +67,6 @@ More photos.<br>
 
 ### Command line arguments:
 <pre>
-[jeff@x230 ~]$ yt-playlist -h
 Help menu:              -h or --help
 Version:                -v or --version
 Play/Pause              --play_pause
