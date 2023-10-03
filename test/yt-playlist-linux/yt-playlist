@@ -16,7 +16,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="Linux v2.53.7_test"
+version="Linux v2.53.8_test"
 
 #mainmenu
 
@@ -3727,7 +3727,6 @@ function results_function ()
 	if [ -n "$cover_art" ]
 	then
 	yt-dlp -N4 --no-warnings --quiet -x --write-thumbnail --flat-playlist -o "${tmp_dir}/yt-playlist_icons" -I 1 https://youtube.com/playlist?list=$yt_playlist_id >/dev/null
-	clear
 	fi
 	clear
   fi
@@ -3747,7 +3746,6 @@ fi
 	if [ -n "$cover_art" ]
 	then
 	yt-dlp -N4 --no-warnings --quiet -x --write-thumbnail --flat-playlist -o "${tmp_dir}/yt-playlist_icons" -I 1 https://youtube.com/playlist?list=$yt_playlist_id >/dev/null
-	clear
 	fi
 	clear
   fi
@@ -3767,7 +3765,6 @@ fi
 	if [ -n "$cover_art" ]
 	then
 	yt-dlp -N4 --no-warnings --quiet -x --write-thumbnail --flat-playlist -o "${tmp_dir}/yt-playlist_icons" -I 1 https://youtube.com/playlist?list=$yt_playlist_id >/dev/null
-	clear
 	fi
 	clear
   fi
@@ -3788,7 +3785,6 @@ fi
 	if [ -n "$cover_art" ]
 	then
 	yt-dlp -N4 --no-warnings --quiet -x --write-thumbnail --flat-playlist -o "${tmp_dir}/yt-playlist_icons" -I 1 https://youtube.com/playlist?list=$yt_playlist_id >/dev/null
-	clear
 	fi
 	clear
   fi
