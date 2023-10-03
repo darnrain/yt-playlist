@@ -1,8 +1,15 @@
-10-1-2023
+10-3-2023
 
 ================================
 Change log notes
 ================================
+
+Linux v2.53 | macOS v2.53 | Termux v2.53
+Added Square brackets around the search name in the history, this will put the lines at the very bottom of the fzf search.
+Sleep timer will now check to make sure it's not running before you can enable.
+Made a new function for Linux to delete the tmp cover art on start and exit.
+At the Main menu you will now see a message of what media framework yt-playlist found and is using.
+Made a function that checks to see if pulseaudio, pipewire or coreaudio for mac is running. yt-playlist will set mpv to use that audio output.
 
 Linux v2.52 | macOS v2.52 | Termux v2.52
 Added less to the list of dependencies for Linux, in the dependencies.txt

@@ -16,7 +16,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="Linux v2.52"
+version="Linux v2.53"
 
 #mainmenu
 
@@ -52,6 +52,20 @@ function main_menu_function ()
 	else
 	echo "Download sponsorblock disabled."
 	fi
+	if [[ "${mpv_audio_output}" = "--ao=pulse" ]]
+	then
+	echo "Found pulseaudio."
+	else
+	if [[ "${mpv_audio_output}" = "--ao=pipewire" ]]
+	then
+	echo "Found pipewire."
+	else
+	if [[ "${mpv_audio_output}" = "--ao=coreaudio" ]]
+	then
+	echo "Found coreaudio."
+    fi
+  fi
+fi
 	if test -f "${tmp_dir}/count_down_timer.txt"
 	then
 	cat "${tmp_dir}/count_down_timer.txt"
@@ -276,6 +290,12 @@ fi
 	then
 	if [ "$answer" != "${answer#[1]}" ]
 	then
+	if test -f "${tmp_dir}/sleep_timer_running"
+	then
+	echo "Sleep timer is already running."
+	sleep 0.8
+	main_menu_function
+	fi
 	clear
 	printf "1=Hours or 2=Minutes \n"
 	read answer
@@ -2499,9 +2519,11 @@ function yt_playlist_start_function ()
 	echo "Error: yt-playlist is already running."
 	exit
 	else
+        deleted_tmp_cover_art_function
 	mpv_hd_cache3_function
 	mpv_video_fullscreen_off_function
 	mpv_video_gpu_off_function
+	mpv_audio_output_function
 	resume_playback_off_function
 	audio_video_sponsorblock_off_function
 	yt_dlp_sponsorblock_off_function
@@ -2540,6 +2562,37 @@ function clean_up_function ()
 	then
 	mv "${yt_playlist_home_dir}/yt-playlist_search_history.txt" "${yt_playlist_home_dir}/yt-playlist_history.txt"
 	fi
+}
+
+function mpv_audio_output_function ()
+{
+	ps_list=$(ps -e)
+	mpv_audio_search=$(echo "$ps_list" | grep pulseaudio)
+	if [ -n "$mpv_audio_search" ]
+	then
+	mpv_audio_output=( "--ao=pulse" )
+	mpv_music_arguments_function
+	mpv_video_arguments_function
+	mpv_hd_arguments_function
+        else
+	mpv_audio_search=$(echo "$ps_list" | grep pipewire)
+	if [ -n "$mpv_audio_search" ]
+	then
+	mpv_audio_output=( "--ao=pipewire" )
+	mpv_music_arguments_function
+	mpv_video_arguments_function
+	mpv_hd_arguments_function
+	else
+	mpv_audio_search=$(echo "$ps_list" | grep coreaudio)
+	if [ -n "$mpv_audio_search" ]
+	then
+	mpv_audio_output=( "--ao=coreaudio" )
+	mpv_music_arguments_function
+	mpv_video_arguments_function
+	mpv_hd_arguments_function
+    fi
+  fi
+fi
 }
 
 function enable_jemalloc_function ()
@@ -2599,6 +2652,7 @@ function quit_function ()
 	if [ "$answer" != "${answer#[yY]}" ]
 	then
 	stop_sleep_timer_function
+        deleted_tmp_cover_art_function
 	yt_dlp_sponsorblock_off_function
 	exit
 	else
@@ -2766,12 +2820,16 @@ function sleep_timer_count_down_function ()
 	fi
 }
 
-function stop_sleep_timer_function ()
+function deleted_tmp_cover_art_function ()
 {
 	if test -f "${tmp_dir}/yt-playlist_icons.jpg"
 	then
 	rm "${tmp_dir}/yt-playlist_icons.jpg"
 	fi
+}
+
+function stop_sleep_timer_function ()
+{
 	if test -f "${tmp_dir}/sleep_timer_running"
 	then
 	unset sec
@@ -3268,7 +3326,7 @@ function mpv_hd_cache3_function ()
 
 function mpv_hd_arguments_function ()
 {
-	mpv_hd_arguments=( "${mpv_hd_gpu}" "${mpv_hd_fullscreen}" "${mpv_hd_cache}" --config-dir="${yt_playlist_home_dir}" --sid=no --video-sync=display-resample --gamma=2.2 --video-output-levels=full --volume=95 --volume-max=100 --ao=pulse --load-scripts=no --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket" )
+	mpv_hd_arguments=( "${mpv_hd_gpu}" "${mpv_audio_output}" "${mpv_hd_fullscreen}" "${mpv_hd_cache}" --config-dir="${yt_playlist_home_dir}" --sid=no --video-sync=display-resample --gamma=2.2 --video-output-levels=full --volume=95 --volume-max=100 --load-scripts=no --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket" )
 }
 
 function mpv_video_fullscreen_on_function ()
@@ -3336,7 +3394,7 @@ function mpv_video_opus_function ()
 
 function mpv_video_arguments_function ()
 {
-	mpv_video_arguments=( "${mpv_audio_video}" "${mpv_video_gpu}" "${mpv_video_fullscreen}" "${audio_video_sponsorblock}" --config-dir="${yt_playlist_home_dir}" --script-opts=ytdl_hook-try_ytdl_first=yes --term-playing-msg='${media-title}' --cache=yes --cache-secs=120 --demuxer-max-bytes=35M --demuxer-max-back-bytes=5M --ytdl-raw-options=sub-lang=en,write-auto-sub= --sid=no --volume=95 --volume-max=100 --ao=pulse --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket")
+	mpv_video_arguments=( "${mpv_audio_video}" "${mpv_audio_output}" "${mpv_video_gpu}" "${mpv_video_fullscreen}" "${audio_video_sponsorblock}" --config-dir="${yt_playlist_home_dir}" --script-opts=ytdl_hook-try_ytdl_first=yes --term-playing-msg='${media-title}' --cache=yes --cache-secs=120 --demuxer-max-bytes=35M --demuxer-max-back-bytes=5M --ytdl-raw-options=sub-lang=en,write-auto-sub= --sid=no --volume=95 --volume-max=100 --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket")
 }
 
 function resume_playback_on_function ()
@@ -3371,7 +3429,7 @@ function mpv_music_opus_function ()
 
 function mpv_music_arguments_function ()
 {
-	mpv_music_arguments=( "${mpv_music_audio}" --config-dir="${yt_playlist_home_dir}" --script-opts=ytdl_hook-try_ytdl_first=yes --term-playing-msg='${media-title}' --cache=yes --cache-secs=120 --demuxer-max-bytes=35M --demuxer-max-back-bytes=5M --sid=no --volume=95 --volume-max=100 --load-scripts=no --ao=pulse --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket")
+	mpv_music_arguments=( "${mpv_music_audio}" "${mpv_audio_output}" --config-dir="${yt_playlist_home_dir}" --script-opts=ytdl_hook-try_ytdl_first=yes --term-playing-msg='${media-title}' --cache=yes --cache-secs=120 --demuxer-max-bytes=35M --demuxer-max-back-bytes=5M --sid=no --volume=95 --volume-max=100 --load-scripts=no --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket")
 }
 
 function mpv_log_file_on_funciton ()
@@ -3669,12 +3727,7 @@ function results_function ()
 	if [ -n "$cover_art" ]
 	then
 	yt-dlp -N4 --no-warnings --quiet -x --write-thumbnail --flat-playlist -o "${tmp_dir}/yt-playlist_icons" -I 1 https://youtube.com/playlist?list=$yt_playlist_id >/dev/null
-	else
-	if test -f "${tmp_dir}/yt-playlist_icons.jpg"
-	then
-	rm "${tmp_dir}/yt-playlist_icons.jpg"
-  fi
-fi
+	fi
 	clear
   fi
 fi
@@ -3693,12 +3746,7 @@ fi
 	if [ -n "$cover_art" ]
 	then
 	yt-dlp -N4 --no-warnings --quiet -x --write-thumbnail --flat-playlist -o "${tmp_dir}/yt-playlist_icons" -I 1 https://youtube.com/playlist?list=$yt_playlist_id >/dev/null
-	else
-	if test -f "${tmp_dir}/yt-playlist_icons.jpg"
-	then
-	rm "${tmp_dir}/yt-playlist_icons.jpg"
-  fi
-fi
+	fi
 	clear
   fi
 fi
@@ -3717,15 +3765,11 @@ fi
 	if [ -n "$cover_art" ]
 	then
 	yt-dlp -N4 --no-warnings --quiet -x --write-thumbnail --flat-playlist -o "${tmp_dir}/yt-playlist_icons" -I 1 https://youtube.com/playlist?list=$yt_playlist_id >/dev/null
-	else
-	if test -f "${tmp_dir}/yt-playlist_icons.jpg"
-	then
-	rm "${tmp_dir}/yt-playlist_icons.jpg"
-  fi
-fi
+	fi
 	clear
   fi
 fi
+	clear
 	if [[ "$yt_playlist_id" = OL* ]]
 	then
 	if [ -n "$yt_playlist_results" ]
@@ -3741,12 +3785,7 @@ fi
 	if [ -n "$cover_art" ]
 	then
 	yt-dlp -N4 --no-warnings --quiet -x --write-thumbnail --flat-playlist -o "${tmp_dir}/yt-playlist_icons" -I 1 https://youtube.com/playlist?list=$yt_playlist_id >/dev/null
-	else
-	if test -f "${tmp_dir}/yt-playlist_icons.jpg"
-	then
-	rm "${tmp_dir}/yt-playlist_icons.jpg"
-  fi
-fi
+	fi
 	clear
   fi
 fi
@@ -3810,7 +3849,7 @@ function ytm_album_search_function ()
 	echo "7807897890789078907807" "==============================" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
 	echo "${ytm_album_search}" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
 	echo "7807897890789078907807" "==============================" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
-	echo "7807897890789078907807" "YTMusic Album Search: $ytm_search" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
+	echo "7807897890789078907807" "YTMusic Album Search: [${ytm_search}]" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
 	sed -i'' '/^$/d' "${yt_playlist_home_dir}/yt-playlist_history.txt"
   fi
 fi
@@ -3832,7 +3871,7 @@ function ytm_playlist_search_[1]_function ()
 	echo "7807897890789078907807" "==============================" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
 	echo "${ytm_playlist_search}" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
 	echo "7807897890789078907807" "==============================" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
-	echo "7807897890789078907807" "YTMusic Playlist search [1]: $ytm_search" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
+	echo "7807897890789078907807" "YTMusic Playlist search [1]: [${ytm_search}]" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
 	sed -i'' '/^$/d' "${yt_playlist_home_dir}/yt-playlist_history.txt"
   fi
 fi
@@ -3854,7 +3893,7 @@ function ytm_playlist_search_[2]_function ()
 	echo "7807897890789078907807" "==============================" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
 	echo "${ytm_playlist_search}" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
 	echo "7807897890789078907807" "==============================" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
-	echo "7807897890789078907807" "YTMusic Playlist search [2]: $ytm_search" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
+	echo "7807897890789078907807" "YTMusic Playlist search [2]: [${ytm_search}]" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
 	sed -i'' '/^$/d' "${yt_playlist_home_dir}/yt-playlist_history.txt"
   fi
 fi
@@ -3946,7 +3985,7 @@ function yt_playlist_search_function ()
 	echo "7807897890789078907807" "==============================" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
 	echo "${yt_playlist_search}" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
 	echo "7807897890789078907807" "==============================" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
-	echo "7807897890789078907807" "YT Playlist search: ${yt_search}" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
+	echo "7807897890789078907807" "YT Playlist search: [${yt_search}]" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
 	sed -i'' '/^$/d' "${yt_playlist_home_dir}/yt-playlist_history.txt"
 	fi
 }
@@ -3962,7 +4001,7 @@ function yt_channel_search_function ()
 	echo "7807897890789078907807" "==============================" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
 	echo "${yt_channel_search}" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
 	echo "7807897890789078907807" "==============================" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
-	echo "7807897890789078907807" "YT Channel search: ${yt_search}" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
+	echo "7807897890789078907807" "YT Channel search: [${yt_search}]" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
 	sed -i'' '/^$/d' "${yt_playlist_home_dir}/yt-playlist_history.txt"
 	fi
 }
@@ -3982,7 +4021,7 @@ function get_channel_playlist_function ()
 	echo "7807897890789078907807" "==============================" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
 	echo "${get_channel_playlist}" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
 	echo "7807897890789078907807" "==============================" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
-	echo "7807897890789078907807" "Get Channel playlists: ${yt_playlist_vanilla_title}" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
+	echo "7807897890789078907807" "Get Channel playlists: [${yt_playlist_vanilla_title}]" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
 	sed -i'' '/^$/d' "${yt_playlist_home_dir}/yt-playlist_history.txt"
 	fi
 }
