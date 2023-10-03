@@ -69,6 +69,7 @@ More photos.<br>
 <pre>
 Help menu:              -h or --help
 Version:                -v or --version
+yt-playlist setup       --setup
 Play/Pause              --play_pause
 Mute/Unmute             --mute_unmute
 Next track              --next
