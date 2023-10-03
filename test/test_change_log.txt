@@ -4,6 +4,9 @@
 Test change log notes
 ================================
 
+Linux v2.54.2_test | macOS v2.54.2_test | Termux v2.54.2_test
+Updated the setup menu to display all the available options to choose from on your computer. Recommend running yt-playlist --setup again if you have already ran the setup.
+
 Linux v2.54.1_test | macOS v2.54.1_test | Termux v2.54.1_test
 Removed the auto media framework detect function and replaced it with a setup menu. If you have never ran the setup before, then setup will load automatically the first time.
 

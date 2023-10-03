@@ -20,7 +20,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="macOS v2.54.1_test"
+version="macOS v2.54.2_test"
 
 #mainmenu
 
@@ -2369,8 +2369,8 @@ function yt_playlist_setup_function ()
 	echo "Please choose an audio format"
 	echo "Choosing a higher audio format will"
 	echo "improve audio quality"
-	echo "Options are s16le, s24le, s32le"
-	echo "Press enter for the default of s16le"
+	mpv --audio-format=help
+	echo "Press enter for the default of s16"
 	printf " \n"
 	printf "Please enter an audio format: \n"
 	read answer
@@ -2378,12 +2378,11 @@ function yt_playlist_setup_function ()
 	then
 	echo "audio-format=${answer}" >> "${yt_playlist_home_dir}/mpv.conf"
 	else
-	echo "audio-format=s16le" >> "${yt_playlist_home_dir}/mpv.conf"
+	echo "audio-format=s16" >> "${yt_playlist_home_dir}/mpv.conf"
 	fi
 	clear
 	echo "Please choose a media framework."
-	echo "Options are:"
-	echo "alsa, pipewire, pulse, oss, jack, openal, sndio, sdl, coreaudio"
+        mpv --ao=help
 	echo "coreaudio macOS only"
 	echo "pulse for Termux"
 	echo "sndio for OpenBSD"
