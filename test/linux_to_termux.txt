@@ -1,6 +1,6 @@
 #!/data/data/com.termux/files/usr/bin/bash 
 
-# Updated on 10-1-2023
+# Updated on 10-3-2023
 
 # yt-playlist Termux
 
@@ -18,7 +18,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: /sdcard/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 yt_video_number="1:100"
-version="Termux v2.53.1_test"
+version="Termux v2.54.1_test"
 
 
 replace results_function with this one.
@@ -128,7 +128,6 @@ function yt_playlist_start_function ()
 	echo "Error: yt-playlist is already running."
 	exit
 	else
-	mpv_audio_output_function
 	resume_playback_off_function
 	audio_video_sponsorblock_off_function
 	yt_dlp_sponsorblock_off_function
@@ -139,16 +138,6 @@ function yt_playlist_start_function ()
 	clean_up_function
 	main_menu_function
 	fi
-}
-
-replace mpv audio output with this one.
-
-
-function mpv_audio_output_function ()
-{
-	mpv_audio_output=( "--ao=pulse" )
-	mpv_music_arguments_function
-	mpv_video_arguments_function
 }
 
 
@@ -237,6 +226,7 @@ function help_function ()
 {
 	echo "Help menu:              -h or --help"
 	echo "Version:                -v or --version"
+	echo "yt-playlist setup       --setup"
 	echo "Play/Pause              --play_pause"
 	echo "Mute/Unmute             --mute_unmute"
 	echo "Next track              --next"

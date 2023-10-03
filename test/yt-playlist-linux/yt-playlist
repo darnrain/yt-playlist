@@ -16,7 +16,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="Linux v2.53"
+version="Linux v2.54.1_test"
 
 #mainmenu
 
@@ -52,20 +52,6 @@ function main_menu_function ()
 	else
 	echo "Download sponsorblock disabled."
 	fi
-	if [[ "${mpv_audio_output}" = "--ao=pulse" ]]
-	then
-	echo "Found pulseaudio."
-	else
-	if [[ "${mpv_audio_output}" = "--ao=pipewire" ]]
-	then
-	echo "Found pipewire."
-	else
-	if [[ "${mpv_audio_output}" = "--ao=coreaudio" ]]
-	then
-	echo "Found coreaudio."
-    fi
-  fi
-fi
 	if test -f "${tmp_dir}/count_down_timer.txt"
 	then
 	cat "${tmp_dir}/count_down_timer.txt"
@@ -2361,6 +2347,64 @@ esac
 
 #functions
 
+function yt_playlist_setup_function ()
+{
+	clear
+	touch ${yt_playlist_home_dir}/mpv.conf
+	echo "Weclome to yt-playlist setup"
+	echo "Please choose an audio sample rate"
+	echo "Choosing the correct sample rate will"
+	echo "prevent popping and crackling noise"
+	echo "Press enter for the default of 48000"
+	printf " \n"
+	printf "Please enter an audio sample rate: \n"
+	read answer
+	if [ -n "$answer" ]
+	then
+	echo "audio-samplerate=${answer}" > "${yt_playlist_home_dir}/mpv.conf"
+	else
+	echo "audio-samplerate=48000" > "${yt_playlist_home_dir}/mpv.conf"
+	fi
+	clear
+	echo "Please choose an audio format"
+	echo "Choosing a higher audio format will"
+	echo "improve audio quality"
+	echo "Options are s16le, s24le, s32le"
+	echo "Press enter for the default of s16le"
+	printf " \n"
+	printf "Please enter an audio format: \n"
+	read answer
+	if [ -n "$answer" ]
+	then
+	echo "audio-format=${answer}" >> "${yt_playlist_home_dir}/mpv.conf"
+	else
+	echo "audio-format=s16le" >> "${yt_playlist_home_dir}/mpv.conf"
+	fi
+	clear
+	echo "Please choose a media framework."
+	echo "Options are:"
+	echo "alsa, pipewire, pulse, oss, jack, openal, sndio, sdl, coreaudio"
+	echo "coreaudio macOS only"
+	echo "pulse for Termux"
+	echo "sndio for OpenBSD"
+	echo "Linux uses pulse or pipewire"
+	echo "Press enter for the default pulse"
+	printf " \n"
+	printf "Please enter a media framework: \n"
+	read answer
+	if [ -n "$answer" ]
+	then
+	echo "ao=${answer}" >> "${yt_playlist_home_dir}/mpv.conf"
+	else
+	echo "ao=pulse" >> "${yt_playlist_home_dir}/mpv.conf"
+	fi
+	printf " \n"
+	echo "Listing options you picked:"
+	cat "${yt_playlist_home_dir}/mpv.conf"
+	echo "Thank you for setting up yt-playlist"
+	echo "Type yt-playlist to run."
+}
+
 function command_line_arguments_funciton ()
 {
 	if [[ "$external_arguments1" = "--import" ]]
@@ -2523,7 +2567,6 @@ function yt_playlist_start_function ()
 	mpv_hd_cache3_function
 	mpv_video_fullscreen_off_function
 	mpv_video_gpu_off_function
-	mpv_audio_output_function
 	resume_playback_off_function
 	audio_video_sponsorblock_off_function
 	yt_dlp_sponsorblock_off_function
@@ -2562,37 +2605,6 @@ function clean_up_function ()
 	then
 	mv "${yt_playlist_home_dir}/yt-playlist_search_history.txt" "${yt_playlist_home_dir}/yt-playlist_history.txt"
 	fi
-}
-
-function mpv_audio_output_function ()
-{
-	ps_list=$(ps -e)
-	mpv_audio_search=$(echo "$ps_list" | grep pulseaudio)
-	if [ -n "$mpv_audio_search" ]
-	then
-	mpv_audio_output=( "--ao=pulse" )
-	mpv_music_arguments_function
-	mpv_video_arguments_function
-	mpv_hd_arguments_function
-        else
-	mpv_audio_search=$(echo "$ps_list" | grep pipewire)
-	if [ -n "$mpv_audio_search" ]
-	then
-	mpv_audio_output=( "--ao=pipewire" )
-	mpv_music_arguments_function
-	mpv_video_arguments_function
-	mpv_hd_arguments_function
-	else
-	mpv_audio_search=$(echo "$ps_list" | grep coreaudio)
-	if [ -n "$mpv_audio_search" ]
-	then
-	mpv_audio_output=( "--ao=coreaudio" )
-	mpv_music_arguments_function
-	mpv_video_arguments_function
-	mpv_hd_arguments_function
-    fi
-  fi
-fi
 }
 
 function enable_jemalloc_function ()
@@ -3326,7 +3338,7 @@ function mpv_hd_cache3_function ()
 
 function mpv_hd_arguments_function ()
 {
-	mpv_hd_arguments=( "${mpv_hd_gpu}" "${mpv_audio_output}" "${mpv_hd_fullscreen}" "${mpv_hd_cache}" --config-dir="${yt_playlist_home_dir}" --sid=no --video-sync=display-resample --gamma=2.2 --video-output-levels=full --volume=95 --volume-max=100 --load-scripts=no --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket" )
+	mpv_hd_arguments=( "${mpv_hd_gpu}" "${mpv_hd_fullscreen}" "${mpv_hd_cache}" --config-dir="${yt_playlist_home_dir}" --sid=no --video-sync=display-resample --gamma=2.2 --video-output-levels=full --volume=95 --volume-max=100 --load-scripts=no --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket" )
 }
 
 function mpv_video_fullscreen_on_function ()
@@ -3394,7 +3406,7 @@ function mpv_video_opus_function ()
 
 function mpv_video_arguments_function ()
 {
-	mpv_video_arguments=( "${mpv_audio_video}" "${mpv_audio_output}" "${mpv_video_gpu}" "${mpv_video_fullscreen}" "${audio_video_sponsorblock}" --config-dir="${yt_playlist_home_dir}" --script-opts=ytdl_hook-try_ytdl_first=yes --term-playing-msg='${media-title}' --cache=yes --cache-secs=120 --demuxer-max-bytes=35M --demuxer-max-back-bytes=5M --ytdl-raw-options=sub-lang=en,write-auto-sub= --sid=no --volume=95 --volume-max=100 --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket")
+	mpv_video_arguments=( "${mpv_audio_video}" "${mpv_video_gpu}" "${mpv_video_fullscreen}" "${audio_video_sponsorblock}" --config-dir="${yt_playlist_home_dir}" --script-opts=ytdl_hook-try_ytdl_first=yes --term-playing-msg='${media-title}' --cache=yes --cache-secs=120 --demuxer-max-bytes=35M --demuxer-max-back-bytes=5M --ytdl-raw-options=sub-lang=en,write-auto-sub= --sid=no --volume=95 --volume-max=100 --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket")
 }
 
 function resume_playback_on_function ()
@@ -3429,7 +3441,7 @@ function mpv_music_opus_function ()
 
 function mpv_music_arguments_function ()
 {
-	mpv_music_arguments=( "${mpv_music_audio}" "${mpv_audio_output}" --config-dir="${yt_playlist_home_dir}" --script-opts=ytdl_hook-try_ytdl_first=yes --term-playing-msg='${media-title}' --cache=yes --cache-secs=120 --demuxer-max-bytes=35M --demuxer-max-back-bytes=5M --sid=no --volume=95 --volume-max=100 --load-scripts=no --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket")
+	mpv_music_arguments=( "${mpv_music_audio}" --config-dir="${yt_playlist_home_dir}" --script-opts=ytdl_hook-try_ytdl_first=yes --term-playing-msg='${media-title}' --cache=yes --cache-secs=120 --demuxer-max-bytes=35M --demuxer-max-back-bytes=5M --sid=no --volume=95 --volume-max=100 --load-scripts=no --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket")
 }
 
 function mpv_log_file_on_funciton ()
@@ -4030,6 +4042,7 @@ function help_function ()
 {
 	echo "Help menu:              -h or --help"
 	echo "Version:                -v or --version"
+	echo "yt-playlist setup       --setup"
 	echo "Play/Pause              --play_pause"
 	echo "Mute/Unmute             --mute_unmute"
 	echo "Next track              --next"
@@ -4159,6 +4172,16 @@ function help_function ()
 	echo "Next track yes"
 	echo "Prev track yes"
 }
+	if ! test -f "${yt_playlist_home_dir}/mpv.conf"
+	then
+	yt_playlist_setup_function
+	exit
+	fi
+	if [[ "$external_arguments1" = "--setup" ]]
+	then
+	yt_playlist_setup_function
+	exit
+	fi
 	if [ -n "$external_arguments1" ]
 	then
 	command_line_arguments_funciton
