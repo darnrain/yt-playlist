@@ -4,6 +4,9 @@
 Test change log notes
 ================================
 
+Linux v2.53.5_test | macOS v2.53.5_test | Termux v2.53.5_test
+Sleep timer will now check to make sure it's not running before you can enable.
+
 Linux v2.53.4_test | macOS v2.53.3_test | Termux v2.53.3_test
 Made a new function for Linux to delete the tmp cover art on start and exit.
 

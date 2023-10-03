@@ -16,7 +16,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="Linux v2.53.4_test"
+version="Linux v2.53.5_test"
 
 #mainmenu
 
@@ -290,6 +290,12 @@ fi
 	then
 	if [ "$answer" != "${answer#[1]}" ]
 	then
+	if test -f "${tmp_dir}/sleep_timer_running"
+	then
+	echo "Sleep timer is already running."
+	sleep 0.8
+	main_menu_function
+	fi
 	clear
 	printf "1=Hours or 2=Minutes \n"
 	read answer
