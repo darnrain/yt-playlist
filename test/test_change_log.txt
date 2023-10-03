@@ -1,8 +1,11 @@
-10-1-2023
+10-2-2023
 
 ================================
 Test change log notes
 ================================
+
+Linux v2.53.4_test | macOS v2.53.3_test | Termux v2.53.3_test
+Made a new function for Linux to delete the tmp cover art on start and exit.
 
 Linux v2.53.3_test | macOS v2.53.3_test | Termux v2.53.3_test
 Added correct punctuation to the media framework message.

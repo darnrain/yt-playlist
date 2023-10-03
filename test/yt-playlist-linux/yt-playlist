@@ -16,7 +16,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="Linux v2.53.3_test"
+version="Linux v2.53.4_test"
 
 #mainmenu
 
@@ -2513,6 +2513,7 @@ function yt_playlist_start_function ()
 	echo "Error: yt-playlist is already running."
 	exit
 	else
+        deleted_tmp_cover_art_function
 	mpv_hd_cache3_function
 	mpv_video_fullscreen_off_function
 	mpv_video_gpu_off_function
@@ -2645,6 +2646,7 @@ function quit_function ()
 	if [ "$answer" != "${answer#[yY]}" ]
 	then
 	stop_sleep_timer_function
+        deleted_tmp_cover_art_function
 	yt_dlp_sponsorblock_off_function
 	exit
 	else
@@ -2812,12 +2814,16 @@ function sleep_timer_count_down_function ()
 	fi
 }
 
-function stop_sleep_timer_function ()
+function deleted_tmp_cover_art_function ()
 {
 	if test -f "${tmp_dir}/yt-playlist_icons.jpg"
 	then
 	rm "${tmp_dir}/yt-playlist_icons.jpg"
 	fi
+}
+
+function stop_sleep_timer_function ()
+{
 	if test -f "${tmp_dir}/sleep_timer_running"
 	then
 	unset sec
