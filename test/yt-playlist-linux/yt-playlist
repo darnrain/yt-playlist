@@ -16,7 +16,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="Linux v2.53.5_test"
+version="Linux v2.53.6_test"
 
 #mainmenu
 
@@ -3868,7 +3868,7 @@ function ytm_album_search_function ()
 	echo "7807897890789078907807" "==============================" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
 	echo "${ytm_album_search}" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
 	echo "7807897890789078907807" "==============================" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
-	echo "7807897890789078907807" "YTMusic Album Search: $ytm_search" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
+	echo "7807897890789078907807" "YTMusic Album Search: [${ytm_search}]" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
 	sed -i'' '/^$/d' "${yt_playlist_home_dir}/yt-playlist_history.txt"
   fi
 fi
@@ -3890,7 +3890,7 @@ function ytm_playlist_search_[1]_function ()
 	echo "7807897890789078907807" "==============================" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
 	echo "${ytm_playlist_search}" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
 	echo "7807897890789078907807" "==============================" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
-	echo "7807897890789078907807" "YTMusic Playlist search [1]: $ytm_search" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
+	echo "7807897890789078907807" "YTMusic Playlist search [1]: [${ytm_search}]" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
 	sed -i'' '/^$/d' "${yt_playlist_home_dir}/yt-playlist_history.txt"
   fi
 fi
@@ -3912,7 +3912,7 @@ function ytm_playlist_search_[2]_function ()
 	echo "7807897890789078907807" "==============================" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
 	echo "${ytm_playlist_search}" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
 	echo "7807897890789078907807" "==============================" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
-	echo "7807897890789078907807" "YTMusic Playlist search [2]: $ytm_search" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
+	echo "7807897890789078907807" "YTMusic Playlist search [2]: [${ytm_search}]" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
 	sed -i'' '/^$/d' "${yt_playlist_home_dir}/yt-playlist_history.txt"
   fi
 fi
@@ -4004,7 +4004,7 @@ function yt_playlist_search_function ()
 	echo "7807897890789078907807" "==============================" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
 	echo "${yt_playlist_search}" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
 	echo "7807897890789078907807" "==============================" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
-	echo "7807897890789078907807" "YT Playlist search: ${yt_search}" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
+	echo "7807897890789078907807" "YT Playlist search: [${yt_search}]" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
 	sed -i'' '/^$/d' "${yt_playlist_home_dir}/yt-playlist_history.txt"
 	fi
 }
@@ -4020,7 +4020,7 @@ function yt_channel_search_function ()
 	echo "7807897890789078907807" "==============================" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
 	echo "${yt_channel_search}" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
 	echo "7807897890789078907807" "==============================" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
-	echo "7807897890789078907807" "YT Channel search: ${yt_search}" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
+	echo "7807897890789078907807" "YT Channel search: [${yt_search}]" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
 	sed -i'' '/^$/d' "${yt_playlist_home_dir}/yt-playlist_history.txt"
 	fi
 }
@@ -4040,7 +4040,7 @@ function get_channel_playlist_function ()
 	echo "7807897890789078907807" "==============================" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
 	echo "${get_channel_playlist}" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
 	echo "7807897890789078907807" "==============================" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
-	echo "7807897890789078907807" "Get Channel playlists: ${yt_playlist_vanilla_title}" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
+	echo "7807897890789078907807" "Get Channel playlists: [${yt_playlist_vanilla_title}]" >> "${yt_playlist_home_dir}/yt-playlist_history.txt"
 	sed -i'' '/^$/d' "${yt_playlist_home_dir}/yt-playlist_history.txt"
 	fi
 }
