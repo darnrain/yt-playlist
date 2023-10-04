@@ -4,6 +4,10 @@
 Test change log notes
 ================================
 
+Linux v2.54.3_test | macOS v2.54.3_test | Termux v2.54.3_test
+Updated the setup menu, the default audio format is now s32. mpv default is s16 all computers now days have at least a 32bit sound card installed.
+run yt-playlist --setup
+
 Linux v2.54.2_test | macOS v2.54.2_test | Termux v2.54.2_test
 Updated the setup menu to display all the available options to choose from on your computer. Recommend running yt-playlist --setup again if you have already ran the setup.
 

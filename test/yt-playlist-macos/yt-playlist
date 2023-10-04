@@ -20,7 +20,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="macOS v2.54.2_test"
+version="macOS v2.54.3_test"
 
 #mainmenu
 
@@ -2351,8 +2351,8 @@ function yt_playlist_setup_function ()
 {
 	clear
 	touch ${yt_playlist_home_dir}/mpv.conf
-	echo "Weclome to yt-playlist setup"
-	echo "Please choose an audio sample rate"
+	echo "Welcome to yt-playlist setup"
+	echo "Choose an audio sample rate"
 	echo "Choosing the correct sample rate will"
 	echo "prevent popping and crackling noise"
 	echo "Press enter for the default of 48000"
@@ -2366,11 +2366,11 @@ function yt_playlist_setup_function ()
 	echo "audio-samplerate=48000" > "${yt_playlist_home_dir}/mpv.conf"
 	fi
 	clear
-	echo "Please choose an audio format"
-	echo "Choosing a higher audio format will"
-	echo "improve audio quality"
-	mpv --audio-format=help
-	echo "Press enter for the default of s16"
+	echo "Choose an audio format"
+	echo "s16 s24 s32 or s64"
+	echo "A number larger than s16 will improve sound quality."
+	echo "mpv default is s16"
+	echo "Press enter for the default of s32"
 	printf " \n"
 	printf "Please enter an audio format: \n"
 	read answer
@@ -2378,15 +2378,14 @@ function yt_playlist_setup_function ()
 	then
 	echo "audio-format=${answer}" >> "${yt_playlist_home_dir}/mpv.conf"
 	else
-	echo "audio-format=s16" >> "${yt_playlist_home_dir}/mpv.conf"
+	echo "audio-format=s32" >> "${yt_playlist_home_dir}/mpv.conf"
 	fi
 	clear
-	echo "Please choose a media framework."
+	echo "Choose a media framework."
         mpv --ao=help
-	echo "coreaudio macOS only"
-	echo "pulse for Termux"
-	echo "sndio for OpenBSD"
-	echo "Linux uses pulse or pipewire"
+	echo "macOS uses coreaudio"
+	echo "Termux uses pulse"
+	echo "Linux can use alsa pulse or pipewire"
 	echo "Press enter for the default pulse"
 	printf " \n"
 	printf "Please enter a media framework: \n"
