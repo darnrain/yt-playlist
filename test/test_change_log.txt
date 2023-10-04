@@ -1,8 +1,11 @@
-10-3-2023
+10-4-2023
 
 ================================
 Test change log notes
 ================================
+
+Linux v2.54 | macOS v2.54 | Termux v2.54
+Moved all three to main.
 
 Linux v2.54.6_test | macOS v2.54.6_test | Termux v2.54.7_test
 Fixed termux help menu.
