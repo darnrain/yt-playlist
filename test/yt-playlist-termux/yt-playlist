@@ -16,7 +16,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: /sdcard/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 yt_video_number="1:100"
-version="Termux v2.54.3_test"
+version="Termux v2.54.4_test"
 
 #mainmenu
 
@@ -2073,6 +2073,7 @@ function yt_playlist_setup_function ()
 	echo "Choose an audio sample rate"
 	echo "Choosing the correct sample rate will"
 	echo "prevent popping and crackling noise"
+	echo "You can try 44100 or 48000 or higher"
 	echo "Press enter for the default of 48000"
 	printf " \n"
 	printf "Please enter an audio sample rate: \n"
