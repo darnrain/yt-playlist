@@ -18,7 +18,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: /sdcard/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 yt_video_number="1:100"
-version="Termux v2.54.1_test"
+version="Termux v2.54.2_test"
 
 
 replace results_function with this one.
@@ -212,13 +212,14 @@ m) Main menu.
 
 
 
-function pulse_function ()
+
+function mpv_termux_fix_function ()
 {
+
 	pkill -9 pulseaudio
 	pulseaudio -D --exit-idle-time=600
-	pactl -- set-sink-volume @DEFAULT_SINK@ 100%
-	$1 $2 $3 $4 $5 $6 $7 $8 $9 ${10} ${11} ${12} ${13} ${14} ${15} ${16} ${17} ${18} ${19} ${20} ${21} ${22} ${23} ${24} ${25} ${26} ${27}
 }
+
 
 
 

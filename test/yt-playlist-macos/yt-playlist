@@ -20,7 +20,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="macOS v2.55.1_test"
+version="macOS v2.54.2_test"
 
 #mainmenu
 
@@ -534,6 +534,7 @@ Choose an option:  "
 	echo "Please wait."
 	echo ""
 	touch "${tmp_dir}/mpv_video_running"
+	mpv_termux_fix_function
 	mpv ${mpv_log_file_arguments[@]} ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=inf --shuffle=yes --playlist="${tmp_dir}/yt_playlist_url.txt"
 	play_sd_menu_function
 	;;
@@ -558,6 +559,7 @@ Choose an option:  "
 	echo "Please wait."
 	echo ""
 	touch "${tmp_dir}/mpv_video_running"
+	mpv_termux_fix_function
 	mpv ${mpv_log_file_arguments[@]} ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=no --shuffle=yes --playlist="${tmp_dir}/yt_playlist_url.txt"
 	play_sd_menu_function
 	;;
@@ -596,6 +598,7 @@ Choose an option:  "
 	echo "Please wait."
 	echo ""
 	touch "${tmp_dir}/mpv_video_running"
+	mpv_termux_fix_function
 	mpv ${mpv_log_file_arguments[@]} ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=inf --shuffle=no --playlist-start="$yt_playlist_start" --playlist="${tmp_dir}/yt_playlist_url.txt"
 	play_sd_menu_function
 	else
@@ -628,6 +631,7 @@ Choose an option:  "
 	echo "Please wait."
 	echo ""
 	touch "${tmp_dir}/mpv_video_running"
+	mpv_termux_fix_function
 	mpv ${mpv_log_file_arguments[@]} ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=no --shuffle=no --playlist-start="$yt_playlist_start" --playlist="${tmp_dir}/yt_playlist_url.txt"
 	play_sd_menu_function
 	else
@@ -697,6 +701,7 @@ fi
 	echo "Please wait."
 	echo ""
 	touch "${tmp_dir}/mpv_video_running"
+	mpv_termux_fix_function
 	mpv ${mpv_log_file_arguments[@]} ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=inf --shuffle=no --playlist="${tmp_dir}/yt_playlist_url.txt"
 	play_sd_menu_function
 	else
@@ -751,6 +756,7 @@ fi
 	echo "Please wait."
 	echo ""
 	touch "${tmp_dir}/mpv_video_running"
+	mpv_termux_fix_function
 	mpv ${mpv_log_file_arguments[@]} ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=no --shuffle=no --playlist="${tmp_dir}/yt_playlist_url.txt"
 	play_sd_menu_function
 	else
@@ -913,6 +919,7 @@ Choose an option:  "
 	echo "Please wait."
 	echo ""
 	touch "${tmp_dir}/mpv_music_running"
+	mpv_termux_fix_function
 	mpv ${mpv_log_file_arguments[@]} ${mpv_music_arguments[@]} --resume-playback=no --save-position-on-quit=no --loop-playlist=inf --shuffle=yes --playlist="${tmp_dir}/yt_playlist_url.txt"
 	play_music_menu_function
 	;;
@@ -931,6 +938,7 @@ Choose an option:  "
 	echo "Please wait."
 	echo ""
 	touch "${tmp_dir}/mpv_music_running"
+	mpv_termux_fix_function
 	mpv ${mpv_log_file_arguments[@]} ${mpv_music_arguments[@]} --resume-playback=no --save-position-on-quit=no --shuffle=yes --playlist="${tmp_dir}/yt_playlist_url.txt"
 	play_music_menu_function
 	;;
@@ -960,6 +968,7 @@ Choose an option:  "
 	echo "Please wait."
 	echo ""
 	touch "${tmp_dir}/mpv_music_running"
+	mpv_termux_fix_function
 	mpv ${mpv_log_file_arguments[@]} ${mpv_music_arguments[@]} --resume-playback=no --save-position-on-quit=no --loop-playlist=inf --shuffle=no --playlist-start="$yt_playlist_start" --playlist="${tmp_dir}/yt_playlist_url.txt"
 	play_music_menu_function
 	else
@@ -983,6 +992,7 @@ Choose an option:  "
 	echo "Please wait."
 	echo ""
 	touch "${tmp_dir}/mpv_music_running"
+	mpv_termux_fix_function
 	mpv ${mpv_log_file_arguments[@]} ${mpv_music_arguments[@]} --resume-playback=no --save-position-on-quit=no --loop-playlist=no --shuffle=no --playlist-start="$yt_playlist_start" --playlist="${tmp_dir}/yt_playlist_url.txt"
 	play_music_menu_function
 	else
@@ -1043,6 +1053,7 @@ fi
 	echo "Please wait."
 	echo ""
 	touch "${tmp_dir}/mpv_music_running"
+	mpv_termux_fix_function
 	mpv ${mpv_log_file_arguments[@]} ${mpv_music_arguments[@]} --resume-playback=no --save-position-on-quit=no --loop-playlist=inf --shuffle=no --playlist="${tmp_dir}/yt_playlist_url.txt"
 	play_music_menu_function
 	else
@@ -1088,6 +1099,7 @@ fi
 	echo "Please wait."
 	echo ""
 	touch "${tmp_dir}/mpv_music_running"
+	mpv_termux_fix_function
 	mpv ${mpv_log_file_arguments[@]} ${mpv_music_arguments[@]} --resume-playback=no --save-position-on-quit=no --loop-playlist=no --shuffle=no --playlist="${tmp_dir}/yt_playlist_url.txt"
 	play_music_menu_function
 	else
@@ -1251,6 +1263,7 @@ Choose an option:  "
 	echo "Please wait."
 	echo ""
 	touch "${tmp_dir}/mpv_bookmark_running"
+	mpv_termux_fix_function
 	mpv ${mpv_log_file_arguments[@]} ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=inf --shuffle=yes --playlist="${tmp_dir}/yt_playlist_url.txt"
 	play_sd_bookmark_menu_function
 	;;
@@ -1265,6 +1278,7 @@ Choose an option:  "
 	echo "Please wait."
 	echo ""
 	touch "${tmp_dir}/mpv_bookmark_running"
+	mpv_termux_fix_function
 	mpv ${mpv_log_file_arguments[@]} ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=no --shuffle=yes --playlist="${tmp_dir}/yt_playlist_url.txt"
 	play_sd_bookmark_menu_function
 	;;
@@ -1294,6 +1308,7 @@ Choose an option:  "
 	echo "Please wait."
 	echo ""
 	touch "${tmp_dir}/mpv_bookmark_running"
+	mpv_termux_fix_function
 	mpv ${mpv_log_file_arguments[@]} ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=inf --shuffle=no --playlist-start="$yt_playlist_start" --playlist="${tmp_dir}/yt_playlist_url.txt"
 	play_sd_bookmark_menu_function
 	else
@@ -1317,6 +1332,7 @@ Choose an option:  "
 	echo "Please wait."
 	echo ""
 	touch "${tmp_dir}/mpv_bookmark_running"
+	mpv_termux_fix_function
 	mpv ${mpv_log_file_arguments[@]} ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=no --shuffle=no --playlist-start="$yt_playlist_start" --playlist="${tmp_dir}/yt_playlist_url.txt"
 	play_sd_bookmark_menu_function
 	else
@@ -1377,6 +1393,7 @@ fi
 	echo "Please wait."
 	echo ""
 	touch "${tmp_dir}/mpv_bookmark_running"
+	mpv_termux_fix_function
 	mpv ${mpv_log_file_arguments[@]} ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=inf --shuffle=no --playlist="${tmp_dir}/yt_playlist_url.txt"
 	play_sd_bookmark_menu_function
 	else
@@ -1422,6 +1439,7 @@ fi
 	echo "Please wait."
 	echo "" 
 	touch "${tmp_dir}/mpv_bookmark_running"
+	mpv_termux_fix_function
 	mpv ${mpv_log_file_arguments[@]} ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=no --shuffle=no --playlist="${tmp_dir}/yt_playlist_url.txt"
 	play_sd_bookmark_menu_function
 	else
@@ -2347,6 +2365,13 @@ esac
 
 #functions
 
+function mpv_termux_fix_function ()
+{
+
+	#pkill -9 pulseaudio
+	#pulseaudio -D --exit-idle-time=600
+}
+
 function yt_playlist_setup_function ()
 {
 	clear
@@ -2373,9 +2398,6 @@ function yt_playlist_setup_function ()
 	echo "Choose an audio format."
 	echo "s16 s24 s32 or s64"
 	echo "A number larger than s16 will improve audio quality."
-	echo "mpv default audio format is s16"
-	echo "Computers now days have at least a" 
-	echo "32bit sound card so s32"
 	echo "Press enter for the default of s32"
 	printf " \n"
 	printf "Please enter an audio format: \n"
@@ -2390,7 +2412,6 @@ function yt_playlist_setup_function ()
 	echo "Choose a media framework."
         mpv --ao=help
 	echo "macOS uses coreaudio"
-	echo "Termux uses pulse"
 	echo "Linux uses pipewire or pulse"
 	echo "Press enter for the default pulse"
 	printf " \n"
@@ -2676,7 +2697,7 @@ function title_notification_function ()
 {
 	if test -f "${tmp_dir}/mpv_hd_running"
 	then
-	if command -v terminal-notifier >/dev/null
+	if command -v notify-send >/dev/null
 	then
 	terminal-notifier -title "yt-playlist" -message "Not available when playing hd video"
 	echo '{ "command": ["show-text", "Not available when playing hd video." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
@@ -2691,7 +2712,7 @@ fi
 	check_for_artist=$(echo '{ "command": ["get_property", "media-title"] }' | socat - ${tmp_dir}/mpvsocket | cut -d'"' -f4)
 	if [[ ! "${check_for_artist}" = *-* ]]
 	then
-	if command -v terminal-notifier >/dev/null
+	if command -v notify-send >/dev/null
 	then
 	echo '{ "command": ["show-text", "Please wait, getting artist & title." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
 	terminal-notifier -title "yt-playlist" -message "Please wait, getting artist & title."
@@ -2708,7 +2729,7 @@ fi
 	echo show-text "$yt_terminal_title" | socat - "${tmp_dir}/mpvsocket"
 	fi
 	else
-	if command -v terminal-notifier >/dev/null
+	if command -v notify-send >/dev/null
 	then
 	terminal-notifier -title "yt-playlist" -message "$check_for_artist"
 	yt_terminal_title=$(printf '"%s" \n' "$check_for_artist")
@@ -2724,7 +2745,7 @@ fi
 	check_for_artist=$(echo '{ "command": ["get_property", "media-title"] }' | socat - ${tmp_dir}/mpvsocket | cut -d'"' -f4)
 	if [[ ! "${check_for_artist}" = *-* ]]
 	then
-	if command -v terminal-notifier >/dev/null
+	if command -v notify-send >/dev/null
 	then
 	echo '{ "command": ["show-text", "Please wait, getting artist & title." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
 	terminal-notifier -title "yt-playlist" -message "Please wait, getting artist & title."
@@ -2741,7 +2762,7 @@ fi
 	echo show-text "$yt_terminal_title" | socat - "${tmp_dir}/mpvsocket"
 	fi
 	else
-	if command -v terminal-notifier >/dev/null
+	if command -v notify-send >/dev/null
 	then
 	terminal-notifier -title "yt-playlist" -message "$check_for_artist"
 	yt_terminal_title=$(printf '"%s" \n' "$check_for_artist")
@@ -2757,7 +2778,7 @@ fi
 	check_for_artist=$(echo '{ "command": ["get_property", "media-title"] }' | socat - ${tmp_dir}/mpvsocket | cut -d'"' -f4)
 	if [[ ! "${check_for_artist}" = *-* ]]
 	then
-	if command -v terminal-notifier >/dev/null
+	if command -v notify-send >/dev/null
 	then
 	echo '{ "command": ["show-text", "Please wait, getting artist & title." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
 	terminal-notifier -title "yt-playlist" -message "Please wait, getting artist & title."
@@ -2774,7 +2795,7 @@ fi
 	echo show-text "$yt_terminal_title" | socat - "${tmp_dir}/mpvsocket"
 	fi
 	else
-	if command -v terminal-notifier >/dev/null
+	if command -v notify-send >/dev/null
 	then
 	terminal-notifier -title "yt-playlist" -message "$check_for_artist"
 	yt_terminal_title=$(printf '"%s" \n' "$check_for_artist")
@@ -2936,7 +2957,7 @@ function show_count_down_time_function ()
 
 function music_download_audio_function ()
 {
-	if command -v terminal-notifier >/dev/null
+	if command -v notify-send >/dev/null
 	then
 	terminal-notifier -title "yt-playlist" -message "Downloading audio, please wait."
 	echo '{ "command": ["show-text", "Downloading audio, please wait." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
@@ -2958,7 +2979,7 @@ function download_audio_function ()
 {
 	if test -f "${tmp_dir}/mpv_hd_running"
 	then
-	if command -v terminal-notifier >/dev/null
+	if command -v notify-send >/dev/null
 	then
 	terminal-notifier -title "yt-playlist" -message "Not available when playing hd video"
 	echo '{ "command": ["show-text", "Not available when playing hd video." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
@@ -2981,7 +3002,7 @@ fi
 	fi
 	if test -f "${tmp_dir}/mpv_bookmark_running"
 	then
-	if command -v terminal-notifier >/dev/null
+	if command -v notify-send >/dev/null
 	then
 	terminal-notifier -title "yt-playlist" -message "Downloading audio, please wait."
 	echo '{ "command": ["show-text", "Downloading audio, please wait." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
@@ -3000,7 +3021,7 @@ fi
 fi
 	if test -f "${tmp_dir}/mpv_video_running"
 	then
-	if command -v terminal-notifier >/dev/null
+	if command -v notify-send >/dev/null
 	then
 	terminal-notifier -title "yt-playlist" -message "Downloading audio, please wait."
 	echo '{ "command": ["show-text", "Downloading audio, please wait." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
@@ -3023,7 +3044,7 @@ function download_video_function ()
 {
 	if test -f "${tmp_dir}/mpv_hd_running"
 	then
-	if command -v terminal-notifier >/dev/null
+	if command -v notify-send >/dev/null
 	then
 	terminal-notifier -title "yt-playlist" -message "Not available when playing hd video"
 	echo '{ "command": ["show-text", "Not available when playing hd video." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
@@ -3035,7 +3056,7 @@ function download_video_function ()
 fi
 	if test -f "${tmp_dir}/mpv_music_running"
 	then
-	if command -v terminal-notifier >/dev/null
+	if command -v notify-send >/dev/null
 	then
 	terminal-notifier -title "yt-playlist" -message "Not available when playing music."
 	echo '{ "command": ["show-text", "Not available when playing music." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
@@ -3053,7 +3074,7 @@ fi
 	fi
 	if test -f "${tmp_dir}/mpv_bookmark_running"
 	then
-	if command -v terminal-notifier >/dev/null
+	if command -v notify-send >/dev/null
 	then
 	terminal-notifier -title "yt-playlist" -message "Downloading video, please wait."
 	echo '{ "command": ["show-text", "Downloading video, please wait." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
@@ -3072,7 +3093,7 @@ fi
 fi
 	if test -f "${tmp_dir}/mpv_video_running"
 	then
-	if command -v terminal-notifier >/dev/null
+	if command -v notify-send >/dev/null
 	then
 	terminal-notifier -title "yt-playlist" -message "Downloading video, please wait."
 	echo '{ "command": ["show-text", "Downloading video, please wait." ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
@@ -3473,7 +3494,7 @@ function mpv_play_pause_function ()
 {
 	if test -f "${tmp_dir}/mpv_hd_running"
 	then
-	if command -v terminal-notifier >/dev/null
+	if command -v notify-send >/dev/null
 	then
 	echo '{ "command": ["show-text", "Play/Pause" ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
 	terminal-notifier -title "yt-playlist" -message "Play/Pause"
@@ -3485,7 +3506,7 @@ function mpv_play_pause_function ()
 fi
 	if test -f "${tmp_dir}/mpv_video_running"
 	then
-	if command -v terminal-notifier >/dev/null
+	if command -v notify-send >/dev/null
 	then
 	echo '{ "command": ["show-text", "Play/Pause" ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
 	terminal-notifier -title "yt-playlist" -message "Play/Pause"
@@ -3497,7 +3518,7 @@ fi
 fi
 	if test -f "${tmp_dir}/mpv_bookmark_running"
 	then
-	if command -v terminal-notifier >/dev/null
+	if command -v notify-send >/dev/null
 	then
 	echo '{ "command": ["show-text", "Play/Pause" ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
 	terminal-notifier -title "yt-playlist" -message "Play/Pause"
@@ -3509,7 +3530,7 @@ fi
 fi
 	if test -f "${tmp_dir}/mpv_music_running"
 	then
-	if command -v terminal-notifier >/dev/null
+	if command -v notify-send >/dev/null
 	then
 	echo '{ "command": ["show-text", "Play/Pause" ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
 	terminal-notifier -title "yt-playlist" -message "Play/Pause"
@@ -3529,7 +3550,7 @@ function mpv_next_function ()
 	fi
 	if test -f "${tmp_dir}/mpv_video_running"
 	then
-	if command -v terminal-notifier >/dev/null
+	if command -v notify-send >/dev/null
 	then
 	echo '{ "command": ["show-text", "Next track" ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
 	terminal-notifier -title "yt-playlist" -message "Next track"
@@ -3541,7 +3562,7 @@ function mpv_next_function ()
 fi
 	if test -f "${tmp_dir}/mpv_bookmark_running"
 	then
-	if command -v terminal-notifier >/dev/null
+	if command -v notify-send >/dev/null
 	then
 	echo '{ "command": ["show-text", "Next track" ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
 	terminal-notifier -title "yt-playlist" -message "Next track"
@@ -3553,7 +3574,7 @@ fi
 fi
 	if test -f "${tmp_dir}/mpv_music_running"
 	then
-	if command -v terminal-notifier >/dev/null
+	if command -v notify-send >/dev/null
 	then
 	echo '{ "command": ["show-text", "Next track" ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
 	terminal-notifier -title "yt-playlist" -message "Next track"
@@ -3573,7 +3594,7 @@ function mpv_prev_function ()
 	fi
 	if test -f "${tmp_dir}/mpv_video_running"
 	then
-	if command -v terminal-notifier >/dev/null
+	if command -v notify-send >/dev/null
 	then
 	echo '{ "command": ["show-text", "Prev track" ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
 	terminal-notifier -title "yt-playlist" -message "Prev track"
@@ -3585,7 +3606,7 @@ function mpv_prev_function ()
 fi
 	if test -f "${tmp_dir}/mpv_bookmark_running"
 	then
-	if command -v terminal-notifier >/dev/null
+	if command -v notify-send >/dev/null
 	then
 	echo '{ "command": ["show-text", "Prev track" ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
 	terminal-notifier -title "yt-playlist" -message "Prev track"
@@ -3597,7 +3618,7 @@ fi
 fi
 	if test -f "${tmp_dir}/mpv_music_running"
 	then
-	if command -v terminal-notifier >/dev/null
+	if command -v notify-send >/dev/null
 	then
 	echo '{ "command": ["show-text", "Prev track" ] }' | socat - "${tmp_dir}/mpvsocket" >/dev/null
 	terminal-notifier -title "yt-playlist" -message "Prev track"
@@ -3613,7 +3634,7 @@ function mpv_mute_function ()
 {
 	if test -f "${tmp_dir}/mpv_hd_running"
 	then
-	if command -v terminal-notifier >/dev/null
+	if command -v notify-send >/dev/null
 	then
 	terminal-notifier -title "yt-playlist" -message "Mute/Unmute"
 	echo cycle mute | socat - "${tmp_dir}/mpvsocket"
@@ -3623,7 +3644,7 @@ function mpv_mute_function ()
 fi
 	if test -f "${tmp_dir}/mpv_video_running"
 	then
-	if command -v terminal-notifier >/dev/null
+	if command -v notify-send >/dev/null
 	then
 	terminal-notifier -title "yt-playlist" -message "Mute/Unmute"
 	echo cycle mute | socat - "${tmp_dir}/mpvsocket"
@@ -3633,7 +3654,7 @@ fi
 fi
 	if test -f "${tmp_dir}/mpv_bookmark_running"
 	then
-	if command -v terminal-notifier >/dev/null
+	if command -v notify-send >/dev/null
 	then
 	terminal-notifier -title "yt-playlist" -message "Mute/Unmute"
 	echo cycle mute | socat - "${tmp_dir}/mpvsocket"
@@ -3643,7 +3664,7 @@ fi
 fi
 	if test -f "${tmp_dir}/mpv_music_running"
 	then
-	if command -v terminal-notifier >/dev/null
+	if command -v notify-send >/dev/null
 	then
 	terminal-notifier -title "yt-playlist" -message "Mute/Unmute"
 	echo cycle mute | socat - "${tmp_dir}/mpvsocket"
@@ -3657,7 +3678,7 @@ function mpv_stop_function ()
 {
 	if test -f "${tmp_dir}/mpv_hd_running"
 	then
-	if command -v terminal-notifier >/dev/null
+	if command -v notify-send >/dev/null
 	then
 	terminal-notifier -title "yt-playlist" -message "Stopped mpv player."
 	echo stop | socat - "${tmp_dir}/mpvsocket"
@@ -3667,7 +3688,7 @@ function mpv_stop_function ()
 fi
 	if test -f "${tmp_dir}/mpv_video_running"
 	then
-	if command -v terminal-notifier >/dev/null
+	if command -v notify-send >/dev/null
 	then
 	terminal-notifier -title "yt-playlist" -message "Stopped mpv player."
 	echo stop | socat - "${tmp_dir}/mpvsocket"
@@ -3677,7 +3698,7 @@ fi
 fi
 	if test -f "${tmp_dir}/mpv_bookmark_running"
 	then
-	if command -v terminal-notifier >/dev/null
+	if command -v notify-send >/dev/null
 	then
 	terminal-notifier -title "yt-playlist" -message "Stopped mpv player."
 	echo stop | socat - "${tmp_dir}/mpvsocket"
@@ -3687,7 +3708,7 @@ fi
 fi
 	if test -f "${tmp_dir}/mpv_music_running"
 	then
-	if command -v terminal-notifier >/dev/null
+	if command -v notify-send >/dev/null
 	then
 	terminal-notifier -title "yt-playlist" -message "Stopped mpv player."
 	echo stop | socat - "${tmp_dir}/mpvsocket"
@@ -3710,6 +3731,8 @@ function title_function ()
 	export yt_playlist_title
 	fi
 }
+
+replace results_function with this one.
 
 function results_function ()
 {

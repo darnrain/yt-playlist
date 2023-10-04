@@ -4,6 +4,18 @@
 Test change log notes
 ================================
 
+Linux v2.55.2_test | macOS v2.55.2_test | Termux v2.55.2_test
+Updated yt-playlist code to make it easier for me to convert Linux yt-playlist to macOS and termux.
+Termux installer will now choose the best settings for yt-playlist, no need to run yt-playlist --setup
+I have tweaked Termux to make the audio quality outstanding.
+Termux settings:
+audio-samplerate=48000
+audio-format=s16
+ao=pulse
+
+If you are hearing popping, then run yt-playlist --setup and use these settings:
+
+
 Linux v2.55.1_test | macOS v2.55.1_test | Termux v2.55.1_test
 Increased mpv default volume from 95% to 100%
 
