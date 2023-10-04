@@ -16,7 +16,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: /sdcard/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 yt_video_number="1:100"
-version="Termux v2.54.5_test"
+version="Termux v2.54.6_test"
 
 #mainmenu
 
@@ -2109,7 +2109,7 @@ function yt_playlist_setup_function ()
         mpv --ao=help
 	echo "macOS uses coreaudio"
 	echo "Termux uses pulse"
-	echo "Linux can use alsa pulse or pipewire"
+	echo "Linux uses pipewire or pulse"
 	echo "Press enter for the default pulse"
 	printf " \n"
 	printf "Please enter a media framework: \n"
