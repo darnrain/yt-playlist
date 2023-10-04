@@ -1,8 +1,16 @@
-10-3-2023
+10-4-2023
 
 ================================
 Change log notes
 ================================
+
+Linux v2.54 | macOS v2.54 | Termux v2.54
+Removed the auto media framework detect function and replaced it with a setup menu. If you have never ran the setup before, then setup will load automatically the first time.
+new argument function.
+yt-playlist --setup
+Updated the setup menu to display all the available options to choose from on your computer
+Updated the setup menu, the default audio format is now s32.
+Fixed termux help menu.
 
 Linux v2.53 | macOS v2.53 | Termux v2.53
 Added Square brackets around the search name in the history, this will put the lines at the very bottom of the fzf search.
