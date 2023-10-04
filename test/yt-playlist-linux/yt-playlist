@@ -16,7 +16,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="Linux v2.54.4_test"
+version="Linux v2.54.5_test"
 
 #mainmenu
 
@@ -2351,11 +2351,14 @@ function yt_playlist_setup_function ()
 {
 	clear
 	touch ${yt_playlist_home_dir}/mpv.conf
-	echo "Welcome to yt-playlist setup"
-	echo "Choose an audio sample rate"
+	echo "Welcome to yt-playlist setup."
+	echo "You can run setup multiple times."
+	echo "yt-playlist --setup"
+	echo ""
+	echo "Choose an audio sample rate."
 	echo "Choosing the correct sample rate will"
-	echo "prevent popping and crackling noise"
-	echo "You can try 44100 or 48000 or higher"
+	echo "fix popping and crackling noise."
+	echo "The most common are 44100 or 48000"
 	echo "Press enter for the default of 48000"
 	printf " \n"
 	printf "Please enter an audio sample rate: \n"
@@ -2367,10 +2370,12 @@ function yt_playlist_setup_function ()
 	echo "audio-samplerate=48000" > "${yt_playlist_home_dir}/mpv.conf"
 	fi
 	clear
-	echo "Choose an audio format"
+	echo "Choose an audio format."
 	echo "s16 s24 s32 or s64"
-	echo "A number larger than s16 will improve sound quality."
-	echo "mpv default is s16"
+	echo "A number larger than s16 will improve audio quality."
+	echo "mpv default audio format is s16"
+	echo "Computer now days have at least a" 
+	echo "32bit sound card so s32"
 	echo "Press enter for the default of s32"
 	printf " \n"
 	printf "Please enter an audio format: \n"
@@ -2398,7 +2403,7 @@ function yt_playlist_setup_function ()
 	echo "ao=pulse" >> "${yt_playlist_home_dir}/mpv.conf"
 	fi
 	printf " \n"
-	echo "Listing options you picked:"
+	echo "Listing options you have chosen:"
 	cat "${yt_playlist_home_dir}/mpv.conf"
 	echo "Thank you for setting up yt-playlist"
 	echo "Type yt-playlist to run."
