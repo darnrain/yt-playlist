@@ -107,9 +107,9 @@ function play_sd_menu_bookmark_menu_hud_function ()
 	fi
 	if [ -z "$audio_video_sponsorblock" ]
 	then
-	echo "Audio/video sponsorblock enabled."
+	echo "Audio sponsorblock enabled."
 	else
-	echo "Audio/video sponsorblock disabled."
+	echo "Audio sponsorblock disabled."
 	fi
 	if test -f "${tmp_dir}/count_down_timer.txt"
 	then
@@ -146,7 +146,7 @@ delete the playhdmenu
 delete all functions with the word cover in them.
 
 rename
-Audio/video sponsorblock
+Audio sponsorblock
 to
 Audio sponsorblock
 
@@ -233,6 +233,9 @@ function help_function ()
 	echo "Next track              --next"
 	echo "Prev track              --prev"
 	echo "Stop or exit            --stop"
+	echo "Desktop and terminal"
+	echo "notifications get"
+	echo "artist and title        --title"
 	echo "Download when playing"
 	echo "Audio"
 	echo "Download audio          --download_audio opus"
