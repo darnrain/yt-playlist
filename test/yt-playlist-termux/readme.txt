@@ -8,8 +8,6 @@ audio-format=s16
 ao=pulse
 The installer will automatically download and install all the dependencies. First time install only.
 
-Dependencies will automatically be downloaded and installed. It may take about 5-10 minutes for a first time install, after that updates are fast.
-
 ==========================================
 Install yt-playlist
 ==========================================
