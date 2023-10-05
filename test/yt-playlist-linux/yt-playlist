@@ -17,7 +17,7 @@ show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 unset mpv_termux_pulse_fix_function
 yt_video_number="1:100"
-version="Linux v2.55.13_test"
+version="Linux v2.55.14_test"
 
 #mainmenu
 
@@ -2368,18 +2368,38 @@ esac
 
 function bookmark_shuffle_function ()
 {
+	if command -v shuf >/dev/null
+	then
 	cat "${yt_playlist_home_dir}/yt-playlist_bookmark.txt" | awk '{print $1}' | shuf --output="${tmp_dir}/yt_playlist_url.txt"
+	else
+	clear
+	echo "Error: shuf not found."
+	sleep 2
+	fi
 }
 
 function music_shuffle_function ()
 {
+	if command -v shuf >/dev/null
+	then
 	cat "${yt_playlist_home_dir}/yt-playlist_music.txt" | awk '{print $1}' | shuf --output="${tmp_dir}/yt_playlist_url.txt"
-	
+	else
+	clear
+	echo "Error: shuf not found."
+	sleep 2
+	fi
 }
 
 function video_shuffle_function ()
 {
+	if command -v shuf >/dev/null
+	then
 	echo "${yt_playlist_results}" | awk '{print $2}' | shuf --output="${tmp_dir}/yt_playlist_url.txt"
+	else
+	clear
+	echo "Error: shuf not found."
+	sleep 2
+	fi
 }
 
 function mpv_termux_pulse_fix_function ()
