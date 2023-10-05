@@ -17,7 +17,7 @@ show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 yt_video_number="1:100"
 termux_pulse_fix="yes"
-version="Termux v2.54.10_test"
+version="Termux v2.54.11_test"
 
 #mainmenu
 
@@ -3634,6 +3634,8 @@ function help_function ()
 	echo "Resume playback yes"
 	echo "Show date and time yes"
 	echo "Title notifications yes"
+	echo "Adjust volume yes"
+	echo "Audio normalization yes"
 	echo "FF yes"
 	echo "RR yes"
 	echo "Play/Pause yes"
@@ -3653,6 +3655,8 @@ function help_function ()
 	echo "Resume playback yes"
 	echo "Show date and time yes"
 	echo "Title notifications yes"
+	echo "Adjust volume yes"
+	echo "Audio normalization yes"
 	echo "FF yes"
 	echo "RR yes"
 	echo "Play/Pause yes"
@@ -3672,6 +3676,8 @@ function help_function ()
 	echo "Resume playback no"
 	echo "Show date and time yes"
 	echo "Title notifications yes"
+	echo "Adjust volume yes"
+	echo "Audio normalization yes"
 	echo "FF yes"
 	echo "RR yes"
 	echo "Play/Pause yes"

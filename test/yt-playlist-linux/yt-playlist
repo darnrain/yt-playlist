@@ -16,7 +16,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="Linux v2.55.10_test"
+version="Linux v2.55.11_test"
 
 #mainmenu
 
@@ -4137,6 +4137,8 @@ function help_function ()
 	echo "Resume playback yes"
 	echo "Show date and time yes"
 	echo "Title notifications yes"
+	echo "Adjust volume yes"
+	echo "Audio normalization yes"
 	echo "FF yes"
 	echo "RR yes"
 	echo "Play/Pause yes"
@@ -4156,6 +4158,8 @@ function help_function ()
 	echo "Resume playback no"
 	echo "Show date and time yes"
 	echo "Title notifications no"
+	echo "Adjust volume yes"
+	echo "Audio normalization yes"
 	echo "FF yes"
 	echo "RR yes"
 	echo "Play/Pause yes"
@@ -4175,6 +4179,8 @@ function help_function ()
 	echo "Resume playback yes"
 	echo "Show date and time yes"
 	echo "Title notifications yes"
+	echo "Adjust volume yes"
+	echo "Audio normalization yes"
 	echo "FF yes"
 	echo "RR yes"
 	echo "Play/Pause yes"
@@ -4194,6 +4200,8 @@ function help_function ()
 	echo "Resume playback no"
 	echo "Show date and time yes"
 	echo "Title notifications yes"
+	echo "Adjust volume yes"
+	echo "Audio normalization yes"
 	echo "FF yes"
 	echo "RR yes"
 	echo "Play/Pause yes"
