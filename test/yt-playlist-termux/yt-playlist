@@ -1,4 +1,4 @@
-#!/data/data/com.termux/files/usr/bin/bash 
+##!/data/data/com.termux/files/usr/bin/bash 
 
 # yt-playlist Termux
 
@@ -15,9 +15,9 @@ video_dir="/sdcard/Videos"
 show_audio_dir=$(printf '"%s" \n' "Saved to: /sdcard/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
-yt_video_number="1:100"
 termux_pulse_fix="yes"
-version="Termux v2.54.12_test"
+yt_video_number="1:100"
+version="Termux v2.55.13_test"
 
 #mainmenu
 
@@ -500,7 +500,7 @@ Choose an option:  "
 	sleep 0.8
 	play_sd_menu_function
 	fi
-	echo "${yt_playlist_results}" | awk '{print $2}' > "${tmp_dir}/yt_playlist_url.txt"
+	video_shuffle_function
 	echo "============================"
 	echo "Play + shuffle + inf loop."
 	echo "============================"
@@ -513,7 +513,7 @@ Choose an option:  "
 	echo ""
 	touch "${tmp_dir}/mpv_video_running"
 	mpv_termux_pulse_fix_function
-	mpv ${mpv_log_file_arguments[@]} ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=inf --shuffle=yes --playlist="${tmp_dir}/yt_playlist_url.txt"
+	mpv ${mpv_log_file_arguments[@]} ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=inf --shuffle=no --playlist="${tmp_dir}/yt_playlist_url.txt"
 	play_sd_menu_function
 	;;
 2)
@@ -525,7 +525,7 @@ Choose an option:  "
 	sleep 0.8
 	play_sd_menu_function
 	fi
-	echo "${yt_playlist_results}" | awk '{print $2}' > "${tmp_dir}/yt_playlist_url.txt"
+	video_shuffle_function
 	echo "============================"
 	echo "Play once + shuffle."
 	echo "============================"
@@ -538,7 +538,7 @@ Choose an option:  "
 	echo ""
 	touch "${tmp_dir}/mpv_video_running"
 	mpv_termux_pulse_fix_function
-	mpv ${mpv_log_file_arguments[@]} ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=no --shuffle=yes --playlist="${tmp_dir}/yt_playlist_url.txt"
+	mpv ${mpv_log_file_arguments[@]} ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=no --shuffle=no --playlist="${tmp_dir}/yt_playlist_url.txt"
 	play_sd_menu_function
 	;;
 3)
@@ -878,7 +878,7 @@ Choose an option:  "
 	case $ans in
 1)
 	clear
-	cat "${yt_playlist_home_dir}/yt-playlist_music.txt" | awk '{print $1}' > "${tmp_dir}/yt_playlist_url.txt"
+	music_shuffle_function
 	yt_playlist_music_total=$(cat "${tmp_dir}/yt_playlist_url.txt" | wc -l)
 	yt_playlist_music_total="Total songs: $yt_playlist_music_total"
 	echo "============================"
@@ -892,12 +892,12 @@ Choose an option:  "
 	echo ""
 	touch "${tmp_dir}/mpv_music_running"
 	mpv_termux_pulse_fix_function
-	mpv ${mpv_log_file_arguments[@]} ${mpv_music_arguments[@]} --resume-playback=no --save-position-on-quit=no --loop-playlist=inf --shuffle=yes --playlist="${tmp_dir}/yt_playlist_url.txt"
+	mpv ${mpv_log_file_arguments[@]} ${mpv_music_arguments[@]} --resume-playback=no --save-position-on-quit=no --loop-playlist=inf --shuffle=no --playlist="${tmp_dir}/yt_playlist_url.txt"
 	play_music_menu_function
 	;;
 2)
 	clear
-	cat "${yt_playlist_home_dir}/yt-playlist_music.txt" | awk '{print $1}' > "${tmp_dir}/yt_playlist_url.txt"
+	music_shuffle_function
 	yt_playlist_music_total=$(cat "${tmp_dir}/yt_playlist_url.txt" | wc -l)
 	yt_playlist_music_total="Total songs: $yt_playlist_music_total"
 	echo "============================"
@@ -911,7 +911,7 @@ Choose an option:  "
 	echo ""
 	touch "${tmp_dir}/mpv_music_running"
 	mpv_termux_pulse_fix_function
-	mpv ${mpv_log_file_arguments[@]} ${mpv_music_arguments[@]} --resume-playback=no --save-position-on-quit=no --shuffle=yes --playlist="${tmp_dir}/yt_playlist_url.txt"
+	mpv ${mpv_log_file_arguments[@]} ${mpv_music_arguments[@]} --resume-playback=no --save-position-on-quit=no --shuffle=no --playlist="${tmp_dir}/yt_playlist_url.txt"
 	play_music_menu_function
 	;;
 3)
@@ -1223,7 +1223,7 @@ Choose an option:  "
 	case $ans in
 1)
 	clear
-	cat "${yt_playlist_home_dir}/yt-playlist_bookmark.txt" | awk '{print $1}' > "${tmp_dir}/yt_playlist_url.txt"
+	bookmark_shuffle_function
 	echo "============================"
 	echo "Play + shuffle + inf loop."
 	echo "============================"
@@ -1233,12 +1233,12 @@ Choose an option:  "
 	echo ""
 	touch "${tmp_dir}/mpv_bookmark_running"
 	mpv_termux_pulse_fix_function
-	mpv ${mpv_log_file_arguments[@]} ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=inf --shuffle=yes --playlist="${tmp_dir}/yt_playlist_url.txt"
+	mpv ${mpv_log_file_arguments[@]} ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=inf --shuffle=no --playlist="${tmp_dir}/yt_playlist_url.txt"
 	play_sd_bookmark_menu_function
 	;;
 2)
 	clear
-	cat "${yt_playlist_home_dir}/yt-playlist_bookmark.txt" | awk '{print $1}' > "${tmp_dir}/yt_playlist_url.txt"
+	bookmark_shuffle_function
 	echo "============================"
 	echo "Play once + shuffle."
 	echo "============================"
@@ -1248,7 +1248,7 @@ Choose an option:  "
 	echo ""
 	touch "${tmp_dir}/mpv_bookmark_running"
 	mpv_termux_pulse_fix_function
-	mpv ${mpv_log_file_arguments[@]} ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=no --shuffle=yes --playlist="${tmp_dir}/yt_playlist_url.txt"
+	mpv ${mpv_log_file_arguments[@]} ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=no --shuffle=no --playlist="${tmp_dir}/yt_playlist_url.txt"
 	play_sd_bookmark_menu_function
 	;;
 3)
@@ -2075,6 +2075,22 @@ esac
 }
 
 #functions
+
+function bookmark_shuffle_function ()
+{
+	cat "${yt_playlist_home_dir}/yt-playlist_bookmark.txt" | awk '{print $1}' | shuf --output="${tmp_dir}/yt_playlist_url.txt"
+}
+
+function music_shuffle_function ()
+{
+	cat "${yt_playlist_home_dir}/yt-playlist_music.txt" | awk '{print $1}' | shuf --output="${tmp_dir}/yt_playlist_url.txt"
+	
+}
+
+function video_shuffle_function ()
+{
+	echo "${yt_playlist_results}" | awk '{print $2}' | shuf --output="${tmp_dir}/yt_playlist_url.txt"
+}
 
 function mpv_termux_pulse_fix_function ()
 {
@@ -2928,9 +2944,153 @@ function play_sd_menu_bookmark_menu_hud_function ()
 	fi
 }
 
+function play_hd_menu_hud_function ()
+{
+	if [ -n "$mpv_hd_gpu" ]
+	then
+	echo "HW GPU on."
+	else
+	echo "HW GPU off"
+	fi
+	if [ -n "$mpv_hd_fullscreen" ]
+	then
+	echo "Fullscreen on."
+	else
+	echo "Fullscreen off."
+	fi
+	if [ -n "$mpv_hd_cache_show1" ]
+	then
+	echo "Max cache size 2560MB."
+	fi
+	if [ -n "$mpv_hd_cache_show2" ]
+	then
+	echo "Max cache size 1280MB"
+	fi
+	if [ -n "$mpv_hd_cache_show3" ]
+	then
+	echo "Max cache size 640MB."
+	fi
+	if test -f "${tmp_dir}/count_down_timer.txt"
+	then
+	echo "Sleep timer not available."
+	fi
+}
+
+function play_hd_menu_video_function ()
+{
+	yt_playlist_hd_title=$(echo "${yt_playlist_hd}" | awk '{$1=$2=$3=$4=""; print $0}' | sed 's/^[ \t]*//')
+	yt_playlist_hd_url=$(echo "${yt_playlist_hd}" | awk '{print $1'})
+	echo "Please wait."
+	yt_best_hd_video_resolution1=$(yt-dlp -N4 --no-warnings --list-formats "${yt_playlist_hd_url}" | awk 'END { print }' | cut -b -24 | cut -b 11- | tr -s '[:space:]')
+	yt_best_hd_video_resolution=$(echo "Best video resolution: $yt_best_hd_video_resolution1 FPS")
+	mpv_hd_arguments_function
+	clear
+}
+
+function mpv_hd_fullscreen_on_function ()
+{
+	mpv_hd_fullscreen=( --fs )
+	mpv_hd_arguments_function
+}
+
+function mpv_hd_fullscreen_off_function ()
+{
+	unset mpv_hd_fullscreen
+	mpv_hd_arguments_function
+}
+
+function mpv_hd_gpu_on_function ()
+{
+	mpv_hd_gpu=( "--hwdec=auto --vo=gpu --vd-lavc-dr=yes --hwdec-extra-frames=256" )
+	mpv_hd_arguments_function
+}
+
+function mpv_hd_gpu_off_function ()
+{
+	unset mpv_hd_gpu
+	mpv_hd_arguments_function
+}
+
+function mpv_hd_cache1_function ()
+{
+	unset mpv_hd_cache
+	unset mpv_hd_cache_show2
+	unset mpv_hd_cache_show3
+	mpv_hd_cache_show1="yes"
+	mpv_hd_cache=( "--cache=yes --cache-pause-wait=120 --cache-secs=600 --demuxer-max-bytes=2G --demuxer-max-back-bytes=512M --demuxer-donate-buffer=no" )
+	mpv_hd_arguments_function
+}
+
+function mpv_hd_cache2_function ()
+{
+	unset mpv_hd_cache
+	unset mpv_hd_cache_show1
+	unset mpv_hd_cache_show3
+	mpv_hd_cache_show2="yes"
+	mpv_hd_cache=( "--cache=yes --cache-pause-wait=120 --cache-secs=600 --demuxer-max-bytes=1G --demuxer-max-back-bytes=256M --demuxer-donate-buffer=no" )
+	mpv_hd_arguments_function
+}
+
+function mpv_hd_cache3_function ()
+{
+	unset mpv_hd_cache
+	unset mpv_hd_cache_show1
+	unset mpv_hd_cache_show2
+	mpv_hd_cache_show3="yes"
+	mpv_hd_cache=( "--cache=yes --cache-pause-wait=120 --cache-secs=600 --demuxer-max-bytes=512M --demuxer-max-back-bytes=128M --demuxer-donate-buffer=no" )
+	mpv_hd_arguments_function
+}
+
+function mpv_hd_arguments_function ()
+{
+	mpv_hd_arguments=( "${mpv_hd_gpu}" "${mpv_hd_fullscreen}" "${mpv_hd_cache}" --config-dir="${yt_playlist_home_dir}" --af=format=channels=stereo,dynaudnorm --sid=no --video-sync=display-resample --gamma=2.2 --video-output-levels=full --volume=100 --volume-max=150 --load-scripts=no --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket" )
+}
+
+function mpv_video_fullscreen_on_function ()
+{
+	if [ -n "$mpv_video_mp4" ]
+	then
+	mpv_video_fullscreen=( --fs )
+	mpv_video_arguments_function
+	fi
+}
+
+function mpv_video_fullscreen_off_function ()
+{
+	unset mpv_video_fullscreen
+	mpv_video_arguments_function
+}
+
+function mpv_video_gpu_on_function ()
+{
+	if [ -n "$mpv_video_mp4" ]
+	then
+	mpv_video_gpu=( "--hwdec=auto --vo=gpu --vd-lavc-dr=yes" )
+	mpv_video_arguments_function
+	fi
+}
+
+function mpv_video_gpu_off_function ()
+{
+	unset mpv_video_gpu
+	mpv_video_arguments_function
+}
+
+function mpv_video_mp4_function ()
+{
+	mpv_audio_video=( "--ytdl-format=22/18/b --video-sync=display-resample --video-output-levels=full --gamma=2.2" )
+	mpv_video_mp4="yes"
+	unset mpv_video_m4a
+	unset mpv_video_opus
+	export audio_download_format="140/ba"
+	export video_download_format="22/18/b"
+	mpv_video_arguments_function
+}
+
 function mpv_video_m4a_function ()
 {
 	mpv_audio_video=( "--ytdl-format=22/18/b --video=no --term-osd-bar" )
+	unset mpv_video_mp4
 	mpv_video_m4a="yes"
 	unset mpv_video_opus
 	export audio_download_format="140/ba"
@@ -2941,6 +3101,7 @@ function mpv_video_m4a_function ()
 function mpv_video_opus_function ()
 {
 	mpv_audio_video=( "--ytdl-format=251/140/ba --video=no --term-osd-bar" )
+	unset mpv_video_mp4
 	unset mpv_video_m4a
 	mpv_video_opus="yes"
 	export audio_download_format="251/ba"
@@ -2950,7 +3111,7 @@ function mpv_video_opus_function ()
 
 function mpv_video_arguments_function ()
 {
-	mpv_video_arguments=( "${mpv_audio_video}" "${audio_video_sponsorblock}" --config-dir="${yt_playlist_home_dir}" --script-opts=ytdl_hook-try_ytdl_first=yes --term-playing-msg='${media-title}' --af=format=channels=stereo,dynaudnorm --cache=yes --cache-secs=120 --demuxer-max-bytes=35M --demuxer-max-back-bytes=5M --ytdl-raw-options=sub-lang=en,write-auto-sub= --sid=no --volume=100 --volume-max=150 --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket")
+	mpv_video_arguments=( "${mpv_audio_video}" "${mpv_video_gpu}" "${mpv_video_fullscreen}" "${audio_video_sponsorblock}" --config-dir="${yt_playlist_home_dir}" --script-opts=ytdl_hook-try_ytdl_first=yes --term-playing-msg='${media-title}' --af=format=channels=stereo,dynaudnorm --cache=yes --cache-secs=120 --demuxer-max-bytes=35M --demuxer-max-back-bytes=5M --ytdl-raw-options=sub-lang=en,write-auto-sub= --sid=no --volume=100 --volume-max=150 --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket")
 }
 
 function resume_playback_on_function ()

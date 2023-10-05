@@ -4,6 +4,9 @@
 Test change log notes
 ================================
 
+Linux v2.55.13_test | macOS v2.55.13_test | Termux v2.55.13_test
+I never liked how mpv shuffles the tracks, so from now on yt-playlist will shuffle the tracks.
+
 Linux v2.55.12_test | macOS v2.55.12_test | Termux v2.55.12_test
 Put a cap on the max volume up to 150%, with this new dynamic audio normalization there is no need to have the max set at 200%.
 

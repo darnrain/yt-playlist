@@ -19,8 +19,9 @@ video_dir="${HOME}/Videos"
 show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
+unset mpv_termux_pulse_fix_function
 yt_video_number="1:100"
-version="macOS v2.54.12_test"
+version="macOS v2.55.13_test"
 
 #mainmenu
 
@@ -522,7 +523,7 @@ Choose an option:  "
 	sleep 0.8
 	play_sd_menu_function
 	fi
-	echo "${yt_playlist_results}" | awk '{print $2}' > "${tmp_dir}/yt_playlist_url.txt"
+	video_shuffle_function
 	echo "============================"
 	echo "Play + shuffle + inf loop."
 	echo "============================"
@@ -535,7 +536,7 @@ Choose an option:  "
 	echo ""
 	touch "${tmp_dir}/mpv_video_running"
 	mpv_termux_pulse_fix_function
-	mpv ${mpv_log_file_arguments[@]} ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=inf --shuffle=yes --playlist="${tmp_dir}/yt_playlist_url.txt"
+	mpv ${mpv_log_file_arguments[@]} ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=inf --shuffle=no --playlist="${tmp_dir}/yt_playlist_url.txt"
 	play_sd_menu_function
 	;;
 2)
@@ -547,7 +548,7 @@ Choose an option:  "
 	sleep 0.8
 	play_sd_menu_function
 	fi
-	echo "${yt_playlist_results}" | awk '{print $2}' > "${tmp_dir}/yt_playlist_url.txt"
+	video_shuffle_function
 	echo "============================"
 	echo "Play once + shuffle."
 	echo "============================"
@@ -560,7 +561,7 @@ Choose an option:  "
 	echo ""
 	touch "${tmp_dir}/mpv_video_running"
 	mpv_termux_pulse_fix_function
-	mpv ${mpv_log_file_arguments[@]} ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=no --shuffle=yes --playlist="${tmp_dir}/yt_playlist_url.txt"
+	mpv ${mpv_log_file_arguments[@]} ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=no --shuffle=no --playlist="${tmp_dir}/yt_playlist_url.txt"
 	play_sd_menu_function
 	;;
 3)
@@ -906,7 +907,7 @@ Choose an option:  "
 	case $ans in
 1)
 	clear
-	cat "${yt_playlist_home_dir}/yt-playlist_music.txt" | awk '{print $1}' > "${tmp_dir}/yt_playlist_url.txt"
+	music_shuffle_function
 	yt_playlist_music_total=$(cat "${tmp_dir}/yt_playlist_url.txt" | wc -l)
 	yt_playlist_music_total="Total songs: $yt_playlist_music_total"
 	echo "============================"
@@ -920,12 +921,12 @@ Choose an option:  "
 	echo ""
 	touch "${tmp_dir}/mpv_music_running"
 	mpv_termux_pulse_fix_function
-	mpv ${mpv_log_file_arguments[@]} ${mpv_music_arguments[@]} --resume-playback=no --save-position-on-quit=no --loop-playlist=inf --shuffle=yes --playlist="${tmp_dir}/yt_playlist_url.txt"
+	mpv ${mpv_log_file_arguments[@]} ${mpv_music_arguments[@]} --resume-playback=no --save-position-on-quit=no --loop-playlist=inf --shuffle=no --playlist="${tmp_dir}/yt_playlist_url.txt"
 	play_music_menu_function
 	;;
 2)
 	clear
-	cat "${yt_playlist_home_dir}/yt-playlist_music.txt" | awk '{print $1}' > "${tmp_dir}/yt_playlist_url.txt"
+	music_shuffle_function
 	yt_playlist_music_total=$(cat "${tmp_dir}/yt_playlist_url.txt" | wc -l)
 	yt_playlist_music_total="Total songs: $yt_playlist_music_total"
 	echo "============================"
@@ -939,7 +940,7 @@ Choose an option:  "
 	echo ""
 	touch "${tmp_dir}/mpv_music_running"
 	mpv_termux_pulse_fix_function
-	mpv ${mpv_log_file_arguments[@]} ${mpv_music_arguments[@]} --resume-playback=no --save-position-on-quit=no --shuffle=yes --playlist="${tmp_dir}/yt_playlist_url.txt"
+	mpv ${mpv_log_file_arguments[@]} ${mpv_music_arguments[@]} --resume-playback=no --save-position-on-quit=no --shuffle=no --playlist="${tmp_dir}/yt_playlist_url.txt"
 	play_music_menu_function
 	;;
 3)
@@ -1254,7 +1255,7 @@ Choose an option:  "
 	case $ans in
 1)
 	clear
-	cat "${yt_playlist_home_dir}/yt-playlist_bookmark.txt" | awk '{print $1}' > "${tmp_dir}/yt_playlist_url.txt"
+	bookmark_shuffle_function
 	echo "============================"
 	echo "Play + shuffle + inf loop."
 	echo "============================"
@@ -1264,12 +1265,12 @@ Choose an option:  "
 	echo ""
 	touch "${tmp_dir}/mpv_bookmark_running"
 	mpv_termux_pulse_fix_function
-	mpv ${mpv_log_file_arguments[@]} ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=inf --shuffle=yes --playlist="${tmp_dir}/yt_playlist_url.txt"
+	mpv ${mpv_log_file_arguments[@]} ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=inf --shuffle=no --playlist="${tmp_dir}/yt_playlist_url.txt"
 	play_sd_bookmark_menu_function
 	;;
 2)
 	clear
-	cat "${yt_playlist_home_dir}/yt-playlist_bookmark.txt" | awk '{print $1}' > "${tmp_dir}/yt_playlist_url.txt"
+	bookmark_shuffle_function
 	echo "============================"
 	echo "Play once + shuffle."
 	echo "============================"
@@ -1279,7 +1280,7 @@ Choose an option:  "
 	echo ""
 	touch "${tmp_dir}/mpv_bookmark_running"
 	mpv_termux_pulse_fix_function
-	mpv ${mpv_log_file_arguments[@]} ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=no --shuffle=yes --playlist="${tmp_dir}/yt_playlist_url.txt"
+	mpv ${mpv_log_file_arguments[@]} ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=no --shuffle=no --playlist="${tmp_dir}/yt_playlist_url.txt"
 	play_sd_bookmark_menu_function
 	;;
 3)
@@ -2364,6 +2365,22 @@ esac
 }
 
 #functions
+
+function bookmark_shuffle_function ()
+{
+	cat "${yt_playlist_home_dir}/yt-playlist_bookmark.txt" | awk '{print $1}' | shuf --output="${tmp_dir}/yt_playlist_url.txt"
+}
+
+function music_shuffle_function ()
+{
+	cat "${yt_playlist_home_dir}/yt-playlist_music.txt" | awk '{print $1}' | shuf --output="${tmp_dir}/yt_playlist_url.txt"
+	
+}
+
+function video_shuffle_function ()
+{
+	echo "${yt_playlist_results}" | awk '{print $2}' | shuf --output="${tmp_dir}/yt_playlist_url.txt"
+}
 
 function mpv_termux_pulse_fix_function ()
 {
