@@ -20,7 +20,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="macOS v2.54.6_test"
+version="macOS v2.54.7_test"
 
 #mainmenu
 
@@ -2878,44 +2878,44 @@ function sleep_timer_function ()
 	fi
 	if test -f "${tmp_dir}/mpv_video_running"
 	then
-	secs=$((95))
-	while [ $secs -gt 0 ]; do
-	number=$(echo "$secs")
-	echo "'set' 'volume' '$number'" | socat - "${tmp_dir}/mpvsocket"
+	volume_number=$(echo '{ "command": ["get_property", "volume"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d':' -f2 | cut -d'.' -f1)
+	while [ $volume_number -gt 0 ]; do
+	number=$(echo "$volume_number")
+	echo "'set' 'volume' '$number'" | socat - "${tmp_dir}/mpvsocket" 2>/dev/null
 	if test -f "${tmp_dir}/stop_sleep_timer"
 	then
 	break
 	fi
 	sleep 2 | sed 's/Terminated//'
-	: $((secs--))
+	: $((volume_number--))
 	done
 	fi
 	if test -f "${tmp_dir}/mpv_bookmark_running"
 	then
-	secs=$((95))
-	while [ $secs -gt 0 ]; do
-	number=$(echo "$secs")
-	echo "'set' 'volume' '$number'" | socat - "${tmp_dir}/mpvsocket"
+	volume_number=$(echo '{ "command": ["get_property", "volume"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d':' -f2 | cut -d'.' -f1)
+	while [ $volume_number -gt 0 ]; do
+	number=$(echo "$volume_number")
+	echo "'set' 'volume' '$number'" | socat - "${tmp_dir}/mpvsocket" 2>/dev/null
 	if test -f "${tmp_dir}/stop_sleep_timer"
 	then
 	break
 	fi
 	sleep 2 | sed 's/Terminated//'
-	: $((secs--))
+	: $((volume_number--))
 	done
 	fi
 	if test -f "${tmp_dir}/mpv_music_running"
 	then
-	secs=$((95))
-	while [ $secs -gt 0 ]; do
-	number=$(echo "$secs")
-	echo "'set' 'volume' '$number'" | socat - "${tmp_dir}/mpvsocket"
+	volume_number=$(echo '{ "command": ["get_property", "volume"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d':' -f2 | cut -d'.' -f1)
+	while [ $volume_number -gt 0 ]; do
+	number=$(echo "$volume_number")
+	echo "'set' 'volume' '$number'" | socat - "${tmp_dir}/mpvsocket" 2>/dev/null
 	if test -f "${tmp_dir}/stop_sleep_timer"
 	then
 	break
 	fi
 	sleep 2 | sed 's/Terminated//'
-	: $((secs--))
+	: $((volume_number--))
 	done
 	fi
 	if test -f "${tmp_dir}/mpv_video_running"

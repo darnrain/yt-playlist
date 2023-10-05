@@ -4,6 +4,10 @@
 Test change log notes
 ================================
 
+Linux v2.55.7_test | macOS v2.55.7_test | Termux v2.55.7_test
+Fixed the sleep timer function, now it will start counting down from the volume level you have set on mpv player.
+Fixed a bug with the sleep timer if you exit mpv player while sleep timer is reducing volume.
+
 Linux v2.55.6_test | macOS v2.55.6_test | Termux v2.55.6_test
 Some songs are so quiet on YouTube, I have added the option to increase the volume in mpv up to 200%
 Increase vol = 0
