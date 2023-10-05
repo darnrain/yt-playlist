@@ -16,7 +16,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="Linux v2.55.4_test"
+version="Linux v2.55.5_test"
 
 #mainmenu
 
@@ -2371,6 +2371,7 @@ function mpv_termux_pulse_fix_function ()
 	then
 	pkill -9 pulseaudio
 	pulseaudio -D --exit-idle-time=600
+        pactl set-sink-volume 1 2db
 	fi
 }
 
