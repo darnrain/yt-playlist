@@ -2112,6 +2112,16 @@ function video_shuffle_function ()
 	fi
 }
 
+function mpv_termux_pulse_fix_function ()
+{
+	if [ -n "${termux_pulse_fix}" ]
+	then
+	pkill -9 pulseaudio
+	pulseaudio -D --exit-idle-time=600
+        pactl set-sink-volume 1 100%
+	fi
+}
+
 function yt_playlist_setup_function ()
 {
 	clear
