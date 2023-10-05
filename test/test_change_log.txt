@@ -4,6 +4,13 @@
 Test change log notes
 ================================
 
+Linux v2.55.6_test | macOS v2.55.6_test | Termux v2.55.6_test
+Some songs are so quiet on YouTube, I have added the option to increase the volume in mpv up to 200%
+Increase vol = 0
+Decrease vol = 9
+
+Updated the help menu.
+
 Linux v2.55.5_test | macOS v2.55.4_test | Termux v2.55.5_test
 Increased the volume level on Termux to 108% I thought it was a little low.
 I also made the same change in the Linux version.

@@ -20,7 +20,7 @@ show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 yt_video_number="1:100"
-version="macOS v2.54.4_test"
+version="macOS v2.54.6_test"
 
 #mainmenu
 
@@ -2371,6 +2371,7 @@ function mpv_termux_pulse_fix_function ()
 	then
 	pkill -9 pulseaudio
 	pulseaudio -D --exit-idle-time=600
+        pactl set-sink-volume 1 100%
 	fi
 }
 
@@ -3350,7 +3351,7 @@ function mpv_hd_cache3_function ()
 
 function mpv_hd_arguments_function ()
 {
-	mpv_hd_arguments=( "${mpv_hd_gpu}" "${mpv_hd_fullscreen}" "${mpv_hd_cache}" --config-dir="${yt_playlist_home_dir}" --af=format=channels=stereo --sid=no --video-sync=display-resample --gamma=2.2 --video-output-levels=full --volume=95 --volume-max=100 --load-scripts=no --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket" )
+	mpv_hd_arguments=( "${mpv_hd_gpu}" "${mpv_hd_fullscreen}" "${mpv_hd_cache}" --config-dir="${yt_playlist_home_dir}" --af=format=channels=stereo --sid=no --video-sync=display-resample --gamma=2.2 --video-output-levels=full --volume=95 --volume-max=200 --load-scripts=no --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket" )
 }
 
 function mpv_video_fullscreen_on_function ()
@@ -3418,7 +3419,7 @@ function mpv_video_opus_function ()
 
 function mpv_video_arguments_function ()
 {
-	mpv_video_arguments=( "${mpv_audio_video}" "${mpv_video_gpu}" "${mpv_video_fullscreen}" "${audio_video_sponsorblock}" --config-dir="${yt_playlist_home_dir}" --script-opts=ytdl_hook-try_ytdl_first=yes --term-playing-msg='${media-title}' --af=format=channels=stereo --cache=yes --cache-secs=120 --demuxer-max-bytes=35M --demuxer-max-back-bytes=5M --ytdl-raw-options=sub-lang=en,write-auto-sub= --sid=no --volume=95 --volume-max=100 --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket")
+	mpv_video_arguments=( "${mpv_audio_video}" "${mpv_video_gpu}" "${mpv_video_fullscreen}" "${audio_video_sponsorblock}" --config-dir="${yt_playlist_home_dir}" --script-opts=ytdl_hook-try_ytdl_first=yes --term-playing-msg='${media-title}' --af=format=channels=stereo --cache=yes --cache-secs=120 --demuxer-max-bytes=35M --demuxer-max-back-bytes=5M --ytdl-raw-options=sub-lang=en,write-auto-sub= --sid=no --volume=95 --volume-max=200 --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket")
 }
 
 function resume_playback_on_function ()
@@ -3453,7 +3454,7 @@ function mpv_music_opus_function ()
 
 function mpv_music_arguments_function ()
 {
-	mpv_music_arguments=( "${mpv_music_audio}" --config-dir="${yt_playlist_home_dir}" --script-opts=ytdl_hook-try_ytdl_first=yes --term-playing-msg='${media-title}' --af=format=channels=stereo --cache=yes --cache-secs=120 --demuxer-max-bytes=35M --demuxer-max-back-bytes=5M --sid=no --volume=95 --volume-max=100 --load-scripts=no --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket")
+	mpv_music_arguments=( "${mpv_music_audio}" --config-dir="${yt_playlist_home_dir}" --script-opts=ytdl_hook-try_ytdl_first=yes --term-playing-msg='${media-title}' --af=format=channels=stereo --cache=yes --cache-secs=120 --demuxer-max-bytes=35M --demuxer-max-back-bytes=5M --sid=no --volume=95 --volume-max=200 --load-scripts=no --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket")
 }
 
 function mpv_log_file_on_funciton ()
@@ -4064,6 +4065,8 @@ function help_function ()
 	echo 'At Main menu type: "notes"'
 	echo ""
 	echo "When playing Audio/Video"
+	echo "Increase vol = 0"
+	echo "Decrease vol = 9"
 	echo "Right arrow for FF"
 	echo "Left arrow for RR"
 	echo "spacebar to pause"

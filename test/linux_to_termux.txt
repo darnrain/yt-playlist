@@ -245,6 +245,8 @@ function help_function ()
 	echo 'At Main menu type: "notes"'
 	echo ""
 	echo "When playing Audio"
+	echo "Increase vol = 0"
+	echo "Decrease vol = 9"
 	echo "Right arrow for FF"
 	echo "Left arrow for RR"
 	echo "spacebar to pause"
