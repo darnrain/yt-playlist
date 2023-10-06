@@ -19,8 +19,9 @@ video_dir="${HOME}/Videos"
 show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
+unset mpv_termux_pulse_fix_function
 yt_video_number="1:100"
-version="macOS v2.54"
+version="macOS v2.55"
 
 #mainmenu
 
@@ -522,7 +523,7 @@ Choose an option:  "
 	sleep 0.8
 	play_sd_menu_function
 	fi
-	echo "${yt_playlist_results}" | awk '{print $2}' > "${tmp_dir}/yt_playlist_url.txt"
+	video_shuffle_function
 	echo "============================"
 	echo "Play + shuffle + inf loop."
 	echo "============================"
@@ -534,7 +535,8 @@ Choose an option:  "
 	echo "Please wait."
 	echo ""
 	touch "${tmp_dir}/mpv_video_running"
-	mpv ${mpv_log_file_arguments[@]} ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=inf --shuffle=yes --playlist="${tmp_dir}/yt_playlist_url.txt"
+	mpv_termux_pulse_fix_function
+	mpv ${mpv_log_file_arguments[@]} ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=inf --shuffle=no --playlist="${tmp_dir}/yt_playlist_url.txt"
 	play_sd_menu_function
 	;;
 2)
@@ -546,7 +548,7 @@ Choose an option:  "
 	sleep 0.8
 	play_sd_menu_function
 	fi
-	echo "${yt_playlist_results}" | awk '{print $2}' > "${tmp_dir}/yt_playlist_url.txt"
+	video_shuffle_function
 	echo "============================"
 	echo "Play once + shuffle."
 	echo "============================"
@@ -558,7 +560,8 @@ Choose an option:  "
 	echo "Please wait."
 	echo ""
 	touch "${tmp_dir}/mpv_video_running"
-	mpv ${mpv_log_file_arguments[@]} ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=no --shuffle=yes --playlist="${tmp_dir}/yt_playlist_url.txt"
+	mpv_termux_pulse_fix_function
+	mpv ${mpv_log_file_arguments[@]} ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=no --shuffle=no --playlist="${tmp_dir}/yt_playlist_url.txt"
 	play_sd_menu_function
 	;;
 3)
@@ -596,6 +599,7 @@ Choose an option:  "
 	echo "Please wait."
 	echo ""
 	touch "${tmp_dir}/mpv_video_running"
+	mpv_termux_pulse_fix_function
 	mpv ${mpv_log_file_arguments[@]} ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=inf --shuffle=no --playlist-start="$yt_playlist_start" --playlist="${tmp_dir}/yt_playlist_url.txt"
 	play_sd_menu_function
 	else
@@ -628,6 +632,7 @@ Choose an option:  "
 	echo "Please wait."
 	echo ""
 	touch "${tmp_dir}/mpv_video_running"
+	mpv_termux_pulse_fix_function
 	mpv ${mpv_log_file_arguments[@]} ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=no --shuffle=no --playlist-start="$yt_playlist_start" --playlist="${tmp_dir}/yt_playlist_url.txt"
 	play_sd_menu_function
 	else
@@ -697,6 +702,7 @@ fi
 	echo "Please wait."
 	echo ""
 	touch "${tmp_dir}/mpv_video_running"
+	mpv_termux_pulse_fix_function
 	mpv ${mpv_log_file_arguments[@]} ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=inf --shuffle=no --playlist="${tmp_dir}/yt_playlist_url.txt"
 	play_sd_menu_function
 	else
@@ -751,6 +757,7 @@ fi
 	echo "Please wait."
 	echo ""
 	touch "${tmp_dir}/mpv_video_running"
+	mpv_termux_pulse_fix_function
 	mpv ${mpv_log_file_arguments[@]} ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=no --shuffle=no --playlist="${tmp_dir}/yt_playlist_url.txt"
 	play_sd_menu_function
 	else
@@ -900,7 +907,7 @@ Choose an option:  "
 	case $ans in
 1)
 	clear
-	cat "${yt_playlist_home_dir}/yt-playlist_music.txt" | awk '{print $1}' > "${tmp_dir}/yt_playlist_url.txt"
+	music_shuffle_function
 	yt_playlist_music_total=$(cat "${tmp_dir}/yt_playlist_url.txt" | wc -l)
 	yt_playlist_music_total="Total songs: $yt_playlist_music_total"
 	echo "============================"
@@ -913,12 +920,13 @@ Choose an option:  "
 	echo "Please wait."
 	echo ""
 	touch "${tmp_dir}/mpv_music_running"
-	mpv ${mpv_log_file_arguments[@]} ${mpv_music_arguments[@]} --resume-playback=no --save-position-on-quit=no --loop-playlist=inf --shuffle=yes --playlist="${tmp_dir}/yt_playlist_url.txt"
+	mpv_termux_pulse_fix_function
+	mpv ${mpv_log_file_arguments[@]} ${mpv_music_arguments[@]} --resume-playback=no --save-position-on-quit=no --loop-playlist=inf --shuffle=no --playlist="${tmp_dir}/yt_playlist_url.txt"
 	play_music_menu_function
 	;;
 2)
 	clear
-	cat "${yt_playlist_home_dir}/yt-playlist_music.txt" | awk '{print $1}' > "${tmp_dir}/yt_playlist_url.txt"
+	music_shuffle_function
 	yt_playlist_music_total=$(cat "${tmp_dir}/yt_playlist_url.txt" | wc -l)
 	yt_playlist_music_total="Total songs: $yt_playlist_music_total"
 	echo "============================"
@@ -931,7 +939,8 @@ Choose an option:  "
 	echo "Please wait."
 	echo ""
 	touch "${tmp_dir}/mpv_music_running"
-	mpv ${mpv_log_file_arguments[@]} ${mpv_music_arguments[@]} --resume-playback=no --save-position-on-quit=no --shuffle=yes --playlist="${tmp_dir}/yt_playlist_url.txt"
+	mpv_termux_pulse_fix_function
+	mpv ${mpv_log_file_arguments[@]} ${mpv_music_arguments[@]} --resume-playback=no --save-position-on-quit=no --shuffle=no --playlist="${tmp_dir}/yt_playlist_url.txt"
 	play_music_menu_function
 	;;
 3)
@@ -960,6 +969,7 @@ Choose an option:  "
 	echo "Please wait."
 	echo ""
 	touch "${tmp_dir}/mpv_music_running"
+	mpv_termux_pulse_fix_function
 	mpv ${mpv_log_file_arguments[@]} ${mpv_music_arguments[@]} --resume-playback=no --save-position-on-quit=no --loop-playlist=inf --shuffle=no --playlist-start="$yt_playlist_start" --playlist="${tmp_dir}/yt_playlist_url.txt"
 	play_music_menu_function
 	else
@@ -983,6 +993,7 @@ Choose an option:  "
 	echo "Please wait."
 	echo ""
 	touch "${tmp_dir}/mpv_music_running"
+	mpv_termux_pulse_fix_function
 	mpv ${mpv_log_file_arguments[@]} ${mpv_music_arguments[@]} --resume-playback=no --save-position-on-quit=no --loop-playlist=no --shuffle=no --playlist-start="$yt_playlist_start" --playlist="${tmp_dir}/yt_playlist_url.txt"
 	play_music_menu_function
 	else
@@ -1043,6 +1054,7 @@ fi
 	echo "Please wait."
 	echo ""
 	touch "${tmp_dir}/mpv_music_running"
+	mpv_termux_pulse_fix_function
 	mpv ${mpv_log_file_arguments[@]} ${mpv_music_arguments[@]} --resume-playback=no --save-position-on-quit=no --loop-playlist=inf --shuffle=no --playlist="${tmp_dir}/yt_playlist_url.txt"
 	play_music_menu_function
 	else
@@ -1088,6 +1100,7 @@ fi
 	echo "Please wait."
 	echo ""
 	touch "${tmp_dir}/mpv_music_running"
+	mpv_termux_pulse_fix_function
 	mpv ${mpv_log_file_arguments[@]} ${mpv_music_arguments[@]} --resume-playback=no --save-position-on-quit=no --loop-playlist=no --shuffle=no --playlist="${tmp_dir}/yt_playlist_url.txt"
 	play_music_menu_function
 	else
@@ -1242,7 +1255,7 @@ Choose an option:  "
 	case $ans in
 1)
 	clear
-	cat "${yt_playlist_home_dir}/yt-playlist_bookmark.txt" | awk '{print $1}' > "${tmp_dir}/yt_playlist_url.txt"
+	bookmark_shuffle_function
 	echo "============================"
 	echo "Play + shuffle + inf loop."
 	echo "============================"
@@ -1251,12 +1264,13 @@ Choose an option:  "
 	echo "Please wait."
 	echo ""
 	touch "${tmp_dir}/mpv_bookmark_running"
-	mpv ${mpv_log_file_arguments[@]} ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=inf --shuffle=yes --playlist="${tmp_dir}/yt_playlist_url.txt"
+	mpv_termux_pulse_fix_function
+	mpv ${mpv_log_file_arguments[@]} ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=inf --shuffle=no --playlist="${tmp_dir}/yt_playlist_url.txt"
 	play_sd_bookmark_menu_function
 	;;
 2)
 	clear
-	cat "${yt_playlist_home_dir}/yt-playlist_bookmark.txt" | awk '{print $1}' > "${tmp_dir}/yt_playlist_url.txt"
+	bookmark_shuffle_function
 	echo "============================"
 	echo "Play once + shuffle."
 	echo "============================"
@@ -1265,7 +1279,8 @@ Choose an option:  "
 	echo "Please wait."
 	echo ""
 	touch "${tmp_dir}/mpv_bookmark_running"
-	mpv ${mpv_log_file_arguments[@]} ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=no --shuffle=yes --playlist="${tmp_dir}/yt_playlist_url.txt"
+	mpv_termux_pulse_fix_function
+	mpv ${mpv_log_file_arguments[@]} ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=no --shuffle=no --playlist="${tmp_dir}/yt_playlist_url.txt"
 	play_sd_bookmark_menu_function
 	;;
 3)
@@ -1294,6 +1309,7 @@ Choose an option:  "
 	echo "Please wait."
 	echo ""
 	touch "${tmp_dir}/mpv_bookmark_running"
+	mpv_termux_pulse_fix_function
 	mpv ${mpv_log_file_arguments[@]} ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=inf --shuffle=no --playlist-start="$yt_playlist_start" --playlist="${tmp_dir}/yt_playlist_url.txt"
 	play_sd_bookmark_menu_function
 	else
@@ -1317,6 +1333,7 @@ Choose an option:  "
 	echo "Please wait."
 	echo ""
 	touch "${tmp_dir}/mpv_bookmark_running"
+	mpv_termux_pulse_fix_function
 	mpv ${mpv_log_file_arguments[@]} ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=no --shuffle=no --playlist-start="$yt_playlist_start" --playlist="${tmp_dir}/yt_playlist_url.txt"
 	play_sd_bookmark_menu_function
 	else
@@ -1377,6 +1394,7 @@ fi
 	echo "Please wait."
 	echo ""
 	touch "${tmp_dir}/mpv_bookmark_running"
+	mpv_termux_pulse_fix_function
 	mpv ${mpv_log_file_arguments[@]} ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=inf --shuffle=no --playlist="${tmp_dir}/yt_playlist_url.txt"
 	play_sd_bookmark_menu_function
 	else
@@ -1422,6 +1440,7 @@ fi
 	echo "Please wait."
 	echo "" 
 	touch "${tmp_dir}/mpv_bookmark_running"
+	mpv_termux_pulse_fix_function
 	mpv ${mpv_log_file_arguments[@]} ${mpv_video_arguments[@]} ${resume_playback_arguments[@]} --loop-playlist=no --shuffle=no --playlist="${tmp_dir}/yt_playlist_url.txt"
 	play_sd_bookmark_menu_function
 	else
@@ -2347,6 +2366,52 @@ esac
 
 #functions
 
+function bookmark_shuffle_function ()
+{
+	if command -v shuf >/dev/null
+	then
+	cat "${yt_playlist_home_dir}/yt-playlist_bookmark.txt" | awk '{print $1}' | shuf --output="${tmp_dir}/yt_playlist_url.txt"
+	else
+	clear
+	echo "Error: shuf not found."
+	sleep 2
+	fi
+}
+
+function music_shuffle_function ()
+{
+	if command -v shuf >/dev/null
+	then
+	cat "${yt_playlist_home_dir}/yt-playlist_music.txt" | awk '{print $1}' | shuf --output="${tmp_dir}/yt_playlist_url.txt"
+	else
+	clear
+	echo "Error: shuf not found."
+	sleep 2
+	fi
+}
+
+function video_shuffle_function ()
+{
+	if command -v shuf >/dev/null
+	then
+	echo "${yt_playlist_results}" | awk '{print $2}' | shuf --output="${tmp_dir}/yt_playlist_url.txt"
+	else
+	clear
+	echo "Error: shuf not found."
+	sleep 2
+	fi
+}
+
+function mpv_termux_pulse_fix_function ()
+{
+	if [ -n "${termux_pulse_fix}" ]
+	then
+	pkill -9 pulseaudio
+	pulseaudio -D --exit-idle-time=600
+        pactl set-sink-volume 1 100%
+	fi
+}
+
 function yt_playlist_setup_function ()
 {
 	clear
@@ -2373,9 +2438,6 @@ function yt_playlist_setup_function ()
 	echo "Choose an audio format."
 	echo "s16 s24 s32 or s64"
 	echo "A number larger than s16 will improve audio quality."
-	echo "mpv default audio format is s16"
-	echo "Computers now days have at least a" 
-	echo "32bit sound card so s32"
 	echo "Press enter for the default of s32"
 	printf " \n"
 	printf "Please enter an audio format: \n"
@@ -2390,7 +2452,6 @@ function yt_playlist_setup_function ()
 	echo "Choose a media framework."
         mpv --ao=help
 	echo "macOS uses coreaudio"
-	echo "Termux uses pulse"
 	echo "Linux uses pipewire or pulse"
 	echo "Press enter for the default pulse"
 	printf " \n"
@@ -2854,44 +2915,44 @@ function sleep_timer_function ()
 	fi
 	if test -f "${tmp_dir}/mpv_video_running"
 	then
-	secs=$((95))
-	while [ $secs -gt 0 ]; do
-	number=$(echo "$secs")
-	echo "'set' 'volume' '$number'" | socat - "${tmp_dir}/mpvsocket"
+	volume_number=$(echo '{ "command": ["get_property", "volume"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d':' -f2 | cut -d'.' -f1)
+	while [ $volume_number -gt 0 ]; do
+	number=$(echo "$volume_number")
+	echo "'set' 'volume' '$number'" | socat - "${tmp_dir}/mpvsocket" 2>/dev/null
 	if test -f "${tmp_dir}/stop_sleep_timer"
 	then
 	break
 	fi
 	sleep 2 | sed 's/Terminated//'
-	: $((secs--))
+	: $((volume_number--))
 	done
 	fi
 	if test -f "${tmp_dir}/mpv_bookmark_running"
 	then
-	secs=$((95))
-	while [ $secs -gt 0 ]; do
-	number=$(echo "$secs")
-	echo "'set' 'volume' '$number'" | socat - "${tmp_dir}/mpvsocket"
+	volume_number=$(echo '{ "command": ["get_property", "volume"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d':' -f2 | cut -d'.' -f1)
+	while [ $volume_number -gt 0 ]; do
+	number=$(echo "$volume_number")
+	echo "'set' 'volume' '$number'" | socat - "${tmp_dir}/mpvsocket" 2>/dev/null
 	if test -f "${tmp_dir}/stop_sleep_timer"
 	then
 	break
 	fi
 	sleep 2 | sed 's/Terminated//'
-	: $((secs--))
+	: $((volume_number--))
 	done
 	fi
 	if test -f "${tmp_dir}/mpv_music_running"
 	then
-	secs=$((95))
-	while [ $secs -gt 0 ]; do
-	number=$(echo "$secs")
-	echo "'set' 'volume' '$number'" | socat - "${tmp_dir}/mpvsocket"
+	volume_number=$(echo '{ "command": ["get_property", "volume"] }' | socat - "${tmp_dir}/mpvsocket" | cut -d':' -f2 | cut -d'.' -f1)
+	while [ $volume_number -gt 0 ]; do
+	number=$(echo "$volume_number")
+	echo "'set' 'volume' '$number'" | socat - "${tmp_dir}/mpvsocket" 2>/dev/null
 	if test -f "${tmp_dir}/stop_sleep_timer"
 	then
 	break
 	fi
 	sleep 2 | sed 's/Terminated//'
-	: $((secs--))
+	: $((volume_number--))
 	done
 	fi
 	if test -f "${tmp_dir}/mpv_video_running"
@@ -3327,7 +3388,7 @@ function mpv_hd_cache3_function ()
 
 function mpv_hd_arguments_function ()
 {
-	mpv_hd_arguments=( "${mpv_hd_gpu}" "${mpv_hd_fullscreen}" "${mpv_hd_cache}" --config-dir="${yt_playlist_home_dir}" --sid=no --video-sync=display-resample --gamma=2.2 --video-output-levels=full --volume=95 --volume-max=100 --load-scripts=no --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket" )
+	mpv_hd_arguments=( "${mpv_hd_gpu}" "${mpv_hd_fullscreen}" "${mpv_hd_cache}" --config-dir="${yt_playlist_home_dir}" --af=format=channels=stereo,dynaudnorm --sid=no --video-sync=display-resample --gamma=2.2 --video-output-levels=full --volume=100 --volume-max=150 --load-scripts=no --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket" )
 }
 
 function mpv_video_fullscreen_on_function ()
@@ -3395,7 +3456,7 @@ function mpv_video_opus_function ()
 
 function mpv_video_arguments_function ()
 {
-	mpv_video_arguments=( "${mpv_audio_video}" "${mpv_video_gpu}" "${mpv_video_fullscreen}" "${audio_video_sponsorblock}" --config-dir="${yt_playlist_home_dir}" --script-opts=ytdl_hook-try_ytdl_first=yes --term-playing-msg='${media-title}' --cache=yes --cache-secs=120 --demuxer-max-bytes=35M --demuxer-max-back-bytes=5M --ytdl-raw-options=sub-lang=en,write-auto-sub= --sid=no --volume=95 --volume-max=100 --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket")
+	mpv_video_arguments=( "${mpv_audio_video}" "${mpv_video_gpu}" "${mpv_video_fullscreen}" "${audio_video_sponsorblock}" --config-dir="${yt_playlist_home_dir}" --script-opts=ytdl_hook-try_ytdl_first=yes --term-playing-msg='${media-title}' --af=format=channels=stereo,dynaudnorm --cache=yes --cache-secs=120 --demuxer-max-bytes=35M --demuxer-max-back-bytes=5M --ytdl-raw-options=sub-lang=en,write-auto-sub= --sid=no --volume=100 --volume-max=150 --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket")
 }
 
 function resume_playback_on_function ()
@@ -3430,7 +3491,7 @@ function mpv_music_opus_function ()
 
 function mpv_music_arguments_function ()
 {
-	mpv_music_arguments=( "${mpv_music_audio}" --config-dir="${yt_playlist_home_dir}" --script-opts=ytdl_hook-try_ytdl_first=yes --term-playing-msg='${media-title}' --cache=yes --cache-secs=120 --demuxer-max-bytes=35M --demuxer-max-back-bytes=5M --sid=no --volume=95 --volume-max=100 --load-scripts=no --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket")
+	mpv_music_arguments=( "${mpv_music_audio}" --config-dir="${yt_playlist_home_dir}" --script-opts=ytdl_hook-try_ytdl_first=yes --term-playing-msg='${media-title}' --af=format=channels=stereo,dynaudnorm --cache=yes --cache-secs=120 --demuxer-max-bytes=35M --demuxer-max-back-bytes=5M --sid=no --volume=100 --volume-max=150 --load-scripts=no --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket")
 }
 
 function mpv_log_file_on_funciton ()
@@ -4041,6 +4102,8 @@ function help_function ()
 	echo 'At Main menu type: "notes"'
 	echo ""
 	echo "When playing Audio/Video"
+	echo "Increase vol = 0"
+	echo "Decrease vol = 9"
 	echo "Right arrow for FF"
 	echo "Left arrow for RR"
 	echo "spacebar to pause"
@@ -4077,6 +4140,8 @@ function help_function ()
 	echo "Resume playback yes"
 	echo "Show date and time yes"
 	echo "Title notifications yes"
+	echo "Adjust volume yes"
+	echo "Audio normalization yes"
 	echo "FF yes"
 	echo "RR yes"
 	echo "Play/Pause yes"
@@ -4096,6 +4161,8 @@ function help_function ()
 	echo "Resume playback no"
 	echo "Show date and time yes"
 	echo "Title notifications no"
+	echo "Adjust volume yes"
+	echo "Audio normalization yes"
 	echo "FF yes"
 	echo "RR yes"
 	echo "Play/Pause yes"
@@ -4115,6 +4182,8 @@ function help_function ()
 	echo "Resume playback yes"
 	echo "Show date and time yes"
 	echo "Title notifications yes"
+	echo "Adjust volume yes"
+	echo "Audio normalization yes"
 	echo "FF yes"
 	echo "RR yes"
 	echo "Play/Pause yes"
@@ -4134,6 +4203,8 @@ function help_function ()
 	echo "Resume playback no"
 	echo "Show date and time yes"
 	echo "Title notifications yes"
+	echo "Adjust volume yes"
+	echo "Audio normalization yes"
 	echo "FF yes"
 	echo "RR yes"
 	echo "Play/Pause yes"

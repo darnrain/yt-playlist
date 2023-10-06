@@ -1,6 +1,12 @@
 Termux yt-playlist.
 
-Dependencies will automatically be downloaded and installed. It may take about 5-10 minutes for a first time install, after that updates are fast.
+No need to run yt-playlist --setup
+The installer will automatically choose the best settings for Termux.
+Best Termux settings are:
+audio-samplerate=48000
+audio-format=s16
+ao=pulse
+The installer will automatically download and install all the dependencies. First time install only.
 
 ==========================================
 Install yt-playlist

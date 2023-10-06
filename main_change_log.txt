@@ -1,8 +1,20 @@
-10-4-2023
+10-5-2023
 
 ================================
 Change log notes
 ================================
+
+Linux v2.55 | macOS v2.55 | Termux v2.55
+Lots of changes in this version.
+Increased mpv default volume from 95% to 100%
+Termux installer will now choose the best settings for yt-playlist, no need to run yt-playlist --setup
+Added the option to increase the volume in mpv up to 150%
+Increase vol = 0
+Decrease vol = 9
+Fixed the sleep timer function, now it will start counting down from the volume level you have set on mpv player.
+Added Dynamic Audio Normalizer.
+All play menus include the new dynamic audio normalization.
+yt-playlist will now shuffle the tracks.
 
 Linux v2.54 | macOS v2.54 | Termux v2.54
 Removed the auto media framework detect function and replaced it with a setup menu. If you have never ran the setup before, then setup will load automatically the first time.
