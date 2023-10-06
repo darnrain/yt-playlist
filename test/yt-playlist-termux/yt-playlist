@@ -17,7 +17,7 @@ show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 termux_pulse_fix="yes"
 yt_video_number="1:100"
-version="Termux v2.56.1_test"
+version="Termux v2.56.2_test"
 #mainmenu
 
 function main_menu_function ()
@@ -2117,7 +2117,7 @@ function mpv_termux_pulse_fix_function ()
 	then
 	pkill -9 pulseaudio
 	pulseaudio -D --exit-idle-time=600
-        pactl set-sink-volume 1 100%
+        pactl -- set-sink-volume @DEFAULT_SINK@ 100%
 	fi
 }
 
