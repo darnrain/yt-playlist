@@ -21,7 +21,7 @@ show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 unset mpv_termux_pulse_fix_function
 yt_video_number="1:100"
-version="macOS v2.56.2_test"
+version="macOS v2.56.3_test"
 
 #mainmenu
 
@@ -2424,6 +2424,7 @@ function yt_playlist_setup_function ()
 	echo "Choosing the correct sample rate will"
 	echo "fix popping and crackling noise."
 	echo "The most common are 44100 and 48000"
+	echo "Termux is 44100"
 	echo "Press enter for the default of 48000"
 	printf " \n"
 	printf "Please enter an audio sample rate: \n"
@@ -2438,6 +2439,7 @@ function yt_playlist_setup_function ()
 	echo "Choose an audio format."
 	echo "s16 s24 s32 or s64"
 	echo "A number larger than s16 will improve audio quality."
+	echo "Termux is s16"
 	echo "Press enter for the default of s32"
 	printf " \n"
 	printf "Please enter an audio format: \n"
@@ -2453,6 +2455,7 @@ function yt_playlist_setup_function ()
         mpv --ao=help
 	echo "macOS uses coreaudio"
 	echo "Linux uses pipewire or pulse"
+	echo "Termux is pulse"
 	echo "Press enter for the default pulse"
 	printf " \n"
 	printf "Please enter a media framework: \n"
@@ -2462,6 +2465,13 @@ function yt_playlist_setup_function ()
 	echo "ao=${answer}" >> "${yt_playlist_home_dir}/mpv.conf"
 	else
 	echo "ao=pulse" >> "${yt_playlist_home_dir}/mpv.conf"
+	fi
+	clear
+	printf "Enable Dynamic Audio Normalizer [y/N] \n"
+	read answer
+	if [ "$answer" != "${answer#[yY]}" ]
+	then
+	echo "af=lavfi=[dynaudnorm=f=75:g=57:p=0.95:s=0.0:m=4.0]" >> "${yt_playlist_home_dir}/mpv.conf"
 	fi
 	printf " \n"
 	echo "Listing options you have chosen:"
@@ -3388,7 +3398,7 @@ function mpv_hd_cache3_function ()
 
 function mpv_hd_arguments_function ()
 {
-	mpv_hd_arguments=( "${mpv_hd_gpu}" "${mpv_hd_fullscreen}" "${mpv_hd_cache}" --config-dir="${yt_playlist_home_dir}" --af=lavfi=[dynaudnorm=f=75:g=57:p=0.95:s=0.0:m=4.0] --sid=no --video-sync=display-resample --gamma=2.2 --video-output-levels=full --volume=100 --load-scripts=no --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket" )
+	mpv_hd_arguments=( "${mpv_hd_gpu}" "${mpv_hd_fullscreen}" "${mpv_hd_cache}" --config-dir="${yt_playlist_home_dir}" --sid=no --video-sync=display-resample --gamma=2.2 --video-output-levels=full --volume=100 --load-scripts=no --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket" )
 }
 
 function mpv_video_fullscreen_on_function ()
@@ -3456,7 +3466,7 @@ function mpv_video_opus_function ()
 
 function mpv_video_arguments_function ()
 {
-	mpv_video_arguments=( "${mpv_audio_video}" "${mpv_video_gpu}" "${mpv_video_fullscreen}" "${audio_video_sponsorblock}" --config-dir="${yt_playlist_home_dir}" --script-opts=ytdl_hook-try_ytdl_first=yes --term-playing-msg='${media-title}' --af=lavfi=[dynaudnorm=f=75:g=57:p=0.95:s=0.0:m=4.0] --cache=yes --cache-secs=120 --demuxer-max-bytes=35M --demuxer-max-back-bytes=5M --ytdl-raw-options=sub-lang=en,write-auto-sub= --sid=no --volume=100 --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket")
+	mpv_video_arguments=( "${mpv_audio_video}" "${mpv_video_gpu}" "${mpv_video_fullscreen}" "${audio_video_sponsorblock}" --config-dir="${yt_playlist_home_dir}" --script-opts=ytdl_hook-try_ytdl_first=yes --term-playing-msg='${media-title}' --cache=yes --cache-secs=120 --demuxer-max-bytes=35M --demuxer-max-back-bytes=5M --ytdl-raw-options=sub-lang=en,write-auto-sub= --sid=no --volume=100 --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket")
 }
 
 function resume_playback_on_function ()
@@ -3491,7 +3501,7 @@ function mpv_music_opus_function ()
 
 function mpv_music_arguments_function ()
 {
-	mpv_music_arguments=( "${mpv_music_audio}" --config-dir="${yt_playlist_home_dir}" --script-opts=ytdl_hook-try_ytdl_first=yes --term-playing-msg='${media-title}' --af=lavfi=[dynaudnorm=f=75:g=57:p=0.95:s=0.0:m=4.0] --cache=yes --cache-secs=120 --demuxer-max-bytes=35M --demuxer-max-back-bytes=5M --sid=no --volume=100 --load-scripts=no --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket")
+	mpv_music_arguments=( "${mpv_music_audio}" --config-dir="${yt_playlist_home_dir}" --script-opts=ytdl_hook-try_ytdl_first=yes --term-playing-msg='${media-title}' --cache=yes --cache-secs=120 --demuxer-max-bytes=35M --demuxer-max-back-bytes=5M --sid=no --volume=100 --load-scripts=no --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket")
 }
 
 function mpv_log_file_on_funciton ()
