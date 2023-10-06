@@ -4,8 +4,10 @@
 Test change log notes
 ================================
 
-Made a new github repository
-https://github.com/darnrain/mpv.conf
+Linux v2.55.1_test | macOS v2.56.1_test | Termux v2.56.1_test
+I have been tweaking the Dynamic Audio Normalizer. I changed the settings in the Dynamic Audio Normalizer. It sounds good now.
+Removed the cap on the max vol, Dynamic Audio Normalizer needs to have unlimited access to volume control.
+It is a little odd having the computer adjust the volume me. Let's see how this is going to work out, the volume is all over the place when it comes to YouTube audio.
 
 Linux v2.55 | macOS v2.55 | Termux v2.55
 Moved all three to main.

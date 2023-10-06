@@ -17,7 +17,7 @@ show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 termux_pulse_fix="yes"
 yt_video_number="1:100"
-version="Termux v2.55"
+version="Termux v2.56.1_test"
 #mainmenu
 
 function main_menu_function ()
@@ -2984,7 +2984,7 @@ function mpv_video_opus_function ()
 
 function mpv_video_arguments_function ()
 {
-	mpv_video_arguments=( "${mpv_audio_video}" "${audio_video_sponsorblock}" --config-dir="${yt_playlist_home_dir}" --script-opts=ytdl_hook-try_ytdl_first=yes --term-playing-msg='${media-title}' --af=format=channels=stereo,dynaudnorm --cache=yes --cache-secs=120 --demuxer-max-bytes=35M --demuxer-max-back-bytes=5M --ytdl-raw-options=sub-lang=en,write-auto-sub= --sid=no --volume=100 --volume-max=150 --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket")
+	mpv_video_arguments=( "${mpv_audio_video}" "${audio_video_sponsorblock}" --config-dir="${yt_playlist_home_dir}" --script-opts=ytdl_hook-try_ytdl_first=yes --term-playing-msg='${media-title}' --af=lavfi=[dynaudnorm=f=75:g=57:p=0.95:s=0.0:m=4.0] --cache=yes --cache-secs=120 --demuxer-max-bytes=35M --demuxer-max-back-bytes=5M --ytdl-raw-options=sub-lang=en,write-auto-sub= --sid=no --volume=100 --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket")
 }
 
 function resume_playback_on_function ()
@@ -3019,7 +3019,7 @@ function mpv_music_opus_function ()
 
 function mpv_music_arguments_function ()
 {
-	mpv_music_arguments=( "${mpv_music_audio}" --config-dir="${yt_playlist_home_dir}" --script-opts=ytdl_hook-try_ytdl_first=yes --term-playing-msg='${media-title}' --af=format=channels=stereo,dynaudnorm --cache=yes --cache-secs=120 --demuxer-max-bytes=35M --demuxer-max-back-bytes=5M --sid=no --volume=100 --volume-max=150 --load-scripts=no --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket")
+	mpv_music_arguments=( "${mpv_music_audio}" --config-dir="${yt_playlist_home_dir}" --script-opts=ytdl_hook-try_ytdl_first=yes --term-playing-msg='${media-title}' --af=lavfi=[dynaudnorm=f=75:g=57:p=0.95:s=0.0:m=4.0] --cache=yes --cache-secs=120 --demuxer-max-bytes=35M --demuxer-max-back-bytes=5M --sid=no --volume=100 --load-scripts=no --msg-level=cplayer=no,ffmpeg=no,playlist=no,osd/libass=no --osd-duration=1800 --input-ipc-server="${tmp_dir}/mpvsocket")
 }
 
 function mpv_log_file_on_funciton ()
