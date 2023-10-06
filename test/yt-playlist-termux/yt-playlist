@@ -1,4 +1,4 @@
-##!/data/data/com.termux/files/usr/bin/bash 
+#!/data/data/com.termux/files/usr/bin/bash 
 
 # yt-playlist Termux
 
@@ -17,8 +17,7 @@ show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 termux_pulse_fix="yes"
 yt_video_number="1:100"
-version="Termux v2.55.14_test"
-
+version="Termux v2.55"
 #mainmenu
 
 function main_menu_function ()
@@ -2935,7 +2934,6 @@ function music_menu_hud_function ()
 	cat "${tmp_dir}/count_down_timer.txt"
 	fi
 }
-
 function play_sd_menu_bookmark_menu_hud_function ()
 {
 	if [ -n "$mpv_video_m4a" ]
