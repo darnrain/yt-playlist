@@ -21,7 +21,7 @@ show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 unset mpv_termux_pulse_fix_function
 yt_video_number="1:100"
-version="macOS v2.56.3_test"
+version="macOS v2.56.4_test"
 
 #mainmenu
 
@@ -2424,7 +2424,7 @@ function yt_playlist_setup_function ()
 	echo "Choosing the correct sample rate will"
 	echo "fix popping and crackling noise."
 	echo "The most common are 44100 and 48000"
-	echo "Termux is 44100"
+	echo "Termux is 48000"
 	echo "Press enter for the default of 48000"
 	printf " \n"
 	printf "Please enter an audio sample rate: \n"

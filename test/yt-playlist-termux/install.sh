@@ -24,12 +24,8 @@ fi
 	sed -i'' 's/autospawn = no/; autospawn = no/g' "/data/data/com.termux/files/usr/etc/pulse/client.conf"
 	sed -i'' 's/; autospawn = yes/autospawn = no/g' "/data/data/com.termux/files/usr/etc/pulse/client.conf"
 	fi
-	touch "${HOME}/.config/yt-playlist/mpv.conf"
 	echo "default-sample-format = s16le" > "${HOME}/.config/pulse/daemon.conf"
 	echo "default-sample-rate = 48000" >> "${HOME}/.config/pulse/daemon.conf"
-	echo "audio-samplerate=48000" > "${HOME}/.config/yt-playlist/mpv.conf"
-	echo "audio-format=s16" >> "${HOME}/.config/yt-playlist/mpv.conf"
-	echo "ao=pulse" >> "${HOME}/.config/yt-playlist/mpv.conf"
 	chmod +x /data/data/com.termux/files/usr/bin/yt-playlist
 	mkdir -p ${HOME}/.config/yt-playlist/
 	mkdir -p ${HOME}/.config/yt-playlist/scripts/
