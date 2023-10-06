@@ -4,21 +4,24 @@
 Test change log notes
 ================================
 
-Linux v2.55.5_test | macOS v2.56.5_test | Termux v2.56.5_test
+Linux v2.56 | macOS v2.56 | Termux v2.56
+Moved all three to main.
+
+Linux v2.56.5_test | macOS v2.56.5_test | Termux v2.56.5_test
 Changed the wording on the setup menu.
 
-Linux v2.55.4_test | macOS v2.56.4_test | Termux v2.56.4_test
+Linux v2.56.4_test | macOS v2.56.4_test | Termux v2.56.4_test
 The Termux installer will no longer choose the best settings for Termux.
 The recommended for Termux are listed in yt-playlist --setup
 
-Linux v2.55.3_test | macOS v2.56.3_test | Termux v2.56.3_test
+Linux v2.56.3_test | macOS v2.56.3_test | Termux v2.56.3_test
 I understand that not everyone will want to enable the Dynamic Audio Normalizer. So I have added the option in yt-playlist --setup to choose to enable it or not.
 If you would like to try out the new Dynamic Audio Normalizer I have customized, please run setup.
 
-Linux v2.55.2_test | macOS v2.56.2_test | Termux v2.56.2_test
+Linux v2.56.2_test | macOS v2.56.2_test | Termux v2.56.2_test
 Fixed the default volume on Termux.
 
-Linux v2.55.1_test | macOS v2.56.1_test | Termux v2.56.1_test
+Linux v2.56.1_test | macOS v2.56.1_test | Termux v2.56.1_test
 I have been tweaking the Dynamic Audio Normalizer. I changed the settings in the Dynamic Audio Normalizer.
 Removed the cap on the max vol, Dynamic Audio Normalizer needs to have unlimited access to volume control.
 

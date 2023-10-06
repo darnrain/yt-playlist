@@ -17,7 +17,7 @@ show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 unset mpv_termux_pulse_fix_function
 yt_video_number="1:100"
-version="Linux v2.56.5_test"
+version="Linux v2.56"
 
 #mainmenu
 
