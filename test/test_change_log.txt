@@ -4,6 +4,9 @@
 Test change log notes
 ================================
 
+Made a new github repository
+https://github.com/darnrain/mpv.conf
+
 Linux v2.55 | macOS v2.55 | Termux v2.55
 Moved all three to main.
 
