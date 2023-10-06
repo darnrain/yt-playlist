@@ -4,6 +4,9 @@
 Test change log notes
 ================================
 
+Linux v2.57.1_test | macOS v2.57.1_test | Termux v2.57.1_test
+Fixed the mpv_termux_pulse_fix_function
+
 Linux v2.56 | macOS v2.56 | Termux v2.56
 Moved all three to main.
 

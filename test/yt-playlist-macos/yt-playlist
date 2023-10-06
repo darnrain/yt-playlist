@@ -19,9 +19,9 @@ video_dir="${HOME}/Videos"
 show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
-unset mpv_termux_pulse_fix_function
+unset termux_pulse_fix
 yt_video_number="1:100"
-version="macOS v2.56"
+version="macOS v2.57.1_test"
 
 #mainmenu
 
