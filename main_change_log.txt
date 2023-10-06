@@ -4,6 +4,9 @@
 Change log notes
 ================================
 
+Made a new github repository
+https://github.com/darnrain/mpv.conf
+
 Linux v2.55 | macOS v2.55 | Termux v2.55
 Lots of changes in this version.
 Increased mpv default volume from 95% to 100%
