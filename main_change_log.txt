@@ -1,11 +1,16 @@
-10-5-2023
+10-6-2023
 
 ================================
 Change log notes
 ================================
 
-Made a new github repository
-https://github.com/darnrain/mpv.conf
+Linux v2.56 | macOS v2.56 | Termux v2.56
+Removed the cap on the max vol, Dynamic Audio Normalizer needs to have unlimited access to volume control.
+The default mpv volume cap is 130%
+Changed the settings on the Dynamic Audio Normalizer.
+Dynamic Audio Normalizer is not enabled by default now, if you would like to try it out run yt-playlist --setup
+The Termux installer will no longer choose the best settings for Termux.
+The recommended settings for Termux are listed in yt-playlist --setup
 
 Linux v2.55 | macOS v2.55 | Termux v2.55
 Lots of changes in this version.
