@@ -4,6 +4,9 @@
 Test change log notes
 ================================
 
+Linux v2.57.5_test | macOS v2.57.5_test | Termux v2.57.5_test
+Tweaking the bass and treble filters, trying to them to sound good. It's very close to almost there.
+
 Linux v2.57.4_test | macOS v2.57.4_test | Termux v2.57.4_test
 Fixed typo on the mpv filters menu.
 
