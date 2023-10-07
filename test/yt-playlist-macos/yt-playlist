@@ -21,7 +21,7 @@ show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 unset termux_pulse_fix
 yt_video_number="1:100"
-version="macOS v2.57.5"
+version="macOS v2.57.6"
 
 #mainmenu
 
@@ -2364,10 +2364,10 @@ M)
 esac
 }
 
-function mpv_setup_filer_function ()
+function ffmpeg_filter_menu_function ()
 {
 	clear
-echo -ne "== mpv audio filters menu ==
+echo -ne "== ffmpeg audio filter menu ==
 1) Enable Dynamic Audio Normalizer + bass + treble
 2) Enable Dynamic Audio Normalizer
 3) Enable bass + treble
@@ -2502,11 +2502,11 @@ function yt_playlist_setup_function ()
 	echo "ao=pulse" >> "${yt_playlist_home_dir}/mpv.conf"
 	fi
 	clear
-	printf "Enable mpv audio filters? [y/N] \n"
+	printf "Enable a ffmpeg audio filter? [y/N] \n"
 	read answer
 	if [ "$answer" != "${answer#[yY]}" ]
 	then
-	mpv_setup_filer_function
+	ffmpeg_filter_menu_function
 	fi
 	printf " \n"
 	echo "Listing options you have chosen:"
