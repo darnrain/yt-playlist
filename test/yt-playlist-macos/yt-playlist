@@ -43,10 +43,6 @@ function main_menu_function ()
 	then
 	echo "jemalloc enabled."
 	fi
-	if [ -n "$cover_art" ]
-	then
-	echo "Cover art notifications enabled."
-	fi
 	if [ -n "$mpv_log_file" ]
 	then
 	echo "mpv log file enabled."
@@ -2659,11 +2655,6 @@ fi
 	title_notification_function
 	exit
 	fi
-	if [[ "$external_arguments1" = "--cover_art" ]]
-	then
-	cover_art="yes"
-	yt_playlist_start_function
-	fi
 	echo "Error: incorrect argument."
 	exit
 }
@@ -2677,7 +2668,6 @@ function yt_playlist_start_function ()
 	echo "Error: yt-playlist is already running."
 	exit
 	else
-        deleted_tmp_cover_art_function
 	mpv_hd_cache3_function
 	mpv_video_fullscreen_off_function
 	mpv_video_gpu_off_function
@@ -2778,7 +2768,6 @@ function quit_function ()
 	if [ "$answer" != "${answer#[yY]}" ]
 	then
 	stop_sleep_timer_function
-        deleted_tmp_cover_art_function
 	yt_dlp_sponsorblock_off_function
 	exit
 	else
@@ -2943,14 +2932,6 @@ function sleep_timer_count_down_function ()
 	if test -f "${tmp_dir}/show_sleep_timer.txt"
 	then
 	rm "${tmp_dir}/show_sleep_timer.txt"
-	fi
-}
-
-function deleted_tmp_cover_art_function ()
-{
-	if test -f "${tmp_dir}/yt-playlist_icons.jpg"
-	then
-	rm "${tmp_dir}/yt-playlist_icons.jpg"
 	fi
 }
 
@@ -4149,8 +4130,6 @@ function help_function ()
 	echo "Desktop and terminal"
 	echo "notifications get"
 	echo "artist and title        --title"
-	echo "Enable cover art"
-	echo "notifications           --cover_art"
 	echo "Download when playing"
 	echo "Audio/Video"
 	echo "Download audio          --download_audio opus"
