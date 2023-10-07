@@ -17,7 +17,7 @@ show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 termux_pulse_fix="yes"
 yt_video_number="1:100"
-version="Termux v2.57.2"
+version="Termux v2.57.3"
 
 #mainmenu
 
@@ -2077,7 +2077,7 @@ esac
 function mpv_setup_filer_function ()
 {
 	clear
-echo -ne "== mpv audio filters Menu ==
+echo -ne "== mpv audio filters menu ==
 1) Enable Dynamic Audio Normalizer + bass + treble
 2) Enable Dynamic Audio Normalizer
 3) Enable bass + treble
@@ -2087,19 +2087,19 @@ Choose an option:  "
 	read -r ans
 	case $ans in
 1)
-	echo "af=dynaudnorm=f=75:g=57:p=0.95:s=0.0:m=4.0,virtualbass=cutoff=100:strength=3,highshelf=frequency=3000=precision=auto=gain=-15" >> "${yt_playlist_home_dir}/mpv.conf"
+	echo "af=dynaudnorm=f=75:g=57:p=0.95:s=0.0:m=4.0,virtualbass=cutoff=100:strength=2.5,highshelf=frequency=3000:precision=auto:gain=-15" >> "${yt_playlist_home_dir}/mpv.conf"
 	;;
 2)
 	echo "af=dynaudnorm=f=75:g=57:p=0.95:s=0.0:m=4.0" >> "${yt_playlist_home_dir}/mpv.conf"
 	;;
 3)
-	echo "af=virtualbass=cutoff=100:strength=3,highshelf=frequency=3000=precision=auto=gain=-15" >> "${yt_playlist_home_dir}/mpv.conf"
+	echo "af=virtualbass=cutoff=100:strength=2.5,highshelf=frequency=3000:precision=auto:gain=-15" >> "${yt_playlist_home_dir}/mpv.conf"
 	;;
 4)
-	echo "af=virtualbass=cutoff=100:strength=3" >> "${yt_playlist_home_dir}/mpv.conf"
+	echo "af=virtualbass=cutoff=100:strength=2.5" >> "${yt_playlist_home_dir}/mpv.conf"
 	;;
 5)
-	echo "af=highshelf=frequency=3000=precision=auto=gain=-15" >> "${yt_playlist_home_dir}/mpv.conf"
+	echo "af=highshelf=frequency=3000:precision=auto:gain=-15" >> "${yt_playlist_home_dir}/mpv.conf"
 	;;
 *)
 	echo "Wrong option."
