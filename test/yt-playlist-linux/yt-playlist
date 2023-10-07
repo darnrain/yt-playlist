@@ -17,7 +17,7 @@ show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 unset termux_pulse_fix
 yt_video_number="1:100"
-version="Linux v2.57.3_test"
+version="Linux v2.57.4_test"
 
 #mainmenu
 
@@ -2371,7 +2371,7 @@ echo -ne "== mpv audio filters menu ==
 1) Enable Dynamic Audio Normalizer + bass + treble
 2) Enable Dynamic Audio Normalizer
 3) Enable bass + treble
-4) Enalbe bass only
+4) Enable bass only
 5) Enalbe treble only
 Choose an option:  "
 	read -r ans
