@@ -1,8 +1,18 @@
-10-6-2023
+10-7-2023
 
 ================================
 Test change log notes
 ================================
+
+Linux v2.57.2_test | macOS v2.57.2_test | Termux v2.57.2_test
+Removed some of the required dependencies for macOS. They some of them are already included with the command line tools.
+Added the mpv filers menu run yt-playlist --setup
+
+1) Enable Dynamic Audio Normalizer + bass + treble
+2) Enable Dynamic Audio Normalizer
+3) Enable bass + treble
+4) Enalbe bass only
+5) Enalbe treble only
 
 Linux v2.57.1_test | macOS v2.57.1_test | Termux v2.57.1_test
 Fixed the mpv_termux_pulse_fix_function

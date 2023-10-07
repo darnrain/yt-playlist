@@ -1,7 +1,5 @@
 macOS yt-playlist.
 
-It's recommended to have macOS big sur or higher, otherwise you will have to compile all the dependencies and that may take hr's.
-
 If you are installing for the first time, start at Install brew. If your upgrading start at Automated install or Offline install.
 
 For notifications to work on macOS you need to give permissions to terminal-notifier.
