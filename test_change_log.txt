@@ -1,0 +1,407 @@
+10-8-2023
+
+================================
+Test change log notes
+================================
+
+Linux v2.57.10_test | macOS v2.57.10_test | Termux v2.57.10_test
+Fixed the ffmpeg filter menu, if wrong number typed it then it would show an error.
+Fixed typo on ffmgep filter menu.
+Changed the default media framework from pulseaudio to pipewire.
+
+Linux v2.57.9_test | macOS v2.57.9_test | Termux v2.57.9_test
+Updated the Dynamic Audio Normalizer, I wanted a little more sharper sound. The bass and treble were not touched.
+
+Linux v2.57.8_test | macOS v2.57.8_test | Termux v2.57.8_test
+Updated the ffmpeg audio filters, This is the final change I will make to the ffmpeg audio filters. I cant make it sound any better, enjoy.
+You will need to run yt-playlist --setup again.
+
+Linux v2.57.6_test | macOS v2.57.7_test | Termux v2.57.6_test
+Added back grep as the macOS dependencies.
+
+Linux v2.57.6_test | macOS v2.57.6_test | Termux v2.57.6_test
+Changed the name of the mpv audio filers menu to, ffmpeg audio filter menu.
+It's ffmpeg increasing the bass and treble.
+
+Linux v2.57.5_test | macOS v2.57.5_test | Termux v2.57.5_test
+Tweaking the bass and treble filters, trying to them to sound good. It's very close to almost there.
+
+Linux v2.57.4_test | macOS v2.57.4_test | Termux v2.57.4_test
+Fixed typo on the mpv filters menu.
+
+Linux v2.57.3_test | macOS v2.57.3_test | Termux v2.57.3_test
+Working on the mpv filters menu, trying to get the bass and treble to sound good.
+
+Linux v2.57.2_test | macOS v2.57.2_test | Termux v2.57.2_test
+Removed some of the required dependencies for macOS. Some of them are already included with the command line tools.
+Added the mpv filers menu run yt-playlist --setup
+
+1) Enable Dynamic Audio Normalizer + bass + treble
+2) Enable Dynamic Audio Normalizer
+3) Enable bass + treble
+4) Enalbe bass only
+5) Enalbe treble only
+
+Linux v2.57.1_test | macOS v2.57.1_test | Termux v2.57.1_test
+Fixed the mpv_termux_pulse_fix_function
+
+Linux v2.56 | macOS v2.56 | Termux v2.56
+Moved all three to main.
+
+Linux v2.56.5_test | macOS v2.56.5_test | Termux v2.56.5_test
+Changed the wording on the setup menu.
+
+Linux v2.56.4_test | macOS v2.56.4_test | Termux v2.56.4_test
+The Termux installer will no longer choose the best settings for Termux.
+The recommended for Termux are listed in yt-playlist --setup
+
+Linux v2.56.3_test | macOS v2.56.3_test | Termux v2.56.3_test
+I understand that not everyone will want to enable the Dynamic Audio Normalizer. So I have added the option in yt-playlist --setup to choose to enable it or not.
+If you would like to try out the new Dynamic Audio Normalizer I have customized, please run setup.
+
+Linux v2.56.2_test | macOS v2.56.2_test | Termux v2.56.2_test
+Fixed the default volume on Termux.
+
+Linux v2.56.1_test | macOS v2.56.1_test | Termux v2.56.1_test
+I have been tweaking the Dynamic Audio Normalizer. I changed the settings in the Dynamic Audio Normalizer.
+Removed the cap on the max vol, Dynamic Audio Normalizer needs to have unlimited access to volume control.
+
+Linux v2.55 | macOS v2.55 | Termux v2.55
+Moved all three to main.
+
+Linux v2.55.14_test | macOS v2.55.14_test | Termux v2.55.14_test
+Added a check to make sure shuf is installed before shuffling the tracks. It should be installed by default, but just in case it get's deleted from /usr/bin/shuf
+Also yt-playlist will shuffle the Play SD menu, Play SD bookmark menu and the Play YTMusic menu.
+
+Linux v2.55.13_test | macOS v2.55.13_test | Termux v2.55.13_test
+I never liked how mpv shuffles the tracks, so from now on yt-playlist will shuffle the tracks.
+
+Linux v2.55.12_test | macOS v2.55.12_test | Termux v2.55.12_test
+Put a cap on the max volume up to 150%, with this new dynamic audio normalization there is no need to have the max set at 200%.
+
+Linux v2.55.11_test | macOS v2.55.11_test | Termux v2.55.11_test
+Updated the help menu, all Play menus you are able to adjust volume in mpv.
+All play menus include the new dynamic audio normalization.
+
+Linux v2.55.10_test | macOS v2.55.10_test | Termux v2.55.10_test
+Changed the normalization from loudnorn to dynaudnorm.
+
+Dynamic Audio Normalizer.
+
+This filter applies a certain amount of gain to the input audio in order to bring its peak magnitude to a target level (e.g. 0 dBFS). However, in contrast to more "simple" normalization algorithms, the Dynamic Audio Normalizer *dynamically* re-adjusts the gain factor to the input audio. This allows for applying extra gain to the "quiet" sections of the audio while avoiding distortions or clipping the "loud" sections. In other words: The Dynamic Audio Normalizer will "even out" the volume of quiet and loud sections, in the sense that the volume of each section is brought to the same target level. Note, however, that the Dynamic Audio Normalizer achieves this goal *without* applying "dynamic range compressing". It will retain 100% of the dynamic range *within* each section of the audio file. 
+
+Linux v2.55.9_test | macOS v2.55.9_test | Termux v2.55.9_test
+Added audio normalization, with allowing you to increase the volume. This will prevent audio distortion when increasing the volume in mpv.
+
+Linux v2.55.8_test | macOS v2.55.8_test | Termux v2.55.8_test
+Changed the starting volume in mpv player to 100% from 95%, also set the system wide volume on Termux back to 100% from 109%
+
+Linux v2.55.7_test | macOS v2.55.7_test | Termux v2.55.7_test
+Fixed the sleep timer function, now it will start counting down from the volume level you have set on mpv player.
+Fixed a bug with the sleep timer if you exit mpv player while sleep timer is reducing volume.
+
+Linux v2.55.6_test | macOS v2.55.6_test | Termux v2.55.6_test
+Some songs are so quiet on YouTube, I have added the option to increase the volume in mpv up to 200%
+Increase vol = 0
+Decrease vol = 9
+
+Updated the help menu.
+
+Linux v2.55.5_test | macOS v2.55.4_test | Termux v2.55.5_test
+Increased the volume level on Termux to 108% I thought it was a little low.
+I also made the same change in the Linux version.
+
+Linux v2.55.4_test | macOS v2.55.4_test | Termux v2.55.4_test
+Fixed issue with Linux and macOS versions not running in v55.3
+I have not tested macOS yet but it should work.
+Changed the default volume level back to 95% I thought I could hear a little bit of audio distortion.
+
+Linux v2.55.3_test | macOS v2.55.3_test | Termux v2.55.3_test
+Added --audio-channels=stereo
+Just to make sure mpv outputs in stereo
+
+Linux v2.55.2_test | macOS v2.55.2_test | Termux v2.55.2_test
+Updated yt-playlist code to make it easier for me to convert Linux yt-playlist to macOS and termux.
+Termux installer will now choose the best settings for yt-playlist, no need to run yt-playlist --setup
+I have tweaked Termux to make the audio quality outstanding.
+Termux settings:
+audio-samplerate=48000
+audio-format=s16
+ao=pulse
+
+Linux v2.55.1_test | macOS v2.55.1_test | Termux v2.55.1_test
+Increased mpv default volume from 95% to 100%
+
+Linux v2.54 | macOS v2.54 | Termux v2.54
+Moved all three to main.
+
+Linux v2.54.6_test | macOS v2.54.6_test | Termux v2.54.7_test
+Fixed termux help menu.
+
+Linux v2.54.6_test | macOS v2.54.6_test | Termux v2.54.6_test
+Updated the setup menu.
+
+Linux v2.54.5_test | macOS v2.54.5_test | Termux v2.54.5_test
+Finalizing changes to the setup menu.
+
+Linux v2.54.4_test | macOS v2.54.4_test | Termux v2.54.4_test
+Updated the setup menu to include info about the sample rate, you can try 44100 or 48000 to fix audio issues.
+
+Linux v2.54.3_test | macOS v2.54.3_test | Termux v2.54.3_test
+Updated the setup menu, the default audio format is now s32. mpv default is s16 all computers now days have at least a 32bit sound card installed.
+run yt-playlist --setup
+
+Linux v2.54.2_test | macOS v2.54.2_test | Termux v2.54.2_test
+Updated the setup menu to display all the available options to choose from on your computer. Recommend running yt-playlist --setup again if you have already ran the setup.
+
+Linux v2.54.1_test | macOS v2.54.1_test | Termux v2.54.1_test
+Removed the auto media framework detect function and replaced it with a setup menu. If you have never ran the setup before, then setup will load automatically the first time.
+
+new argument function.
+yt-playlist --setup
+
+Linux v2.53 | macOS v2.53 | Termux v2.53
+Moved all three to main.
+
+Linux v2.53.8_test | macOS v2.53.6_test | Termux v2.53.6_test
+Updated Linux results function.
+
+Linux v2.53.7_test | macOS v2.53.6_test | Termux v2.53.6_test
+Fixed the results function for Linux.
+
+Linux v2.53.6_test | macOS v2.53.6_test | Termux v2.53.6_test
+Added Square brackets around the search name in the history, this will put the lines at the very bottom of the fzf search.
+
+Linux v2.53.5_test | macOS v2.53.5_test | Termux v2.53.5_test
+Sleep timer will now check to make sure it's not running before you can enable.
+
+Linux v2.53.4_test | macOS v2.53.3_test | Termux v2.53.3_test
+Made a new function for Linux to delete the tmp cover art on start and exit.
+
+Linux v2.53.3_test | macOS v2.53.3_test | Termux v2.53.3_test
+Added correct punctuation to the media framework message.
+
+Linux v2.53.2_test | macOS v2.53.2_test | Termux v2.53.2_test
+At the Main menu you will now see a message of what media framework yt-playlist found and is using.
+
+Linux v2.53.1_test | macOS v2.53.1_test | Termux v2.53.1_test
+Made a function that checks to see if pulseaudio, pipewire or coreaudio for mac is running. yt-playlist will set mpv to use that audio output.
+
+Linux v2.52 | macOS v2.52 | Termux v2.52
+Moved all three to main.
+
+Linux v2.52.7_test | macOS v2.52.6_test | Termux v2.52.6_test
+Added less to the list of dependencies for Linux, in the dependencies.txt
+
+Linux v2.52.6_test | macOS v2.52.6_test | Termux v2.52.6_test
+A small change to the code.
+
+Linux v2.52.5_test | macOS v2.52.5_test | Termux v2.52.5_test
+Updated the format of yt-playlist code.
+
+Linux v2.52.4_test | macOS v2.52.4_test | Termux v2.52.4_test
+Changed the format of the code in yt-playlist, install.sh and uninstall.sh
+Fixed the Playlist menu number 4. 
+
+Linux v2.52.3_test | macOS v2.52.3_test | Termux v2.52.3_test
+Changed the error message on the function that checks for YTMusic Radio urls.
+
+Linux v2.52.2_test | macOS v2.52.2_test | Termux v2.52.2_test
+Fixed the function that check for YTMusic Radio urls.
+
+Linux v2.52.1_test | macOS v2.52.1_test | Termux v2.52.1_test
+Fixed bug, YouTube Music Radio is not support. Added an error message.
+
+Linux v2.51.6_test | macOS v2.51.6_test | Termux v2.51.6_test
+I like the look of spacebar better than space bar. Changed back.
+
+Linux v2.51.5_test | macOS v2.51.5_test | Termux v2.51.5_test
+Fixed typo atrist changed to artist.
+Fixed typo spacebar change to space bar.
+Fixed typo suttitles changed to subtitles.
+
+Linux v2.51.4_test | macOS v2.51.4_test | Termux v2.51.4_test
+Updated option 3 on the Playlist menu. If no channel/playlist/album loaded it said No channel loaded. Changed error message to say No channel/playlist/album loaded.
+
+Linux v2.51.3_test | macOS v2.51.3_test | Termux v2.51.3_test
+Updated option 3 on the Playlist menu.
+
+Linux v2.51.2_test | macOS v2.51.2_test | Termux v2.51.2_test
+Updated help menu.
+
+Linux v2.51.1_test | macOS v2.51.1_test | Termux v2.51.1_test
+Renamed the download fzf title for video, from audio to video.
+Renamed the fzf titles in the Playlist menu.
+
+Linux v2.50 | macOS v2.50 | Termux v2.50
+Moved all three to main.
+
+Linux v2.50.2_test | macOS v2.50.2_test | Termux v2.50.2_test
+Added English subtitles on Play SD menu and Play SD bookmark menu. Press "j" to enable, they are disabled by default.
+Updated help menu
+
+Linux v2.50.1_test | macOS v2.50.1_test | Termux v2.50.1_test
+If wrong command line argument entered, then "Error: incorrect argument" If you run more that one yt-playlist then "Error: yt-playlist is already running."
+I changed the --mute command line argument to --mute_unmute that's more appropriate of what it's function is.
+Updated help menu.
+
+Linux v2.49 | macOS v2.49 | Termux v2.49
+Moved all three to main.
+
+Linux v2.48.5_test | macOS v2.48.5_test | Termux v2.48.5_test
+Updated help menu
+
+Linux v2.48.4_test | macOS v2.48.4_test | Termux v2.48.4_test
+Added a new argument --mute
+You will be able to Mute/Unmute.
+Updated the help menu.
+
+Linux v2.48.3_test | macOS v2.48.3_test | Termux v2.48.3_test
+When downloading audio/video the notification was displaying incorrect. There was no forward slash at the tail end. The forward slash represents a directory.
+
+Linux v2.48.2_test | macOS v2.48.2_test | Termux v2.48.2_test
+Added notifications to the --stop argument.
+
+Linux v2.48.1_test | macOS v2.48.1_test | Termux v2.48.1_test
+Fixed some error messages that were going to the wrong menu.
+
+Linux v2.48 | macOS v2.48 | Termux v2.48
+Push update to v2.48
+Fixed Play SD bookmark menu, if Enable audio/video sponsorblock then it would bring you to the Play SD menu.
+
+Linux v2.47 | macOS v2.47 | Termux v2.47
+Moved all three to main.
+
+Linux v2.47.20_test | macOS v2.47.21_test | Termux v2.47.20_test
+Fixed macOS not loading.
+macOS can install mpv from https://mpv.io/installation/
+yt-playlist uses the version from brew.
+Also it's a good idea to check for updates now and then on macOS.
+brew update; brew upgrade
+
+Linux v2.47.20_test | macOS v2.47.20_test | Termux v2.47.20_test
+Forgot a step when converting from Linux to Termux. I converted macOS and Termux again.
+
+Linux v2.47.19_test | macOS v2.47.19_test Termux v2.47.19_test
+Added the option in Play SD menu and Play SD bookmark menu to enable or disable audio/video sponsorblock.
+On Termux it only says audio sponsorblock.
+Fixed a bug with with the main menu Download sponsorblock if no number typed in.
+
+Linux v2.47.18_test | macOS v2.47.18_test Termux v2.47.18_test
+Added sponsorblock info when playing music/video on Play SD menu and Play SD bookmark menu.
+
+Linux v2.47.17_test | macOS v2.47.17_test Termux v2.47.17_test
+Fixed punctuation.
+
+Linux v2.47.16_test | macOS v2.47.16_test Termux v2.47.16_test
+Updated the help menu to include Download sponsorblock.
+
+Linux v2.47.15_test | macOS v2.47.15_test Termux v2.47.15_test
+Fixed typo
+
+Linux v2.47.14_test | macOS v2.47.14_test Termux v2.47.14_test
+Added an option to the main menu Download sponsorblock. Should work on the Main menu download and real time download.
+I have not tested this on all platforms yet only Linux.
+
+Linux v2.47.13_test | macOS v2.47.13_test Termux v2.47.13_test
+Notes menu will now retry up to 5 times max 60 seconds each to download info.
+
+Linux v2.47.12_test | macOS v2.47.12_test Termux v2.47.12_test
+Check for updates and Billboard menu will now retry up to 5 times max 60 seconds each to download info.
+
+Linux v2.47.11_test | macOS v2.47.11_test Termux v2.47.11_test
+Check for update does not clear screen now.
+
+Linux v2.47.9_test | macOS v2.47.9_test Termux v2.47.10_test
+Fixed Termux not playing Play YTMusic menu.
+
+Linux v2.47.9_test | macOS v2.47.9_test Termux v2.47.9_test
+Disable sponsorblock script on the Play YTMusic menu.
+
+Linux v2.47.8_test | macOS v2.47.8_test Termux v2.47.7_test
+Disable sponsorblock script on the Play HD menu.
+
+Linux v2.47.7_test | macOS v2.47.7_test Termux v2.47.7_test
+Fixed the notes menu, if no number entered the error message Please enter an option was not showing.
+
+Linux v2.47.5_test | macOS v2.47.6_test Termux v2.47.5_test
+I am going to undo the changes I made in v2.47.1 macOS.
+Hold menu button down on white apple remote to display the title.
+The default is to stop playing mpv.
+If you would like that feature then run this command. You will need to run each time your update yt-playlist.
+
+echo "STOP run /usr/local/bin/yt-playlist --title" >> ${HOME}/.config/yt-playlist/input.conf
+
+Linux v2.47.5_test | macOS v2.47.5_test Termux v2.47.5_test
+Removed the delay checking version. 
+
+Linux v2.47.4_test | macOS v2.47.4_test Termux v2.47.4_test
+Updated the help menu, --stop works on all menus.
+
+Linux v2.47.3_test | macOS v2.47.3_test Termux v2.47.3_test
+Added a new command line argument, --stop
+Will exit or stop mpv from playling bringing you back to your desktop.
+
+Linux v2.47.2_test | macOS v2.47.2_test Termux v2.47.2_test
+Sleep timer will now exit mpv back to your desktop instead of just pausing mpv.
+
+Linux v2.47_test | macOS v2.47.1_test Termux v2.47_test
+macOS
+Hold menu button down on white apple remote to display the title.
+
+Linux v2.46 | macOS v2.46 Termux v2.46
+Moved all three to main.
+
+Linux v2.46.8 | macOS v2.46.8 Termux v2.46.8
+Added the notes menu. You can type notes at the main menu to read change log notes main and test.
+
+Linux v2.46.7 | macOS v2.46.7 Termux v2.46.7
+Updated the version check option, to include the main version and test version numbers.
+The notes are not implemented yet.
+
+Linux v2.46.6 | macOS v2.46.6 Termux v2.46.6
+Removed change log notes in yt-playlist, you can check version by pressing option 9 on Termux option 8. I plan on making another option just for change log notes, main and test.
+
+Linux v2.46.5 | macOS v2.46.5 Termux v2.46.5
+Updated the readme.txt Automated install and Manual uninstall. Changed yes|rm -R /tmp/yt-playlist/ to rm -rf /tmp/yt-playlist/
+
+Linux v2.46.4 | macOS v2.46.4 Termux v2.46.4
+Changed Offline install to Manual install in the readme.txt. The manual still has to have internet to download sponsorblock from GitHub. It only downloads one time, once you have it installed the installer skips downloading it again.
+
+Linux v2.46.3 | macOS v2.46.3 Termux v2.46.3
+Fixed error message on results function.
+Fixed error message on Play HD menu.
+Fixing these errors it looks like the Play HD menu now downloads the video a lot faster.
+
+Linux v2.46.2 | macOS v2.46.2 Termux v2.46
+Added --color always to Play HD menu
+Whether  to  emit color codes in output, optionally prefixed by the STREAM (stdout or stderr) to apply the setting to.  Can be one of
+"always", "auto" (default), "never", or "no_color" (use non color terminal sequences).  Can be used multiple times
+
+Linux v2.46.1 | macOS v2.46.1 Termux v2.46
+Linux & macOS
+Changed the RGB color on the Play SD menu to full gamma 2.2
+
+Linux v2.45 | macOS v2.45 Termux v2.45
+Moved all three to main.
+
+Linux v2.45.6_test | macOS v2.45.6_test Termux v2.45.6_test
+Added back the --ignore-errors I guess errors from yt-dlp can not be suppressed. I will add this to the known issues.
+
+Linux v2.45.5_test | macOS v2.45.5_test Termux v2.45.5_test
+Removed --ignore-errors using sed to remove all words that have ERROR in them.
+
+Linux v2.45.4_test | macOS v2.45.4_test Termux v2.45.4_test
+added --ignore-errors to the results function, getting an error message of "ERROR: Incomplete data received" it's a youtube error message server side.
+
+Linux v2.45.3_test | macOS v2.45.3_test Termux v2.45.1_test
+Changed Play SD menu & Play Bookmark menu video is set at the default with no gamma settings & limited RGB. 
+
+Linux v2.45.2_test | macOS v2.45.2_test Termux v2.45.1_test
+Added --gamma=2.2 
+to Play SD menu Linux and macOS. Same as the Play HD menu.
+
+Linux v2.45.1_test | macOS v2.45.1_test Termux v2.45.1_test
+Fixed bug, with "Enter number of music/video results."
+Play SD menu and Play HD menu.
+If no number endered then it would unset the default results number of 100, then no results found.
