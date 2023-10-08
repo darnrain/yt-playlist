@@ -21,7 +21,7 @@ show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 unset termux_pulse_fix
 yt_video_number="1:100"
-version="macOS v2.57.7"
+version="macOS v2.57.8"
 
 #mainmenu
 
@@ -2377,19 +2377,19 @@ Choose an option:  "
 	read -r ans
 	case $ans in
 1)
-	echo "af=dynaudnorm=f=75:g=57:p=0.95:s=0.0:m=4.0,lowshelf=f=200:r=auto:g=-5,highshelf=f=3000:r=auto:g=-5" >> "${yt_playlist_home_dir}/mpv.conf"
+	echo "af=lowshelf[=f260:rauto:g-10],highshelf[=f2600:rauto:g-10],dynaudnorm[=f75:g57:p0.95:s0.0:m10.0]" >> "${yt_playlist_home_dir}/mpv.conf"
 	;;
 2)
-	echo "af=dynaudnorm=f=75:g=57:p=0.95:s=0.0:m=4.0" >> "${yt_playlist_home_dir}/mpv.conf"
+	echo "af=dynaudnorm[=f75:g57:p0.95:s0.0:m10.0]" >> "${yt_playlist_home_dir}/mpv.conf"
 	;;
 3)
-	echo "af=lowshelf=f=200:r=auto:g=-5,highshelf=f=3000:r=auto:g=-5" >> "${yt_playlist_home_dir}/mpv.conf"
+	echo "af=lowshelf[=f260:rauto:g-10],highshelf[=f2600:rauto:g-10]" >> "${yt_playlist_home_dir}/mpv.conf"
 	;;
 4)
-	echo "af=lowshelf=f=200:r=auto:g=-5" >> "${yt_playlist_home_dir}/mpv.conf"
+	echo "af=lowshelf[=f260:rauto:g-10]" >> "${yt_playlist_home_dir}/mpv.conf"
 	;;
 5)
-	echo "af=highshelf=f=3000:r=auto:g=-5" >> "${yt_playlist_home_dir}/mpv.conf"
+	echo "af=highshelf[=f2600:rauto:g-10]" >> "${yt_playlist_home_dir}/mpv.conf"
 	;;
 *)
 	echo "Wrong option."

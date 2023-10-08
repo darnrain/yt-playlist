@@ -1,8 +1,12 @@
-10-7-2023
+10-8-2023
 
 ================================
 Test change log notes
 ================================
+
+Linux v2.57.8_test | macOS v2.57.8_test | Termux v2.57.8_test
+Updated the ffmpeg audio filters, This is the final change I will make to the ffmpeg audio filters. I cant make it sound any better, enjoy.
+You will need to run yt-playlist --setup again.
 
 Linux v2.57.6_test | macOS v2.57.7_test | Termux v2.57.6_test
 Added back grep as the macOS dependencies.
