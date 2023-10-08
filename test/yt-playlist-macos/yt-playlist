@@ -21,7 +21,7 @@ show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 unset termux_pulse_fix
 yt_video_number="1:100"
-version="macOS v2.57.10"
+version="macOS v2.57.11"
 
 #mainmenu
 
@@ -2368,28 +2368,20 @@ function ffmpeg_filter_menu_function ()
 {
 	clear
 echo -ne "== ffmpeg audio filter menu ==
-1) Enable Dynamic Audio Normalizer + bass + treble
-2) Enable Dynamic Audio Normalizer
-3) Enable bass + treble
-4) Enable bass only
-5) Enable treble only
+1) Enable extra bass + treble
+2) Enable extra bass only
+3) Enable extra treble only
 Choose an option:  "
 	read -r ans
 	case $ans in
 1)
-	echo "af=lowshelf[=f260:rauto:g-10],highshelf[=f2600:rauto:g-10],dynaudnorm[=f500:g27:p0.95:s0.0:m10.0]" >> "${yt_playlist_home_dir}/mpv.conf"
+	echo "af=bass=g=2.5,treble=g=4" >> "${yt_playlist_home_dir}/mpv.conf"
 	;;
 2)
-	echo "af=dynaudnorm[=f500:g27:p0.95:s0.0:m10.0]" >> "${yt_playlist_home_dir}/mpv.conf"
+	echo "af=bass=g=2.5" >> "${yt_playlist_home_dir}/mpv.conf"
 	;;
 3)
-	echo "af=lowshelf[=f260:rauto:g-10],highshelf[=f2600:rauto:g-10]" >> "${yt_playlist_home_dir}/mpv.conf"
-	;;
-4)
-	echo "af=lowshelf[=f260:rauto:g-10]" >> "${yt_playlist_home_dir}/mpv.conf"
-	;;
-5)
-	echo "af=highshelf[=f2600:rauto:g-10]" >> "${yt_playlist_home_dir}/mpv.conf"
+	echo "af=treble=g=4" >> "${yt_playlist_home_dir}/mpv.conf"
 	;;
 *)
 	echo "Wrong option."
