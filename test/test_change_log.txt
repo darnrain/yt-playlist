@@ -6,7 +6,7 @@ Test change log notes
 
 Linux v2.57.10_test | macOS v2.57.10_test | Termux v2.57.10_test
 Fixed the ffmpeg filter menu, if wrong number typed it then it would show an error.
-Fixed typo on ffmgep filter menu.
+Fixed typo on ffmpeg filter menu.
 Changed the default media framework from pulseaudio to pipewire.
 
 Linux v2.57.9_test | macOS v2.57.9_test | Termux v2.57.9_test
