@@ -15,9 +15,9 @@ video_dir="${HOME}/Videos"
 show_audio_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Music/")
 show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
-unset mpv_termux_pulse_fix_function
+unset termux_pulse_fix
 yt_video_number="1:100"
-version="Linux v2.56"
+version="Linux v2.57"
 
 #mainmenu
 
@@ -53,6 +53,7 @@ function main_menu_function ()
 	else
 	echo "Download sponsorblock disabled."
 	fi
+	eq_hud_function
 	if test -f "${tmp_dir}/count_down_timer.txt"
 	then
 	cat "${tmp_dir}/count_down_timer.txt"
@@ -68,7 +69,8 @@ echo -ne "== Main Menu ==
 7) Download.
 8) Enable dl sponsorblock.
 9) Sleep timer.
-10) Check for update.
+10) Equalizer menu.
+11) Check for update.
 q) Quit.
 Choose an option:  "
 	read -r ans
@@ -373,6 +375,9 @@ fi
 	fi
 	;;
 10)
+	ffmpeg_filter_menu_function
+	;;
+11)
 	if command -v less >/dev/null && command -v curl >/dev/null
 	then
 	main_version_check=$(curl --retry 5 --retry-max-time 60 -s https://raw.githubusercontent.com/darnrain/yt-playlist/main/main_version.txt -L 2>&1)
@@ -1564,6 +1569,7 @@ function play_hd_menu_function ()
 	echo "$yt_best_hd_video_resolution"
 	fi
 	play_hd_menu_hud_function
+	eq_hud_function
 	echo ""
 echo -ne "== Play HD Menu ==.
 1) Play 1080p h264/vp9 60/30 FPS.
@@ -1600,6 +1606,7 @@ Choose an option:  "
 	echo "============================"
 	echo "Video 1080p h264/vp9 60/30 FPS."
 	echo "Audio opus 128kbps 48kHz."
+	eq_hud_function
 	echo "$yt_playlist_hd_title"
 	echo "$yt_best_hd_video_resolution"
 	echo "============================"
@@ -1633,6 +1640,7 @@ Choose an option:  "
 	echo "============================"
 	echo "Video 2k av1/vp9 60/30 FPS."
 	echo "Audio opus 128kbps 48kHz."
+	eq_hud_function
 	echo "$yt_playlist_hd_title"
 	echo "$yt_best_hd_video_resolution"
 	echo "============================"
@@ -1666,6 +1674,7 @@ Choose an option:  "
 	echo "============================"
 	echo "Video 4k av1/vp9 60/30 FPS."
 	echo "Audio opus 128kbps 48kHz."
+	eq_hud_function
 	echo "$yt_playlist_hd_title"
 	echo "$yt_best_hd_video_resolution"
 	echo "============================"
@@ -1699,6 +1708,7 @@ Choose an option:  "
 	echo "============================"
 	echo "Video 8k av1/vp9 60/30 FPS."
 	echo "Audio opus 128kbps 48kHz."
+	eq_hud_function
 	echo "$yt_playlist_hd_title"
 	echo "$yt_best_hd_video_resolution"
 	echo "============================"
@@ -2364,6 +2374,73 @@ M)
 esac
 }
 
+#eqmenu
+
+function ffmpeg_filter_menu_function ()
+{
+	clear
+	eq_hud_function
+	echo ""
+echo -ne "== ffmpeg audio filter menu ==
+1) Enable dynamic audio normalizer.
+2) Enable dynamic smoothing.
+3) Enable audio sharpening.
+4) Enable bass + treble.
+5) Enable bass only.
+6) Enable treble only.
+7) Disable audio filter.
+m) main menu.
+Choose an option:  "
+	read -r ans
+	case $ans in
+1)
+	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
+	echo "af=lavfi=[dynaudnorm=f=500:g=31:p=0.95:s=0.0:m=10.0]" >> "${yt_playlist_home_dir}/mpv.conf"
+	ffmpeg_filter_menu_function
+	;;
+2)
+	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
+	echo "af=lavfi=[adynamicsmooth=sensitivity=2:basefreq=22050]" >> "${yt_playlist_home_dir}/mpv.conf"
+	ffmpeg_filter_menu_function
+	;;
+3)
+	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
+	echo "af=lavfi=[crystalizer=i=1.5]" >> "${yt_playlist_home_dir}/mpv.conf"
+	ffmpeg_filter_menu_function
+	;;
+4)
+	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
+	echo "af=lavfi=[lowshelf=f=360:r=auto:g=+1],lavfi=[highshelf=f=2600:r=auto:g=+1]" >> "${yt_playlist_home_dir}/mpv.conf"
+	ffmpeg_filter_menu_function
+	;;
+5)
+	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
+	echo "af=lavfi=[lowshelf=f=360:r=auto:g=+1]" >> "${yt_playlist_home_dir}/mpv.conf"
+	ffmpeg_filter_menu_function
+	;;
+6)
+	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
+	echo "af=lavfi=[highshelf=f=2600:r=auto:g=+1]" >> "${yt_playlist_home_dir}/mpv.conf"
+	ffmpeg_filter_menu_function
+	;;
+7)
+	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
+	ffmpeg_filter_menu_function
+	;;
+m)
+	main_menu_function
+	;;
+M)
+	main_menu_function
+	;;
+*)
+	echo "Wrong option."
+	sleep 0.3
+	ffmpeg_filter_menu_function
+	;;
+esac
+}
+
 #functions
 
 function bookmark_shuffle_function ()
@@ -2456,7 +2533,7 @@ function yt_playlist_setup_function ()
 	echo "macOS uses coreaudio"
 	echo "Linux uses pipewire or pulse"
 	echo "Termux uses pulse"
-	echo "Press enter for the default pulse"
+	echo "Press enter for the default pipewire"
 	printf " \n"
 	printf "Please enter a media framework: \n"
 	read answer
@@ -2464,14 +2541,7 @@ function yt_playlist_setup_function ()
 	then
 	echo "ao=${answer}" >> "${yt_playlist_home_dir}/mpv.conf"
 	else
-	echo "ao=pulse" >> "${yt_playlist_home_dir}/mpv.conf"
-	fi
-	clear
-	printf "Enable Dynamic Audio Normalizer [y/N] \n"
-	read answer
-	if [ "$answer" != "${answer#[yY]}" ]
-	then
-	echo "af=lavfi=[dynaudnorm=f=75:g=57:p=0.95:s=0.0:m=4.0]" >> "${yt_playlist_home_dir}/mpv.conf"
+	echo "ao=pipewire" >> "${yt_playlist_home_dir}/mpv.conf"
 	fi
 	printf " \n"
 	echo "Listing options you have chosen:"
@@ -2638,7 +2708,7 @@ function yt_playlist_start_function ()
 	echo "Error: yt-playlist is already running."
 	exit
 	else
-        deleted_tmp_cover_art_function
+	deleted_tmp_cover_art_function
 	mpv_hd_cache3_function
 	mpv_video_fullscreen_off_function
 	mpv_video_gpu_off_function
@@ -2739,7 +2809,7 @@ function quit_function ()
 	if [ "$answer" != "${answer#[yY]}" ]
 	then
 	stop_sleep_timer_function
-        deleted_tmp_cover_art_function
+	deleted_tmp_cover_art_function
 	yt_dlp_sponsorblock_off_function
 	exit
 	else
@@ -3238,6 +3308,46 @@ function favorites_function ()
 	fi
 }
 
+function eq_hud_function ()
+{
+
+	if test -f "${yt_playlist_home_dir}/mpv.conf"
+	then
+	eq_check=$(cat "${yt_playlist_home_dir}/mpv.conf")
+	fi
+	if [[ "${eq_check}" = *dynaudnorm* ]]
+	then
+	echo "Dynamic audio normalizer enabled."
+	else
+	if [[ "${eq_check}" = *adynamicsmooth* ]]
+	then
+	echo "Dynamic smoothing enabled."
+	else
+	if [[ "${eq_check}" = *crystalizer* ]]
+	then
+	echo "Audio sharpening enabled."
+	else
+	if [[ "${eq_check}" = *lowshelf*highshelf* ]]
+	then
+	echo "Bass + treble enabled."
+	else
+	if [[ "${eq_check}" = *lowshelf* ]]
+	then
+	echo "Bass only enabled."
+	else
+	if [[ "${eq_check}" = *highshelf* ]]
+	then
+	echo "Treble only enabled."
+	else
+	echo "No filter enabled."
+  fi
+    fi
+      fi
+    fi
+  fi
+fi
+}
+
 function music_menu_hud_function ()
 {
 	if [ -n "$mpv_music_m4a" ]
@@ -3248,6 +3358,7 @@ function music_menu_hud_function ()
 	then
 	echo "Audio opus 128kbps 48kHz."
 	fi
+	eq_hud_function
 	if test -f "${tmp_dir}/count_down_timer.txt"
 	then
 	cat "${tmp_dir}/count_down_timer.txt"
@@ -3296,6 +3407,7 @@ fi
 	then
 	echo "Audio opus 128kbps 48kHz."
 	fi
+	eq_hud_function
 	if [ -n "$resume_playback_on_or_off" ]
 	then
 	echo "Resume playback enabled."
@@ -3320,7 +3432,7 @@ function play_hd_menu_hud_function ()
 	then
 	echo "HW GPU on."
 	else
-	echo "HW GPU off"
+	echo "HW GPU off."
 	fi
 	if [ -n "$mpv_hd_fullscreen" ]
 	then
@@ -4186,6 +4298,7 @@ function help_function ()
 	echo "Title notifications yes"
 	echo "Adjust volume yes"
 	echo "Audio normalization yes"
+	echo "Audio EQ yes"
 	echo "FF yes"
 	echo "RR yes"
 	echo "Play/Pause yes"
@@ -4207,6 +4320,7 @@ function help_function ()
 	echo "Title notifications no"
 	echo "Adjust volume yes"
 	echo "Audio normalization yes"
+	echo "Audio EQ yes"
 	echo "FF yes"
 	echo "RR yes"
 	echo "Play/Pause yes"
@@ -4228,6 +4342,7 @@ function help_function ()
 	echo "Title notifications yes"
 	echo "Adjust volume yes"
 	echo "Audio normalization yes"
+	echo "Audio EQ yes"
 	echo "FF yes"
 	echo "RR yes"
 	echo "Play/Pause yes"
@@ -4249,6 +4364,7 @@ function help_function ()
 	echo "Title notifications yes"
 	echo "Adjust volume yes"
 	echo "Audio normalization yes"
+	echo "Audio EQ yes"
 	echo "FF yes"
 	echo "RR yes"
 	echo "Play/Pause yes"

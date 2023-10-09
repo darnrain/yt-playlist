@@ -1,8 +1,14 @@
-10-6-2023
+10-9-2023
 
 ================================
 Change log notes
 ================================
+
+Linux v2.57 | macOS v2.57 | Termux v2.57
+Removed some of the required dependencies for macOS.
+Changed the default media framework from pulseaudio to pipewire.
+Added a new Equalizer menu.
+Please run yt-playlist --setup first, once.
 
 Linux v2.56 | macOS v2.56 | Termux v2.56
 Removed the cap on the max vol, Dynamic Audio Normalizer needs to have unlimited access to volume control.

@@ -1,7 +1,5 @@
 macOS yt-playlist.
 
-It's recommended to have macOS big sur or higher, otherwise you will have to compile all the dependencies and that may take hr's.
-
 If you are installing for the first time, start at Install brew. If your upgrading start at Automated install or Offline install.
 
 For notifications to work on macOS you need to give permissions to terminal-notifier.
@@ -17,7 +15,7 @@ Install brew: https://brew.sh/
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 Install the dependencies:
-brew install curl bash unzip git mpv yt-dlp gawk jemalloc grep fx gnu-sed coreutils terminal-notifier ffmpeg fzf socat python3 python-mutagen
+brew install bash mpv yt-dlp grep gawk jemalloc fx gnu-sed coreutils terminal-notifier ffmpeg fzf socat python3 python-mutagen
 
 Automated install:
 if [ -d /tmp/yt-playlist/ ]; then rm -rf /tmp/yt-playlist/; fi; git clone https://github.com/darnrain/yt-playlist.git /tmp/yt-playlist/; sudo chmod +x /tmp/yt-playlist/yt-playlist-macos/install.sh; /tmp/yt-playlist/yt-playlist-macos/install.sh --main
