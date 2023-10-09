@@ -1,6 +1,6 @@
 #!/data/data/com.termux/files/usr/bin/bash 
 
-# Updated on 10-4-2023
+# Updated on 10-9-2023
 
 # yt-playlist Termux
 
@@ -19,7 +19,7 @@ show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 termux_pulse_fix="yes"
 yt_video_number="1:100"
-version="Termux v2.57.10"
+version="Termux v2.57.11"
 
 
 replace results_function with this one.
@@ -161,7 +161,8 @@ Audio sponsorblock
 6) Download.
 7) Enable dl sponsorblock.
 8) Sleep timer.
-9) Check for update.
+9) Equalizer menu.
+10) Check for update.
 q) Quit.
 
 

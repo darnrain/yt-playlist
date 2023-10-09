@@ -1,4 +1,4 @@
-#!/usr/local/bin/bash
+#!/usr/local/bin/bash 
 
 # yt-playlist macOS
 
@@ -68,7 +68,8 @@ echo -ne "== Main Menu ==
 7) Download.
 8) Enable dl sponsorblock.
 9) Sleep timer.
-10) Check for update.
+10) Equalizer menu.
+11) Check for update.
 q) Quit.
 Choose an option:  "
 	read -r ans
@@ -373,6 +374,9 @@ fi
 	fi
 	;;
 10)
+	ffmpeg_filter_menu_function
+	;;
+11)
 	if command -v less >/dev/null && command -v curl >/dev/null
 	then
 	main_version_check=$(curl --retry 5 --retry-max-time 60 -s https://raw.githubusercontent.com/darnrain/yt-playlist/main/main_version.txt -L 2>&1)
@@ -2367,21 +2371,57 @@ esac
 function ffmpeg_filter_menu_function ()
 {
 	clear
+	echo "Permanently enable a audio filter."
+	echo ""
 echo -ne "== ffmpeg audio filter menu ==
-1) Enable extra bass + treble
-2) Enable extra bass only
-3) Enable extra treble only
+1) Enable Dynamic Audio Normalizer.
+2) Enable bass + treble.
+3) Enable bass only.
+4) Enable treble only.
+5) Disable audio filter.
+m) main menu.
 Choose an option:  "
 	read -r ans
 	case $ans in
 1)
-	echo "af=bass=g=2.5,treble=g=4" >> "${yt_playlist_home_dir}/mpv.conf"
+	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
+	echo "af=lavfi=[dynaudnorm=f=500:g=31:p=0.95:s=0.0:m=10.0]" >> "${yt_playlist_home_dir}/mpv.conf"
+	echo "Dynamic Audio Normalizer is now enabled."
+	sleep 0.8
+	ffmpeg_filter_menu_function
 	;;
 2)
-	echo "af=bass=g=2.5" >> "${yt_playlist_home_dir}/mpv.conf"
+	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
+	echo "af=lavfi=[lowshelf=f=360:r=auto:g=+1],lavfi=[highshelf=f=2600:r=auto:g=+1]" >> "${yt_playlist_home_dir}/mpv.conf"
+	echo "Bass + treble is now enabled."
+	sleep 0.8
+	ffmpeg_filter_menu_function
 	;;
 3)
-	echo "af=treble=g=4" >> "${yt_playlist_home_dir}/mpv.conf"
+	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
+	echo "af=lavfi=[lowshelf=f=360:r=auto:g=+1]" >> "${yt_playlist_home_dir}/mpv.conf"
+	echo "Bass only is now enabled."
+	sleep 0.8
+	ffmpeg_filter_menu_function
+	;;
+4)
+	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
+	echo "af=lavfi=[highshelf=f=2600:r=auto:g=+1]" >> "${yt_playlist_home_dir}/mpv.conf"
+	echo "Treble only is now enabled."
+	sleep 0.8
+	ffmpeg_filter_menu_function
+	;;
+5)
+	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
+	echo "Audio filter is now disabled."
+	sleep 0.8
+	ffmpeg_filter_menu_function
+	;;
+m)
+	main_menu_function
+	;;
+M)
+	main_menu_function
 	;;
 *)
 	echo "Wrong option."
@@ -2492,13 +2532,6 @@ function yt_playlist_setup_function ()
 	echo "ao=${answer}" >> "${yt_playlist_home_dir}/mpv.conf"
 	else
 	echo "ao=pipewire" >> "${yt_playlist_home_dir}/mpv.conf"
-	fi
-	clear
-	printf "Enable a ffmpeg audio filter? [y/N] \n"
-	read answer
-	if [ "$answer" != "${answer#[yY]}" ]
-	then
-	ffmpeg_filter_menu_function
 	fi
 	printf " \n"
 	echo "Listing options you have chosen:"

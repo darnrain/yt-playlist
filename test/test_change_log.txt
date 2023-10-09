@@ -1,17 +1,16 @@
-10-8-2023
+10-9-2023
 
 ================================
 Test change log notes
 ================================
 
 Linux v2.57.11_test | macOS v2.57.11_test | Termux v2.57.11_test
-Changed the ffmpeg filer menu, I finally found out how to just increase the bass an treble.
-run yt-playlist --setup
-Removed Dynamic Audio Normalizer, I think it removes a part of the music.
+Added the Equalizer menu.
+Please run yt-playlist --setup first.
 
 Linux v2.57.10_test | macOS v2.57.10_test | Termux v2.57.10_test
 Fixed the ffmpeg filter menu, if wrong number typed it then it would show an error.
-Fixed typo on ffmpeg filter menu.
+Fixed typo on ffmgep filter menu.
 Changed the default media framework from pulseaudio to pipewire.
 
 Linux v2.57.9_test | macOS v2.57.9_test | Termux v2.57.9_test
