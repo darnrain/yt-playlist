@@ -21,7 +21,7 @@ show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 unset termux_pulse_fix
 yt_video_number="1:100"
-version="macOS v2.57.12"
+version="macOS v2.57.13"
 
 #mainmenu
 
@@ -2374,12 +2374,13 @@ function ffmpeg_filter_menu_function ()
 	echo "Permanently enable a audio filter."
 	echo ""
 echo -ne "== ffmpeg audio filter menu ==
-1) Enable Dynamic Audio Normalizer.
-2) Enable Dynamic smoothing.
-3) Enable bass + treble.
-4) Enable bass only.
-5) Enable treble only.
-6) Disable audio filter.
+1) Enable dynamic audio normalizer.
+2) Enable dynamic smoothing.
+3) Enable audio sharpening.
+4) Enable bass + treble.
+5) Enable bass only.
+6) Enable treble only.
+7) Disable audio filter.
 m) main menu.
 Choose an option:  "
 	read -r ans
@@ -2400,26 +2401,33 @@ Choose an option:  "
 	;;
 3)
 	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
+	echo "af=lavfi=[crystalizer=i=1.5]" >> "${yt_playlist_home_dir}/mpv.conf"
+	echo "Audio sharpening enabled."
+	sleep 0.8
+	ffmpeg_filter_menu_function
+	;;
+4)
+	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
 	echo "af=lavfi=[lowshelf=f=360:r=auto:g=+1],lavfi=[highshelf=f=2600:r=auto:g=+1]" >> "${yt_playlist_home_dir}/mpv.conf"
 	echo "Bass + treble is now enabled."
 	sleep 0.8
 	ffmpeg_filter_menu_function
 	;;
-4)
+5)
 	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
 	echo "af=lavfi=[lowshelf=f=360:r=auto:g=+1]" >> "${yt_playlist_home_dir}/mpv.conf"
 	echo "Bass only is now enabled."
 	sleep 0.8
 	ffmpeg_filter_menu_function
 	;;
-5)
+6)
 	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
 	echo "af=lavfi=[highshelf=f=2600:r=auto:g=+1]" >> "${yt_playlist_home_dir}/mpv.conf"
 	echo "Treble only is now enabled."
 	sleep 0.8
 	ffmpeg_filter_menu_function
 	;;
-6)
+7)
 	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
 	echo "Audio filter is now disabled."
 	sleep 0.8

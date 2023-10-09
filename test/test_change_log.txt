@@ -4,6 +4,9 @@
 Test change log notes
 ================================
 
+Linux v2.57.13_test | macOS v2.57.13_test | Termux v2.57.13_test
+Added audio sharpening to the Equalizer menu.
+
 Linux v2.57.12_test | macOS v2.57.12_test | Termux v2.57.12_test
 Added Dynamic smoothing to the Equalizer menu.
 
