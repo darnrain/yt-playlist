@@ -21,7 +21,7 @@ show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 unset termux_pulse_fix
 yt_video_number="1:100"
-version="macOS v2.57.14"
+version="macOS v2.57.15"
 
 #mainmenu
 
@@ -53,41 +53,7 @@ function main_menu_function ()
 	else
 	echo "Download sponsorblock disabled."
 	fi
-	if test -f "${yt_playlist_home_dir}/mpv.conf"
-	then
-	eq_check=$(cat "${yt_playlist_home_dir}/mpv.conf")
-	fi
-	if [[ "${eq_check}" = *dynaudnorm* ]]
-	then
-	echo "Dynamic Audio Normalizer is enabled."
-	else
-	if [[ "${eq_check}" = *adynamicsmooth* ]]
-	then
-	echo "Dynamic smoothing is enabled."
-	else
-	if [[ "${eq_check}" = *crystalizer* ]]
-	then
-	echo "Audio sharpening is enabled."
-	else
-	if [[ "${eq_check}" = *lowshelf*highshelf* ]]
-	then
-	echo "Bass + treble is enabled."
-	else
-	if [[ "${eq_check}" = *lowshelf* ]]
-	then
-	echo "Bass only is enabled."
-	else
-	if [[ "${eq_check}" = *highshelf* ]]
-	then
-	echo "Treble only is enabled."
-	else
-	echo "No filter is enabled."
-  fi
-    fi
-      fi
-    fi
-  fi
-fi
+	eq_hud_function
 	if test -f "${tmp_dir}/count_down_timer.txt"
 	then
 	cat "${tmp_dir}/count_down_timer.txt"
@@ -1603,6 +1569,7 @@ function play_hd_menu_function ()
 	echo "$yt_best_hd_video_resolution"
 	fi
 	play_hd_menu_hud_function
+	eq_hud_function
 	echo ""
 echo -ne "== Play HD Menu ==.
 1) Play 1080p h264/vp9 60/30 FPS.
@@ -1639,6 +1606,7 @@ Choose an option:  "
 	echo "============================"
 	echo "Video 1080p h264/vp9 60/30 FPS."
 	echo "Audio opus 128kbps 48kHz."
+	eq_hud_function
 	echo "$yt_playlist_hd_title"
 	echo "$yt_best_hd_video_resolution"
 	echo "============================"
@@ -1672,6 +1640,7 @@ Choose an option:  "
 	echo "============================"
 	echo "Video 2k av1/vp9 60/30 FPS."
 	echo "Audio opus 128kbps 48kHz."
+	eq_hud_function
 	echo "$yt_playlist_hd_title"
 	echo "$yt_best_hd_video_resolution"
 	echo "============================"
@@ -1705,6 +1674,7 @@ Choose an option:  "
 	echo "============================"
 	echo "Video 4k av1/vp9 60/30 FPS."
 	echo "Audio opus 128kbps 48kHz."
+	eq_hud_function
 	echo "$yt_playlist_hd_title"
 	echo "$yt_best_hd_video_resolution"
 	echo "============================"
@@ -1738,6 +1708,7 @@ Choose an option:  "
 	echo "============================"
 	echo "Video 8k av1/vp9 60/30 FPS."
 	echo "Audio opus 128kbps 48kHz."
+	eq_hud_function
 	echo "$yt_playlist_hd_title"
 	echo "$yt_best_hd_video_resolution"
 	echo "============================"
@@ -2408,41 +2379,7 @@ esac
 function ffmpeg_filter_menu_function ()
 {
 	clear
-	if test -f "${yt_playlist_home_dir}/mpv.conf"
-	then
-	eq_check=$(cat "${yt_playlist_home_dir}/mpv.conf")
-	fi
-	if [[ "${eq_check}" = *dynaudnorm* ]]
-	then
-	echo "Dynamic Audio Normalizer is enabled."
-	else
-	if [[ "${eq_check}" = *adynamicsmooth* ]]
-	then
-	echo "Dynamic smoothing is enabled."
-	else
-	if [[ "${eq_check}" = *crystalizer* ]]
-	then
-	echo "Audio sharpening is enabled."
-	else
-	if [[ "${eq_check}" = *lowshelf*highshelf* ]]
-	then
-	echo "Bass + treble is enabled."
-	else
-	if [[ "${eq_check}" = *lowshelf* ]]
-	then
-	echo "Bass only is enabled."
-	else
-	if [[ "${eq_check}" = *highshelf* ]]
-	then
-	echo "Treble only is enabled."
-	else
-	echo "No filter is enabled."
-  fi
-    fi
-      fi
-    fi
-  fi
-fi
+	eq_hud_function
 	echo ""
 echo -ne "== ffmpeg audio filter menu ==
 1) Enable dynamic audio normalizer.
@@ -3356,6 +3293,46 @@ function favorites_function ()
 	fi
 }
 
+function eq_hud_function ()
+{
+
+	if test -f "${yt_playlist_home_dir}/mpv.conf"
+	then
+	eq_check=$(cat "${yt_playlist_home_dir}/mpv.conf")
+	fi
+	if [[ "${eq_check}" = *dynaudnorm* ]]
+	then
+	echo "Dynamic audio normalizer enabled."
+	else
+	if [[ "${eq_check}" = *adynamicsmooth* ]]
+	then
+	echo "Dynamic smoothing enabled."
+	else
+	if [[ "${eq_check}" = *crystalizer* ]]
+	then
+	echo "Audio sharpening enabled."
+	else
+	if [[ "${eq_check}" = *lowshelf*highshelf* ]]
+	then
+	echo "Bass + treble enabled."
+	else
+	if [[ "${eq_check}" = *lowshelf* ]]
+	then
+	echo "Bass only enabled."
+	else
+	if [[ "${eq_check}" = *highshelf* ]]
+	then
+	echo "Treble only enabled."
+	else
+	echo "No filter enabled."
+  fi
+    fi
+      fi
+    fi
+  fi
+fi
+}
+
 function music_menu_hud_function ()
 {
 	if [ -n "$mpv_music_m4a" ]
@@ -3366,6 +3343,7 @@ function music_menu_hud_function ()
 	then
 	echo "Audio opus 128kbps 48kHz."
 	fi
+	eq_hud_function
 	if test -f "${tmp_dir}/count_down_timer.txt"
 	then
 	cat "${tmp_dir}/count_down_timer.txt"
@@ -3414,6 +3392,7 @@ fi
 	then
 	echo "Audio opus 128kbps 48kHz."
 	fi
+	eq_hud_function
 	if [ -n "$resume_playback_on_or_off" ]
 	then
 	echo "Resume playback enabled."
@@ -3438,7 +3417,7 @@ function play_hd_menu_hud_function ()
 	then
 	echo "HW GPU on."
 	else
-	echo "HW GPU off"
+	echo "HW GPU off."
 	fi
 	if [ -n "$mpv_hd_fullscreen" ]
 	then
@@ -4285,6 +4264,7 @@ function help_function ()
 	echo "Title notifications yes"
 	echo "Adjust volume yes"
 	echo "Audio normalization yes"
+	echo "Audio EQ yes"
 	echo "FF yes"
 	echo "RR yes"
 	echo "Play/Pause yes"
@@ -4306,6 +4286,7 @@ function help_function ()
 	echo "Title notifications no"
 	echo "Adjust volume yes"
 	echo "Audio normalization yes"
+	echo "Audio EQ yes"
 	echo "FF yes"
 	echo "RR yes"
 	echo "Play/Pause yes"
@@ -4327,6 +4308,7 @@ function help_function ()
 	echo "Title notifications yes"
 	echo "Adjust volume yes"
 	echo "Audio normalization yes"
+	echo "Audio EQ yes"
 	echo "FF yes"
 	echo "RR yes"
 	echo "Play/Pause yes"
@@ -4348,6 +4330,7 @@ function help_function ()
 	echo "Title notifications yes"
 	echo "Adjust volume yes"
 	echo "Audio normalization yes"
+	echo "Audio EQ yes"
 	echo "FF yes"
 	echo "RR yes"
 	echo "Play/Pause yes"

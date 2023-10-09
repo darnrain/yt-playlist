@@ -17,7 +17,7 @@ show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 termux_pulse_fix="yes"
 yt_video_number="1:100"
-version="Termux v2.57.14"
+version="Termux v2.57.15"
 
 #mainmenu
 
@@ -49,41 +49,7 @@ function main_menu_function ()
 	else
 	echo "Download sponsorblock disabled."
 	fi
-	if test -f "${yt_playlist_home_dir}/mpv.conf"
-	then
-	eq_check=$(cat "${yt_playlist_home_dir}/mpv.conf")
-	fi
-	if [[ "${eq_check}" = *dynaudnorm* ]]
-	then
-	echo "Dynamic Audio Normalizer is enabled."
-	else
-	if [[ "${eq_check}" = *adynamicsmooth* ]]
-	then
-	echo "Dynamic smoothing is enabled."
-	else
-	if [[ "${eq_check}" = *crystalizer* ]]
-	then
-	echo "Audio sharpening is enabled."
-	else
-	if [[ "${eq_check}" = *lowshelf*highshelf* ]]
-	then
-	echo "Bass + treble is enabled."
-	else
-	if [[ "${eq_check}" = *lowshelf* ]]
-	then
-	echo "Bass only is enabled."
-	else
-	if [[ "${eq_check}" = *highshelf* ]]
-	then
-	echo "Treble only is enabled."
-	else
-	echo "No filter is enabled."
-  fi
-    fi
-      fi
-    fi
-  fi
-fi
+	eq_hud_function
 	if test -f "${tmp_dir}/count_down_timer.txt"
 	then
 	cat "${tmp_dir}/count_down_timer.txt"
@@ -2118,41 +2084,7 @@ esac
 function ffmpeg_filter_menu_function ()
 {
 	clear
-	if test -f "${yt_playlist_home_dir}/mpv.conf"
-	then
-	eq_check=$(cat "${yt_playlist_home_dir}/mpv.conf")
-	fi
-	if [[ "${eq_check}" = *dynaudnorm* ]]
-	then
-	echo "Dynamic Audio Normalizer is enabled."
-	else
-	if [[ "${eq_check}" = *adynamicsmooth* ]]
-	then
-	echo "Dynamic smoothing is enabled."
-	else
-	if [[ "${eq_check}" = *crystalizer* ]]
-	then
-	echo "Audio sharpening is enabled."
-	else
-	if [[ "${eq_check}" = *lowshelf*highshelf* ]]
-	then
-	echo "Bass + treble is enabled."
-	else
-	if [[ "${eq_check}" = *lowshelf* ]]
-	then
-	echo "Bass only is enabled."
-	else
-	if [[ "${eq_check}" = *highshelf* ]]
-	then
-	echo "Treble only is enabled."
-	else
-	echo "No filter is enabled."
-  fi
-    fi
-      fi
-    fi
-  fi
-fi
+	eq_hud_function
 	echo ""
 echo -ne "== ffmpeg audio filter menu ==
 1) Enable dynamic audio normalizer.
@@ -3063,6 +2995,46 @@ function favorites_function ()
 	fi
 }
 
+function eq_hud_function ()
+{
+
+	if test -f "${yt_playlist_home_dir}/mpv.conf"
+	then
+	eq_check=$(cat "${yt_playlist_home_dir}/mpv.conf")
+	fi
+	if [[ "${eq_check}" = *dynaudnorm* ]]
+	then
+	echo "Dynamic audio normalizer enabled."
+	else
+	if [[ "${eq_check}" = *adynamicsmooth* ]]
+	then
+	echo "Dynamic smoothing enabled."
+	else
+	if [[ "${eq_check}" = *crystalizer* ]]
+	then
+	echo "Audio sharpening enabled."
+	else
+	if [[ "${eq_check}" = *lowshelf*highshelf* ]]
+	then
+	echo "Bass + treble enabled."
+	else
+	if [[ "${eq_check}" = *lowshelf* ]]
+	then
+	echo "Bass only enabled."
+	else
+	if [[ "${eq_check}" = *highshelf* ]]
+	then
+	echo "Treble only enabled."
+	else
+	echo "No filter enabled."
+  fi
+    fi
+      fi
+    fi
+  fi
+fi
+}
+
 function music_menu_hud_function ()
 {
 	if [ -n "$mpv_music_m4a" ]
@@ -3073,6 +3045,7 @@ function music_menu_hud_function ()
 	then
 	echo "Audio opus 128kbps 48kHz."
 	fi
+	eq_hud_function
 	if test -f "${tmp_dir}/count_down_timer.txt"
 	then
 	cat "${tmp_dir}/count_down_timer.txt"
@@ -3089,6 +3062,7 @@ function play_sd_menu_bookmark_menu_hud_function ()
 	then
 	echo "Audio opus 128kbps 48kHz."
 	fi
+	eq_hud_function
 	if [ -n "$resume_playback_on_or_off" ]
 	then
 	echo "Resume playback enabled."
@@ -3815,6 +3789,7 @@ function help_function ()
 	echo "Title notifications yes"
 	echo "Adjust volume yes"
 	echo "Audio normalization yes"
+	echo "Audio EQ yes"
 	echo "FF yes"
 	echo "RR yes"
 	echo "Play/Pause yes"
@@ -3836,6 +3811,7 @@ function help_function ()
 	echo "Title notifications yes"
 	echo "Adjust volume yes"
 	echo "Audio normalization yes"
+	echo "Audio EQ yes"
 	echo "FF yes"
 	echo "RR yes"
 	echo "Play/Pause yes"
@@ -3857,6 +3833,7 @@ function help_function ()
 	echo "Title notifications yes"
 	echo "Adjust volume yes"
 	echo "Audio normalization yes"
+	echo "Audio EQ yes"
 	echo "FF yes"
 	echo "RR yes"
 	echo "Play/Pause yes"

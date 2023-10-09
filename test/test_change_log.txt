@@ -4,6 +4,9 @@
 Test change log notes
 ================================
 
+Linux v2.57.15_test | macOS v2.57.15_test | Termux v2.57.15_test
+Cleaned up yt-playlist script, added eq status on all play menus.
+
 Linux v2.57.14_test | macOS v2.57.14_test | Termux v2.57.14_test
 yt-playlist will now show what ffmpeg filter is enabled.
 
