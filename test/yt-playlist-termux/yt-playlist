@@ -2085,10 +2085,10 @@ function ffmpeg_filter_menu_function ()
 echo -ne "== ffmpeg audio filter menu ==
 1) Enable Dynamic Audio Normalizer.
 2) Enable Dynamic smoothing.
-2) Enable bass + treble.
-3) Enable bass only.
-4) Enable treble only.
-5) Disable audio filter.
+3) Enable bass + treble.
+4) Enable bass only.
+5) Enable treble only.
+6) Disable audio filter.
 m) main menu.
 Choose an option:  "
 	read -r ans
