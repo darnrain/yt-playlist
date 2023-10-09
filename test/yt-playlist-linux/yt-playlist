@@ -17,7 +17,7 @@ show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 unset termux_pulse_fix
 yt_video_number="1:100"
-version="Linux v2.57.13_test"
+version="Linux v2.57.14_test"
 
 #mainmenu
 
@@ -53,6 +53,41 @@ function main_menu_function ()
 	else
 	echo "Download sponsorblock disabled."
 	fi
+	if test -f "${yt_playlist_home_dir}/mpv.conf"
+	then
+	eq_check=$(cat "${yt_playlist_home_dir}/mpv.conf")
+	fi
+	if [[ "${eq_check}" = *dynaudnorm* ]]
+	then
+	echo "Dynamic Audio Normalizer is enabled."
+	else
+	if [[ "${eq_check}" = *adynamicsmooth* ]]
+	then
+	echo "Dynamic smoothing is enabled."
+	else
+	if [[ "${eq_check}" = *crystalizer* ]]
+	then
+	echo "Audio sharpening is enabled."
+	else
+	if [[ "${eq_check}" = *lowshelf*highshelf* ]]
+	then
+	echo "Bass + treble is enabled."
+	else
+	if [[ "${eq_check}" = *lowshelf* ]]
+	then
+	echo "Bass only is enabled."
+	else
+	if [[ "${eq_check}" = *highshelf* ]]
+	then
+	echo "Treble only is enabled."
+	else
+	echo "No filter is enabled."
+  fi
+    fi
+      fi
+    fi
+  fi
+fi
 	if test -f "${tmp_dir}/count_down_timer.txt"
 	then
 	cat "${tmp_dir}/count_down_timer.txt"
@@ -2368,10 +2403,46 @@ M)
 esac
 }
 
+#eqmenu
+
 function ffmpeg_filter_menu_function ()
 {
 	clear
-	echo "Permanently enable a audio filter."
+	if test -f "${yt_playlist_home_dir}/mpv.conf"
+	then
+	eq_check=$(cat "${yt_playlist_home_dir}/mpv.conf")
+	fi
+	if [[ "${eq_check}" = *dynaudnorm* ]]
+	then
+	echo "Dynamic Audio Normalizer is enabled."
+	else
+	if [[ "${eq_check}" = *adynamicsmooth* ]]
+	then
+	echo "Dynamic smoothing is enabled."
+	else
+	if [[ "${eq_check}" = *crystalizer* ]]
+	then
+	echo "Audio sharpening is enabled."
+	else
+	if [[ "${eq_check}" = *lowshelf*highshelf* ]]
+	then
+	echo "Bass + treble is enabled."
+	else
+	if [[ "${eq_check}" = *lowshelf* ]]
+	then
+	echo "Bass only is enabled."
+	else
+	if [[ "${eq_check}" = *highshelf* ]]
+	then
+	echo "Treble only is enabled."
+	else
+	echo "No filter is enabled."
+  fi
+    fi
+      fi
+    fi
+  fi
+fi
 	echo ""
 echo -ne "== ffmpeg audio filter menu ==
 1) Enable dynamic audio normalizer.
@@ -2388,49 +2459,35 @@ Choose an option:  "
 1)
 	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
 	echo "af=lavfi=[dynaudnorm=f=500:g=31:p=0.95:s=0.0:m=10.0]" >> "${yt_playlist_home_dir}/mpv.conf"
-	echo "Dynamic Audio Normalizer is now enabled."
-	sleep 0.8
 	ffmpeg_filter_menu_function
 	;;
 2)
 	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
 	echo "af=lavfi=[adynamicsmooth=sensitivity=2:basefreq=22050]" >> "${yt_playlist_home_dir}/mpv.conf"
-	echo "Dynamic smoothing enabled."
-	sleep 0.8
 	ffmpeg_filter_menu_function
 	;;
 3)
 	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
 	echo "af=lavfi=[crystalizer=i=1.5]" >> "${yt_playlist_home_dir}/mpv.conf"
-	echo "Audio sharpening enabled."
-	sleep 0.8
 	ffmpeg_filter_menu_function
 	;;
 4)
 	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
 	echo "af=lavfi=[lowshelf=f=360:r=auto:g=+1],lavfi=[highshelf=f=2600:r=auto:g=+1]" >> "${yt_playlist_home_dir}/mpv.conf"
-	echo "Bass + treble is now enabled."
-	sleep 0.8
 	ffmpeg_filter_menu_function
 	;;
 5)
 	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
 	echo "af=lavfi=[lowshelf=f=360:r=auto:g=+1]" >> "${yt_playlist_home_dir}/mpv.conf"
-	echo "Bass only is now enabled."
-	sleep 0.8
 	ffmpeg_filter_menu_function
 	;;
 6)
 	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
 	echo "af=lavfi=[highshelf=f=2600:r=auto:g=+1]" >> "${yt_playlist_home_dir}/mpv.conf"
-	echo "Treble only is now enabled."
-	sleep 0.8
 	ffmpeg_filter_menu_function
 	;;
 7)
 	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
-	echo "Audio filter is now disabled."
-	sleep 0.8
 	ffmpeg_filter_menu_function
 	;;
 m)

@@ -23,7 +23,7 @@ show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 unset termux_pulse_fix
 yt_video_number="1:100"
-version="macOS v2.57.11"
+version="macOS v2.57.14"
 
 
 replace
