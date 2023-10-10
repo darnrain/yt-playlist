@@ -100,7 +100,7 @@ function play_sd_menu_bookmark_menu_hud_function ()
 	then
 	echo "Audio opus 128kbps 48kHz."
 	fi
-	eq_hud_function
+	audio_effects_hud_function
 	if [ -n "$resume_playback_on_or_off" ]
 	then
 	echo "Resume playback enabled."

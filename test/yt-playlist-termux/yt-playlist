@@ -2111,7 +2111,7 @@ Choose an option:  "
 	;;
 3)
 	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
-	echo "af=lavfi=[crystalizer=i=1]" >> "${yt_playlist_home_dir}/mpv.conf"
+	echo "af=lavfi=[crystalizer=i=1.5]" >> "${yt_playlist_home_dir}/mpv.conf"
 	audio_effects_menu_function
 	;;
 4)
@@ -3073,7 +3073,7 @@ function play_sd_menu_bookmark_menu_hud_function ()
 	then
 	echo "Audio opus 128kbps 48kHz."
 	fi
-	eq_hud_function
+	audio_effects_hud_function
 	if [ -n "$resume_playback_on_or_off" ]
 	then
 	echo "Resume playback enabled."
