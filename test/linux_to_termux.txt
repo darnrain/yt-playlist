@@ -19,7 +19,7 @@ show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 termux_pulse_fix="yes"
 yt_video_number="1:100"
-version="Termux v2.57.15_test"
+version="Termux v2.58.1_test"
 
 
 replace results_function with this one.
@@ -162,7 +162,7 @@ Audio sponsorblock
 6) Download.
 7) Enable dl sponsorblock.
 8) Sleep timer.
-9) Equalizer menu.
+9) Audio effects menu.
 10) Check for update.
 q) Quit.
 
@@ -287,7 +287,7 @@ function help_function ()
 	echo "Title notifications yes"
 	echo "Adjust volume yes"
 	echo "Audio normalization yes"
-	echo "Audio EQ yes"
+	echo "Audio effects yes"
 	echo "FF yes"
 	echo "RR yes"
 	echo "Play/Pause yes"
@@ -309,7 +309,7 @@ function help_function ()
 	echo "Title notifications yes"
 	echo "Adjust volume yes"
 	echo "Audio normalization yes"
-	echo "Audio EQ yes"
+	echo "Audio effects yes"
 	echo "FF yes"
 	echo "RR yes"
 	echo "Play/Pause yes"
@@ -331,7 +331,7 @@ function help_function ()
 	echo "Title notifications yes"
 	echo "Adjust volume yes"
 	echo "Audio normalization yes"
-	echo "Audio EQ yes"
+	echo "Audio effects yes"
 	echo "FF yes"
 	echo "RR yes"
 	echo "Play/Pause yes"
