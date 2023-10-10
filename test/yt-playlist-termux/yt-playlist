@@ -17,7 +17,7 @@ show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 termux_pulse_fix="yes"
 yt_video_number="1:100"
-version="Termux v2.58.1_test"
+version="Termux v2.58.2_test"
 
 #mainmenu
 
@@ -49,7 +49,7 @@ function main_menu_function ()
 	else
 	echo "Download sponsorblock disabled."
 	fi
-	eq_hud_function
+	audio_effects_hud_function
 	if test -f "${tmp_dir}/count_down_timer.txt"
 	then
 	cat "${tmp_dir}/count_down_timer.txt"
@@ -2084,16 +2084,17 @@ esac
 function audio_effects_menu_function ()
 {
 	clear
-	eq_hud_function
+	audio_effects_hud_function
 	echo ""
 echo -ne "== Audio effects menu ==
 1) Enable dynamic audio normalizer.
 2) Enable dynamic smoothing.
 3) Enable audio sharpening.
-4) Enable bass + treble.
-5) Enable bass only.
-6) Enable treble only.
-7) Disable audio filter.
+4) Enable enhance high frequency.
+5) Enable bass + treble.
+6) Enable bass only.
+7) Enable treble only.
+8) Disable audio filter.
 m) main menu.
 Choose an option:  "
 	read -r ans
@@ -2110,25 +2111,30 @@ Choose an option:  "
 	;;
 3)
 	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
-	echo "af=lavfi=[crystalizer=i=1.5]" >> "${yt_playlist_home_dir}/mpv.conf"
+	echo "af=lavfi=[crystalizer=i=1]" >> "${yt_playlist_home_dir}/mpv.conf"
 	audio_effects_menu_function
 	;;
 4)
 	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
-	echo "af=lavfi=[lowshelf=f=360:r=auto:g=+1],lavfi=[highshelf=f=2600:r=auto:g=+1]" >> "${yt_playlist_home_dir}/mpv.conf"
+	echo "af=lavfi=[aexciter]" >> "${yt_playlist_home_dir}/mpv.conf"
 	audio_effects_menu_function
 	;;
 5)
 	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
-	echo "af=lavfi=[lowshelf=f=360:r=auto:g=+1]" >> "${yt_playlist_home_dir}/mpv.conf"
+	echo "af=lavfi=[lowshelf=f=360:r=auto:g=+1],lavfi=[highshelf=f=2600:r=auto:g=+1]" >> "${yt_playlist_home_dir}/mpv.conf"
 	audio_effects_menu_function
 	;;
 6)
 	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
-	echo "af=lavfi=[highshelf=f=2600:r=auto:g=+1]" >> "${yt_playlist_home_dir}/mpv.conf"
+	echo "af=lavfi=[lowshelf=f=360:r=auto:g=+1]" >> "${yt_playlist_home_dir}/mpv.conf"
 	audio_effects_menu_function
 	;;
 7)
+	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
+	echo "af=lavfi=[highshelf=f=2600:r=auto:g=+1]" >> "${yt_playlist_home_dir}/mpv.conf"
+	audio_effects_menu_function
+	;;
+8)
 	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
 	audio_effects_menu_function
 	;;
@@ -2995,7 +3001,7 @@ function favorites_function ()
 	fi
 }
 
-function eq_hud_function ()
+function audio_effects_hud_function ()
 {
 
 	if test -f "${yt_playlist_home_dir}/mpv.conf"
@@ -3026,7 +3032,12 @@ function eq_hud_function ()
 	then
 	echo "Treble only enabled."
 	else
-	echo "No filter enabled."
+	if [[ "${eq_check}" = *aexciter* ]]
+	then
+	echo "Enhance high frequency enabled."
+	else
+	echo "No audio effects enabled."
+fi
   fi
     fi
       fi
@@ -3045,7 +3056,7 @@ function music_menu_hud_function ()
 	then
 	echo "Audio opus 128kbps 48kHz."
 	fi
-	eq_hud_function
+	audio_effects_hud_function
 	if test -f "${tmp_dir}/count_down_timer.txt"
 	then
 	cat "${tmp_dir}/count_down_timer.txt"
@@ -3482,6 +3493,7 @@ fi
   fi
 fi
 }
+
 #searchfunction
 
 function fast_music_search_function ()
