@@ -53,6 +53,7 @@ More photos.<br>
  
 ### Known issues:
 * yt-playlist will not work on Ubuntu, because of the snap permissions.
+* Termux has a puslaudio unknown error 22 when playing music.
 
 ### Tested OS and working as of 9-20-2023:
 * macOS big sur
