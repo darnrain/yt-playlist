@@ -21,7 +21,7 @@ show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 unset termux_pulse_fix
 yt_video_number="1:100"
-version="macOS v2.58"
+version="macOS v2.59.1_test"
 
 #mainmenu
 
@@ -2387,11 +2387,8 @@ echo -ne "== Audio effects menu ==
 3) Enable audio sharpening.
 4) Enable enhance high frequency.
 5) Enable surround sound.
-6) Enable subwoofer + treble boost level 1.
-7) Enable subwoofer + treble boost level 2.
-8) Enable subwoofer + treble boost level 3.
-9) Enable subwoofer + treble boost level 4.
-10) Disable audio filter.
+6) Enable custom subwoofer + treble boost.
+11) Disable audio filter.
 m) main menu.
 Choose an option:  "
 	read -r ans
@@ -2422,26 +2419,74 @@ Choose an option:  "
 	audio_effects_menu_function
 	;;
 6)
+	clear
+	printf "Examples: \n"
+	printf "Level 1: \n"
+	printf "sub boost=4 sub cutoff=120 \n"
+	printf "treble gain=+0.5 treble freq=2650 \n"
+	printf "Level 2: \n"
+	printf "sub boost=6 sub cutoff=120 \n"
+	printf "treble gain=+1 treble freq=2650 \n"
+	printf "Level 3: \n"
+	printf "sub boost=8 sub cutoff=120 \n"
+	printf "treble gain=+1.5 treble freq=2650 \n"
+	printf "Level 4: \n"
+	printf "sub boost=10 sub cutoff=120 \n"
+	printf "treble gain=+2 treble freq=2650 \n"
+	printf " \n"
+	printf "1=Enter sub boost number 1 - 12 :\n"
+	read boost_number
+	if [ -n "$boost_number" ]
+	then
+	printf " \n"
+	printf "1=Enter boost cutoff number 50 - 900 :\n"
+	read cutoff_number
+	if [ -n "$cutoff_number" ]
+	then
+	printf " \n"
+	printf "1=Enter treble gain number -20 - +20 :\n"
+	read treble_gain_number
+	if [ -n "$treble_gain_number" ]
+	then
+	printf " \n"
+	printf "1=Enter treble freq number 2000 - 7000 :\n"
+	read treble_freq_number
+	if [ -n "$treble_freq_number" ]
+	then
 	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
-	echo "af=lavfi=[asubboost=boost=4:cutoff=120],lavfi=[highshelf=f=2650:r=auto:g=+0.5] #v1.0" >> "${yt_playlist_home_dir}/mpv.conf"
+	echo "af=lavfi=[asubboost=boost=${boost_number}:cutoff=${cutoff_number}],lavfi=[highshelf=f=${treble_freq_number}:r=auto:g=${treble_gain_number}] #sub_boost_custom" >> "${yt_playlist_home_dir}/mpv.conf"
+	clear
+	echo "Your custom subwoofer + treble boost settings."
+	echo "Sub boost   = $boost_number"
+	echo "Sub cutoff  = $cutoff_number"
+	echo "Treble gain = $treble_gain_number"
+	echo "Treble freq = $treble_freq_number"
+	echo ""
+	printf "%s " "Press enter to continue"
+	read ans
 	audio_effects_menu_function
+	else
+	echo "Please enter a number."
+	sleep 0.8
+	audio_effects_menu_function
+	fi
+	else
+	echo "Please enter a number."
+	sleep 0.8
+	audio_effects_menu_function
+	fi
+	else
+	echo "Please enter a number."
+	sleep 0.8
+	audio_effects_menu_function
+	fi
+	else
+	echo "Please enter a number."
+	sleep 0.8
+	audio_effects_menu_function
+	fi
 	;;
 7)
-	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
-	echo "af=lavfi=[asubboost=boost=6:cutoff=120],lavfi=[highshelf=f=2650:r=auto:g=+1] #v2.0" >> "${yt_playlist_home_dir}/mpv.conf"
-	audio_effects_menu_function
-	;;
-8)
-	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
-	echo "af=lavfi=[asubboost=boost=8:cutoff=120],lavfi=[highshelf=f=2650:r=auto:g=+1.5] #v3.0" >> "${yt_playlist_home_dir}/mpv.conf"
-	audio_effects_menu_function
-	;;
-9)
-	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
-	echo "af=lavfi=[asubboost=boost=10:cutoff=120],lavfi=[highshelf=f=2650:r=auto:g=+2] #v4.0" >> "${yt_playlist_home_dir}/mpv.conf"
-	audio_effects_menu_function
-	;;
-10)
 	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
 	audio_effects_menu_function
 	;;
@@ -3341,26 +3386,11 @@ function audio_effects_hud_function ()
 	then
 	echo "Surround sound enabled."
 	else
-	if [[ "${eq_check}" = *v1.0* ]]
+	if [[ "${eq_check}" = *sub_boost_custom* ]]
 	then
-	echo "Subwoofer + treble boost level 1 enabled."
-	else
-	if [[ "${eq_check}" = *v2.0* ]]
-	then
-	echo "Subwoofer + treble boost level 2 enabled."
-	else
-	if [[ "${eq_check}" = *v3.0* ]]
-	then
-	echo "Subwoofer + treble boost level 3 enabled."
-	else
-	if [[ "${eq_check}" = *v4.0* ]]
-	then
-	echo "Subwoofer + treble boost level 4 enabled."
+	echo "Custom subwoofer + treble boost enabled."
 	else
 	echo "No audio effect enabled."
-    fi
-      fi
-    fi
   fi
 fi
   fi
