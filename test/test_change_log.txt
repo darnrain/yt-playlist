@@ -4,6 +4,15 @@
 Test change log notes
 ================================
 
+Linux v2.58.7_test | macOS v2.58.7_test | Termux v2.58.7_test
+Increased subwoofer base:
+Subwoofer + treble boost level 1.
+Subwoofer + treble boost level 2.
+Subwoofer + treble boost level 3.
+Subwoofer + treble boost level 4.
+Removed:
+Subwoofer + treble boost level 5.
+
 Linux v2.58.6_test | macOS v2.58.6_test | Termux v2.58.6_test
 Added:
 Subwoofer + treble boost level 1.

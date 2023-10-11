@@ -1,4 +1,4 @@
-#!/data/data/com.termux/files/usr/bin/bash 
+##!/data/data/com.termux/files/usr/bin/bash 
 
 # yt-playlist Termux
 
@@ -17,7 +17,7 @@ show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 termux_pulse_fix="yes"
 yt_video_number="1:100"
-version="Termux v2.58.6_test"
+version="Termux v2.58.7_test"
 
 #mainmenu
 
@@ -1427,14 +1427,10 @@ fi
 	fi
 	;;
 5)
-	mpv_video_fullscreen_off_function
-	mpv_video_gpu_off_function
 	mpv_video_m4a_function
 	play_sd_bookmark_menu_function
 	;;
 6)
-	mpv_video_fullscreen_off_function
-	mpv_video_gpu_off_function
 	mpv_video_opus_function
 	play_sd_bookmark_menu_function
 	;;
@@ -2100,8 +2096,7 @@ echo -ne "== Audio effects menu ==
 7) Enable subwoofer + treble boost level 2.
 8) Enable subwoofer + treble boost level 3.
 9) Enable subwoofer + treble boost level 4.
-10) Enable subwoofer + treble boost level 5.
-11) Disable audio filter.
+10) Disable audio filter.
 m) main menu.
 Choose an option:  "
 	read -r ans
@@ -2133,30 +2128,25 @@ Choose an option:  "
 	;;
 6)
 	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
-	echo "af=lavfi=[asubboost=boost=3:cutoff=120],lavfi=[highshelf=f=2650:r=auto:g=0] #v1.0" >> "${yt_playlist_home_dir}/mpv.conf"
+	echo "af=lavfi=[asubboost=boost=4:cutoff=120],lavfi=[highshelf=f=2650:r=auto:g=+0.5] #v1.0" >> "${yt_playlist_home_dir}/mpv.conf"
 	audio_effects_menu_function
 	;;
 7)
 	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
-	echo "af=lavfi=[asubboost=boost=5:cutoff=120],lavfi=[highshelf=f=2650:r=auto:g=+0.5] #v2.0" >> "${yt_playlist_home_dir}/mpv.conf"
+	echo "af=lavfi=[asubboost=boost=6:cutoff=120],lavfi=[highshelf=f=2650:r=auto:g=+1] #v2.0" >> "${yt_playlist_home_dir}/mpv.conf"
 	audio_effects_menu_function
 	;;
 8)
 	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
-	echo "af=lavfi=[asubboost=boost=7:cutoff=120],lavfi=[highshelf=f=2650:r=auto:g=+1] #v3.0" >> "${yt_playlist_home_dir}/mpv.conf"
+	echo "af=lavfi=[asubboost=boost=8:cutoff=120],lavfi=[highshelf=f=2650:r=auto:g=+1.5] #v3.0" >> "${yt_playlist_home_dir}/mpv.conf"
 	audio_effects_menu_function
 	;;
 9)
 	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
-	echo "af=lavfi=[asubboost=boost=9:cutoff=120],lavfi=[highshelf=f=2650:r=auto:g=+2] #v4.0" >> "${yt_playlist_home_dir}/mpv.conf"
+	echo "af=lavfi=[asubboost=boost=10:cutoff=120],lavfi=[highshelf=f=2650:r=auto:g=+2] #v4.0" >> "${yt_playlist_home_dir}/mpv.conf"
 	audio_effects_menu_function
 	;;
 10)
-	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
-	echo "af=lavfi=[asubboost=boost=11:cutoff=120],lavfi=[highshelf=f=2650:r=auto:g=+3] #v5.0" >> "${yt_playlist_home_dir}/mpv.conf"
-	audio_effects_menu_function
-	;;
-11)
 	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
 	audio_effects_menu_function
 	;;
@@ -3069,12 +3059,7 @@ function audio_effects_hud_function ()
 	then
 	echo "Subwoofer + treble boost level 4 enabled."
 	else
-	if [[ "${eq_check}" = *v5.0* ]]
-	then
-	echo "Subwoofer + treble boost level 5 enabled."
-	else
-	echo "No audio effects enabled."
-  fi
+	echo "No audio effect enabled."
     fi
       fi
     fi
