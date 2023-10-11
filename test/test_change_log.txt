@@ -8,8 +8,7 @@ Linux v2.59.3_test | macOS v2.59.3_test | Termux v2.59.3_test
 Ran a test on Linux Mint that has an older version of mpv v0.34.1
 Some of the Audio effects do not work on that version of mpv.
 I have increased the min version required to mpv v0.36
-You should be able to update mpv from this url.
-https://deb-multimedia.org/
+You will need to compile mpv if you have an older version.
 
 Linux v2.59.2_test | macOS v2.59.2_test | Termux v2.59.2_test
 Fixed typo on the Audio effects menu.
