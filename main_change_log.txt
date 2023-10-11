@@ -4,6 +4,16 @@
 Change log notes
 ================================
 
+Linux v2.58 | macOS v2.58 | Termux v2.58
+Changed the Equalizer menu to the Audio effects menu.
+Added a new filter to the Audio effects menu, enhance high frequency.
+Added a new filter to the Audio effects menu, surround sound.
+Added a new filter:
+Subwoofer + treble boost level 1.
+Subwoofer + treble boost level 2.
+Subwoofer + treble boost level 3.
+Subwoofer + treble boost level 4.
+
 Linux v2.57 | macOS v2.57 | Termux v2.57
 Removed some of the required dependencies for macOS.
 Changed the default media framework from pulseaudio to pipewire.
