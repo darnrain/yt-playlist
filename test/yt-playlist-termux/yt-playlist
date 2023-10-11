@@ -17,7 +17,7 @@ show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 termux_pulse_fix="yes"
 yt_video_number="1:100"
-version="Termux v2.58.2_test"
+version="Termux v2.58.3_test"
 
 #mainmenu
 
@@ -1427,10 +1427,14 @@ fi
 	fi
 	;;
 5)
+	mpv_video_fullscreen_off_function
+	mpv_video_gpu_off_function
 	mpv_video_m4a_function
 	play_sd_bookmark_menu_function
 	;;
 6)
+	mpv_video_fullscreen_off_function
+	mpv_video_gpu_off_function
 	mpv_video_opus_function
 	play_sd_bookmark_menu_function
 	;;
@@ -2091,10 +2095,11 @@ echo -ne "== Audio effects menu ==
 2) Enable dynamic smoothing.
 3) Enable audio sharpening.
 4) Enable enhance high frequency.
-5) Enable bass + treble.
-6) Enable bass only.
-7) Enable treble only.
-8) Disable audio filter.
+5) Enable surround sound.
+6) Enable bass + treble.
+7) Enable bass only.
+8) Enable treble only.
+9) Disable audio filter.
 m) main menu.
 Choose an option:  "
 	read -r ans
@@ -2121,20 +2126,25 @@ Choose an option:  "
 	;;
 5)
 	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
-	echo "af=lavfi=[lowshelf=f=360:r=auto:g=+1],lavfi=[highshelf=f=2600:r=auto:g=+1]" >> "${yt_playlist_home_dir}/mpv.conf"
+	echo "af=lavfi=[stereowiden=drymix=0.9:crossfeed=0.3:feedback=0.2]" >> "${yt_playlist_home_dir}/mpv.conf"
 	audio_effects_menu_function
 	;;
 6)
 	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
-	echo "af=lavfi=[lowshelf=f=360:r=auto:g=+1]" >> "${yt_playlist_home_dir}/mpv.conf"
+	echo "af=lavfi=[lowshelf=f=360:r=auto:g=+1],lavfi=[highshelf=f=2600:r=auto:g=+1]" >> "${yt_playlist_home_dir}/mpv.conf"
 	audio_effects_menu_function
 	;;
 7)
 	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
-	echo "af=lavfi=[highshelf=f=2600:r=auto:g=+1]" >> "${yt_playlist_home_dir}/mpv.conf"
+	echo "af=lavfi=[lowshelf=f=360:r=auto:g=+1]" >> "${yt_playlist_home_dir}/mpv.conf"
 	audio_effects_menu_function
 	;;
 8)
+	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
+	echo "af=lavfi=[highshelf=f=2600:r=auto:g=+1]" >> "${yt_playlist_home_dir}/mpv.conf"
+	audio_effects_menu_function
+	;;
+9)
 	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
 	audio_effects_menu_function
 	;;
@@ -3003,7 +3013,6 @@ function favorites_function ()
 
 function audio_effects_hud_function ()
 {
-
 	if test -f "${yt_playlist_home_dir}/mpv.conf"
 	then
 	eq_check=$(cat "${yt_playlist_home_dir}/mpv.conf")
@@ -3036,7 +3045,12 @@ function audio_effects_hud_function ()
 	then
 	echo "Enhance high frequency enabled."
 	else
+	if [[ "${eq_check}" = *stereowiden* ]]
+	then
+	echo "Surround sound enabled."
+	else
 	echo "No audio effects enabled."
+  fi
 fi
   fi
     fi
