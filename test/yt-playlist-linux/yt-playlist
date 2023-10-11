@@ -17,7 +17,7 @@ show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 unset termux_pulse_fix
 yt_video_number="1:100"
-version="Linux v2.59.1_test"
+version="Linux v2.59.2_test"
 
 #mainmenu
 
@@ -2434,22 +2434,22 @@ Choose an option:  "
 	printf "sub boost=10 sub cutoff=120 \n"
 	printf "treble gain=+2 treble freq=2650 \n"
 	printf " \n"
-	printf "1=Enter sub boost number 1 - 12 :\n"
+	printf "Enter sub boost number 1 - 12 :\n"
 	read boost_number
 	if [ -n "$boost_number" ]
 	then
 	printf " \n"
-	printf "1=Enter boost cutoff number 50 - 900 :\n"
+	printf "Enter boost cutoff number 50 - 900 :\n"
 	read cutoff_number
 	if [ -n "$cutoff_number" ]
 	then
 	printf " \n"
-	printf "1=Enter treble gain number -20 - +20 :\n"
+	printf "Enter treble gain number -20 - +20 :\n"
 	read treble_gain_number
 	if [ -n "$treble_gain_number" ]
 	then
 	printf " \n"
-	printf "1=Enter treble freq number 2000 - 7000 :\n"
+	printf "Enter treble freq number 2000 - 7000 :\n"
 	read treble_freq_number
 	if [ -n "$treble_freq_number" ]
 	then
