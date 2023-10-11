@@ -99,6 +99,9 @@ https://github.com/yt-dlp/yt-dlp
 mpv<br>
 https://github.com/mpv-player/mpv
 
+ffmpeg<br>
+https://github.com/FFmpeg/FFmpeg
+
 fzf<br>
 https://github.com/junegunn/fzf
 
