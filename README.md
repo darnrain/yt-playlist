@@ -108,18 +108,6 @@ https://github.com/junegunn/fzf
 jemalloc<br>
 https://github.com/jemalloc/jemalloc
 
-billboard-hot-100 (1)<br>
-https://github.com/mhollingshead/billboard-hot-100
-
-billboard-hot-100 (2)<br>
-Billboard 200<br>
-Billboard Global 200<br>
-Billboard Artist 100<br>
-https://github.com/KoreanThinker/billboard-json
-
-Rolling Stone's list of The 500 Greatest Songs of All Time.<br> 
-https://gist.github.com/nanotaboada/a90ce99a9bc8ca3c63c0f1dfeb41d41d#file-songs-json
-
 mpv_sponsorblock<br>
 https://github.com/po5/mpv_sponsorblock
 
@@ -132,6 +120,18 @@ https://github.com/termux/termux-app
 NewPipe<br>
 Termux version.<br>
 https://github.com/TeamNewPipe/NewPipe
+
+billboard-hot-100 (1)<br>
+https://github.com/mhollingshead/billboard-hot-100
+
+billboard-hot-100 (2)<br>
+Billboard 200<br>
+Billboard Global 200<br>
+Billboard Artist 100<br>
+https://github.com/KoreanThinker/billboard-json
+
+Rolling Stone's list of The 500 Greatest Songs of All Time.<br> 
+https://gist.github.com/nanotaboada/a90ce99a9bc8ca3c63c0f1dfeb41d41d#file-songs-json
 
 MIT License<br>
 
