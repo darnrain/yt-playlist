@@ -19,7 +19,7 @@ Subwoofer + treble boost level 4.
 I don't like a lot of treble. The settings I like are:
 Sub boost   = 12
 Sub cutoff  = 120
-Treble gain = -7
+Treble gain = -6
 Treble freq = 2650
 
 Linux v2.58 | macOS v2.58 | Termux v2.58
