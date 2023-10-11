@@ -17,7 +17,7 @@ show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 termux_pulse_fix="yes"
 yt_video_number="1:100"
-version="Termux v2.58.3_test"
+version="Termux v2.58.4_test"
 
 #mainmenu
 
@@ -2096,10 +2096,9 @@ echo -ne "== Audio effects menu ==
 3) Enable audio sharpening.
 4) Enable enhance high frequency.
 5) Enable surround sound.
-6) Enable bass + treble.
-7) Enable bass only.
-8) Enable treble only.
-9) Disable audio filter.
+6) Enable subwoofer + treble boost v1.0.
+7) Enable subwoofer + treble boost v2.0.
+8) Disable audio filter.
 m) main menu.
 Choose an option:  "
 	read -r ans
@@ -2131,20 +2130,15 @@ Choose an option:  "
 	;;
 6)
 	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
-	echo "af=lavfi=[lowshelf=f=360:r=auto:g=+1],lavfi=[highshelf=f=2600:r=auto:g=+1]" >> "${yt_playlist_home_dir}/mpv.conf"
+	echo "af=lavfi=[asubboost=boost=2.5:cutoff=120],lavfi=[highshelf=f=2650:r=auto:g=+2.5] #v1.0" >> "${yt_playlist_home_dir}/mpv.conf"
 	audio_effects_menu_function
 	;;
 7)
 	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
-	echo "af=lavfi=[lowshelf=f=360:r=auto:g=+1]" >> "${yt_playlist_home_dir}/mpv.conf"
+	echo "af=lavfi=[asubboost=boost=3.5:cutoff=120],lavfi=[highshelf=f=2650:r=auto:g=+3.5] #v2.0" >> "${yt_playlist_home_dir}/mpv.conf"
 	audio_effects_menu_function
 	;;
 8)
-	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
-	echo "af=lavfi=[highshelf=f=2600:r=auto:g=+1]" >> "${yt_playlist_home_dir}/mpv.conf"
-	audio_effects_menu_function
-	;;
-9)
 	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
 	audio_effects_menu_function
 	;;
@@ -3029,17 +3023,9 @@ function audio_effects_hud_function ()
 	then
 	echo "Audio sharpening enabled."
 	else
-	if [[ "${eq_check}" = *lowshelf*highshelf* ]]
-	then
-	echo "Bass + treble enabled."
-	else
 	if [[ "${eq_check}" = *lowshelf* ]]
 	then
 	echo "Bass only enabled."
-	else
-	if [[ "${eq_check}" = *highshelf* ]]
-	then
-	echo "Treble only enabled."
 	else
 	if [[ "${eq_check}" = *aexciter* ]]
 	then
@@ -3049,9 +3035,17 @@ function audio_effects_hud_function ()
 	then
 	echo "Surround sound enabled."
 	else
+	if [[ "${eq_check}" = *v1.0* ]]
+	then
+	echo "Subwoofer + treble boost v1.0 enabled."
+	else
+	if [[ "${eq_check}" = *v2.0* ]]
+	then
+	echo "Subwoofer + treble boost v2.0 enabled."
+	else
 	echo "No audio effects enabled."
-  fi
-fi
+      fi
+    fi
   fi
     fi
       fi

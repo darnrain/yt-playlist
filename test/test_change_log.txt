@@ -4,6 +4,15 @@
 Test change log notes
 ================================
 
+Linux v2.58.4_test | macOS v2.58.4_test | Termux v2.58.4_test
+Added:
+Subwoofer + treble boost v1.0.
+Subwoofer + treble boost v2.0.
+Removed:
+Bass + treble
+Bass
+Treble
+
 Linux v2.58.3_test | macOS v2.58.3_test | Termux v2.58.3_test
 Added a new filter to the Audio effects menu, surround sound.
 
