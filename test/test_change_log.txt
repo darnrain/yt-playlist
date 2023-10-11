@@ -1,8 +1,15 @@
-10-10-2023
+10-11-2023
 
 ================================
 Test change log notes
 ================================
+
+Linux v2.58.5_test | macOS v2.58.5_test | Termux v2.58.5_test
+tuning:
+Subwoofer + treble boost v1.0.
+Subwoofer + treble boost v2.0.
+
+You will need to choose the audio effect again for the new settings to take effect. 
 
 Linux v2.58.4_test | macOS v2.58.4_test | Termux v2.58.4_test
 Added:
