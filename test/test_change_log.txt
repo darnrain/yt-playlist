@@ -4,6 +4,9 @@
 Test change log notes
 ================================
 
+Linux v2.59.4_test | macOS v2.59.4_test | Termux v2.59.4_test
+Updated the Audio effects menu.
+
 Linux v2.59.3_test | macOS v2.59.3_test | Termux v2.59.3_test
 Ran a test on Linux Mint that has an older version of mpv v0.34.1
 I have increased the min version required to mpv v0.36
@@ -21,12 +24,6 @@ Subwoofer + treble boost level 1.
 Subwoofer + treble boost level 2.
 Subwoofer + treble boost level 3.
 Subwoofer + treble boost level 4.
-
-I don't like a lot of treble. The settings I like are:
-Sub boost   = 12
-Sub cutoff  = 120
-Treble gain = -6
-Treble freq = 2650
 
 Linux v2.58 | macOS v2.58 | Termux v2.58
 Moved to main.
