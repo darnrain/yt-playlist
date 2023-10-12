@@ -12,6 +12,8 @@ Sub cutoff  = 120
 Treble gain = +2.7 
 Treble freq = 2850 
 
+Just a little update, how I fixed the subwoofer + treble boost was, I lowered the volume of the incoming stream before it gets to the filter. Then I just had to find the perfect settings. I knew this subwoofer filter had potential.
+
 Linux v2.59 | macOS v2.59 | Termux v2.59
 Added:
 Custom subwoofer + treble boost.
