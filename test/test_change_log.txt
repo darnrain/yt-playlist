@@ -1,8 +1,16 @@
-10-11-2023
+10-12-2023
 
 ================================
 Test change log notes
 ================================
+
+Linux v2.60.2_test | macOS v2.60.2_test | Termux v2.60.2_test
+I found the perfect custom subwoofer + treble boost settings.
+I think I will move this version main, to lock it in.
+sub boost   = 4.3 
+Sub cutoff  = 120 
+Treble gain = +2.7 
+Treble freq = 2850 
 
 Linux v2.60.1_test | macOS v2.60.1_test | Termux v2.60.1_test
 I did a little testing in audacity. Found these settings work best for the custom subwoofer + treble boost. If you want less treble lower the treble gain.

@@ -17,7 +17,7 @@ show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 termux_pulse_fix="yes"
 yt_video_number="1:100"
-version="Termux v2.60.1_test"
+version="Termux v2.60.2_test"
 
 #mainmenu
 
@@ -2101,7 +2101,7 @@ Choose an option:  "
 	case $ans in
 1)
 	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
-	echo "af=lavfi=[dynaudnorm=f=500:g=25:p=0.95:s=0.0:m=10.0]" >> "${yt_playlist_home_dir}/mpv.conf"
+	echo "af=lavfi=[dynaudnorm=f=500:g=31:p=0.95:s=0.0:m=10.0]" >> "${yt_playlist_home_dir}/mpv.conf"
 	audio_effects_menu_function
 	;;
 2)
@@ -2127,11 +2127,11 @@ Choose an option:  "
 6)
 	printf " \n"
 	printf "Custom subwoofer + treble boost. \n"
-	printf "Example: \n"
-	printf "sub boost   = 3 \n"
-	printf "Sub cutoff  = 100 \n"
-	printf "Treble gain = +2 \n"
-	printf "Treble freq = 2650 \n"
+	printf "Recommended settings: \n"
+	printf "sub boost   = 4.3 \n"
+	printf "Sub cutoff  = 120 \n"
+	printf "Treble gain = +2.7 \n"
+	printf "Treble freq = 2850 \n"
 	printf " \n"
 	printf "Valid range: 1 - 12 \n"
 	printf "Enter sub boost number: \n"
@@ -2157,7 +2157,7 @@ Choose an option:  "
 	if [ -n "$treble_freq_number" ]
 	then
 	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
-	echo "af=lavfi=[asubboost=boost=${boost_number}:cutoff=${cutoff_number}],lavfi=[highshelf=f=${treble_freq_number}:r=auto:g=${treble_gain_number}] #sub_boost_custom" >> "${yt_playlist_home_dir}/mpv.conf"
+	echo "af=lavfi=[volume=0.8],lavfi=[asubboost=boost=${boost_number}:cutoff=${cutoff_number}],lavfi=[highshelf=f=${treble_freq_number}:r=auto:g=${treble_gain_number}] #sub_boost_custom" >> "${yt_playlist_home_dir}/mpv.conf"
 	clear
 	echo "Settings you have chosen:"
 	echo "Sub boost   = $boost_number"

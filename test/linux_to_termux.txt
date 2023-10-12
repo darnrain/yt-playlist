@@ -19,7 +19,7 @@ show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 termux_pulse_fix="yes"
 yt_video_number="1:100"
-version="Termux v2.58.7_test"
+version="Termux v2.60.2_test"
 
 
 replace results_function with this one.
