@@ -17,7 +17,7 @@ show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 unset termux_pulse_fix
 yt_video_number="1:100"
-version="Linux v2.60"
+version="Linux v2.61.1_test"
 
 #mainmenu
 
@@ -2388,35 +2388,36 @@ echo -ne "== Audio effects menu ==
 3) Enable audio sharpening.
 4) Enable enhance high frequency.
 5) Enable surround sound.
-6) Enable custom subwoofer + treble boost.
-7) Disable audio filter.
+6) Enable custom subwoofer + treble boost v1.
+7) Enable custom subwoofer + treble boost v2.
+8) Disable audio filter.
 m) main menu.
 Choose an option:  "
 	read -r ans
 	case $ans in
 1)
 	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
-	echo "af=lavfi=[dynaudnorm=f=500:g=31:p=0.95:s=0.0:m=10.0]" >> "${yt_playlist_home_dir}/mpv.conf"
+	echo "af=lavfi=[dynaudnorm=f=100:g=31:p=0.95:s=0.0:m=10.0] #n1" >> "${yt_playlist_home_dir}/mpv.conf"
 	audio_effects_menu_function
 	;;
 2)
 	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
-	echo "af=lavfi=[adynamicsmooth=sensitivity=2:basefreq=22050]" >> "${yt_playlist_home_dir}/mpv.conf"
+	echo "af=lavfi=[adynamicsmooth=sensitivity=2:basefreq=22050] #n2" >> "${yt_playlist_home_dir}/mpv.conf"
 	audio_effects_menu_function
 	;;
 3)
 	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
-	echo "af=lavfi=[crystalizer=i=1.5]" >> "${yt_playlist_home_dir}/mpv.conf"
+	echo "af=lavfi=[crystalizer=i=1.5] #n3" >> "${yt_playlist_home_dir}/mpv.conf"
 	audio_effects_menu_function
 	;;
 4)
 	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
-	echo "af=lavfi=[aexciter]" >> "${yt_playlist_home_dir}/mpv.conf"
+	echo "af=lavfi=[aexciter] #n4" >> "${yt_playlist_home_dir}/mpv.conf"
 	audio_effects_menu_function
 	;;
 5)
 	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
-	echo "af=lavfi=[stereowiden=drymix=0.9:crossfeed=0.3:feedback=0.2]" >> "${yt_playlist_home_dir}/mpv.conf"
+	echo "af=lavfi=[stereowiden=drymix=0.9:crossfeed=0.3:feedback=0.2] #n5" >> "${yt_playlist_home_dir}/mpv.conf"
 	audio_effects_menu_function
 	;;
 6)
@@ -2452,7 +2453,7 @@ Choose an option:  "
 	if [ -n "$treble_freq_number" ]
 	then
 	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
-	echo "af=lavfi=[volume=0.8],lavfi=[asubboost=boost=${boost_number}:cutoff=${cutoff_number}],lavfi=[highshelf=f=${treble_freq_number}:r=auto:g=${treble_gain_number}] #sub_boost_custom" >> "${yt_playlist_home_dir}/mpv.conf"
+	echo "af=lavfi=[volume=0.8],lavfi=[asubboost=boost=${boost_number}:cutoff=${cutoff_number}],lavfi=[highshelf=f=${treble_freq_number}:r=auto:g=${treble_gain_number}] #n6" >> "${yt_playlist_home_dir}/mpv.conf"
 	clear
 	echo "Settings you have chosen:"
 	echo "Sub boost   = $boost_number"
@@ -2485,6 +2486,71 @@ Choose an option:  "
 	fi
 	;;
 7)
+	printf " \n"
+	printf "Custom subwoofer + treble boost. \n"
+	printf "Recommended settings: \n"
+	printf "sub boost   = 4.3 \n"
+	printf "Sub cutoff  = 120 \n"
+	printf "Treble gain = +2.7 \n"
+	printf "Treble freq = 2850 \n"
+	printf " \n"
+	printf "Valid range: 1 - 12 \n"
+	printf "Enter sub boost number: \n"
+	read boost_number
+	if [ -n "$boost_number" ]
+	then
+	printf " \n"
+	printf "Valid range: 50 - 900 \n"
+	printf "Enter boost cutoff number: \n"
+	read cutoff_number
+	if [ -n "$cutoff_number" ]
+	then
+	printf " \n"
+	printf "Valid range: -20 - +20 \n"
+	printf "Enter treble gain number: \n"
+	read treble_gain_number
+	if [ -n "$treble_gain_number" ]
+	then
+	printf " \n"
+	printf "Valid range: 2000 - 7000 \n"
+	printf "Enter treble freq number: \n"
+	read treble_freq_number
+	if [ -n "$treble_freq_number" ]
+	then
+	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
+	echo "af=lavfi=[volume=0.8],lavfi=[asubboost=boost=${boost_number}:cutoff=${cutoff_number}],lavfi=[highshelf=f=${treble_freq_number}:r=auto:g=${treble_gain_number}],lavfi=[dynaudnorm=f=100:g=31:p=0.95:s=0.0:m=10.0] #n7" >> "${yt_playlist_home_dir}/mpv.conf"
+	clear
+	echo "Settings you have chosen:"
+	echo "Sub boost   = $boost_number"
+	echo "Sub cutoff  = $cutoff_number"
+	echo "Treble gain = $treble_gain_number"
+	echo "Treble freq = $treble_freq_number"
+	echo ""
+	printf "%s " "Press enter to continue"
+	read ans
+	audio_effects_menu_function
+	else
+	echo "Please enter a number."
+	sleep 0.8
+	audio_effects_menu_function
+	fi
+	else
+	echo "Please enter a number."
+	sleep 0.8
+	audio_effects_menu_function
+	fi
+	else
+	echo "Please enter a number."
+	sleep 0.8
+	audio_effects_menu_function
+	fi
+	else
+	echo "Please enter a number."
+	sleep 0.8
+	audio_effects_menu_function
+	fi
+	;;
+8)
 	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
 	audio_effects_menu_function
 	;;
@@ -3375,33 +3441,33 @@ function audio_effects_hud_function ()
 	then
 	eq_check=$(cat "${yt_playlist_home_dir}/mpv.conf")
 	fi
-	if [[ "${eq_check}" = *dynaudnorm* ]]
+	if [[ "${eq_check}" = *n1* ]]
 	then
 	echo "Dynamic audio normalizer enabled."
 	else
-	if [[ "${eq_check}" = *adynamicsmooth* ]]
+	if [[ "${eq_check}" = *n2* ]]
 	then
 	echo "Dynamic smoothing enabled."
 	else
-	if [[ "${eq_check}" = *crystalizer* ]]
+	if [[ "${eq_check}" = *n3* ]]
 	then
 	echo "Audio sharpening enabled."
 	else
-	if [[ "${eq_check}" = *lowshelf* ]]
-	then
-	echo "Bass only enabled."
-	else
-	if [[ "${eq_check}" = *aexciter* ]]
+	if [[ "${eq_check}" = *n4* ]]
 	then
 	echo "Enhance high frequency enabled."
 	else
-	if [[ "${eq_check}" = *stereowiden* ]]
+	if [[ "${eq_check}" = *n5* ]]
 	then
 	echo "Surround sound enabled."
 	else
-	if [[ "${eq_check}" = *sub_boost_custom* ]]
+	if [[ "${eq_check}" = *n6* ]]
 	then
-	echo "Custom subwoofer + treble boost enabled."
+	echo "Custom subwoofer + treble boost v1 enabled."
+	else
+	if [[ "${eq_check}" = *n7* ]]
+	then
+	echo "Custom subwoofer + treble boost v2 enabled."
 	else
 	echo "No audio effect enabled."
   fi
