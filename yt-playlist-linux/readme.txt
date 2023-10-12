@@ -1,5 +1,7 @@
 Linux yt-playlist.
 
+yt-playlist will work with mpv 0.34.1 but not all of the Audio effects will work.
+
 See dependencies.txt file, for the list of required dependencies.
 
 ==========================================

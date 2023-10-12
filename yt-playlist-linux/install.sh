@@ -14,7 +14,7 @@
 	echo "============================"
 	echo "Version requirements."
 	echo "yt-dlp version 2023.07.06 or higher."
-	echo "mpv version 0.34.1 or higher."
+	echo "mpv version 0.36 or higher."
 	echo "============================"
 	if command -v yt-dlp >/dev/null
 	then
