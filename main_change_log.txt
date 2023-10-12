@@ -1,8 +1,16 @@
-10-11-2023
+10-12-2023
 
 ================================
 Change log notes
 ================================
+
+Linux v2.60 | macOS v2.60 | Termux v2.60
+Fixed the Audio effects menu disable number was incorrect.
+I found the perfect custom subwoofer + treble boost settings.
+sub boost   = 4.3 
+Sub cutoff  = 120 
+Treble gain = +2.7 
+Treble freq = 2850 
 
 Linux v2.59 | macOS v2.59 | Termux v2.59
 Added:

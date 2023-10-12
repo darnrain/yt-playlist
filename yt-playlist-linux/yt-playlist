@@ -17,7 +17,7 @@ show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 unset termux_pulse_fix
 yt_video_number="1:100"
-version="Linux v2.59"
+version="Linux v2.60"
 
 #mainmenu
 
@@ -2389,7 +2389,7 @@ echo -ne "== Audio effects menu ==
 4) Enable enhance high frequency.
 5) Enable surround sound.
 6) Enable custom subwoofer + treble boost.
-11) Disable audio filter.
+7) Disable audio filter.
 m) main menu.
 Choose an option:  "
 	read -r ans
@@ -2422,11 +2422,11 @@ Choose an option:  "
 6)
 	printf " \n"
 	printf "Custom subwoofer + treble boost. \n"
-	printf "Example: \n"
-	printf "sub boost   = 12 \n"
+	printf "Recommended settings: \n"
+	printf "sub boost   = 4.3 \n"
 	printf "Sub cutoff  = 120 \n"
-	printf "Treble gain = -6 \n"
-	printf "Treble freq = 2650 \n"
+	printf "Treble gain = +2.7 \n"
+	printf "Treble freq = 2850 \n"
 	printf " \n"
 	printf "Valid range: 1 - 12 \n"
 	printf "Enter sub boost number: \n"
@@ -2452,7 +2452,7 @@ Choose an option:  "
 	if [ -n "$treble_freq_number" ]
 	then
 	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
-	echo "af=lavfi=[asubboost=boost=${boost_number}:cutoff=${cutoff_number}],lavfi=[highshelf=f=${treble_freq_number}:r=auto:g=${treble_gain_number}] #sub_boost_custom" >> "${yt_playlist_home_dir}/mpv.conf"
+	echo "af=lavfi=[volume=0.8],lavfi=[asubboost=boost=${boost_number}:cutoff=${cutoff_number}],lavfi=[highshelf=f=${treble_freq_number}:r=auto:g=${treble_gain_number}] #sub_boost_custom" >> "${yt_playlist_home_dir}/mpv.conf"
 	clear
 	echo "Settings you have chosen:"
 	echo "Sub boost   = $boost_number"
