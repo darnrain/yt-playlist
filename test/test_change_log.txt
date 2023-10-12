@@ -6,6 +6,7 @@ Test change log notes
 
 Linux v2.60 | macOS v2.60 | Termux v2.60
 Moved to main.
+Just a little update, how I fixed the subwoofer + treble boost was, I lowered the volume of the incoming stream before it gets to the filter. Then I just had to find the perfect settings. I knew this subwoofer filter had potential.
 
 Linux v2.60.2_test | macOS v2.60.2_test | Termux v2.60.2_test
 I found the perfect custom subwoofer + treble boost settings.
