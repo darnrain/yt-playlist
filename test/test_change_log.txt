@@ -4,6 +4,11 @@
 Test change log notes
 ================================
 
+Linux v2.61.4_test | macOS v2.61.4_test | Termux v2.61.4_test
+Added:
+Custom subwoofer + treble boost v3
+I removed the set volume on the input and placed the dynamic audio normalizer as the input volume control. It's more like v1 but with a dynamic audio normalizer.
+
 Linux v2.61.3_test | macOS v2.61.3_test | Termux v2.61.3_test
 Updated the Audio effects menu, you can now just press enter for the default recommended settings on option number 6 and 7.
 Lowered the transition time on the dynamic audio normalizer a little more. Default is 500 I cut it in half to 250.
