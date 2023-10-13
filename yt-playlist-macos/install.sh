@@ -12,19 +12,20 @@
 	echo "============================"
 	echo "All dependencies were found."
 	echo "============================"
-	echo "Version requirements."
-	echo "yt-dlp version 2023.07.06 or higher."
-	echo "mpv version 0.36 or higher."
+	echo "Recommended version:"
+	echo "yt-dlp 2023.07.06 or higher."
+	echo "mpv    0.36.0     or higher."
 	echo "============================"
 	if command -v yt-dlp >/dev/null
 	then
+	echo "Installed version:"
 	yt_dlp_version=$(yt-dlp --version)
-	echo "yt-dlp is installed, version: ${yt_dlp_version}"
+	echo "yt-dlp ${yt_dlp_version}"
 	fi
 	if command -v mpv >/dev/null
 	then
-	mpv_version=$(mpv --version | grep "mpv" | cut -b -10 | gsed 's/mpv//g' | gsed 's/^[ \t]*//')
-	echo "mpv is installed, version: ${mpv_version}"
+	mpv_version=$(mpv --version | grep "mpv" | cut -b -10 | sed 's/mpv//g' | sed 's/^[ \t]*//')
+	echo "mpv    ${mpv_version}"
 	fi
 	echo "============================"
 	if [[ "$externel_argument" = "--main" ]]
