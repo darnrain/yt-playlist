@@ -4,6 +4,9 @@
 Test change log notes
 ================================
 
+Linux v2.61 | macOS v2.61 | Termux v2.61
+Moved to main.
+
 Linux v2.61.7_test | macOS v2.61.7_test | Termux v2.61.6_test
 Updated the Linux and macOS installer.
 
