@@ -17,7 +17,7 @@ show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 unset termux_pulse_fix
 yt_video_number="1:100"
-version="Linux v2.61"
+version="Linux v2.62"
 
 #mainmenu
 
@@ -2403,7 +2403,7 @@ Choose an option:  "
 	;;
 3)
 	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
-	echo "af=lavfi=[dynaudnorm=f=250:g=31:p=0.85:s=0.0:m=5.0],lavfi=[crystalizer=i=1.5] #n3" >> "${yt_playlist_home_dir}/mpv.conf"
+	echo "af=lavfi=[dynaudnorm=f=250:g=31:p=0.85:s=0.0:m=5.0],lavfi=[crystalizer=i=0.4] #n3" >> "${yt_playlist_home_dir}/mpv.conf"
 	audio_effects_menu_function
 	;;
 4)
@@ -2429,7 +2429,7 @@ Choose an option:  "
 	then
 	boost_number="4.3"
 	fi
-	printf " \n"
+	clear
 	printf "Valid range: 50 - 900 \n"
 	printf "Press enter for default 120 \n"
 	printf " \n"
@@ -2439,7 +2439,7 @@ Choose an option:  "
 	then
 	cutoff_number="120"
 	fi
-	printf " \n"
+	clear
 	printf "Valid range: -20 - +20 \n"
 	printf "Press enter for default +2.7 \n"
 	printf " \n"
@@ -2449,7 +2449,7 @@ Choose an option:  "
 	then
 	treble_gain_number="+2.7"
 	fi
-	printf " \n"
+	clear
 	printf "Valid range: 2000 - 7000 \n"
 	printf "Press enter for default 2850 \n"
 	printf " \n"
@@ -2582,7 +2582,7 @@ function yt_playlist_setup_function ()
 	echo "macOS uses coreaudio"
 	echo "Linux uses pipewire or pulse"
 	echo "Termux uses pulse"
-	echo "Press enter for the default pipewire"
+	echo "Press enter for the default pulse"
 	printf " \n"
 	printf "Please enter a media framework: \n"
 	read answer
@@ -2590,7 +2590,7 @@ function yt_playlist_setup_function ()
 	then
 	echo "ao=${answer}" >> "${yt_playlist_home_dir}/mpv.conf"
 	else
-	echo "ao=pipewire" >> "${yt_playlist_home_dir}/mpv.conf"
+	echo "ao=pulse" >> "${yt_playlist_home_dir}/mpv.conf"
 	fi
 	printf " \n"
 	echo "Listing options you have chosen:"
@@ -2803,6 +2803,8 @@ function clean_up_function ()
 
 function enable_jemalloc_function ()
 {
+	if ! test -f "/var/lib/flatpak/exports/bin/io.mpv.Mpv"
+	then
 	if test -f "/usr/lib/libjemalloc.so.1"
 	then
 	jemalloc="yes"
@@ -2839,6 +2841,7 @@ function enable_jemalloc_function ()
 	export LD_PRELOAD='/usr/local/lib/libjemalloc.2.dylib'
 	else
 	unset jemalloc
+  fi
     fi
   fi
 fi
@@ -4305,30 +4308,33 @@ function help_function ()
 	echo 'At Main menu type: "notes"'
 	echo ""
 	echo "When playing Audio/Video"
-	echo "Increase vol = 0"
-	echo "Decrease vol = 9"
+	echo "Adjust contrast    = 1 and 2"
+	echo "Adjust brightness  = 3 and 4"
+	echo "Adjust gamma       = 5 and 6"
+	echo "Adjust saturation  = 7 and 8"
+	echo "Volume             = 9 and 0"
 	echo "Right arrow for FF"
 	echo "Left arrow for RR"
-	echo "spacebar to pause"
-	echo '">" next track'
-	echo '"<" prev track'
+	echo "Spacebar to pause"
+	echo "Next track         = >"
+	echo "Prev track         = <"
 	echo "Enter key for next track"
-	echo 'Enable English subtitles "j"'
-	echo '"shift-q" to save playback position and quit'
-	echo '"q" quit without saving playback position'
-	echo '"shift-i" info'
-	echo 'Save to favorites    "f"'
-	echo 'Save to Bookmarks    "b"'
-	echo 'Show sleep timer     "s"'
-	echo 'Download audio       "d"'
-	echo 'Download video "shift-d"'
-	echo 'Show date and time   "t"'
-	echo 'Artist & title "shift-t"'
+	echo "Enable English subtitles     = j"
+	echo "Save position and quit       = shift-q"
+	echo "Quit without saving position = q"
+	echo "Info               = shift-i"
+	echo "Save to favorites  = f"
+	echo "Save to Bookmarks  = b"
+	echo "Show sleep timer   = s"
+	echo "Download audio     = d"
+	echo "Download video     = shift-d"
+	echo "Show date and time = t"
+	echo "Artist & title     = shift-t"
 	echo ""
 	echo "Select Video/Music"
-	echo 'Select all "ctrl-a"'
-	echo 'Deselect all "ctrl-d"'
-	echo 'Cancel "ctrl-c"'
+	echo "Select all     = ctrl-a"
+	echo "Deselect all   = ctrl-d"
+	echo "Cancel         = ctrl-c"
 	echo "Tab key to select lines"
 	echo "Enter select one line"
 	echo ""

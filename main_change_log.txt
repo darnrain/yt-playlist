@@ -1,8 +1,13 @@
-10-13-2023
+10-15-2023
 
 ================================
 Change log notes
 ================================
+
+Linux v2.62 | macOS v2.62 | Termux v2.62
+Made a file flatpak_mpv.txt instructions on how to use flatpak mpv 0.36.0 or higher on Linux.
+Updated the custom subwoofer + treble boost options menu.
+Fixed the audio sharpening audio effect.
 
 Linux v2.61 | macOS v2.61 | Termux v2.61
 This version includes dynamic audio normalizer on all audio effects, to prevent audio clipping.

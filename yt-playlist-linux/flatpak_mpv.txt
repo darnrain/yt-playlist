@@ -1,0 +1,21 @@
+# How to install the flatpak version of mpv 0.36.0 or higher for use with yt-playlist.
+# mpv 0.36.0 or higher is required for all the audio effects to work.
+# Note: jemalloc is disabled automatically when io.mpv.Mpv is installed.
+
+# Tested on Linux mint.
+
+# Install flatpak io.mpv.Mpv
+
+sudo flatpak install io.mpv.Mpv
+
+# Make a symlink
+
+sudo ln -s /var/lib/flatpak/exports/bin/io.mpv.Mpv /usr/local/bin/mpv
+
+# check and make sure it worked.
+
+mpv --version
+
+# should say version 0.36.0 or higher
+
+# done
