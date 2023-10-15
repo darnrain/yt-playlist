@@ -11,6 +11,8 @@ Tested on Linux mint that has an older version of mpv.
 Changed the default media framework from pipewire back to pulse. In the yt-playlist --setup
 Linux mint must use pulse for yt-playlist to work.
 
+Update: must be on the test branch for flatpak mpv to work correct.
+
 Linux v2.61 | macOS v2.61 | Termux v2.61
 Moved to main.
 
