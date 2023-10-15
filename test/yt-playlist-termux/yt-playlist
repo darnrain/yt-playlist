@@ -17,7 +17,7 @@ show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 termux_pulse_fix="yes"
 yt_video_number="1:100"
-version="Termux v2.62.3_test"
+version="Termux v2.62.4_test"
 
 #mainmenu
 
@@ -2108,7 +2108,7 @@ Choose an option:  "
 	;;
 3)
 	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
-	echo "af=lavfi=[dynaudnorm=f=250:g=31:p=0.85:s=0.0:m=5.0],lavfi=[crystalizer=i=1.5] #n3" >> "${yt_playlist_home_dir}/mpv.conf"
+	echo "af=lavfi=[dynaudnorm=f=250:g=31:p=0.85:s=0.0:m=5.0],lavfi=[crystalizer=i=0.4] #n3" >> "${yt_playlist_home_dir}/mpv.conf"
 	audio_effects_menu_function
 	;;
 4)
