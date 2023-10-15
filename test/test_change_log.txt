@@ -1,8 +1,15 @@
-10-13-2023
+10-14-2023
 
 ================================
 Test change log notes
 ================================
+
+Linux v2.62.1_test | macOS v2.62.1_test | Termux v2.62.1_test
+Made a file flatpak_mpv.txt instructions on how to use flatpak mpv 0.36.0 or higher on Linux.
+The flatpak_mpv.txt file is located in /test/yt-playlist-linux/
+Tested on Linux mint that has an older version of mpv.
+Changed the default media framework from pipewire back to pulse. In the yt-playlist --setup
+Linux mint must use pulse for yt-playlist to work.
 
 Linux v2.61 | macOS v2.61 | Termux v2.61
 Moved to main.

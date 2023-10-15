@@ -17,7 +17,7 @@ show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 unset termux_pulse_fix
 yt_video_number="1:100"
-version="Linux v2.61"
+version="Linux v2.62.1_test"
 
 #mainmenu
 
@@ -2582,7 +2582,7 @@ function yt_playlist_setup_function ()
 	echo "macOS uses coreaudio"
 	echo "Linux uses pipewire or pulse"
 	echo "Termux uses pulse"
-	echo "Press enter for the default pipewire"
+	echo "Press enter for the default pulse"
 	printf " \n"
 	printf "Please enter a media framework: \n"
 	read answer
@@ -2590,7 +2590,7 @@ function yt_playlist_setup_function ()
 	then
 	echo "ao=${answer}" >> "${yt_playlist_home_dir}/mpv.conf"
 	else
-	echo "ao=pipewire" >> "${yt_playlist_home_dir}/mpv.conf"
+	echo "ao=pulse" >> "${yt_playlist_home_dir}/mpv.conf"
 	fi
 	printf " \n"
 	echo "Listing options you have chosen:"
@@ -2803,6 +2803,8 @@ function clean_up_function ()
 
 function enable_jemalloc_function ()
 {
+	if ! test -f "/var/lib/flatpak/exports/bin/io.mpv.Mpv"
+	then
 	if test -f "/usr/lib/libjemalloc.so.1"
 	then
 	jemalloc="yes"
@@ -2839,6 +2841,7 @@ function enable_jemalloc_function ()
 	export LD_PRELOAD='/usr/local/lib/libjemalloc.2.dylib'
 	else
 	unset jemalloc
+  fi
     fi
   fi
 fi
