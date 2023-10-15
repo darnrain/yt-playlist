@@ -21,7 +21,7 @@ show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 unset termux_pulse_fix
 yt_video_number="1:100"
-version="macOS v2.62.2_test"
+version="macOS v2.62.3_test"
 
 #mainmenu
 
@@ -4274,30 +4274,33 @@ function help_function ()
 	echo 'At Main menu type: "notes"'
 	echo ""
 	echo "When playing Audio/Video"
-	echo "Increase vol = 0"
-	echo "Decrease vol = 9"
+	echo "Adjust contrast    = 1 and 2"
+	echo "Adjust brightness  = 3 and 4"
+	echo "Adjust gamma       = 5 and 6"
+	echo "Adjust saturation  = 7 and 8"
+	echo "Volume             = 9 and 0"
 	echo "Right arrow for FF"
 	echo "Left arrow for RR"
-	echo "spacebar to pause"
-	echo '">" next track'
-	echo '"<" prev track'
+	echo "Spacebar to pause"
+	echo "Next track         = >"
+	echo "Prev track         = <"
 	echo "Enter key for next track"
-	echo 'Enable English subtitles "j"'
-	echo '"shift-q" to save playback position and quit'
-	echo '"q" quit without saving playback position'
-	echo '"shift-i" info'
-	echo 'Save to favorites    "f"'
-	echo 'Save to Bookmarks    "b"'
-	echo 'Show sleep timer     "s"'
-	echo 'Download audio       "d"'
-	echo 'Download video "shift-d"'
-	echo 'Show date and time   "t"'
-	echo 'Artist & title "shift-t"'
+	echo "Enable English subtitles     = j"
+	echo "Save position and quit       = shift-q"
+	echo "Quit without saving position = q"
+	echo "Info               = shift-i"
+	echo "Save to favorites  = f"
+	echo "Save to Bookmarks  = b"
+	echo "Show sleep timer   = s"
+	echo "Download audio     = d"
+	echo "Download video     = shift-d"
+	echo "Show date and time = t"
+	echo "Artist & title     = shift-t"
 	echo ""
 	echo "Select Video/Music"
-	echo 'Select all "ctrl-a"'
-	echo 'Deselect all "ctrl-d"'
-	echo 'Cancel "ctrl-c"'
+	echo "Select all     = ctrl-a"
+	echo "Deselect all   = ctrl-d"
+	echo "Cancel         = ctrl-c"
 	echo "Tab key to select lines"
 	echo "Enter select one line"
 	echo ""
