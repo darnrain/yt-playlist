@@ -4,6 +4,14 @@
 Test change log notes
 ================================
 
+Linux v2.63.1_test | macOS v2.63.1_test | Termux v2.63.1_test
+I was able to increase the sound quality on Termux.
+Termux, please run yt-playlist --setup
+Termux now uses:
+48000
+s32
+pulse
+
 Linux v2.62 | macOS v2.62 | Termux v2.62
 Moved to main.
 
