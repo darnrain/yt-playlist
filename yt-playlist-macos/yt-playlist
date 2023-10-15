@@ -21,7 +21,7 @@ show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 unset termux_pulse_fix
 yt_video_number="1:100"
-version="macOS v2.62"
+version="macOS v2.63"
 
 #mainmenu
 
@@ -2565,7 +2565,7 @@ function yt_playlist_setup_function ()
 	echo "Choose an audio format."
 	echo "s16 s24 s32 or s64"
 	echo "A number larger than s16 will improve audio quality."
-	echo "Termux uses s16"
+	echo "Termux uses s32"
 	echo "Press enter for the default of s32"
 	printf " \n"
 	printf "Please enter an audio format: \n"

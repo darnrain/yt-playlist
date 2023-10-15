@@ -4,6 +4,14 @@
 Change log notes
 ================================
 
+Linux v2.63 | macOS v2.63 | Termux v2.63
+I was able to increase the sound quality on Termux.
+Termux, please run yt-playlist --setup
+Termux now uses:
+48000
+s32
+pulse
+
 Linux v2.62 | macOS v2.62 | Termux v2.62
 Made a file flatpak_mpv.txt instructions on how to use flatpak mpv 0.36.0 or higher on Linux.
 Updated the custom subwoofer + treble boost options menu.
