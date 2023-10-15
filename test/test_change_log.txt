@@ -1,8 +1,11 @@
-10-14-2023
+10-15-2023
 
 ================================
 Test change log notes
 ================================
+
+Linux v2.62.2_test | macOS v2.62.2_test | Termux v2.62.2_test
+Updated the custom subwoofer + treble boost options menu.
 
 Linux v2.62.1_test | macOS v2.62.1_test | Termux v2.62.1_test
 Made a file flatpak_mpv.txt instructions on how to use flatpak mpv 0.36.0 or higher on Linux.

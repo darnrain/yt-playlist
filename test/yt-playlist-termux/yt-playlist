@@ -17,7 +17,7 @@ show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 termux_pulse_fix="yes"
 yt_video_number="1:100"
-version="Termux v2.62.1_test"
+version="Termux v2.62.2_test"
 
 #mainmenu
 
@@ -2134,7 +2134,7 @@ Choose an option:  "
 	then
 	boost_number="4.3"
 	fi
-	printf " \n"
+	clear
 	printf "Valid range: 50 - 900 \n"
 	printf "Press enter for default 120 \n"
 	printf " \n"
@@ -2144,7 +2144,7 @@ Choose an option:  "
 	then
 	cutoff_number="120"
 	fi
-	printf " \n"
+	clear
 	printf "Valid range: -20 - +20 \n"
 	printf "Press enter for default +2.7 \n"
 	printf " \n"
@@ -2154,7 +2154,7 @@ Choose an option:  "
 	then
 	treble_gain_number="+2.7"
 	fi
-	printf " \n"
+	clear
 	printf "Valid range: 2000 - 7000 \n"
 	printf "Press enter for default 2850 \n"
 	printf " \n"
