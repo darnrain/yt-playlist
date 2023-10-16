@@ -4,6 +4,9 @@
 Test change log notes
 ================================
 
+Linux v2.65.4_test | macOS v2.65.4_test | Termux v2.65.4_test
+Lowered volume on Audio effects menu.
+
 Linux v2.65.3_test | macOS v2.65.3_test | Termux v2.65.3_test
 Updated the Audio effect number 6 options. 
 
