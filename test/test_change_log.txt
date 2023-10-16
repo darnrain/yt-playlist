@@ -1,8 +1,15 @@
-10-15-2023
+10-16-2023
 
 ================================
 Test change log notes
 ================================
+
+Linux v2.65.1_test | macOS v2.65.1_test | Termux v2.65.1_test
+Working on getting the max volume level on the Audio effects with out audio distortion.
+Found out how to enable the phones dac using Termux.
+Made a file enable_phones_dac.txt
+Fixed one of the unknown error 22 on the Termux version.
+You will need to disable the audio effect and enable them again for the new settings to take effect. 
 
 Linux v2.64 | macOS v2.64 | Termux v2.64
 Improved audio quality.

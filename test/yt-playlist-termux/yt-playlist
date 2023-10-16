@@ -17,7 +17,7 @@ show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 termux_pulse_fix="yes"
 yt_video_number="1:100"
-version="Termux v2.64"
+version="Termux v2.65.1_test"
 
 #mainmenu
 
@@ -2078,6 +2078,8 @@ esac
 
 #eqmenu
 
+#eqmenu
+
 function audio_effects_menu_function ()
 {
 	clear
@@ -2098,27 +2100,27 @@ Choose an option:  "
 	case $ans in
 1)
 	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
-	echo "af=lavfi=[dynaudnorm=f=250:g=31:p=0.85:s=0.0:m=5.0] #n1" >> "${yt_playlist_home_dir}/mpv.conf"
+	echo "af=lavfi=[dynaudnorm=f=250:g=31:p=0.87:s=0.0:m=10.0] #n1" >> "${yt_playlist_home_dir}/mpv.conf"
 	audio_effects_menu_function
 	;;
 2)
 	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
-	echo "af=lavfi=[dynaudnorm=f=250:g=31:p=0.85:s=0.0:m=5.0],lavfi=[adynamicsmooth=sensitivity=2:basefreq=22050] #n2" >> "${yt_playlist_home_dir}/mpv.conf"
+	echo "af=lavfi=[dynaudnorm=f=250:g=31:p=0.87:s=0.0:m=10.0],lavfi=[adynamicsmooth=sensitivity=2:basefreq=22050] #n2" >> "${yt_playlist_home_dir}/mpv.conf"
 	audio_effects_menu_function
 	;;
 3)
 	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
-	echo "af=lavfi=[dynaudnorm=f=250:g=31:p=0.85:s=0.0:m=5.0],lavfi=[crystalizer=i=0.4] #n3" >> "${yt_playlist_home_dir}/mpv.conf"
+	echo "af=lavfi=[dynaudnorm=f=250:g=31:p=0.87:s=0.0:m=10.0],lavfi=[crystalizer=i=0.4] #n3" >> "${yt_playlist_home_dir}/mpv.conf"
 	audio_effects_menu_function
 	;;
 4)
 	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
-	echo "af=lavfi=[dynaudnorm=f=250:g=31:p=0.85:s=0.0:m=5.0],lavfi=[aexciter] #n4" >> "${yt_playlist_home_dir}/mpv.conf"
+	echo "af=lavfi=[dynaudnorm=f=250:g=31:p=0.87:s=0.0:m=10.0],lavfi=[aexciter] #n4" >> "${yt_playlist_home_dir}/mpv.conf"
 	audio_effects_menu_function
 	;;
 5)
 	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
-	echo "af=lavfi=[dynaudnorm=f=250:g=31:p=0.85:s=0.0:m=5.0],lavfi=[stereowiden=drymix=0.9:crossfeed=0.3:feedback=0.2] #n5" >> "${yt_playlist_home_dir}/mpv.conf"
+	echo "af=lavfi=[dynaudnorm=f=250:g=31:p=0.87:s=0.0:m=10.0],lavfi=[stereowiden=drymix=0.9:crossfeed=0.3:feedback=0.2] #n5" >> "${yt_playlist_home_dir}/mpv.conf"
 	audio_effects_menu_function
 	;;
 6)
@@ -2165,7 +2167,7 @@ Choose an option:  "
 	treble_freq_number="2850"
 	fi
 	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
-	echo "af=lavfi=[dynaudnorm=f=250:g=31:p=0.72:s=0.0:m=5.0],lavfi=[asubboost=boost=${boost_number}:cutoff=${cutoff_number}],lavfi=[highshelf=f=${treble_freq_number}:r=auto:g=${treble_gain_number}] #n6" >> "${yt_playlist_home_dir}/mpv.conf"
+	echo "af=lavfi=[dynaudnorm=f=250:g=31:p=0.87:s=0.0:m=10.0],lavfi=[asubboost=boost=${boost_number}:cutoff=${cutoff_number}],lavfi=[highshelf=f=${treble_freq_number}:r=auto:g=${treble_gain_number}] #n6" >> "${yt_playlist_home_dir}/mpv.conf"
 	clear
 	echo "Settings you have chosen:"
 	echo "Sub boost   = $boost_number"
@@ -2239,7 +2241,6 @@ function mpv_termux_pulse_fix_function ()
 	then
 	pkill -9 pulseaudio
 	pulseaudio -D --exit-idle-time=600
-        pactl -- set-sink-volume @DEFAULT_SINK@ 100%
 	fi
 }
 
