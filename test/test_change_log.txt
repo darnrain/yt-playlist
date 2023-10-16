@@ -5,7 +5,7 @@ Test change log notes
 ================================
 
 Linux v2.65.2_test | macOS v2.65.2_test | Termux v2.65.2_test
-Found a new filter to increase bass, audio effects option number 6.
+I finally got the perfect bass and treble settings.
 You will need to disable the audio effect and enable them again for the new settings to take effect. 
 
 Linux v2.65.1_test | macOS v2.65.1_test | Termux v2.65.1_test
