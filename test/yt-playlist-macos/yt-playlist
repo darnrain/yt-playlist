@@ -21,7 +21,7 @@ show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 unset termux_pulse_fix
 yt_video_number="1:100"
-version="macOS v2.65"
+version="macOS v2.66.1_test"
 
 #mainmenu
 
@@ -2420,13 +2420,13 @@ Choose an option:  "
 	printf " \n"
 	printf "Reduce bass or increase bass. \n"
 	printf "Valid range: -20 | +20 \n"
-	printf "Press enter for default +4.5 \n"
+	printf "Press enter for default +8.0 \n"
 	printf " \n"
 	printf "Enter bass gain number: \n"
 	read boost_number
 	if [ -z "$boost_number" ]
 	then
-	boost_number="+4.5"
+	boost_number="+8.0"
 	fi
 	clear
 	printf "Bass freq number. \n"
@@ -2442,24 +2442,24 @@ Choose an option:  "
 	clear
 	printf "Reduce treble or increase treble. \n"
 	printf "Valid range: -20 | +20 \n"
-	printf "Press enter for default +4.5 \n"
+	printf "Press enter for default +3.6 \n"
 	printf " \n"
 	printf "Enter treble gain number: \n"
 	read treble_gain_number
 	if [ -z "$treble_gain_number" ]
 	then
-	treble_gain_number="+4.5"
+	treble_gain_number="+3.6"
 	fi
 	clear
 	printf "Treble freq number. \n"
 	printf "Valid range: 2000 | 7000 \n"
-	printf "Press enter for default 2850 \n"
+	printf "Press enter for default 3000 \n"
 	printf " \n"
 	printf "Enter treble freq number: \n"
 	read treble_freq_number
 	if [ -z "$treble_freq_number" ]
 	then
-	treble_freq_number="2850"
+	treble_freq_number="3000"
 	fi
 	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
 	echo "af=lavfi=[dynaudnorm=f=250:g=31:p=0.85:s=0.0:m=10.0],lavfi=[lowshelf=f="${cutoff_number}":r=auto:g="${boost_number}"],lavfi=[highshelf=f="${treble_freq_number}":r=auto:g="${treble_gain_number}"] #n6" >> "${yt_playlist_home_dir}/mpv.conf"
