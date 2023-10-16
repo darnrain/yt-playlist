@@ -4,6 +4,10 @@
 Change log notes
 ================================
 
+Linux v2.66 | macOS v2.66 | Termux v2.66
+Only one change in this version, I updated the default settings on the custom bass + treble audio effect.
+I tuned it to what sounds good to me, I like a lot of bass and little treble.
+
 Linux v2.65 | macOS v2.65 | Termux v2.65
 Fixed one of the unknown error 22 on the Termux version.
 Found out how to enable the phones dac when using the Termux version.
