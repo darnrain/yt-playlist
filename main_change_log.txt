@@ -1,8 +1,16 @@
-10-15-2023
+10-16-2023
 
 ================================
 Change log notes
 ================================
+
+Linux v2.65 | macOS v2.65 | Termux v2.65
+Fixed one of the unknown error 22 on the Termux version.
+Found out how to enable the phones dac when using the Termux version.
+Made a file enable_phones_dac.txt
+I finally got the perfect bass and treble settings.
+New audio effect:
+6) Enable custom bass + treble.
 
 Linux v2.64 | macOS v2.64 | Termux v2.64
 Improved audio quality.

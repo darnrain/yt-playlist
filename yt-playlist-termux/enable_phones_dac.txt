@@ -1,0 +1,8 @@
+Enable phones dac when using Termux
+
+I can confirm it works on the Lgv20.
+
+DAC Fix
+Phascinate
+
+https://play.google.com/store/apps/details?id=com.phascinate.dacfix
