@@ -4,6 +4,11 @@
 Change log notes
 ================================
 
+Linux v2.64 | macOS v2.64 | Termux v2.64
+Improved audio quality.
+Updated yt-playlist --setup
+Please run setup again.
+
 Linux v2.63 | macOS v2.63 | Termux v2.63
 I was able to increase the sound quality on Termux.
 Termux, please run yt-playlist --setup

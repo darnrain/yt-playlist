@@ -28,10 +28,20 @@ fi
 	then
 	rm -rf "${HOME}/.config/pulse/"
 	fi
-	echo "default-sample-format = s32le" > "/data/data/com.termux/files/usr/etc/pulse/daemon.conf"
-	echo "default-sample-rate = 48000" >> "/data/data/com.termux/files/usr/etc/pulse/daemon.conf"
+	echo "default-sample-format = float32le" > "/data/data/com.termux/files/usr/etc/pulse/daemon.conf"
+	echo "default-sample-rate = 44100" >> "/data/data/com.termux/files/usr/etc/pulse/daemon.conf"
+	echo "alternate-sample-rate = 48000" >> "/data/data/com.termux/files/usr/etc/pulse/daemon.conf"
+	echo "default-sample-channels = 2" >> "/data/data/com.termux/files/usr/etc/pulse/daemon.conf"
 	echo "default-channel-map = front-left,front-right" >> "/data/data/com.termux/files/usr/etc/pulse/daemon.conf"
-	echo "avoid-resampling = true" >> "/data/data/com.termux/files/usr/etc/pulse/daemon.conf"
+	echo "default-fragments = 2" >> "/data/data/com.termux/files/usr/etc/pulse/daemon.conf"
+	echo "default-fragment-size-msec = 125" >> "/data/data/com.termux/files/usr/etc/pulse/daemon.conf"
+	echo "resample-method = soxr-vhq" >> "/data/data/com.termux/files/usr/etc/pulse/daemon.conf"
+	echo "high-priority = yes" >> "/data/data/com.termux/files/usr/etc/pulse/daemon.conf"
+	echo "nice-level = -11" >> "/data/data/com.termux/files/usr/etc/pulse/daemon.conf"
+	echo "realtime-scheduling = yes" >> "/data/data/com.termux/files/usr/etc/pulse/daemon.conf"
+	echo "realtime-priority = 9" >> "/data/data/com.termux/files/usr/etc/pulse/daemon.conf"
+	echo "rlimit-rtprio = 9" >> "/data/data/com.termux/files/usr/etc/pulse/daemon.conf"
+	echo "daemonize = yes" >> "/data/data/com.termux/files/usr/etc/pulse/daemon.conf"
 	chmod +x /data/data/com.termux/files/usr/bin/yt-playlist
 	mkdir -p ${HOME}/.config/yt-playlist/
 	mkdir -p ${HOME}/.config/yt-playlist/scripts/
