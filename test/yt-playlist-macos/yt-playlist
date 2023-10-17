@@ -21,7 +21,7 @@ show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 unset termux_pulse_fix
 yt_video_number="1:100"
-version="macOS v2.68.1_test"
+version="macOS v2.68.2_test"
 
 #mainmenu
 
@@ -2482,7 +2482,7 @@ Choose an option:  "
 	widening_effect_number="1.4"
 	fi
 	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
-	echo "af=lavfi=[dynaudnorm=f=250:g=31:p=0.85:s=0.0:m=10.0],lavfi=[lowshelf=f="${cutoff_number}":r=auto:g="${boost_number}"],lavfi=[highshelf=f="${treble_freq_number}":r=auto:g="${treble_gain_number}"],lavfi=[extrastereo=m="${widening_effect_number}"] #n6" >> "${yt_playlist_home_dir}/mpv.conf"
+	echo "af=lavfi=[dynaudnorm=f=250:g=31:p=0.85:s=0.0:m=10.0],lavfi=[lowshelf=f="${cutoff_number}":r=auto:g="${boost_number}"],lavfi=[highshelf=f="${treble_freq_number}":r=auto:g="${treble_gain_number}"],lavfi=[extrastereo=m="${widening_effect_number}":c=0] #n6" >> "${yt_playlist_home_dir}/mpv.conf"
 	clear
 	echo "Settings you have chosen:"
 	echo "Bass gain       = $boost_number"
