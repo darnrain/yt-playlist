@@ -4,6 +4,10 @@
 Test change log notes
 ================================
 
+Linux v2.68.3_test | macOS v2.68.3_test | Termux v2.68.3_test
+Changed the default to 1.5 on the stereo widening effect.
+Lowered the peek volume level to from 85 to 75, the stereo widening effect uses a lot of bandwidth.
+
 Linux v2.68.2_test | macOS v2.68.2_test | Termux v2.68.2_test
 Disabled clipping on the stereo widening effect, sounds better.
 
