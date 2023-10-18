@@ -17,7 +17,7 @@ show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 termux_pulse_fix="yes"
 yt_video_number="1:100"
-version="Termux v2.67"
+version="Termux v2.68"
 
 #mainmenu
 
@@ -2166,14 +2166,35 @@ Choose an option:  "
 	then
 	treble_freq_number="2678"
 	fi
+	clear
+	printf "Add stereo widening effect? [y/N] \n"
+	read answer
+	if [ "$answer" != "${answer#[yY]}" ]
+	then
+	clear
+	printf "Stereo widening effect. \n"
+	printf "Valid range: 1.0 | 3.0 \n"
+	printf "1.0 = stereo widening effect off. \n"
+	printf "Press enter for default 1.5 \n"
+	printf " \n"
+	printf "Enter stereo widening effect number: \n"
+	read widening_effect_number
+	else
+	widening_effect_number="1.0"
+	fi
+	if [ -z "$widening_effect_number" ]
+	then
+	widening_effect_number="1.5"
+	fi
 	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
-	echo "af=lavfi=[dynaudnorm=f=250:g=31:p=0.85:s=0.0:m=10.0],lavfi=[lowshelf=f="${cutoff_number}":r=auto:g="${boost_number}"],lavfi=[highshelf=f="${treble_freq_number}":r=auto:g="${treble_gain_number}"] #n6" >> "${yt_playlist_home_dir}/mpv.conf"
+	echo "af=lavfi=[dynaudnorm=f=250:g=31:p=0.85:s=0.0:m=10.0],lavfi=[lowshelf=f="${cutoff_number}":r=auto:g="${boost_number}"],lavfi=[highshelf=f="${treble_freq_number}":r=auto:g="${treble_gain_number}"],lavfi=[extrastereo=m="${widening_effect_number}":c=0] #n6" >> "${yt_playlist_home_dir}/mpv.conf"
 	clear
 	echo "Settings you have chosen:"
-	echo "Bass gain   = $boost_number"
-	echo "Bass freq   = $cutoff_number"
-	echo "Treble gain = $treble_gain_number"
-	echo "Treble freq = $treble_freq_number"
+	echo "Bass gain       = $boost_number"
+	echo "Bass freq       = $cutoff_number"
+	echo "Treble gain     = $treble_gain_number"
+	echo "Treble freq     = $treble_freq_number"
+	echo "Stereo widening = $widening_effect_number"
 	echo ""
 	printf "%s " "Press enter to continue"
 	read ans
