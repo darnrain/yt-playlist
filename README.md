@@ -53,7 +53,6 @@ More photos.<br>
  
 ### Known issues:
 * yt-playlist will not work on Ubuntu, because of the snap permissions.
-* Termux has a puslaudio unknown error 22 when playing music.
 * yt-playlist will work with mpv v0.34.1 but not all of the Audio effects will work.
 
 ### Tested OS and working as of 9-20-2023:
