@@ -4,7 +4,7 @@
 Test change log notes
 ================================
 
-Update: I am happy with this version of yt-playlist, I don't see any need to make anymore changes to yt-playlist at this time. If find a bug please let me know so I can fix it. I will maintain yt-playlist if any issues arise. Also Termux got an update today, fixed the pulseaudio error 22, type: pkg up
+Update: I am happy with this version of yt-playlist, I don't see any need to make anymore changes to yt-playlist at this time. If you find a bug please let me know so I can fix it. I will maintain yt-playlist if any issues arise. Also Termux got an update today, fixed the pulseaudio error 22, type: pkg up
 
 Linux v2.68 | macOS v2.68 | Termux v2.68
 Moved to main.
