@@ -1,8 +1,11 @@
-11-01-2023
+11-04-2023
 
 ================================
 Test change log notes
 ================================
+
+Linux v2.70.1_test | macOS v2.70.1_test | Termux v2.70.1_test
+Found another issue, All Semicolons need to removed from the title or it will cause issues in Linux, macOS and Termux when downloading.
 
 Linux v2.69 | macOS v2.69 | Termux v2.69
 Moved to main
