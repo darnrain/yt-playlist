@@ -19,7 +19,7 @@ show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 termux_pulse_fix="yes"
 yt_video_number="1:100"
-version="Termux v2.70.3_test"
+version="Termux v2.70.4_test"
 
 #mainmenu
 
@@ -2105,35 +2105,35 @@ Choose an option:  "
 	;;
 2)
 	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
-	echo "af=lavfi=[dynaudnorm=f=250:g=31:p=0.85:s=0.0:m=10.0],lavfi=[adynamicsmooth=sensitivity=2:basefreq=22050] #n2" >> "${yt_playlist_home_dir}/mpv.conf"
+	echo "af=lavfi=[adynamicsmooth=sensitivity=2:basefreq=22050] #n2" >> "${yt_playlist_home_dir}/mpv.conf"
 	audio_effects_menu_function
 	;;
 3)
 	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
-	echo "af=lavfi=[dynaudnorm=f=250:g=31:p=0.85:s=0.0:m=10.0],lavfi=[crystalizer=i=0.4] #n3" >> "${yt_playlist_home_dir}/mpv.conf"
+	echo "af=lavfi=[crystalizer=i=0.4] #n3" >> "${yt_playlist_home_dir}/mpv.conf"
 	audio_effects_menu_function
 	;;
 4)
 	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
-	echo "af=lavfi=[dynaudnorm=f=250:g=31:p=0.85:s=0.0:m=10.0],lavfi=[aexciter] #n4" >> "${yt_playlist_home_dir}/mpv.conf"
+	echo "af=lavfi=[aexciter] #n4" >> "${yt_playlist_home_dir}/mpv.conf"
 	audio_effects_menu_function
 	;;
 5)
 	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
-	echo "af=lavfi=[dynaudnorm=f=250:g=31:p=0.85:s=0.0:m=10.0],lavfi=[stereowiden=drymix=0.9:crossfeed=0.3:feedback=0.2] #n5" >> "${yt_playlist_home_dir}/mpv.conf"
+	echo "af=lavfi=[stereowiden=drymix=0.9:crossfeed=0.3:feedback=0.2] #n5" >> "${yt_playlist_home_dir}/mpv.conf"
 	audio_effects_menu_function
 	;;
 6)
 	printf " \n"
 	printf "Reduce bass or increase bass. \n"
 	printf "Valid range: -20 | +20 \n"
-	printf "Press enter for default +4.0 \n"
+	printf "Press enter for default +0.7 \n"
 	printf " \n"
 	printf "Enter bass gain number: \n"
 	read boost_number
 	if [ -z "$boost_number" ]
 	then
-	boost_number="+4.0"
+	boost_number="+0.7"
 	fi
 	clear
 	printf "Bass freq number. \n"
@@ -2149,13 +2149,13 @@ Choose an option:  "
 	clear
 	printf "Reduce treble or increase treble. \n"
 	printf "Valid range: -20 | +20 \n"
-	printf "Press enter for default +4.1 \n"
+	printf "Press enter for default +2.7 \n"
 	printf " \n"
 	printf "Enter treble gain number: \n"
 	read treble_gain_number
 	if [ -z "$treble_gain_number" ]
 	then
-	treble_gain_number="+4.1"
+	treble_gain_number="+2.7"
 	fi
 	clear
 	printf "Treble freq number. \n"
@@ -2189,7 +2189,7 @@ Choose an option:  "
 	widening_effect_number="1.5"
 	fi
 	sed -i'' '/af=/d' "${yt_playlist_home_dir}/mpv.conf"
-	echo "af=lavfi=[dynaudnorm=f=250:g=31:p=0.85:s=0.0:m=10.0],lavfi=[lowshelf=f="${cutoff_number}":r=auto:g="${boost_number}"],lavfi=[highshelf=f="${treble_freq_number}":r=auto:g="${treble_gain_number}"],lavfi=[extrastereo=m="${widening_effect_number}":c=0] #n6" >> "${yt_playlist_home_dir}/mpv.conf"
+	echo "af=lavfi=[lowshelf=f="${cutoff_number}":r=auto:g="${boost_number}"],lavfi=[highshelf=f="${treble_freq_number}":r=auto:g="${treble_gain_number}"],lavfi=[extrastereo=m="${widening_effect_number}":c=0] #n6" >> "${yt_playlist_home_dir}/mpv.conf"
 	clear
 	echo "Settings you have chosen:"
 	echo "Bass gain       = $boost_number"
