@@ -1,8 +1,11 @@
-11-05-2023
+11-06-2023
 
 ================================
 Test change log notes
 ================================
+
+Linux v2.70 | macOS v2.70 | Termux v2.70
+Moved to main.
 
 Linux v2.70.4_test | macOS v2.70.4_test | Termux v2.70.4_test
 Changed the default settings on custom bass + treble.
