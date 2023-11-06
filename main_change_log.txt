@@ -1,8 +1,14 @@
-11-01-2023
+11-06-2023
 
 ================================
 Change log notes
 ================================
+
+Linux v2.70 | macOS v2.70 | Termux v2.70
+Changed the default settings on custom bass + treble.
+Removed the dynamic audio normalizer from all the audio effects, except the dynamic audio normalizer.
+Added the command to delete all punctuation from the title.
+Removed all double spacing in the title.
 
 Linux v2.69 | macOS v2.69 | Termux v2.69
 Found an issue that needs fixed.
