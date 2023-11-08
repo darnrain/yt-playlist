@@ -19,7 +19,7 @@ show_video_dir=$(printf '"%s" \n' "Saved to: /sdcard/Videos/")
 tmp_dir="/data/data/com.termux/files/usr/tmp"
 termux_pulse_fix="yes"
 yt_video_number="1:100"
-version="Termux v2.70"
+version="Termux v2.71.1_test"
 
 #mainmenu
 
@@ -3490,7 +3490,7 @@ function title_function ()
 	unset yt_playlist_total_number
 	if [ -n "$yt_playlist_id" ]
 	then
-	yt_playlist_title=$(echo "$not_a_playlist_id" | cat - "${yt_playlist_home_dir}/yt-playlist_favorites.txt" "${yt_playlist_home_dir}/yt-playlist_history.txt" | grep "$yt_playlist_id" | awk '{$1=""}1' | sed 's/^[ \t]*//' | cut -b -80 | sed -n '1p' | tr -d '[:punct:]' | tr -s '[:space:]' )
+	yt_playlist_title=$(echo "$not_a_playlist_id" | cat - "${yt_playlist_home_dir}/yt-playlist_favorites.txt" "${yt_playlist_home_dir}/yt-playlist_history.txt" | grep "$yt_playlist_id" | awk '{$1=""}1' | sed 's/^[ \t]*//' | cut -b -80 | sed -n '1p' | sed 's|[\/:*?"<>|]||g' | tr -s '[:space:]' )
 	yt_playlist_vanilla_title=$(echo "${yt_playlist_title}" | awk '{$1=""; print $0}' | sed 's/^[ \t]*//')
 	export yt_playlist_id
 	export yt_playlist_title
