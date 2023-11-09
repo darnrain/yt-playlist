@@ -1,8 +1,11 @@
-11-08-2023
+11-09-2023
 
 ================================
 Test change log notes
 ================================
+
+Linux v2.71.2_test | macOS v2.71.2_test | Termux v2.71.2_test
+When downloading audio or video from the main menu, yt-playlist will now number all the files, in the playlist order.
 
 Linux v2.71.1_test | macOS v2.71.1_test | Termux v2.71.1_test
 Changed the title function to only remove these characters \ / : * ? " < > |

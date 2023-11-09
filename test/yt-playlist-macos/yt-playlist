@@ -21,7 +21,7 @@ show_video_dir=$(printf '"%s" \n' "Saved to: ${HOME}/Videos/")
 tmp_dir="/tmp"
 unset termux_pulse_fix
 yt_video_number="1:100"
-version="macOS v2.71.1_test"
+version="macOS v2.71.2_test"
 
 #mainmenu
 
@@ -174,10 +174,10 @@ Choose an option:  "
 	unset yt_dlp_sponsorblock
 	fi
 	echo "Downloading line: $yt_playlist_download"
-	yt-dlp -N4 ${yt_dlp_sponsorblock[@]} -x --playlist-items "$yt_playlist_download" -f "$audio_format" -o "${audio_dir}/${yt_playlist_vanilla_title}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata  "https://www.youtube.com/channel/${yt_playlist_id}/videos"
+	yt-dlp -N4 ${yt_dlp_sponsorblock[@]} -x --playlist-items "$yt_playlist_download" -f "$audio_format" -o "${audio_dir}/${yt_playlist_vanilla_title}/%(playlist_autonumber)s-%(title)s.%(ext)s" --embed-thumbnail --add-metadata  "https://www.youtube.com/channel/${yt_playlist_id}/videos"
 	else
 	echo "Downloading line: $yt_playlist_download"
-	yt-dlp -N4 ${yt_dlp_sponsorblock[@]} -x --playlist-items "$yt_playlist_download" -f "$audio_format" -o "${audio_dir}/${yt_playlist_vanilla_title}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "https://www.youtube.com/playlist?list=$yt_playlist_id"
+	yt-dlp -N4 ${yt_dlp_sponsorblock[@]} -x --playlist-items "$yt_playlist_download" -f "$audio_format" -o "${audio_dir}/${yt_playlist_vanilla_title}/%(playlist_autonumber)s-%(title)s.%(ext)s" --embed-thumbnail --add-metadata "https://www.youtube.com/playlist?list=$yt_playlist_id"
 	fi
 	clear
 	echo "Saved to: ${audio_dir}/${yt_playlist_vanilla_title}/"
@@ -225,10 +225,10 @@ Choose an option:  "
 	unset yt_dlp_sponsorblock
 	fi
 	echo "Downloading line: $yt_playlist_download"
-	yt-dlp -N4 ${yt_dlp_sponsorblock[@]} --playlist-items "$yt_playlist_download" -f "$format" -o "${video_dir}/${yt_playlist_vanilla_title}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata  "https://www.youtube.com/channel/${yt_playlist_id}/videos"
+	yt-dlp -N4 ${yt_dlp_sponsorblock[@]} --playlist-items "$yt_playlist_download" -f "$format" -o "${video_dir}/${yt_playlist_vanilla_title}/%(playlist_autonumber)s-%(title)s.%(ext)s" --embed-thumbnail --add-metadata  "https://www.youtube.com/channel/${yt_playlist_id}/videos"
 	else
 	echo "Downloading line: $yt_playlist_download"
-	yt-dlp -N4 ${yt_dlp_sponsorblock[@]} --playlist-items "$yt_playlist_download" -f "$format" -o "${video_dir}/${yt_playlist_vanilla_title}/%(title)s.%(ext)s" --embed-thumbnail --add-metadata "https://www.youtube.com/playlist?list=$yt_playlist_id"
+	yt-dlp -N4 ${yt_dlp_sponsorblock[@]} --playlist-items "$yt_playlist_download" -f "$format" -o "${video_dir}/${yt_playlist_vanilla_title}/%(playlist_autonumber)s-%(title)s.%(ext)s" --embed-thumbnail --add-metadata "https://www.youtube.com/playlist?list=$yt_playlist_id"
 	fi
 	clear
 	echo "Saved to: ${video_dir}/${yt_playlist_vanilla_title}/"
