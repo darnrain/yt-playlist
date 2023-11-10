@@ -4,6 +4,9 @@
 Test change log notes
 ================================
 
+Linux v2.71 | macOS v2.71 | Termux v2.71
+Moved to main
+
 Linux v2.71.2_test | macOS v2.71.2_test | Termux v2.71.2_test
 When downloading audio or video from the main menu, yt-playlist will now number all the files, in the playlist order.
 
