@@ -1,8 +1,13 @@
-11-06-2023
+11-09-2023
 
 ================================
 Change log notes
 ================================
+
+Linux v2.71 | macOS v2.71 | Termux v2.71
+When downloading audio or video from the main menu, yt-playlist will now number all the files, in the playlist order.
+Changed the title function to only remove these characters \ / : * ? " < > |
+The characters will cause issues when transferring over a samba network. Also / is not allowed in Linux, macOS or Termux.
 
 Linux v2.70 | macOS v2.70 | Termux v2.70
 Changed the default settings on custom bass + treble.
