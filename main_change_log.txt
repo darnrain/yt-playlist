@@ -4,8 +4,6 @@
 Change log notes
 ================================
 
-Just an update, if you guys have any ideas on how to improve yt-playlist or you would like to me add a feature, open an issue.
-
 Linux v2.71 | macOS v2.71 | Termux v2.71
 When downloading audio or video from the main menu, yt-playlist will now number all the files, in the playlist order.
 Changed the title function to only remove these characters \ / : * ? " < > |
